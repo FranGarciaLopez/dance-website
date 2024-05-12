@@ -1,0 +1,130 @@
+<header
+          id="landing-header"
+          class="py-2 px-3 flex items-center fixed top-0 w-full justify-between text-white z-40"
+>
+          <!-- Logo -->
+          <div class="flex items-center">
+                    <img
+                              src="/white-logo.webp"
+                              alt="logo"
+                              class="size-10 mr-2"
+                    />
+          </div>
+
+          <!-- Menu Button -->
+          <button
+                    id="menu-button"
+                    class="xl:hidden flex items-center px-3 py-2 rounded text-sm text-current bg-black/20 backdrop-blur-lg z-50"
+          >
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24">
+                              <path
+                                        stroke="currentColor"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+          </button>
+
+          <!-- Primary Menu -->
+          <nav
+                    id="primary-menu"
+                    class="hidden fixed top-0 h-full w-full bg-white z-50 text-xs
+                    xl:relative xl:block xl:h-auto xl:bg-transparent xl:z-auto xl:flex xl:flex-grow xl:flex-wrap xl:justify-center xl:items-center xl:px-4 xl:py-3"
+          >
+                    <button
+                              id="close-menu"
+                              class="hidden xl:hidden fixed top-1 right-2 flex items-center px-3 py-2 rounded text-sm text-current bg-black/20 backdrop-blur-lg z-50"
+                    >
+                              <svg
+                                        class="w-6 h-6"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                              >
+                                        <path
+                                                  stroke="currentColor"
+                                                  stroke-linecap="round"
+                                                  stroke-linejoin="round"
+                                                  stroke-width="2"
+                                                  d="M6 18L18 6M6 6l12 12"
+                                        ></path>
+                              </svg>
+                    </button>
+                    <ul
+                              class="flex flex-col items-start justify-center h-full text-black px-0 gap-10 xl:flex xl:flex-row xl:basis-0 xl:flex-grow xl:text-sm xl:text-current xl:justify-end xl:items-center [&>li>a]:transition-colors [&>li>a]:duration-200 [&>li>a]:inline-block text-center [&>li>a]:px-4 py-2"
+                    >
+                              <li>
+                                        <a href="#">Home</a>
+                                        <div
+                                                  class="hover:w-screen hover:h-[50%]"
+                                        >
+                                                  <article
+                                                            class="grid grid-cols-3"
+                                                  >
+                                                            <!-- Article content -->
+                                                  </article>
+                                        </div>
+                              </li>
+                              <li>
+                                        <a href="#">Bachata en pareja</a>
+                              </li>
+                              <li>
+                                        <a href="#">Estilo chico</a>
+                              </li>
+                              <li>
+                                        <a href="#">Estilo chica</a>
+                              </li>
+                    </ul>
+          </nav>
+</header>
+
+<script>
+          const menuButton = document.getElementById("menu-button");
+          const closeMenuButton = document.getElementById("close-menu");
+
+          if (menuButton && closeMenuButton) {
+                    menuButton.addEventListener("click", function () {
+                              const primaryMenu =
+                                        document.getElementById("primary-menu");
+                              if (primaryMenu) {
+                                        primaryMenu.classList.toggle("hidden");
+                                        // Toggle visibility of close-menu button
+                                        closeMenuButton.classList.toggle(
+                                                  "hidden",
+                                        );
+                                        // Hide menu button when close menu button is shown
+                                        menuButton.classList.toggle("hidden");
+
+                              }
+                    });
+
+                    closeMenuButton.addEventListener("click", function () {
+                              const primaryMenu =
+                                        document.getElementById("primary-menu");
+                              if (primaryMenu) {
+                                        primaryMenu.classList.add("hidden");
+                                        // Toggle visibility of close-menu button
+                                        closeMenuButton.classList.add("hidden");
+                                        // Show menu button when close menu button is hidden
+                                        menuButton.classList.remove("hidden");
+
+                              }
+                    });
+          }
+</script>
+
+<style>
+          header {
+                    animation: enhanceHeader linear both;
+                    animation-timeline: scroll(root);
+                    animation-range: 0% 200px;
+          }
+
+          @keyframes enhanceHeader {
+                    to {
+                              background: rgba(255, 255, 255, 0.2);
+                              background-filter: blur(5px);
+                              color: white;
+                    }
+          }
+</style>
