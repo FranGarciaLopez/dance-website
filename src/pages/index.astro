@@ -1,38 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import HeroSection from "../components/HeroSection.astro";
 import Header from "../components/Header.astro";
-import HeroImage from "../components/HeroImage.astro";
-import Knowledge from "../components/Knowledge.astro";
-import PresentationVideo from "../components/PresentationVideo.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-	<main class="flex flex-col">
+	<Layout title="Welcome to Astro.">
+		<main class="flex flex-col"
+	>
 		<section>
-			<Header />
-			<HeroImage />
-
-			<h1
-				class="text-2xl font-bold text-white px-10 pt-10 flex justify-center items-center
-					max-w-6xl mx-auto"
-			>
-				Bachata Estilo Chico con Marco Espejo
-			</h1>
-
-			<p
-				class="text-md mt-4 text-white px-10 pb-10 flex justify-center items-center max-w-6xl mx-auto"
-			>
-				¡Inspírate con uno de los bailarines de
-				bachata más buscados del mundo y aprende
-				paso a paso su técnica, musicalidad,
-				fluidez y estilo!
-			</p>
-
-			<Knowledge />
-			<PresentationVideo />
+			<HeroSection />
 		</section>
-
-		
 	</main>
 </Layout>
 
