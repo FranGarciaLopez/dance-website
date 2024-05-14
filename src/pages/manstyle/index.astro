@@ -1,0 +1,185 @@
+---
+import HeroSection from "../../components/HeroSection.astro";
+import Knowledge from "../../components/Knowledge.astro";
+import MarcoImage from "../../components/MarcoImage.astro";
+import PresentationVideo from "../../components/PresentationVideo.astro";
+import Layout from "../../layouts/Layout.astro";
+
+const KnowledgeData = [
+          {
+                    title: "Musicalidad",
+                    image: "/Musicalidad.webp",
+          },
+          {
+                    title: "Movimiento Corporal",
+                    image: "/Movimiento-corporal.webp",
+          },
+          {
+                    title: "Pasos Libres",
+                    image: "/Pasos-libres.webp",
+          },
+          {
+                    title: "Coreografía",
+                    image: "/Coreografia.webp",
+          },
+];
+---
+
+<Layout title="Man Style">
+          <HeroSection>
+                    <!-- SVG Fire Background -->
+                    <div
+                              class="relative flex justify-center items-center mt-10 exclude-filter scale-transition"
+                              slot="heroImage"
+                    >
+                              <svg
+                                        width="100%"
+                                        height="100%"
+                                        viewBox="0 0 100 100"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        preserveAspectRatio="none"
+                              >
+                                        <defs>
+                                                  <radialGradient
+                                                            id="grad1"
+                                                            cx="50%"
+                                                            cy="50%"
+                                                            r="50%"
+                                                            fx="50%"
+                                                            fy="50%"
+                                                  >
+                                                            <stop
+                                                                      offset="70%"
+                                                                      style="stop-color:#ff004d;stop-opacity:1"
+                                                            ></stop>
+                                                            <stop
+                                                                      offset="0%"
+                                                                      style="stop-color:rgb(255,255,255);stop-opacity:0"
+                                                            ></stop>
+                                                  </radialGradient>
+                                                  <filter
+                                                            id="blur"
+                                                            x="0"
+                                                            y="0"
+                                                            width="100%"
+                                                            height="100%"
+                                                  >
+                                                            <feGaussianBlur
+                                                                      in="SourceGraphic"
+                                                                      stdDeviation="2"
+                                                            ></feGaussianBlur>
+                                                  </filter>
+                                        </defs>
+                                        <rect
+                                                  width="100%"
+                                                  height="100%"
+                                                  fill="url(#grad1)"
+                                                  filter="url(#blur)"></rect>
+                              </svg>
+                              <!-- Image -->
+                              <MarcoImage />
+                    </div>
+
+                    <!-- SVG Text -->
+                    <div
+                              class="flex justify-center items-center my-10"
+                              slot="heroText"
+                    >
+                              <svg
+                                        class="w-full h-auto"
+                                        viewBox="0 0 100 20"
+                                        preserveAspectRatio="xMidYMid meet"
+                                        xmlns="http://www.w3.org/2000/svg"
+                              >
+                                        <g>
+                                                  <text
+                                                            x="50%"
+                                                            y="30%"
+                                                            dominant-baseline="middle"
+                                                            text-anchor="middle"
+                                                            font-size="12"
+                                                            fill="white"
+                                                            letter-spacing="2"
+                                                            >BACHATA</text
+                                                  >
+                                                  <text
+                                                            x="50%"
+                                                            y="75%"
+                                                            dominant-baseline="middle"
+                                                            text-anchor="middle"
+                                                            fill="#ff004d"
+                                                            font-size="7"
+                                                            letter-spacing="1"
+                                                            >Man Style</text
+                                                  >
+                                        </g>
+                              </svg>
+                              <button
+                                        class="absolute mt-40 mb-4 text-white bg-[#FC316E] hover:bg-[#ff004d] focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center transform scale-transition xl:mt-60"
+                              >
+                                        Prueba gratis ahora
+                                        <svg
+                                                  class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+                                                  aria-hidden="true"
+                                                  xmlns="http://www.w3.org/2000/svg"
+                                                  fill="none"
+                                                  viewBox="0 0 14 10"
+                                        >
+                                                  <path
+                                                            stroke="currentColor"
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                            stroke-width="2"
+                                                            d="M1 5h12m0 0L9 1m4 4L9 9"
+                                                  ></path>
+                                        </svg>
+                              </button>
+                    </div>
+          </HeroSection>
+
+          <h1
+                    class="text-2xl font-bold text-white px-10 pt-10 flex justify-center items-center
+                                        max-w-6xl mx-auto"
+          >
+                    Bachata Estilo Chico con Marco Espejo
+          </h1>
+
+          <p
+                    class="text-md mt-4 text-white px-10 pb-10 flex justify-center items-center max-w-6xl mx-auto"
+          >
+                    ¡Inspírate con uno de los bailarines de bachata más buscados
+                    del mundo y aprende paso a paso su técnica, musicalidad,
+                    fluidez y estilo!
+          </p>
+
+          <Knowledge KnowledgeData={KnowledgeData} />
+          <p
+                    class="text-md mt-4 text-white px-10 pb-10 flex justify-center items-center max-w-6xl mx-auto"
+          >
+                    Sumérgete en el apasionante mundo de la bachata con la guía
+                    de uno de los bailarines más aclamados a nivel mundial.
+                    Descubre los secretos detrás de su técnica impecable, su
+                    excepcional musicalidad y su estilo único que lo han
+                    convertido en un referente en la escena de la danza. ¡No te
+                    pierdas esta oportunidad de aprender de un verdadero maestro
+                    y llevar tu habilidad en la bachata al siguiente nivel!
+          </p>
+          <PresentationVideo>
+                    <video
+                              autoplay="autoplay"
+                              muted="muted"
+                              loop="loop"
+                              preload="preload"
+                              src="video-bg.mp4"
+                              class="w-full h-full object-cover"
+                              slot="video-background"
+                    >
+                    </video>
+          </PresentationVideo>
+</Layout>
+
+<style>
+          .scale-transition:hover {
+                    --hover-color: #ff004d;
+          }
+</style>
