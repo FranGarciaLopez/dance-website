@@ -1,0 +1,180 @@
+---
+import HeroSection from "../../components/HeroSection.astro";
+import Knowledge from "../../components/Knowledge.astro";
+import SaraImage from "../../components/SaraImage.astro";
+import PresentationVideo from "../../components/PresentationVideo.astro";
+import Layout from "../../layouts/Layout.astro";
+
+const KnowledgeData = [
+          {
+                    title: "Movimiento de brazos",
+                    image: "/Movimiento-de-brazos.webp",
+          },
+          {
+                    title: "Movimiento Corporal",
+                    image: "/Movimiento-corporal-sara.webp",
+          },
+          {
+                    title: "Pasos Libres",
+                    image: "/Pasos-libres-sara.webp",
+          },
+          {
+                    title: "Coreografía",
+                    image: "/Coreografía-sara.webp",
+          },
+];
+---
+
+<Layout title="Lady Style">
+          <HeroSection>
+                    <!-- SVG Fire Background -->
+                    <div
+                              class="relative flex justify-center items-center mt-10 exclude-filter scale-transition"
+                              slot="heroImage"
+                    >
+                              <svg
+                                        width="100%"
+                                        height="100%"
+                                        viewBox="0 0 100 100"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        preserveAspectRatio="none"
+                              >
+                                        <defs>
+                                                  <radialGradient
+                                                            id="grad1"
+                                                            cx="50%"
+                                                            cy="50%"
+                                                            r="50%"
+                                                            fx="50%"
+                                                            fy="50%"
+                                                  >
+                                                            <stop
+                                                                      offset="70%"
+                                                                      style="stop-color:#F535AA;stop-opacity:1"
+                                                            ></stop>
+                                                            <stop
+                                                                      offset="0%"
+                                                                      style="stop-color:rgb(255,255,255);stop-opacity:0"
+                                                            ></stop>
+                                                  </radialGradient>
+                                                  <filter
+                                                            id="blur"
+                                                            x="0"
+                                                            y="0"
+                                                            width="100%"
+                                                            height="100%"
+                                                  >
+                                                            <feGaussianBlur
+                                                                      in="SourceGraphic"
+                                                                      stdDeviation="2"
+                                                            ></feGaussianBlur>
+                                                  </filter>
+                                        </defs>
+                                        <rect
+                                                  width="100%"
+                                                  height="100%"
+                                                  fill="url(#grad1)"
+                                                  filter="url(#blur)"></rect>
+                              </svg>
+                              <!-- Image -->
+                              <SaraImage />
+                    </div>
+
+                    <!-- SVG Text -->
+                    <div
+                              class="flex justify-center items-center my-10"
+                              slot="heroText"
+                    >
+                              <svg
+                                        class="w-full h-auto"
+                                        viewBox="0 0 100 20"
+                                        preserveAspectRatio="xMidYMid meet"
+                                        xmlns="http://www.w3.org/2000/svg"
+                              >
+                                        <g>
+                                                  <text
+                                                            x="50%"
+                                                            y="30%"
+                                                            dominant-baseline="middle"
+                                                            text-anchor="middle"
+                                                            font-size="12"
+                                                            fill="white"
+                                                            letter-spacing="2"
+                                                            >BACHATA</text
+                                                  >
+                                                  <text
+                                                            x="50%"
+                                                            y="75%"
+                                                            dominant-baseline="middle"
+                                                            text-anchor="middle"
+                                                            fill="#F535AA"
+                                                            font-size="7"
+                                                            letter-spacing="1"
+                                                            >Lady style</text
+                                                  >
+                                        </g>
+                              </svg>
+                              <button
+                                        class="absolute mt-40 mb-4 text-white bg-[#FC316E] hover:bg-[#F535AA] focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center transform scale-transition xl:mt-60"
+                              >
+                                        Prueba gratis ahora
+                                        <svg
+                                                  class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+                                                  aria-hidden="true"
+                                                  xmlns="http://www.w3.org/2000/svg"
+                                                  fill="none"
+                                                  viewBox="0 0 14 10"
+                                        >
+                                                  <path
+                                                            stroke="currentColor"
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                            stroke-width="2"
+                                                            d="M1 5h12m0 0L9 1m4 4L9 9"
+                                                  ></path>
+                                        </svg>
+                              </button>
+                    </div>
+          </HeroSection>
+
+          <h1
+                    class="text-2xl font-bold text-white px-10 pt-10 flex justify-center items-center
+                                        max-w-6xl mx-auto"
+          >
+                    Aprende a bailar Bachata Lady Style con Sara Panero
+          </h1>
+
+          <p
+                    class="text-md mt-4 text-white px-10 pb-10 flex justify-center items-center max-w-6xl mx-auto"
+          >
+                    ¡Inspírate con la "Reina del Estilo Chica de Bachata" y
+                    aprende paso a paso su técnica, musicalidad, fluidez y
+                    estilo.!
+          </p>
+
+          <Knowledge KnowledgeData={KnowledgeData} />
+          <p
+                    class="text-md mt-4 text-white px-10 pb-10 flex justify-center items-center max-w-6xl mx-auto"
+          >
+                    Adéntrate en el emocionante universo de la bachata con la
+                    orientación de una de las bailarinas más destacadas a nivel
+                    mundial. Descubre los secretos detrás de su técnica
+                    impecable, su excepcional musicalidad y su estilo único que
+                    la han convertido en un referente en la escena de la danza.
+                    ¡No dejes pasar esta oportunidad de aprender de una
+                    verdadera maestra y llevar tu habilidad en la bachata al
+                    siguiente nivel!
+          </p>
+          <PresentationVideo>
+                    <video
+                              autoplay="autoplay"
+                              muted="muted"
+                              loop="loop"
+                              preload="preload"
+                              src="video-bg-sara.mp4"
+                              class="w-full h-full object-cover"
+                              slot="video-background"
+                    >
+                    </video>
+          </PresentationVideo>
+</Layout>
