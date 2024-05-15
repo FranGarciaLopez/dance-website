@@ -27,130 +27,50 @@ const KnowledgeData = [
 
 <Layout title="Lady Style">
           <HeroSection>
-                    <!-- SVG Fire Background -->
                     <div
-                              class="relative flex justify-center items-center mt-10 exclude-filter scale-transition"
+                              class="container relative flex px-6 py-20 mx-auto"
                               slot="heroImage"
                     >
-                              <svg
-                                        width="100%"
-                                        height="100%"
-                                        viewBox="0 0 100 100"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        preserveAspectRatio="none"
+                              <div
+                                        class="relative pt-20 z-20 flex flex-col sm:w-2/3 lg:w-2/5"
                               >
-                                        <defs>
-                                                  <radialGradient
-                                                            id="grad1"
-                                                            cx="50%"
-                                                            cy="50%"
-                                                            r="50%"
-                                                            fx="50%"
-                                                            fy="50%"
-                                                  >
-                                                            <stop
-                                                                      offset="70%"
-                                                                      style="stop-color:#F535AA;stop-opacity:1"
-                                                            ></stop>
-                                                            <stop
-                                                                      offset="0%"
-                                                                      style="stop-color:rgb(255,255,255);stop-opacity:0"
-                                                            ></stop>
-                                                  </radialGradient>
-                                                  <filter
-                                                            id="blur"
-                                                            x="0"
-                                                            y="0"
-                                                            width="100%"
-                                                            height="100%"
-                                                  >
-                                                            <feGaussianBlur
-                                                                      in="SourceGraphic"
-                                                                      stdDeviation="2"
-                                                            ></feGaussianBlur>
-                                                  </filter>
-                                        </defs>
-                                        <rect
-                                                  width="100%"
-                                                  height="100%"
-                                                  fill="url(#grad1)"
-                                                  filter="url(#blur)"></rect>
-                              </svg>
-                              <!-- Image -->
-                              <SaraImage />
-                    </div>
-
-                    <!-- SVG Text -->
-                    <div
-                              class="flex justify-center items-center my-10"
-                              slot="heroText"
-                    >
-                              <svg
-                                        class="w-full h-auto"
-                                        viewBox="0 0 100 20"
-                                        preserveAspectRatio="xMidYMid meet"
-                                        xmlns="http://www.w3.org/2000/svg"
-                              >
-                                        <g>
-                                                  <text
-                                                            x="50%"
-                                                            y="30%"
-                                                            dominant-baseline="middle"
-                                                            text-anchor="middle"
-                                                            font-size="12"
-                                                            fill="white"
-                                                            letter-spacing="2"
-                                                            >BACHATA</text
-                                                  >
-                                                  <text
-                                                            x="50%"
-                                                            y="75%"
-                                                            dominant-baseline="middle"
-                                                            text-anchor="middle"
-                                                            fill="#F535AA"
-                                                            font-size="7"
-                                                            letter-spacing="1"
-                                                            >Lady style</text
-                                                  >
-                                        </g>
-                              </svg>
-                              <button
-                                        class="absolute mt-40 mb-4 text-white bg-[#FC316E] hover:bg-[#F535AA] focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center transform scale-transition xl:mt-60"
-                              >
-                                        Prueba gratis ahora
-                                        <svg
-                                                  class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-                                                  aria-hidden="true"
-                                                  xmlns="http://www.w3.org/2000/svg"
-                                                  fill="none"
-                                                  viewBox="0 0 14 10"
+                                        <span
+                                                  class="w-20 h-2 mb-12 bg-gray-700"
                                         >
-                                                  <path
-                                                            stroke="currentColor"
-                                                            stroke-linecap="round"
-                                                            stroke-linejoin="round"
-                                                            stroke-width="2"
-                                                            d="M1 5h12m0 0L9 1m4 4L9 9"
-                                                  ></path>
-                                        </svg>
-                              </button>
+                                        </span>
+                                        <h1
+                                                  class="flex flex-col text-6xl font-black leading-none text-white/60 uppercase font-bebas-neue sm:text-8xl dark:text-white"
+                                        >
+                                                  Bachata
+                                                  <span
+                                                            class="text-5xl text-[#F535AA]/60 sm:text-7xl"
+                                                  >
+                                                            Lady Style
+                                                  </span>
+                                        </h1>
+                                        <button
+                                                  class="bg-[#F535AA] text-white px-4 py-2 mt-4 rounded-md scale-transition"
+                                                  >Prueba gratis ahora</button
+                                        >
+                              </div>
+                              <div
+                                        class="relative hidden sm:block sm:w-1/3 lg:w-3/5"
+                              >
+                                        <SaraImage />
+                              </div>
                     </div>
           </HeroSection>
 
-          <h1
-                    class="text-2xl font-bold text-white px-10 pt-10 flex justify-center items-center
-                                        max-w-6xl mx-auto"
-          >
-                    Aprende a bailar Bachata Lady Style con Sara Panero
-          </h1>
-
-          <p
-                    class="text-md mt-4 text-white px-10 pb-10 flex justify-center items-center max-w-6xl mx-auto"
-          >
-                    ¡Inspírate con la "Reina del Estilo Chica de Bachata" y
-                    aprende paso a paso su técnica, musicalidad, fluidez y
-                    estilo.!
-          </p>
+          <section class="about-us-section">
+                    <h2
+                              class="text-2xl font-bold text-white px-10 pt-10 flex justify-start items-center max-w-6xl mx-auto"
+                    >
+                              ¿Qué enseñamos en nuestras clases?
+                    </h2>
+                    <!-- SEPARATION aligned with the H2 -->
+                    <div class="max-w-6xl h-1 bg-[#F535AA] mx-auto mt-4 mb-10">
+                    </div>
+          </section>
 
           <Knowledge KnowledgeData={KnowledgeData} />
           <p
