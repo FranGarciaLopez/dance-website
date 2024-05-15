@@ -14,10 +14,10 @@ const { KnowledgeData } = Astro.props;
                                                   slot="background"
                                                   src={item.image}
                                                   alt={`Imagen de ${item.title}`}
-                                                  class="object-contain w-full h-60"
+                                                  class="object-contain w-full h-80"
                                                   draggable="false"
                                         />
-                                        <h5 slot="title">{item.title}</h5>
+                                        <h5 slot="title" class="flex items-center justify-center">{item.title}</h5>
                               </Card>
                     ))
           }
