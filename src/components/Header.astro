@@ -70,38 +70,56 @@
 </header>
 
 <script>
-          const menuButton = document.getElementById("menu-button");
-          const closeMenuButton = document.getElementById("close-menu");
+          document.addEventListener("astro:page-load", () => {
+                    const menuButton = document.getElementById("menu-button");
+                    const closeMenuButton =
+                              document.getElementById("close-menu");
 
-          if (menuButton && closeMenuButton) {
-                    menuButton.addEventListener("click", function () {
-                              const primaryMenu =
-                                        document.getElementById("primary-menu");
-                              if (primaryMenu) {
-                                        primaryMenu.classList.toggle("hidden");
-                                        // Toggle visibility of close-menu button
-                                        closeMenuButton.classList.toggle(
-                                                  "hidden",
-                                        );
-                                        // Hide menu button when close menu button is shown
-                                        menuButton.classList.toggle("hidden");
+                    if (menuButton && closeMenuButton) {
+                              menuButton.addEventListener("click", function () {
+                                        const primaryMenu =
+                                                  document.getElementById(
+                                                            "primary-menu",
+                                                  );
+                                        if (primaryMenu) {
+                                                  primaryMenu.classList.toggle(
+                                                            "hidden",
+                                                  );
+                                                  // Toggle visibility of close-menu button
+                                                  closeMenuButton.classList.toggle(
+                                                            "hidden",
+                                                  );
+                                                  // Hide menu button when close menu button is shown
+                                                  menuButton.classList.toggle(
+                                                            "hidden",
+                                                  );
+                                        }
+                              });
 
-                              }
-                    });
-
-                    closeMenuButton.addEventListener("click", function () {
-                              const primaryMenu =
-                                        document.getElementById("primary-menu");
-                              if (primaryMenu) {
-                                        primaryMenu.classList.add("hidden");
-                                        // Toggle visibility of close-menu button
-                                        closeMenuButton.classList.add("hidden");
-                                        // Show menu button when close menu button is hidden
-                                        menuButton.classList.remove("hidden");
-
-                              }
-                    });
-          }
+                              closeMenuButton.addEventListener(
+                                        "click",
+                                        function () {
+                                                  const primaryMenu =
+                                                            document.getElementById(
+                                                                      "primary-menu",
+                                                            );
+                                                  if (primaryMenu) {
+                                                            primaryMenu.classList.add(
+                                                                      "hidden",
+                                                            );
+                                                            // Toggle visibility of close-menu button
+                                                            closeMenuButton.classList.add(
+                                                                      "hidden",
+                                                            );
+                                                            // Show menu button when close menu button is hidden
+                                                            menuButton.classList.remove(
+                                                                      "hidden",
+                                                            );
+                                                  }
+                                        },
+                              );
+                    }
+          });
 </script>
 
 <style>
