@@ -28,39 +28,58 @@ const KnowledgeData = [
 
 <Layout title="Man Style">
           <HeroSection>
-                    
-                    
-                                        <div
-                                                  class="container relative flex px-6 py-20 mx-auto"
-                                                  slot="heroImage"
-
+                    <div
+                              class="container relative flex flex-col pt-6 lg:flex-row px-6 mx-auto lg:pt-20 lg:px-0"
+                              slot="heroImage"
+                    >
+                              <!-- For larger screens (two columns) -->
+                              <div
+                                        class="relative order-2 lg:order-none pt-10 flex flex-col items-center justify-center lg:w-1/2 lg:mx-4"
+                              >
+                                        <picture
+                                                  class="z-20 aspect-[285/428] h-auto w-full max-w-[460px] lg:hidden"
+                                                  data-astro-cid-46y7hi3s=""
+                                                  data-astro-transition-scope="astro-br4vf3em-1"
                                         >
-                                                  <div
-                                                            class="relative pt-20 z-20 flex flex-col sm:w-2/3 lg:w-2/5"
+                                                  <img
+                                                            decoding="async"
+                                                            class="aspect-[285/428] h-auto w-full object-contain opacity-70"
+                                                            alt="Fotografía de Marco Epejo"
+                                                            src="Musicalidad.webp"
+                                                            draggable="false"
+                                                            loading="eager"
+                                                  />
+                                        </picture>
+
+                                        <div
+                                                  class="absolute z-30 lg:flex flex-col items-center justify-center"
+                                        >
+                                                  <span
+                                                            class="w-20 h-2 mb-12 bg-gray-700"
                                                   >
+                                                  </span>
+                                                  <h1
+                                                            class="text-4xl lg:text-6xl xl:text-7xl font-black leading-none text-white uppercase text-center"
+                                                  >
+                                                            Bachata
                                                             <span
-                                                                      class="w-20 h-2 mb-12 bg-gray-700"
+                                                                      class="text-[#ff004d]"
+                                                                      >Man Style</span
                                                             >
-                                                            </span>
-                                                            <h1
-                                                                      class="flex flex-col text-6xl font-black leading-none text-white/60 uppercase font-bebas-neue sm:text-8xl dark:text-white"
-                                                            >
-                                                                      Bachata
-                                                                      <span
-                                                                                class="text-5xl text-[#ff004d]/60 sm:text-7xl"
-                                                                      >
-                                                                                Man Style
-                                                                      </span>
-                                                            </h1>
-                                                           <button class="bg-[#ff004d] text-white px-4 py-2 mt-4 rounded-md scale-transition">Prueba gratis ahora</button>
-                                                  </div>
-                                                  <div
-                                                            class="relative hidden sm:block sm:w-1/3 lg:w-3/5"
+                                                  </h1>
+                                                  <button
+                                                            class="flex bg-[#ff004d] text-white px-4 py-2 mt-4 rounded-md scale-transition mx-auto"
+                                                            >Prueba gratis ahora</button
                                                   >
-                                                            <MarcoImage />
-                                                  </div>
                                         </div>
-                    
+                              </div>
+                              <!-- For larger screens (two columns) -->
+                              <div
+                                        class="relative order-1 lg:order-none hidden lg:flex lg:w-1/2"
+                              >
+                                        <MarcoImage />
+                              </div>
+                    </div>
           </HeroSection>
 
           <h2
@@ -68,7 +87,7 @@ const KnowledgeData = [
           >
                     ¿Qué enseñamos en nuestras clases?
           </h2>
-          
+
           <div class="max-w-6xl h-1 bg-[#ff004d] mx-auto mt-4 mb-10"></div>
 
           <Knowledge KnowledgeData={KnowledgeData} />
@@ -94,7 +113,7 @@ const KnowledgeData = [
                               slot="video-background"
                     >
                     </video>
-          </PresentationVideo> -->
+          </PresentationVideo>
 </Layout>
 
 <style>
