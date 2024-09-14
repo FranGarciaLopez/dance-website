@@ -9,18 +9,23 @@ const KnowledgeData = [
           {
                     title: "Movimiento de brazos",
                     image: "/Movimiento-de-brazos.webp",
+                    // short desc talking to girls
+                    shortDesc: "Aprende a mover tus brazos con gracia y elegancia para darle un toque especial a tu baile.",
           },
           {
                     title: "Movimiento Corporal",
                     image: "/Movimiento-corporal-sara.webp",
+                    shortDesc: "Descubre cómo mover tu cuerpo de forma fluida y femenina.",
           },
           {
                     title: "Pasos Libres",
                     image: "/Pasos-libres-sara.webp",
+                    shortDesc: "Aprende a bailar sin pareja y a expresarte con libertad en la pista.",
           },
           {
                     title: "Coreografía",
                     image: "/Coreografía-sara.webp",
+                    shortDesc: "Domina las secuencias de pasos y los movimientos más populares de la bachata.",
           },
 ];
 ---
@@ -28,82 +33,74 @@ const KnowledgeData = [
 <Layout title="Lady Style">
           <HeroSection>
                     <div
-                              class="container relative flex flex-col pt-6 lg:flex-row px-6 mx-auto lg:pt-20 lg:px-0"
+                              class="max-w-4xl container relative flex flex-col pt-8 lg:flex-row px-6 mx-auto lg:pt-24 lg:px-0"
                               slot="heroImage"
                     >
                               <!-- For larger screens (two columns) -->
                               <div
-                                        class="relative order-2 lg:order-none pt-10 flex flex-col items-center justify-center lg:w-1/2 lg:mx-4"
+                                        class="relative order-2 lg:order-none pt-8 flex flex-col items-center justify-center lg:w-1/2 lg:mx-6"
                               >
                                         <picture
-                                                  class="z-20 aspect-[285/428] h-auto w-full max-w-[460px] lg:hidden"
-                                                  data-astro-cid-46y7hi3s=""
-                                                  data-astro-transition-scope="astro-br4vf3em-1"
+                                                  class="z-20 aspect-w-16 aspect-h-9 h-auto w-full max-w-[400px] lg:hidden"
                                         >
                                                   <img
                                                             decoding="async"
-                                                            class="aspect-[285/428] h-auto w-full object-contain opacity-70"
+                                                            class="h-full w-full object-cover opacity-80 rounded-lg"
                                                             alt="Fotografía de Sara Panero"
-                                                            src="sarahd-2.png"
+                                                            src="Luna-image.png"
                                                             draggable="false"
                                                             loading="eager"
                                                   />
                                         </picture>
                                         <div
-                                                  class="absolute z-30 lg:flex flex-col items-center justify-center"
+                                                  class="absolute z-30 lg:flex flex-col items-center justify-center text-center"
                                         >
                                                   <span
-                                                            class="w-20 h-2 mb-12 bg-gray-700"
-                                                  >
-                                                  </span>
+                                                            class="w-20 h-2 mb-8 bg-gradient-to-r from-gray-600 to-white rounded"
+                                                  ></span>
                                                   <h1
-                                                            class="text-4xl lg:text-6xl xl:text-7xl font-black leading-none text-white uppercase text-center"
+                                                            class="text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight text-white uppercase"
                                                   >
                                                             Bachata
                                                             <span
-                                                                      class="text-[#F535AA]"
+                                                                      class="text-[#2ea29b] text-3xl lg:text-4xl xl:text-5xl"
                                                                       >Lady
                                                                       Style</span
                                                             >
                                                   </h1>
                                                   <button
-                                                            class="flex bg-[#F535AA] text-white px-4 py-2 mt-4 rounded-md scale-transition mx-auto"
-                                                            >Prueba gratis ahora</button
+                                                            class="mt-4 px-5 py-2 bg-[#2ea29b] text-white rounded-full transition-transform transform hover:scale-105"
                                                   >
+                                                            Prueba gratis ahora
+                                                  </button>
                                         </div>
                               </div>
                               <!-- For larger screens (two columns) -->
                               <div
-                                        class="relative order-1 lg:order-none hidden lg:flex lg:w-1/2"
+                                        class="relative order-1 lg:order-none pt-6 lg:w-1/2 lg:mx-6 hidden lg:block"
                               >
                                         <SaraImage />
                               </div>
                     </div>
           </HeroSection>
 
-          <section class="about-us-section">
-                    <h2
-                              class="text-2xl font-bold text-white px-10 pt-10 flex justify-start items-center max-w-6xl mx-auto"
-                    >
-                              ¿Qué enseñamos en nuestras clases?
-                    </h2>
-                    <!-- SEPARATION aligned with the H2 -->
-                    <div class="max-w-6xl h-1 bg-[#F535AA] mx-auto mt-4 mb-10">
-                    </div>
-          </section>
-
-          <Knowledge KnowledgeData={KnowledgeData} />
-          <p
-                    class="text-md mt-4 text-white px-10 pb-10 flex justify-center items-center max-w-6xl mx-auto"
+          <h2
+                    class="text-3xl font-extrabold text-white px-8 pt-10 flex flex-wrap items-center max-w-4xl w-full mx-auto"
           >
-                    Adéntrate en el emocionante universo de la bachata con la
-                    orientación de una de las bailarinas más destacadas a nivel
-                    mundial. Descubre los secretos detrás de su técnica
-                    impecable, su excepcional musicalidad y su estilo único que
-                    la han convertido en un referente en la escena de la danza.
-                    ¡No dejes pasar esta oportunidad de aprender de una
-                    verdadera maestra y llevar tu habilidad en la bachata al
-                    siguiente nivel!
+                    ¿Qué aprenderás en
+                    <span class="text-[#2ea29b] ml-2">Lady Style</span>?
+          </h2>
+
+          <p
+                    class="text-lg mt-6 text-white px-7 pb-10 max-w-4xl mx-auto"
+          >
+                    Es hora de dejar salir tu lado más atrevido en la pista de
+                    baile. La bachata es más que movimientos, es pura
+                    <span class="text-[#2ea29b]">pasion y sensualidad</span>.
+                    Aprende a dominar cada paso con confianza y actitud de la
+                    mano de uno de las mejores bailarinas del mundo. Conviértete
+                    en esa mujer que todos desean seguir en la pista, mostrando
+                    tu poder y elegancia.
           </p>
           <PresentationVideo>
                     <video
@@ -112,9 +109,25 @@ const KnowledgeData = [
                               loop="loop"
                               preload="preload"
                               src="video-bg-sara.mp4"
-                              class="w-full h-full object-cover"
+                              class="w-full h-full object-cover rounded-lg shadow-lg max-w-4xl mx-auto"
                               slot="video-background"
                     >
                     </video>
           </PresentationVideo>
+
+          <Knowledge KnowledgeData={KnowledgeData} />
 </Layout>
+
+<style>
+          .scale-transition:hover {
+                    --hover-color: #2ea29b;
+          }
+
+          button {
+                    transition: all 0.3s ease;
+          }
+
+          button:hover {
+                    background-color: var(--hover-color);
+          }
+</style>

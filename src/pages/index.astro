@@ -1,55 +1,162 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import HeroSection from "../components/HeroSection.astro";
+import Schedule from "../components/Schedule.astro";
 import HomeImage from "../components/HomeImage.astro";
+import Knowledge from "../components/Knowledge.astro";
+import { theme } from "./theme";
+import Partners from "../components/Partners.astro";
+import PresentationVideo from "../components/PresentationVideo.astro";
+
+let KnowledgeData = [
+	{
+		title: "Musicalidad",
+		image: "/Musicalidad-jc.png",
+		shortDesc: "Aprende a bailar al ritmo de la música y a interpretarla con tu cuerpo.",
+	},
+	{
+		title: "Movimiento Corporal",
+		image: "/2.png",
+		shortDesc: "Descubre cómo mover tu cuerpo de forma fluida y natural.",
+	},
+	{
+		title: "Pasos Libres",
+		image: "/Pasos-libres-jc.png",
+		shortDesc: "Aprende a bailar sin pareja y a expresarte con libertad en la pista.",
+	},
+	{
+		title: "Coreografía",
+		image: "/Coreografia-jc.png",
+		shortDesc: "Domina las secuencias de pasos y los movimientos más populares de la bachata.",
+	},
+];
 ---
 
-	<Layout title="Welcome to Astro.">
-		<main class="flex flex-col"
-	transition:animate="slide">
+<Layout title="The Latin Action | Salsa y Bachata.">
+	<main class="flex flex-col">
 		<section>
 			<HeroSection>
-				<HeroSection>
+				<div
+					class="max-w-4xl container relative flex flex-col pt-8 lg:flex-row px-8 mx-auto lg:pt-24 lg:px-0"
+					slot="heroImage"
+				>
+					<!-- For larger screens (two columns) -->
 					<div
-						class="container relative flex px-6 py-20 mx-auto"
-						slot="heroImage"
-	
+						class="relative order-2 lg:order-none pt-12 flex flex-col items-center justify-center lg:w-1/2 lg:mx-6"
 					>
+						<picture
+							class="z-20 aspect-[285/428] h-auto w-full max-w-[460px] lg:hidden"
+						>
+							<img
+								decoding="async"
+								class="aspect-[285/428] h-auto w-full object-contain opacity-80 rounded-lg"
+								alt="Fotografía de Marco Epejo"
+								src="juancar.png"
+								draggable="false"
+								loading="eager"
+							/>
+						</picture>
+
 						<div
-							class="relative justify-center z-20 flex flex-col sm:w-2/3 lg:w-2/5"
+							class="absolute z-30 lg:flex flex-col items-center justify-center text-center"
 						>
 							<span
-								class="w-20 h-2 mb-12 bg-gray-800"
+								class="w-24 h-2 mb-10 bg-gradient-to-r from-gray-600 to-white rounded"
 							>
 							</span>
 							<h1
-								class="flex flex-col text-6xl font-black leading-none text-white/60 uppercase font-bebas-neue sm:text-8xl dark:text-white"
+								class="mx-auto px-6 sm:px-8 md:px-10 max-w-screen-md text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight uppercase"
+								style={`color: ${theme.common.titleColor};`}
 							>
+								Aprende
 								Bachata
 								<span
-									class="text-5xl text-[#ff004d]/60 sm:text-7xl"
+									class="text-[#cc0044] text-4xl lg:text-4xl xl:text-5xl"
+									>Clases
+									presenciales</span
 								>
-									Online
-								</span>
 							</h1>
-						         <button class="bg-[#ff004d] text-white px-4 py-2 mt-4 rounded-md">Prueba gratis ahora</button>
-						</div>
-						<div
-							class="relative hidden sm:block sm:w-1/3 lg:w-3/5"
-						>
-							<HomeImage />
+
+							<button
+								class="mt-6 px-6 py-3 bg-[#cc0044] text-white rounded-full transition-transform transform hover:scale-105"
+							>
+								Clase
+								de
+								prueba
+								gratis
+							</button>
 						</div>
 					</div>
-			
-		</HeroSection>
 
+					<div
+						class="relative order-1 lg:order-none pt-12 lg:w-1/2 lg:mx-6 hidden lg:block"
+					>
+						<HomeImage />
+					</div>
+				</div>
 			</HeroSection>
 		</section>
-	</main>
-</Layout>
 
-<style>
-	main {
-		overflow: hidden;
-	}
-</style>
+		<h2
+			class="text-3xl font-extrabold text-white px-8 pt-10 flex flex-wrap items-center max-w-4xl w-full mx-auto"
+		>
+			¿Qué aprenderás con las clases de
+			<span class="text-[#e63950] ml-2"
+				>Latin Action</span
+			>?
+		</h2>
+
+		<p
+			class="text-lg mt-6 text-white px-7 pb-10 max-w-4xl mx-auto"
+		>
+			Tanto si no has bailado como si ya tienes
+			experiencia en la bachata, en Latin Action
+			encontrarás clases adaptadas a tu nivel.
+			Aprenderás a bailar al ritmo de la música, a mover
+			tu cuerpo con soltura y a expresarte con libertad
+			en la pista. Junto al <span class="text-[#e63950]"
+				>profesor de profesores</span
+			>
+			Juan Carlos. ¡Ven a probar una clase gratis y descubre
+			todo lo que puedes aprender con nosotros!
+		</p>
+
+		<PresentationVideo>
+			<video
+				autoplay="autoplay"
+				controls="controls"
+				muted="muted"
+				loop="loop"
+				preload="preload"
+				src="video-bg-juan-carlos.mp4"
+				class="w-full h-full object-cover rounded-lg shadow-lg max-w-4xl mx-auto opacity-80"
+				slot="video-background"
+			>
+			</video>
+		</PresentationVideo>
+
+		<Knowledge KnowledgeData={KnowledgeData} />
+
+		<Schedule />
+		
+		<Partners />
+	</main>
+
+	<style>
+		main {
+			overflow: hidden;
+		}
+
+		.scale-transition:hover {
+			--hover-color: #cc0044;
+		}
+
+		button {
+			transition: all 0.3s ease;
+		}
+
+		button:hover {
+			background-color: var(--hover-color);
+		}
+	</style>
+</Layout>

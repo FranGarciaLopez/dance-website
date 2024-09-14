@@ -5,16 +5,16 @@
           <!-- Logo -->
           <div class="flex items-center">
                     <img
-                              src="/white-logo.webp"
+                              src="/logo.png"
                               alt="logo"
-                              class="size-10 mr-2"
+                              class="size-14 mr-2"
                     />
           </div>
 
-          <!-- Menu Button -->
+          <!-- Menu Button (Visible only on small screens) -->
           <button
                     id="menu-button"
-                    class="xl:hidden flex items-center px-3 py-2 rounded text-sm text-current bg-black/20 backdrop-blur-lg z-50"
+                    class="xl:hidden flex items-center px-4 py-2 rounded-full bg-black/30 text-white hover:bg-black/50 transition-colors duration-300"
           >
                     <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24">
                               <path
@@ -27,14 +27,16 @@
           </button>
 
           <!-- Primary Menu -->
+
           <nav
                     id="primary-menu"
-                    class="hidden fixed top-0 h-full w-full bg-white z-50 text-xs
-                    xl:relative xl:block xl:h-auto xl:bg-transparent xl:z-auto xl:flex xl:flex-grow xl:flex-wrap xl:justify-center xl:items-center xl:px-4 xl:py-3"
+                    
+                    class="fixed top-0 left-0 w-full h-full bg-white/30 backdrop-blur-lg z-50 text-xs flex flex-col items-center justify-center transform -translate-y-full transition-transform duration-300 ease-in-out
+                    xl:translate-y-0 xl:relative xl:flex xl:flex-row xl:items-center xl:justify-center xl:bg-transparent xl:backdrop-blur-none xl:h-auto xl:w-auto xl:space-x-6" 
           >
                     <button
                               id="close-menu"
-                              class="hidden xl:hidden fixed top-1 right-2 flex items-center px-3 py-2 rounded text-sm text-current bg-black/20 backdrop-blur-lg z-50"
+                              class="absolute top-4 right-4 flex items-center px-4 py-2 rounded-full bg-black/30 text-white hover:bg-black/50 transition-colors duration-300 xl:hidden"
                     >
                               <svg
                                         class="w-6 h-6"
@@ -51,19 +53,28 @@
                               </svg>
                     </button>
                     <ul
-                              class="flex flex-col items-start justify-center h-full text-black px-0 gap-10 xl:flex xl:flex-row xl:basis-0 xl:flex-grow xl:text-sm xl:text-current xl:justify-end xl:items-center [&>li>a]:transition-colors [&>li>a]:duration-200 [&>li>a]:inline-block text-center [&>li>a]:px-4 py-2"
+                              class="flex flex-col xl:flex-row items-center space-y-6 xl:space-y-0 text-white"
                     >
                               <li>
-                                        <a href="/">Home</a>
+                                        <a
+                                                  href="/"
+                                                  class="px-4 py-2 rounded-md hover:bg-black/30 transition-colors"
+                                                  >Home</a
+                                        >
                               </li>
                               <li>
-                                        <a href="#">Bachata en pareja</a>
+                                        <a
+                                                  href="/manstyle"
+                                                  class="px-4 py-2 rounded-md hover:bg-black/30 transition-colors"
+                                                  >Estilo chico</a
+                                        >
                               </li>
                               <li>
-                                        <a href="/manstyle">Estilo chico</a>
-                              </li>
-                              <li>
-                                        <a href="/ladystyle">Estilo chica</a>
+                                        <a
+                                                  href="/ladystyle"
+                                                  class="px-4 py-2 rounded-md hover:bg-black/30 transition-colors"
+                                                  >Estilo chica</a
+                                        >
                               </li>
                     </ul>
           </nav>
@@ -74,48 +85,37 @@
                     const menuButton = document.getElementById("menu-button");
                     const closeMenuButton =
                               document.getElementById("close-menu");
+                    const primaryMenu = document.getElementById("primary-menu");
 
-                    if (menuButton && closeMenuButton) {
+                    if (menuButton && closeMenuButton && primaryMenu) {
                               menuButton.addEventListener("click", function () {
-                                        const primaryMenu =
-                                                  document.getElementById(
-                                                            "primary-menu",
-                                                  );
-                                        if (primaryMenu) {
-                                                  primaryMenu.classList.toggle(
-                                                            "hidden",
-                                                  );
-                                                  // Toggle visibility of close-menu button
-                                                  closeMenuButton.classList.toggle(
-                                                            "hidden",
-                                                  );
-                                                  // Hide menu button when close menu button is shown
-                                                  menuButton.classList.toggle(
-                                                            "hidden",
-                                                  );
-                                        }
+                                        primaryMenu.classList.remove(
+                                                  "-translate-y-full",
+                                        );
+                                        primaryMenu.classList.add(
+                                                  "translate-y-0",
+                                        );
+                                        closeMenuButton.classList.remove(
+                                                  "hidden",
+                                        );
+                                        menuButton.classList.add("hidden");
                               });
 
                               closeMenuButton.addEventListener(
                                         "click",
                                         function () {
-                                                  const primaryMenu =
-                                                            document.getElementById(
-                                                                      "primary-menu",
-                                                            );
-                                                  if (primaryMenu) {
-                                                            primaryMenu.classList.add(
-                                                                      "hidden",
-                                                            );
-                                                            // Toggle visibility of close-menu button
-                                                            closeMenuButton.classList.add(
-                                                                      "hidden",
-                                                            );
-                                                            // Show menu button when close menu button is hidden
-                                                            menuButton.classList.remove(
-                                                                      "hidden",
-                                                            );
-                                                  }
+                                                  primaryMenu.classList.remove(
+                                                            "translate-y-0",
+                                                  );
+                                                  primaryMenu.classList.add(
+                                                            "-translate-y-full",
+                                                  );
+                                                  closeMenuButton.classList.add(
+                                                            "hidden",
+                                                  );
+                                                  menuButton.classList.remove(
+                                                            "hidden",
+                                                  );
                                         },
                               );
                     }

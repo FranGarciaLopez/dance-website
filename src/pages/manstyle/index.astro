@@ -4,24 +4,27 @@ import Knowledge from "../../components/Knowledge.astro";
 import MarcoImage from "../../components/MarcoImage.astro";
 import PresentationVideo from "../../components/PresentationVideo.astro";
 import Layout from "../../layouts/Layout.astro";
-import Header from "../../components/Header.astro";
 
 const KnowledgeData = [
           {
                     title: "Musicalidad",
                     image: "/Musicalidad.webp",
+                    shortDesc: "Aprende a bailar al ritmo de la música y a interpretarla con tu cuerpo.",
           },
           {
                     title: "Movimiento Corporal",
                     image: "/Movimiento-corporal.webp",
+                    shortDesc: "Descubre cómo mover tu cuerpo de forma fluida y natural.",
           },
           {
                     title: "Pasos Libres",
                     image: "/Pasos-libres.webp",
+                    shortDesc: "Aprende a bailar sin pareja y a expresarte con libertad en la pista.",
           },
           {
                     title: "Coreografía",
                     image: "/Coreografia.webp",
+                    shortDesc: "Domina las secuencias de pasos y los movimientos más populares de la bachata.",
           },
 ];
 ---
@@ -29,21 +32,19 @@ const KnowledgeData = [
 <Layout title="Man Style">
           <HeroSection>
                     <div
-                              class="container relative flex flex-col pt-6 lg:flex-row px-6 mx-auto lg:pt-20 lg:px-0"
+                              class="max-w-4xl container relative flex flex-col pt-8 lg:flex-row px-8 mx-auto lg:pt-24 lg:px-0"
                               slot="heroImage"
                     >
                               <!-- For larger screens (two columns) -->
                               <div
-                                        class="relative order-2 lg:order-none pt-10 flex flex-col items-center justify-center lg:w-1/2 lg:mx-4"
+                                        class="relative order-2 lg:order-none pt-12 flex flex-col items-center justify-center lg:w-1/2 lg:mx-6"
                               >
                                         <picture
                                                   class="z-20 aspect-[285/428] h-auto w-full max-w-[460px] lg:hidden"
-                                                  data-astro-cid-46y7hi3s=""
-                                                  data-astro-transition-scope="astro-br4vf3em-1"
                                         >
                                                   <img
                                                             decoding="async"
-                                                            class="aspect-[285/428] h-auto w-full object-contain opacity-70"
+                                                            class="aspect-[285/428] h-auto w-full object-contain opacity-80 rounded-lg"
                                                             alt="Fotografía de Marco Epejo"
                                                             src="Musicalidad.webp"
                                                             draggable="false"
@@ -52,56 +53,58 @@ const KnowledgeData = [
                                         </picture>
 
                                         <div
-                                                  class="absolute z-30 lg:flex flex-col items-center justify-center"
+                                                  class="absolute z-30 lg:flex flex-col items-center justify-center text-center"
                                         >
                                                   <span
-                                                            class="w-20 h-2 mb-12 bg-gray-700"
+                                                            class="w-24 h-2 mb-10 bg-gradient-to-r from-gray-600 to-white rounded"
                                                   >
                                                   </span>
                                                   <h1
-                                                            class="text-4xl lg:text-6xl xl:text-7xl font-black leading-none text-white uppercase text-center"
+                                                            class="text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight text-white uppercase"
                                                   >
                                                             Bachata
                                                             <span
-                                                                      class="text-[#ff004d]"
+                                                                      class="text-[#ff004d] text-4xl lg:text-5xl xl:text-6xl"
                                                                       >Man Style</span
                                                             >
                                                   </h1>
                                                   <button
-                                                            class="flex bg-[#ff004d] text-white px-4 py-2 mt-4 rounded-md scale-transition mx-auto"
-                                                            >Prueba gratis ahora</button
+                                                            class="mt-6 px-6 py-3 bg-[#ff004d] text-white rounded-full transition-transform transform hover:scale-105"
                                                   >
+                                                            Prueba gratis ahora
+                                                  </button>
                                         </div>
                               </div>
                               <!-- For larger screens (two columns) -->
-                              <div
-                                        class="relative order-1 lg:order-none hidden lg:flex lg:w-1/2"
-                              >
+                              <div class="relative order-1 lg:order-none pt-12 lg:w-1/2 lg:mx-6 hidden lg:block">
+
                                         <MarcoImage />
                               </div>
                     </div>
           </HeroSection>
 
           <h2
-                    class="text-2xl font-bold text-white px-10 pt-10 flex justify-start items-center max-w-6xl mx-auto"
+                    class="text-3xl font-extrabold text-white px-8 pt-10 flex justify-start items-center max-w-4xl mx-auto"
           >
-                    ¿Qué enseñamos en nuestras clases?
+                    ¿Qué aprenderás en Man Style?
           </h2>
 
-          <div class="max-w-6xl h-1 bg-[#ff004d] mx-auto mt-4 mb-10"></div>
+          <div
+                    class="max-w-4xl px-6 h-1 bg-gradient-to-r from-pink-500 to-red-500 mx-auto mt-6 mb-12 rounded"
+          >
+          </div>
 
           <Knowledge KnowledgeData={KnowledgeData} />
+
           <p
-                    class="text-md mt-4 text-white px-10 pb-10 flex justify-center items-center max-w-6xl mx-auto"
+                    class="text-lg mt-6 text-white px-7 pb-16 flex items-center max-w-4xl mx-auto leading-relaxed"
           >
-                    Sumérgete en el apasionante mundo de la bachata con la guía
-                    de uno de los bailarines más aclamados a nivel mundial.
-                    Descubre los secretos detrás de su técnica impecable, su
-                    excepcional musicalidad y su estilo único que lo han
-                    convertido en un referente en la escena de la danza. ¡No te
-                    pierdas esta oportunidad de aprender de un verdadero maestro
-                    y llevar tu habilidad en la bachata al siguiente nivel!
+                    Prepárate para dominar la pista de baile con la sensualidad
+                    y fuerza que solo la bachata puede ofrecer. Conviértete en
+                    el líder que toda pareja de baile quiere seguir, sintiendo
+                    el control y la conexión en cada paso.
           </p>
+
           <PresentationVideo>
                     <video
                               autoplay="autoplay"
@@ -109,7 +112,7 @@ const KnowledgeData = [
                               loop="loop"
                               preload="preload"
                               src="video-bg.mp4"
-                              class="w-full h-full object-cover"
+                              class="w-full h-full object-cover rounded-lg shadow-lg max-w-4xl mx-auto"
                               slot="video-background"
                     >
                     </video>
@@ -119,5 +122,13 @@ const KnowledgeData = [
 <style>
           .scale-transition:hover {
                     --hover-color: #ff004d;
+          }
+
+          button {
+                    transition: all 0.3s ease;
+          }
+
+          button:hover {
+                    background-color: var(--hover-color);
           }
 </style>

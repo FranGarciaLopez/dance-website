@@ -1,0 +1,50 @@
+---
+import { theme } from "../pages/theme.js";
+
+let partners = [
+          {
+                    image: "./bubaloo.jpg",
+                    alt: "Bubaloo Academia de baile",
+          },
+          {
+                    image: "./babyoh.jpg",
+                    alt: "Baby Oh Multi Sala de baile",
+          },
+          {
+                    image: "./feverdance.jpg",
+                    alt: "Fever Dance, Academia de baile en Alicante",
+          },
+];
+---
+
+<!-- section for partners from Latin action -->
+<section class="flex flex-col items-center justify-center px-6 pb-16">
+          <h2
+                    class="text-3xl font-extrabold mb-8 px-6"
+                    style={`color: ${theme.schedule.titleColor};`}
+          >
+                    Nuestros Socios
+          </h2>
+
+          <div
+                    class="px-6 grid grid-cols-1 max-w-4xl px-6 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl w-full bg-white/10 backdrop-blur-md rounded-lg"
+          >
+                    {
+                              partners.map((partner) => (
+                                        <div class="flex flex-col items-center justify-center p-4">
+                                                  <img
+                                                            src={partner.image}
+                                                            alt={`Imagen de ${partner.alt}`}
+                                                            class="object-contain w-20 h-20 border-2 border-white rounded-full"
+                                                            draggable="false"
+                                                  />
+                                        </div>
+                              ))
+                    }
+          </div>
+</section>
+<style>
+          section {
+                    overflow: hidden;
+          }
+</style>
