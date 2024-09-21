@@ -8,28 +8,28 @@ import Layout from "../../layouts/Layout.astro";
 const KnowledgeData = [
           {
                     title: "Musicalidad",
-                    image: "/Musicalidad.webp",
+                    image: "",
                     shortDesc: "Aprende a bailar al ritmo de la música y a interpretarla con tu cuerpo.",
           },
           {
                     title: "Movimiento Corporal",
-                    image: "/Movimiento-corporal.webp",
+                    image: "",
                     shortDesc: "Descubre cómo mover tu cuerpo de forma fluida y natural.",
           },
           {
                     title: "Pasos Libres",
-                    image: "/Pasos-libres.webp",
+                    image: "",
                     shortDesc: "Aprende a bailar sin pareja y a expresarte con libertad en la pista.",
           },
           {
                     title: "Coreografía",
-                    image: "/Coreografia.webp",
+                    image: "",
                     shortDesc: "Domina las secuencias de pasos y los movimientos más populares de la bachata.",
           },
 ];
 ---
 
-<Layout title="Man Style">
+<Layout title="Salsa | The latin Action">
           <HeroSection>
                     <div
                               class="max-w-4xl container relative flex flex-col pt-8 lg:flex-row px-8 mx-auto lg:pt-24 lg:px-0"
@@ -46,7 +46,7 @@ const KnowledgeData = [
                                                             decoding="async"
                                                             class="aspect-[285/428] h-auto w-full object-contain opacity-80 rounded-lg"
                                                             alt="Fotografía de Marco Epejo"
-                                                            src="Musicalidad.webp"
+                                                            src=""
                                                             draggable="false"
                                                             loading="eager"
                                                   />
@@ -62,11 +62,7 @@ const KnowledgeData = [
                                                   <h1
                                                             class="text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight text-white uppercase"
                                                   >
-                                                            Bachata
-                                                            <span
-                                                                      class="text-[#ff004d] text-4xl lg:text-5xl xl:text-6xl"
-                                                                      >Man Style</span
-                                                            >
+                                                            Salsa
                                                   </h1>
                                                   <button
                                                             class="mt-6 px-6 py-3 bg-[#ff004d] text-white rounded-full transition-transform transform hover:scale-105"
@@ -76,8 +72,9 @@ const KnowledgeData = [
                                         </div>
                               </div>
                               <!-- For larger screens (two columns) -->
-                              <div class="relative order-1 lg:order-none pt-12 lg:w-1/2 lg:mx-6 hidden lg:block">
-
+                              <div
+                                        class="relative order-1 lg:order-none pt-12 lg:w-1/2 lg:mx-6 hidden lg:block"
+                              >
                                         <MarcoImage />
                               </div>
                     </div>
@@ -86,7 +83,7 @@ const KnowledgeData = [
           <h2
                     class="text-3xl font-extrabold text-white px-8 pt-10 flex justify-start items-center max-w-4xl mx-auto"
           >
-                    ¿Qué aprenderás en Man Style?
+                    ¿Qué aprenderás en nuestras clases de Salsa?
           </h2>
 
           <div
@@ -99,10 +96,12 @@ const KnowledgeData = [
           <p
                     class="text-lg mt-6 text-white px-7 pb-16 flex items-center max-w-4xl mx-auto leading-relaxed"
           >
-                    Prepárate para dominar la pista de baile con la sensualidad
-                    y fuerza que solo la bachata puede ofrecer. Conviértete en
-                    el líder que toda pareja de baile quiere seguir, sintiendo
-                    el control y la conexión en cada paso.
+                    En nuestras clases de salsa aprenderás a bailar al ritmo de
+                    la música y a interpretarla con tu cuerpo. Descubrirás cómo
+                    mover tu cuerpo de forma fluida y natural, a bailar sin
+                    pareja y a expresarte con libertad en la pista. Además,
+                    dominarás las secuencias de pasos y los movimientos más
+                    populares de la salsa.
           </p>
 
           <PresentationVideo>
@@ -111,7 +110,7 @@ const KnowledgeData = [
                               muted="muted"
                               loop="loop"
                               preload="preload"
-                              src="video-bg.mp4"
+                              src=""
                               class="w-full h-full object-cover rounded-lg shadow-lg max-w-4xl mx-auto"
                               slot="video-background"
                     >
