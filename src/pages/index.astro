@@ -11,22 +11,22 @@ import PresentationVideo from "../components/PresentationVideo.astro";
 let KnowledgeData = [
 	{
 		title: "Musicalidad",
-		image: "/Musicalidad-jc.png",
+		image: "https://imagedelivery.net/4-G5Kx2wHcK3gRDUXWrgEw/6c17daf9-3d58-444d-3786-258e5c33d500/public",
 		shortDesc: "Aprende a bailar al ritmo de la música y a interpretarla con tu cuerpo.",
 	},
 	{
 		title: "Movimiento Corporal",
-		image: "/2.webp",
+		image: "https://imagedelivery.net/4-G5Kx2wHcK3gRDUXWrgEw/c3d597d2-6730-4afc-e467-a91a93e42600/public",
 		shortDesc: "Descubre cómo mover tu cuerpo de forma fluida y natural.",
 	},
 	{
 		title: "Pasos Libres",
-		image: "/Pasos-libres-jc.webp",
+		image: "https://imagedelivery.net/4-G5Kx2wHcK3gRDUXWrgEw/c4adda27-6696-4487-d5ff-91501b218e00/public",
 		shortDesc: "Aprende a bailar sin pareja y a expresarte con libertad en la pista.",
 	},
 	{
 		title: "Coreografía",
-		image: "/Coreografia-jc.webp",
+		image: "https://imagedelivery.net/4-G5Kx2wHcK3gRDUXWrgEw/c3d597d2-6730-4afc-e467-a91a93e42600/public",
 		shortDesc: "Domina las secuencias de pasos y los movimientos más populares de la bachata.",
 	},
 ];
@@ -51,7 +51,7 @@ let KnowledgeData = [
 								decoding="async"
 								class="aspect-[285/428] h-auto w-full object-contain opacity-80 rounded-lg"
 								alt="Fotografía de Marco Epejo"
-								src="/juancar.webp"
+								src="https://imagedelivery.net/4-G5Kx2wHcK3gRDUXWrgEw/6c17daf9-3d58-444d-3786-258e5c33d500/public"
 								draggable="false"
 								loading="eager"
 							/>
@@ -77,14 +77,17 @@ let KnowledgeData = [
 								>
 							</h1>
 
-							<button
+							<!-- whatsapp button -->
+							<a
+								href="https://wa.me/34662490512?text=Hola,%20quiero%20más%20información%20sobre%20la%20clase%20de%20prueba"
 								class="mt-6 px-6 py-3 bg-[#cc0044] text-white rounded-full transition-transform transform hover:scale-105"
 							>
 								Clase
 								de
 								prueba
 								gratis
-							</button>
+							</a>
+							
 						</div>
 					</div>
 
@@ -128,7 +131,7 @@ let KnowledgeData = [
 				muted="muted"
 				loop="loop"
 				preload="preload"
-				src="" 
+				src=""
 				class="w-full h-full object-cover rounded-lg shadow-lg max-w-4xl mx-auto opacity-80"
 				slot="video-background"
 			>
@@ -138,7 +141,7 @@ let KnowledgeData = [
 		<Knowledge KnowledgeData={KnowledgeData} />
 
 		<Schedule />
-		
+
 		<Partners />
 	</main>
 
