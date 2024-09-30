@@ -18,7 +18,7 @@ let partners = [
 ---
 
 <!-- section for partners from Latin action -->
-<section class="flex flex-col items-center justify-center px-6 pb-16">
+<section class="flex flex-col items-center justify-center py-8">
           <h2
                     class="text-3xl font-extrabold mb-8 px-6"
                     style={`color: ${theme.schedule.titleColor};`}
@@ -27,11 +27,11 @@ let partners = [
           </h2>
 
           <div
-                    class="px-6 grid grid-cols-1 max-w-4xl px-6 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl w-full bg-white/10 backdrop-blur-md rounded-lg"
+                    class="px-6 grid grid-cols-1 gap-6 max-w-4xl w-full md:grid-cols-2 lg:grid-cols-3"
           >
                     {
                               partners.map((partner) => (
-                                        <div class="flex flex-col items-center justify-center p-4">
+                                        <div class="flex flex-col items-center justify-center p-4 bg-white/10 backdrop-blur-md rounded-lg w-full">
                                                   <img
                                                             src={partner.image}
                                                             alt={`Imagen de ${partner.alt}`}
@@ -43,6 +43,7 @@ let partners = [
                     }
           </div>
 </section>
+
 <style>
           section {
                     overflow: hidden;
