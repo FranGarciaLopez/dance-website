@@ -10,29 +10,29 @@ import PresentationVideo from "../components/PresentationVideo.astro";
 
 let KnowledgeData = [
 	{
-		title: "Musicalidad",
+		title: "Ritmo de Bachata",
 		image: "https://imagedelivery.net/4-G5Kx2wHcK3gRDUXWrgEw/6c17daf9-3d58-444d-3786-258e5c33d500/public",
-		shortDesc: "Aprende a bailar al ritmo de la música y a interpretarla con tu cuerpo.",
+		shortDesc: "Aprende a seguir el ritmo de la bachata, una danza suave y sensual.",
 	},
 	{
 		title: "Movimiento Corporal",
 		image: "https://imagedelivery.net/4-G5Kx2wHcK3gRDUXWrgEw/c3d597d2-6730-4afc-e467-a91a93e42600/public",
-		shortDesc: "Descubre cómo mover tu cuerpo de forma fluida y natural.",
+		shortDesc: "Domina el movimiento corporal para una expresión más sensorial y fluida.",
 	},
 	{
-		title: "Pasos Libres",
+		title: "Baile Sin Pareja",
 		image: "https://imagedelivery.net/4-G5Kx2wHcK3gRDUXWrgEw/c4adda27-6696-4487-d5ff-91501b218e00/public",
-		shortDesc: "Aprende a bailar sin pareja y a expresarte con libertad en la pista.",
+		shortDesc: "Baila con libertad sin pareja, adaptando tus movimientos a la música.",
 	},
 	{
-		title: "Coreografía",
+		title: "Coreografía de Bachata",
 		image: "https://imagedelivery.net/4-G5Kx2wHcK3gRDUXWrgEw/c3d597d2-6730-4afc-e467-a91a93e42600/public",
-		shortDesc: "Domina las secuencias de pasos y los movimientos más populares de la bachata.",
+		shortDesc: "Aprende los pasos y movimientos que definen la bachata moderna y tradicional.",
 	},
 ];
 ---
 
-<Layout title="The Latin Action | Salsa y Bachata.">
+<Layout title="The Latin Action | Salsa y Bachata">
 	<main class="flex flex-col">
 		<section>
 			<HeroSection>
@@ -40,7 +40,7 @@ let KnowledgeData = [
 					class="max-w-4xl container relative flex flex-col pt-8 lg:flex-row px-8 mx-auto lg:pt-24 lg:px-0"
 					slot="heroImage"
 				>
-					<!-- For larger screens (two columns) -->
+					<!-- For large screens -->
 					<div
 						class="relative order-2 lg:order-none pt-12 flex flex-col items-center justify-center lg:w-1/2 lg:mx-6"
 					>
@@ -50,7 +50,7 @@ let KnowledgeData = [
 							<img
 								decoding="async"
 								class="aspect-[285/428] h-auto w-full object-contain opacity-80 rounded-lg"
-								alt="Fotografía de Juan carlos y Luna"
+								alt="Bachata Dance"
 								src="https://imagedelivery.net/4-G5Kx2wHcK3gRDUXWrgEw/f39784e7-d142-4780-c4ff-a8203dbeb800/public"
 								draggable="false"
 								loading="eager"
@@ -70,14 +70,15 @@ let KnowledgeData = [
 								Aprende
 								Bachata
 								<span
-									class="text-[#cc0044] text-4xl lg:text-4xl xl:text-5xl"
+									class="text-[#ff638c] text-4xl lg:text-4xl xl:text-5xl"
 									>Clases
-									presenciales</span
+									Presenciales</span
 								>
 							</h1>
 							<a
 								href="https://wa.me/34645089122?text=Hola,%20quiero%20más%20información%20sobre%20la%20clase%20de%20prueba"
-								class="mt-8 sm:mt-10 px-6 py-3 bg-[#cc0044] text-white rounded-full transition-transform transform hover:scale-105"
+								class="mt-8 sm:mt-10 px-6 py-3 bg-[#ff638c] text-white rounded-full transition-transform transform hover:scale-105
+								hover:bg-[#ff2c69] hover:shadow-lg"
 							>
 								Clase
 								de
@@ -87,6 +88,7 @@ let KnowledgeData = [
 						</div>
 					</div>
 
+					<!-- For large screens -->
 					<div
 						class="relative order-1 lg:order-none pt-12 lg:w-1/2 lg:mx-6 hidden lg:block"
 					>
@@ -99,8 +101,8 @@ let KnowledgeData = [
 		<h2
 			class="text-3xl font-extrabold text-white px-8 pt-10 flex flex-wrap items-center max-w-4xl w-full mx-auto"
 		>
-			¿Qué aprenderás con las clases de
-			<span class="text-[#e63950] ml-2"
+			¿Qué aprenderás en las clases de{' '}
+			<span class="text-[#ff638c] ml-2"
 				>Latin Action</span
 			>?
 		</h2>
@@ -108,16 +110,15 @@ let KnowledgeData = [
 		<p
 			class="text-lg mt-6 text-white px-7 pb-10 max-w-4xl mx-auto"
 		>
-			Tanto si no has bailado como si ya tienes
-			experiencia en la bachata, en Latin Action
-			encontrarás clases adaptadas a tu nivel.
-			Aprenderás a bailar al ritmo de la música, a mover
-			tu cuerpo con soltura y a expresarte con libertad
-			en la pista. Junto al <span class="text-[#e63950]"
-				>profesor de profesores</span
-			>
-			Juan Carlos. ¡Ven a probar una clase gratis y descubre
-			todo lo que puedes aprender con nosotros!
+			Ya seas principiante o tengas experiencia, en
+			Latin Action encontrarás clases adaptadas a tu
+			nivel. Aprende a moverte al ritmo de la bachata, a
+			expresar tus emociones con libertad y a dominar
+			los pasos básicos y avanzados. ¡Ven y disfruta de
+			una clase gratis con el <span
+				class="text-[#ff638c]"
+				>profesor experto</span
+			> Juan Carlos!
 		</p>
 
 		<PresentationVideo>
@@ -129,9 +130,7 @@ let KnowledgeData = [
 				preload="preload"
 				src="/video-bg-juan-carlos.mp4"
 				class="w-full h-full object-cover rounded-lg shadow-lg max-w-4xl mx-auto opacity-80"
-				slot="video-background"
-			>
-			</video>
+				slot="video-background"></video>
 		</PresentationVideo>
 
 		<Knowledge KnowledgeData={KnowledgeData} />
@@ -146,16 +145,5 @@ let KnowledgeData = [
 			overflow: hidden;
 		}
 
-		.scale-transition:hover {
-			--hover-color: #cc0044;
-		}
-
-		button {
-			transition: all 0.3s ease;
-		}
-
-		button:hover {
-			background-color: var(--hover-color);
-		}
 	</style>
 </Layout>

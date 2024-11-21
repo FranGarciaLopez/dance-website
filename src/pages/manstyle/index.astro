@@ -7,35 +7,35 @@ import Layout from "../../layouts/Layout.astro";
 
 const KnowledgeData = [
           {
-                    title: "Musicalidad",
+                    title: "Ritmo Musical",
                     image: "",
-                    shortDesc: "Aprende a bailar al ritmo de la música y a interpretarla con tu cuerpo.",
+                    shortDesc: "Aprende a conectar con el ritmo de la música y a interpretarlo a través de tu cuerpo.",
           },
           {
-                    title: "Movimiento Corporal",
+                    title: "Técnicas de Movimiento",
                     image: "",
-                    shortDesc: "Descubre cómo mover tu cuerpo de forma fluida y natural.",
+                    shortDesc: "Descubre cómo moverte con fluidez y naturalidad, logrando una danza más expresiva.",
           },
           {
-                    title: "Pasos Libres",
+                    title: "Baile Libre",
                     image: "",
-                    shortDesc: "Aprende a bailar sin pareja y a expresarte con libertad en la pista.",
+                    shortDesc: "Baila sin necesidad de pareja y exprésate con libertad en la pista de baile.",
           },
           {
-                    title: "Coreografía",
+                    title: "Pasos y Coreografía",
                     image: "",
-                    shortDesc: "Domina las secuencias de pasos y los movimientos más populares de la bachata.",
+                    shortDesc: "Domina las secuencias y los movimientos más característicos de la salsa.",
           },
 ];
 ---
 
-<Layout title="Salsa | The latin Action">
+<Layout title="Clases de Salsa | The Latin Action">
           <HeroSection>
                     <div
                               class="max-w-4xl container relative flex flex-col pt-8 lg:flex-row px-8 mx-auto lg:pt-24 lg:px-0"
                               slot="heroImage"
                     >
-                              <!-- For larger screens (two columns) -->
+                              <!-- For large screens -->
                               <div
                                         class="relative order-2 lg:order-none pt-12 flex flex-col items-center justify-center lg:w-1/2 lg:mx-6"
                               >
@@ -45,7 +45,7 @@ const KnowledgeData = [
                                                   <img
                                                             decoding="async"
                                                             class="aspect-[285/428] h-auto w-full object-contain opacity-80 rounded-lg"
-                                                            alt="Fotografía de Marco Epejo"
+                                                            alt="Salsa Dance"
                                                             src=""
                                                             draggable="false"
                                                             loading="eager"
@@ -53,25 +53,29 @@ const KnowledgeData = [
                                         </picture>
 
                                         <div
-                                                  class="absolute z-30 lg:flex flex-col items-center justify-center text-center"
+                                                  class="absolute z-30 flex flex-col items-center justify-center text-center"
                                         >
                                                   <span
                                                             class="w-24 h-2 mb-10 bg-gradient-to-r from-gray-600 to-white rounded"
-                                                  >
-                                                  </span>
+                                                  ></span>
                                                   <h1
                                                             class="text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight text-white uppercase"
                                                   >
-                                                            Salsa
+                                                            Clases de
+                                                            <span class="text-[#ca6cff]">Salsa</span>
                                                   </h1>
-                                                  <button
-                                                            class="mt-6 px-6 py-3 bg-[#ff004d] text-white rounded-full transition-transform transform hover:scale-105"
+                                                  <a
+                                                            href="https://wa.me/34645089122?text=Hola,%20quiero%20más%20información%20sobre%20la%20clase%20de%salsa"
+                                                            class="mt-8 sm:mt-10 px-6 py-3 bg-[#ca6cff] text-white rounded-full transition-transform transform hover:scale-105
+								hover:bg-[#b635ff] hover:shadow-lg"
                                                   >
-                                                            Prueba gratis ahora
-                                                  </button>
+                                                            Clase de prueba
+                                                            gratis
+                                                  </a>
                                         </div>
                               </div>
-                              <!-- For larger screens (two columns) -->
+
+                              <!-- For large screens -->
                               <div
                                         class="relative order-1 lg:order-none pt-12 lg:w-1/2 lg:mx-6 hidden lg:block"
                               >
@@ -81,27 +85,21 @@ const KnowledgeData = [
           </HeroSection>
 
           <h2
-                    class="text-3xl font-extrabold text-white px-8 pt-10 flex justify-start items-center max-w-4xl mx-auto"
+                    class="text-3xl font-extrabold text-white px-8 pt-10 flex flex-wrap items-center max-w-4xl w-full mx-auto"
           >
-                    ¿Qué aprenderás en nuestras clases de Salsa?
+                    ¿Qué aprenderás en nuestras clases de {" "}
+                    <span class="text-[#ca6cff] ml-2"> Salsa </span>?
           </h2>
-
-          <div
-                    class="max-w-4xl px-6 h-1 bg-gradient-to-r from-pink-500 to-red-500 mx-auto mt-6 mb-12 rounded"
-          >
-          </div>
-
-          <Knowledge KnowledgeData={KnowledgeData} />
 
           <p
                     class="text-lg mt-6 text-white px-7 pb-16 flex items-center max-w-4xl mx-auto leading-relaxed"
           >
-                    En nuestras clases de salsa aprenderás a bailar al ritmo de
-                    la música y a interpretarla con tu cuerpo. Descubrirás cómo
-                    mover tu cuerpo de forma fluida y natural, a bailar sin
-                    pareja y a expresarte con libertad en la pista. Además,
-                    dominarás las secuencias de pasos y los movimientos más
-                    populares de la salsa.
+                    En nuestras clases de Salsa, aprenderás a sentir y bailar al
+                    ritmo de la música, desarrollando habilidades para moverte
+                    de forma fluida y natural. Además, te enseñaremos cómo
+                    bailar sin pareja y a dominar las coreografías más
+                    populares. ¡Ven a disfrutar de una clase gratis y empieza a
+                    moverte con confianza!
           </p>
 
           <PresentationVideo>
@@ -112,22 +110,8 @@ const KnowledgeData = [
                               preload="preload"
                               src=""
                               class="w-full h-full object-cover rounded-lg shadow-lg max-w-4xl mx-auto"
-                              slot="video-background"
-                    >
-                    </video>
+                              slot="video-background"></video>
           </PresentationVideo>
+
+          <Knowledge KnowledgeData={KnowledgeData} />
 </Layout>
-
-<style>
-          .scale-transition:hover {
-                    --hover-color: #ff004d;
-          }
-
-          button {
-                    transition: all 0.3s ease;
-          }
-
-          button:hover {
-                    background-color: var(--hover-color);
-          }
-</style>
