@@ -16,7 +16,7 @@ let KnowledgeData = [
 	},
 	{
 		title: "Movimiento Corporal",
-		image: "https://imagedelivery.net/4-G5Kx2wHcK3gRDUXWrgEw/c3d597d2-6730-4afc-e467-a91a93e42600/public",
+		image: "https://imagedelivery.net/4-G5Kx2wHcK3gRDUXWrgEw/7bbf6cf6-d766-40e7-369e-887722b39600/public",
 		shortDesc: "Domina el movimiento corporal para una expresión más sensorial y fluida.",
 	},
 	{
@@ -37,48 +37,48 @@ let KnowledgeData = [
 		<section>
 			<HeroSection>
 				<div
-					class="max-w-4xl container relative flex flex-col pt-8 lg:flex-row px-8 mx-auto lg:pt-24 lg:px-0"
+					class="max-w-4xl container relative flex flex-col pt-8 lg:flex-row px-8 mx-auto lg:pt-24 lg:px-4"
 					slot="heroImage"
 				>
 					<!-- For large screens -->
 					<div
-						class="relative order-2 lg:order-none pt-12 flex flex-col items-center justify-center lg:w-1/2 lg:mx-6"
-					>
-						<picture
-							class="z-20 aspect-[285/428] h-auto w-full max-w-[460px] lg:hidden"
-						>
-							<img
-								decoding="async"
-								class="aspect-[285/428] h-auto w-full object-contain opacity-80 rounded-lg"
-								alt="Bachata Dance"
-								src="https://imagedelivery.net/4-G5Kx2wHcK3gRDUXWrgEw/f39784e7-d142-4780-c4ff-a8203dbeb800/public"
-								draggable="false"
-								loading="eager"
-							/>
-						</picture>
+                                        class="relative order-2 lg:order-none pt-8 flex flex-col items-center justify-center lg:w-1/2 lg:mx-6"
+                              >
+                                        <picture
+                                                  class="z-20 aspect-w-16 aspect-h-9 h-auto w-full max-w-[400px] lg:hidden"
+                                        >
+                                                  <img
+                                                            decoding="async"
+                                                            class="h-full w-full object-cover opacity-80 rounded-lg"
+                                                            alt="Fotografía de Sara Panero"
+                                                            src="https://imagedelivery.net/4-G5Kx2wHcK3gRDUXWrgEw/f39784e7-d142-4780-c4ff-a8203dbeb800/public"
+                                                            draggable="false"
+                                                            loading="eager"
+                                                  />
+                                        </picture>
 
+						<!-- div responsive -->
 						<div
-							class="absolute z-30 flex flex-col items-center justify-center text-center"
+							class="absolute z-30 flex flex-col items-center justify-center text-center lg:text-left lg:pl-12s"
 						>
 							<span
 								class="hidden lg:block w-24 h-2 mb-10 bg-gradient-to-r from-gray-600 to-white rounded"
 							></span>
 							<h1
-								class="mx-auto px-6 sm:px-8 md:px-10 max-w-screen-md text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight uppercase"
+								class="mx-auto px-6 sm:px-8 md:px-10 max-w-md text-3xl lg:text-4xl xl:text-5xl font-extrabold leading-tight uppercase"
 								style={`color: ${theme.common.titleColor};`}
 							>
 								Aprende
 								Bachata
 								<span
-									class="text-[#ff638c] text-4xl lg:text-4xl xl:text-5xl"
+									class="text-[#ff638c] text-3xl lg:text-4xl xl:text-5xl"
 									>Clases
 									Presenciales</span
 								>
 							</h1>
 							<a
 								href="https://wa.me/34645089122?text=Hola,%20quiero%20más%20información%20sobre%20la%20clase%20de%20prueba"
-								class="mt-8 sm:mt-10 px-6 py-3 bg-[#ff638c] text-white rounded-full transition-transform transform hover:scale-105
-								hover:bg-[#ff2c69] hover:shadow-lg"
+								class="mt-4 sm:mt-8 px-4 py-2 bg-[#ff638c] text-white text-sm sm:text-base rounded-full transition-transform transform hover:scale-105 hover:bg-[#ff2c69] hover:shadow-lg"
 							>
 								Clase
 								de
@@ -99,16 +99,16 @@ let KnowledgeData = [
 		</section>
 
 		<h2
-			class="text-3xl font-extrabold text-white px-8 pt-10 flex flex-wrap items-center max-w-4xl w-full mx-auto"
+			class="text-3xl font-extrabold text-white px-12 pt-10 flex flex-wrap items-center max-w-4xl w-full mx-auto lg:px-4"
 		>
-			¿Qué aprenderás en las clases de{' '}
+			¿Qué aprenderás en las clases de{" "}
 			<span class="text-[#ff638c] ml-2"
 				>Latin Action</span
 			>?
 		</h2>
 
 		<p
-			class="text-lg mt-6 text-white px-7 pb-10 max-w-4xl mx-auto"
+			class="text-lg mt-6 text-white px-7 pb-10 px-12 max-w-4xl mx-auto lg:px-4"
 		>
 			Ya seas principiante o tengas experiencia, en
 			Latin Action encontrarás clases adaptadas a tu
@@ -122,6 +122,18 @@ let KnowledgeData = [
 		</p>
 
 		<PresentationVideo>
+			<!-- Mobile Video -->
+			<!-- <video
+				autoplay="autoplay"
+				controls="controls"
+				muted="muted"
+				loop="loop"
+				preload="preload"
+				src="/LadyStyle.mp4"
+				class="w-full h-auto object-contain rounded-lg shadow-lg opacity-80 px-6"
+				slot="mobile-video"></video> -->
+
+			<!-- Desktop Video -->
 			<video
 				autoplay="autoplay"
 				controls="controls"
@@ -129,10 +141,11 @@ let KnowledgeData = [
 				loop="loop"
 				preload="preload"
 				src="/video-bg-juan-carlos.mp4"
-				class="w-full h-full object-cover rounded-lg shadow-lg max-w-4xl mx-auto opacity-80"
-				slot="video-background"></video>
+				class="w-full h-auto object-cover rounded-lg shadow-lg opacity-80"
+				slot="desktop-video"></video>
 		</PresentationVideo>
 
+		<!-- Knowledge Section -->
 		<Knowledge KnowledgeData={KnowledgeData} />
 
 		<Schedule />
@@ -144,6 +157,5 @@ let KnowledgeData = [
 		main {
 			overflow: hidden;
 		}
-
 	</style>
 </Layout>

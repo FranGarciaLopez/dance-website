@@ -94,55 +94,32 @@ let schedule = [
           },
 ];
 ---
-
-<section
-          class="flex flex-col items-center justify-center pt-8 pb-8"
->
-          <h2
-                    class="text-3xl font-extrabold mb-8 px-6"
-                    style={`color: ${theme.schedule.titleColor};`}
-          >
-                    Horarios de Clases
+<section class="flex flex-col items-center justify-center pt-8 pb-8 px-6">
+          <h2 class="text-3xl font-extrabold mb-8 px-6" style={`color: ${theme.schedule.titleColor};`}>
+            Horarios de Clases
           </h2>
-
-          <div
-                    class="px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl w-full"
-          >
-                    {
-                              schedule.map((item) => (
-                                        <div class="p-6 rounded-lg shadow-md transition-all duration-300 bg-white/10 backdrop-blur-md text-white/50 hover:bg-[#496080]/20">
-                                                  <h3
-                                                            class="text-xl font-semibold border-b-2 pb-2 mb-4"
-                                                            style={`color: ${theme.common.slotTextColor}; border-bottom-color: ${theme.common.borderColor};`}
-                                                  >
-                                                            {item.day}
-                                                  </h3>
-                                                  {item.slots.map((slot) => (
-                                                            <div class="mt-4">
-                                                                      <p
-                                                                                class="text-lg font-bold"
-                                                                                style={`color: ${theme.common.slotTextBoldColor};`}
-                                                                      >
-                                                                                {
-                                                                                          slot.time
-                                                                                }
-                                                                      </p>
-                                                                      <p
-                                                                                class="text-sm"
-                                                                                style={`color: ${theme.common.textColor};`}
-                                                                      >
-                                                                                {
-                                                                                          slot.class
-                                                                                }
-                                                                      </p>
-                                                            </div>
-                                                  ))}
-                                        </div>
-                              ))
-                    }
+        
+          <div class="px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl w-full">
+            {schedule.map((item) => (
+              <div class="p-6 rounded-lg shadow-md transition-all duration-300 bg-white/10 backdrop-blur-md text-white/50 hover:bg-[#496080]/20">
+                <h3 class="text-xl font-semibold border-b-2 pb-2 mb-4" style={`color: ${theme.common.slotTextColor}; border-bottom-color: ${theme.common.borderColor};`}>
+                  {item.day}
+                </h3>
+                {item.slots.map((slot) => (
+                  <div class="mt-4">
+                    <p class="text-lg font-bold" style={`color: ${theme.common.slotTextBoldColor};`}>
+                      {slot.time}
+                    </p>
+                    <p class="text-sm" style={`color: ${theme.common.textColor};`}>
+                      {slot.class}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            ))}
           </div>
-</section>
-
+        </section>
+        
 <style>
           section {
                     overflow: hidden;
