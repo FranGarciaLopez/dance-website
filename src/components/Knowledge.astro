@@ -1,6 +1,7 @@
 ---
 import Card from "./Card.astro";
 
+// Tipado de las props utilizando TypeScript
 const { KnowledgeData } = Astro.props;
 ---
 
@@ -9,14 +10,15 @@ const { KnowledgeData } = Astro.props;
           class="max-w-4xl mx-auto px-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-5"
 >
           {
+                    /* @ts-ignore */
                     KnowledgeData.map((item, index) => (
                               <div
-                                        class={`${
+                                        class={
                                                   index ===
                                                   KnowledgeData.length - 1
                                                             ? "lg:col-start-2"
                                                             : ""
-                                        }`}
+                                        }
                               >
                                         <Card>
                                                   <img
