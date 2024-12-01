@@ -1,161 +1,106 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import HeroSection from "../components/HeroSection.astro";
-import Schedule from "../components/Schedule.astro";
-import HomeImage from "../components/HomeImage.astro";
-import Knowledge from "../components/Knowledge.astro";
-import { theme } from "./theme";
-import Partners from "../components/Partners.astro";
-import PresentationVideo from "../components/PresentationVideo.astro";
+import Layout from "@/layouts/Layout.astro";
+import HeroSection from "@/components/HeroSection.astro";
+import Modalities from "@/components/Modalities.astro";
+import ImageMasonry from "@/components/ImageMasonry.astro";
+import HistoryLocation from "@/components/HistoryLocation.astro";
+import Footer from "@/components/Footer.astro";
+import Socials from "@/components/Socials.astro";
 
-let KnowledgeData = [
+// Datos de las modalidades de baile
+const modalitiesData = [
 	{
-		title: "Ritmo de Bachata",
-		image: "https://imagedelivery.net/4-G5Kx2wHcK3gRDUXWrgEw/6c17daf9-3d58-444d-3786-258e5c33d500/public",
-		shortDesc: "Aprende a seguir el ritmo de la bachata, una danza suave y sensual.",
+		title: "Bachata en Pareja",
+		image: "https://media.istockphoto.com/id/1195081192/es/foto/bailarines-en-jeans-vaqueros-bailando-bachata-sobre-fondo-gris.jpg?s=2048x2048&w=is&k=20&c=69O3UhF8uGByN06ef7WGDm2KE34jAUKL2-qgo1YjJts=",
+		description: "Aprende los movimientos sensuales de la bachata en pareja.",
+		link: "/bachata-en-pareja-elche",
 	},
 	{
-		title: "Movimiento Corporal",
-		image: "https://imagedelivery.net/4-G5Kx2wHcK3gRDUXWrgEw/7bbf6cf6-d766-40e7-369e-887722b39600/public",
-		shortDesc: "Domina el movimiento corporal para una expresión más sensorial y fluida.",
+		title: "Salsa",
+		image: "https://media.istockphoto.com/id/1195081192/es/foto/bailarines-en-jeans-vaqueros-bailando-bachata-sobre-fondo-gris.jpg?s=2048x2048&w=is&k=20&c=69O3UhF8uGByN06ef7WGDm2KE34jAUKL2-qgo1YjJts=",
+		description: "Disfruta del ritmo y la alegría de la salsa en nuestras clases de elche.",
+		link: "/salsa-elche",
 	},
 	{
-		title: "Baile Sin Pareja",
-		image: "https://imagedelivery.net/4-G5Kx2wHcK3gRDUXWrgEw/c4adda27-6696-4487-d5ff-91501b218e00/public",
-		shortDesc: "Baila con libertad sin pareja, adaptando tus movimientos a la música.",
+		title: "Lady Style",
+		image: "https://media.istockphoto.com/id/1195081192/es/foto/bailarines-en-jeans-vaqueros-bailando-bachata-sobre-fondo-gris.jpg?s=2048x2048&w=is&k=20&c=69O3UhF8uGByN06ef7WGDm2KE34jAUKL2-qgo1YjJts=",
+		description: "Domina la técnica y el estilo de la salsa en línea con el profesor más experimentado.",
+		link: "/lady-style-elche",
 	},
-	{
-		title: "Coreografía de Bachata",
-		image: "https://imagedelivery.net/4-G5Kx2wHcK3gRDUXWrgEw/c3d597d2-6730-4afc-e467-a91a93e42600/public",
-		shortDesc: "Aprende los pasos y movimientos que definen la bachata moderna y tradicional.",
-	},
+];
+
+// URLs de imágenes para el masonry
+
+const galleryImages = [
+	"https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?w=600&h=800&fit=crop",
+	"https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop",
+	"https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop",
+	"https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop",
+	"https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop"
 ];
 ---
 
-<Layout title="The Latin Action | Salsa y Bachata">
-	<main class="flex flex-col">
-		<section>
-			<HeroSection>
+<Layout title="The Latin Action | Escuela de Baile en Elche">
+	<main class="text-white">
+		<!-- Hero Section -->
+		<HeroSection>
+			<!-- Contenido del Hero -->
+			<div
+				class="relative bg-cover bg-center text-center text-white py-12 md:py-24"
+				style="background-image: url('https://images.unsplash.com/photo-1519567241046-7f570eee1b97?w=1200&h=800&fit=crop');"
+			>
+				<!-- Overlay para mejorar la legibilidad del texto -->
 				<div
-					class="max-w-4xl container relative flex flex-col pt-8 lg:flex-row px-8 mx-auto lg:pt-24 lg:px-4"
-					slot="heroImage"
+					class="absolute inset-0 opacity-60"
 				>
-					<!-- For large screens -->
-					<div
-                                        class="relative order-2 lg:order-none pt-8 flex flex-col items-center justify-center lg:w-1/2 lg:mx-6"
-                              >
-                                        <picture
-                                                  class="z-20 aspect-w-16 aspect-h-9 h-auto w-full max-w-[400px] lg:hidden"
-                                        >
-                                                  <img
-                                                            decoding="async"
-                                                            class="h-full w-full object-cover opacity-80 rounded-lg"
-                                                            alt="Fotografía de Sara Panero"
-                                                            src="https://imagedelivery.net/4-G5Kx2wHcK3gRDUXWrgEw/f39784e7-d142-4780-c4ff-a8203dbeb800/public"
-                                                            draggable="false"
-                                                            loading="eager"
-                                                  />
-                                        </picture>
-
-						<!-- div responsive -->
-						<div
-							class="absolute z-30 flex flex-col items-center justify-center text-center lg:text-left lg:pl-12s"
-						>
-							<span
-								class="hidden lg:block w-24 h-2 mb-10 bg-gradient-to-r from-gray-600 to-white rounded"
-							></span>
-							<h1
-								class="mx-auto px-6 sm:px-8 md:px-10 max-w-md text-3xl lg:text-4xl xl:text-5xl font-extrabold leading-tight uppercase"
-								style={`color: ${theme.common.titleColor};`}
-							>
-								Aprende
-								Bachata
-								<span
-									class="text-[#ff638c] text-3xl lg:text-4xl xl:text-5xl"
-									>Clases
-									Presenciales</span
-								>
-							</h1>
-							<a
-								href="https://wa.me/34645089122?text=Hola,%20quiero%20más%20información%20sobre%20la%20clase%20de%20prueba"
-								class="mt-4 sm:mt-8 px-4 py-2 bg-[#ff638c] text-white text-sm sm:text-base rounded-full transition-transform transform hover:scale-105 hover:bg-[#ff2c69] hover:shadow-lg"
-							>
-								Clase
-								de
-								prueba
-								gratis
-							</a>
-						</div>
-					</div>
-
-					<!-- For large screens -->
-					<div
-						class="relative order-1 lg:order-none pt-12 lg:w-1/2 lg:mx-6 hidden lg:block"
-					>
-						<HomeImage />
-					</div>
 				</div>
-			</HeroSection>
-		</section>
 
-		<h2
-			class="text-3xl font-extrabold text-white px-12 pt-10 flex flex-wrap items-center max-w-4xl w-full mx-auto lg:px-4"
-		>
-			¿Qué aprenderás en las clases de{" "}
-			<span class="text-[#ff638c] ml-2"
-				>Latin Action</span
-			>?
-		</h2>
+				<div
+					class="relative max-w-4xl mx-auto px-4"
+				>
+					<h1
+						class="text-4xl md:text-5xl font-extrabold mb-4"
+					>
+						¡Bienvenido a <span
+							class="text-pink-500"
+							>The Latin
+							Action</span
+						>!
+					</h1>
+					<p
+						class="text-xl md:text-2xl mb-8"
+					>
+						Descubre el ritmo y
+						la pasión de la
+						danza latina en
+						Elche, Alicante y
+						Murcia.
+					</p>
+					<a
+						href="https://wa.me/34645089122?text=Hola,%20quiero%20más%20información%20sobre%20las%20clases"
+						class="inline-block px-6 py-3 md:px-8 md:py-4 bg-pink-600 text-white font-semibold rounded-full transition-transform transform hover:scale-105 hover:bg-pink-700"
+					>
+						Reserva tu clase de
+						prueba gratis
+					</a>
+				</div>
 
-		<p
-			class="text-lg mt-6 text-white px-12 pb-10 px-12 max-w-4xl mx-auto lg:px-4"
-		>
-			Ya seas principiante o tengas experiencia, en
-			Latin Action encontrarás clases adaptadas a tu
-			nivel. Aprende a moverte al ritmo de la bachata, a
-			expresar tus emociones con libertad y a dominar
-			los pasos básicos y avanzados. ¡Ven y disfruta de
-			una clase gratis con el <span
-				class="text-[#ff638c]"
-				>profesor experto</span
-			> Juan Carlos!
-		</p>
+				
+			</div>
+			
+			<Socials />
+		</HeroSection>
 
-		<PresentationVideo>
-			<!-- Mobile Video -->
-			<video
-				autoplay="autoplay"
-				controls="controls"
-				muted="muted"
-				loop="loop"
-				preload="preload"
-				src="https://res.cloudinary.com/dgvvnopu7/video/upload/v1732571099/vqprqk7p7ujdoctm7res.webm"
-				class="w-full h-auto object-contain rounded-lg shadow-lg opacity-80 px-6"
-				slot="mobile-video"></video>
+		<!-- Modalidades -->
+		<Modalities modalities={modalitiesData} />
 
-			<!-- Desktop Video -->
-			<video
-				autoplay="autoplay"
-				controls="controls"
-				muted="muted"
-				loop="loop"
-				preload="preload"
-				src="https://res.cloudinary.com/dgvvnopu7/video/upload/v1732571111/fyxa1hcq6hlljpijs7bu.webm"
-				class="w-full h-auto object-cover rounded-lg shadow-lg opacity-80"
-				slot="desktop-video"></video>
-		</PresentationVideo>
+		<!-- Galería de Imágenes -->
+		<ImageMasonry images={galleryImages} />
 
-		<!-- Knowledge Section -->
-		<Knowledge KnowledgeData={KnowledgeData} />
+		<!-- Historia y Ubicación -->
+		<HistoryLocation />
 
-		<Schedule />
+		<Footer />
 
-		<Partners />
 	</main>
-
-	<style>
-		main {
-			overflow: hidden;
-		}
-	</style>
 </Layout>

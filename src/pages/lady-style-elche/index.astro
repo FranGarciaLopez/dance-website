@@ -1,41 +1,43 @@
 ---
-import HeroSection from "../../components/HeroSection.astro";
-import Knowledge from "../../components/Knowledge.astro";
-import MarcoImage from "../../components/MarcoImage.astro";
-import PresentationVideo from "../../components/PresentationVideo.astro";
-import Layout from "../../layouts/Layout.astro";
+import HeroSection from "@/components/HeroSection.astro";
+import Knowledge from "@/components/Knowledge.astro";
+import LunaImage from "@/components/LunaImage.astro";
+import PresentationVideo from "@/components/PresentationVideo.astro";
+import Layout from "@/layouts/Layout.astro";
+import { theme } from "@/pages/theme";
+import Footer from "@/components/Footer.astro";
 
 const KnowledgeData = [
           {
-                    title: "Ritmo Musical",
+                    title: "Movimiento de brazos",
                     image: "",
-                    shortDesc: "Aprende a conectar con el ritmo de la música y a interpretarlo a través de tu cuerpo.",
+                    shortDesc: "Aprende a mover tus brazos con gracia y elegancia para darle un toque especial a tu baile.",
           },
           {
-                    title: "Técnicas de Movimiento",
+                    title: "Movimiento Corporal",
                     image: "",
-                    shortDesc: "Descubre cómo moverte con fluidez y naturalidad, logrando una danza más expresiva.",
+                    shortDesc: "Descubre cómo mover tu cuerpo de forma fluida y femenina.",
           },
           {
-                    title: "Baile Libre",
+                    title: "Pasos Libres",
                     image: "",
-                    shortDesc: "Baila sin necesidad de pareja y exprésate con libertad en la pista de baile.",
+                    shortDesc: "Aprende a bailar sin pareja y a expresarte con libertad en la pista.",
           },
           {
-                    title: "Pasos y Coreografía",
+                    title: "Coreografía",
                     image: "",
-                    shortDesc: "Domina las secuencias y los movimientos más característicos de la salsa.",
+                    shortDesc: "Domina las secuencias de pasos y los movimientos más populares de la bachata.",
           },
 ];
 ---
 
-<Layout title="Clases de Salsa | The Latin Action">
+<Layout title="Lady Style">
           <HeroSection>
                     <div
-                              class="max-w-4xl container relative flex flex-col pt-8 lg:flex-row px-8 mx-auto lg:pt-24 lg:px-4"
+                              class="max-w-4xl container relative flex flex-col pt-8 lg:flex-row px-6 mx-auto lg:pt-24 lg:px-4"
                               slot="heroImage"
                     >
-                              <!-- For large screens -->
+                              <!-- For larger screens (two columns) -->
                               <div
                                         class="relative order-2 lg:order-none pt-12 flex flex-col items-center justify-center lg:w-1/2 lg:mx-6"
                               >
@@ -46,44 +48,44 @@ const KnowledgeData = [
                                                             decoding="async"
                                                             class="h-full w-full object-cover opacity-80 rounded-lg"
                                                             alt="Fotografía de Sara Panero"
-                                                            src="https://imagedelivery.net/4-G5Kx2wHcK3gRDUXWrgEw/f39784e7-d142-4780-c4ff-a8203dbeb800/public"
+                                                            src="https://imagedelivery.net/4-G5Kx2wHcK3gRDUXWrgEw/0efe0563-1f5c-4e0c-12e4-06feea110b00/public"
                                                             draggable="false"
                                                             loading="eager"
                                                   />
                                         </picture>
 
                                         <div
-                                                  class="absolute z-30 flex flex-col items-center justify-center text-center lg:text-left lg:pl-12s"
+                                                  class="absolute z-30 flex flex-col items-center justify-center text-center"
                                         >
                                                   <span
                                                             class="hidden lg:block w-24 h-2 mb-10 bg-gradient-to-r from-gray-600 to-white rounded"
                                                   ></span>
                                                   <h1
                                                             class="mx-auto px-6 sm:px-8 md:px-10 max-w-md text-white text-3xl lg:text-4xl xl:text-5xl font-extrabold leading-tight uppercase"
+                                                            style={`color: ${theme.common.titleColor};`}
                                                   >
-                                                            Clases presenciales
-                                                            de
+                                                            Aprende Lady Style
                                                             <span
-                                                                      class="text-[#ca6cff]"
-                                                                      >Salsa Latin Action</span
+                                                                      class="text-[#47bab2]"
+                                                                      >Clases
+                                                                      Presenciales</span
                                                             >
                                                   </h1>
                                                   <a
                                                             href="https://wa.me/34645089122?text=Hola,%20quiero%20más%20información%20sobre%20la%20clase%20de%20prueba"
-                                                            class="mt-4 sm:mt-8 px-4 py-2 bg-[#ca6cff] text-white text-sm sm:text-base rounded-full transition-transform
-                                                            transform hover:scale-105 hover:bg-[#b635ff] hover:shadow-lg"
+                                                            class="mt-8 sm:mt-10 px-6 py-3 bg-[#47bab2] text-white rounded-full transition-transform transform hover:scale-105
+								hover:bg-[#2e9e98] hover:shadow-lg"
                                                   >
                                                             Clase de prueba
                                                             gratis
                                                   </a>
                                         </div>
                               </div>
-
-                              <!-- For large screens -->
+                              <!-- For larger screens (two columns) -->
                               <div
-                                        class="relative order-1 lg:order-none pt-12 lg:w-1/2 lg:mx-6 hidden lg:block"
+                                        class="relative order-1 lg:order-none pt-6 lg:w-1/2 lg:mx-6 hidden lg:block"
                               >
-                                        <MarcoImage />
+                                        <LunaImage />
                               </div>
                     </div>
           </HeroSection>
@@ -92,43 +94,48 @@ const KnowledgeData = [
                     class="text-3xl font-extrabold text-white px-12 pt-10 flex flex-wrap items-center max-w-4xl w-full mx-auto lg:px-4"
           >
                     ¿Qué aprenderás en las clases de{" "}
-                    <span class="text-[#ca6cff] ml-2">Salsa</span>?
+                    <span class="text-[#47bab2] ml-2">Lady Style</span>?
           </h2>
 
           <p
                     class="text-lg mt-6 text-white px-12 pb-10 px-12 max-w-4xl mx-auto lg:px-4"
           >
-                    En nuestras clases de Salsa, aprenderás a sentir y bailar al
-                    ritmo de la música, desarrollando habilidades para moverte
-                    de forma fluida y natural. Además, te enseñaremos cómo
-                    bailar sin pareja y a dominar las coreografías más
-                    populares. ¡Ven a disfrutar de una clase gratis y empieza a
-                    moverte con confianza!
+                    Es hora de dejar salir tu lado más atrevido en la pista de
+                    baile. La bachata es más que movimientos, es pura
+                    <span class="text-[#47bab2]">pasion y sensualidad</span>.
+                    Aprende a dominar cada paso con confianza y actitud de la
+                    mano de uno de las mejores bailarinas del mundo. Conviértete
+                    en esa mujer que todos desean seguir en la pista, mostrando
+                    tu poder y elegancia.
           </p>
 
+          <!-- This is where the video goes -->
           <PresentationVideo>
                     <!-- Mobile Video -->
-                    <!-- <video
-				autoplay="autoplay"
-				controls="controls"
-				muted="muted"
-				loop="loop"
-				preload="preload"
-				src="/LadyStyle.mp4"
-				class="w-full h-auto object-contain rounded-lg shadow-lg opacity-80 px-6"
-				slot="mobile-video"></video> -->
-
-                    <!-- Desktop Video -->
-                    <!-- <video
+                    <!--  <video
                               autoplay="autoplay"
                               controls="controls"
                               muted="muted"
                               loop="loop"
                               preload="preload"
-                              src="/video-bg-juan-carlos.mp4"
-                              class="w-full h-auto object-cover rounded-lg shadow-lg opacity-80"
+                              src="/LadyStyle.mp4"
+                              class="w-full h-[40%] object-contain rounded-lg shadow-lg max-w-4xl mx-auto opacity-80"
+                              slot="mobile-video"></video>
+ -->
+                    <!-- Desktop Video -->
+                    <!--  <video
+                              autoplay="autoplay"
+                              controls="controls"
+                              muted="muted"
+                              loop="loop"
+                              preload="preload"
+                              src="/desktop-video.mp4"
+                              class="w-full h-full object-cover rounded-lg shadow-lg opacity-80"
                               slot="desktop-video"></video> -->
           </PresentationVideo>
 
           <Knowledge KnowledgeData={KnowledgeData} />
+
+          <Footer />
+
 </Layout>

@@ -4,15 +4,20 @@ import Card from "./Card.astro";
 const { KnowledgeData } = Astro.props;
 ---
 
-<!-- present what the people can learn -->
-<div class="max-w-4xl px-12 mx-auto grid grid-cols-1 gap-6 pb-6 lg:grid-cols-2 lg:px-4">
+<!-- Presenta lo que las personas pueden aprender -->
+<div
+          class="max-w-4xl mx-auto px-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-5"
+>
           {
-                    KnowledgeData.map(
-                              (item: {
-                                        title: string;
-                                        image: string;
-                                        shortDesc: string;
-                              }) => (
+                    KnowledgeData.map((item, index) => (
+                              <div
+                                        class={`${
+                                                  index ===
+                                                  KnowledgeData.length - 1
+                                                            ? "lg:col-start-2"
+                                                            : ""
+                                        }`}
+                              >
                                         <Card>
                                                   <img
                                                             slot="background"
@@ -31,7 +36,7 @@ const { KnowledgeData } = Astro.props;
                                                             {item.shortDesc}
                                                   </p>
                                         </Card>
-                              ),
-                    )
+                              </div>
+                    ))
           }
 </div>

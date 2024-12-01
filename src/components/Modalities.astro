@@ -1,0 +1,57 @@
+---
+export interface Modality {
+          title: string;
+          image: string;
+          description: string;
+          link: string;
+}
+
+interface Props {
+          modalities: Modality[];
+}
+const { modalities } = Astro.props;
+---
+
+<section class="modalities-section px-8">
+          <h2 class="text-3xl font-bold text-center my-10">
+                    Nuestras Modalidades de Baile
+          </h2>
+
+          <!-- Añadimos 'mx-auto' para centrar el contenido -->
+          <div
+                    class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+                    {
+                              modalities.map((modality) => (
+                                        <a
+                                                  href={`${modality.link}`}
+                                                  class="modality-card  rounded-lg shadow-lg overflow-hidden"
+                                        >
+                                                  <div class="modality-card bg-white/10 hover:bg-[#496080]/20 cursor-pointer rounded-lg shadow-lg overflow-hidden transition duration-300 ease-in-out">
+                                                            <img
+                                                                      src={
+                                                                                modality.image
+                                                                      }
+                                                                      alt={
+                                                                                modality.title
+                                                                      }
+                                                                      class="w-full h-48 object-cover"
+                                                            />
+                                                            <div class="p-6">
+                                                                      <h3 class="text-xl font-semibold mb-2">
+                                                                                {
+                                                                                          modality.title
+                                                                                }
+                                                                      </h3>
+                                                                      <p class="text-white/80">
+                                                                                {
+                                                                                          modality.description
+                                                                                }
+                                                                      </p>
+                                                            </div>
+                                                  </div>
+                                        </a>
+                              ))
+                    }
+          </div>
+</section>
