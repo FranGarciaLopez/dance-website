@@ -1,31 +1,25 @@
 ---
 import Card from "./Card.astro";
 
-// Tipado de las props utilizando TypeScript
 const { KnowledgeData } = Astro.props;
 ---
 
-<!-- Presenta lo que las personas pueden aprender -->
 <div
-          class="max-w-4xl mx-auto px-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-5"
+          class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl mx-auto shadow-sm bg-opacity-50 z-10 p-4"
 >
           {
-                    /* @ts-ignore */
-                    KnowledgeData.map((item, index) => (
-                              <div
-                                        class={
-                                                  index ===
-                                                  KnowledgeData.length - 1
-                                                            ? "lg:col-start-2"
-                                                            : ""
-                                        }
-                              >
+                    KnowledgeData.map(
+                              (item: {
+                                        title: string;
+                                        image: string;
+                                        shortDesc: string;
+                              }) => (
                                         <Card>
                                                   <img
                                                             slot="background"
                                                             src={item.image}
                                                             alt={`Imagen de ${item.title}`}
-                                                            class="object-contain w-full h-full"
+                                                            class="object-contain w-full h-80"
                                                             draggable="false"
                                                   />
                                                   <h5
@@ -38,7 +32,7 @@ const { KnowledgeData } = Astro.props;
                                                             {item.shortDesc}
                                                   </p>
                                         </Card>
-                              </div>
-                    ))
+                              ),
+                    )
           }
 </div>

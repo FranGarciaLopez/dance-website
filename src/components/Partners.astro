@@ -20,29 +20,29 @@ let partners = [
 <!-- section for partners from Latin action -->
 <section class="flex flex-col items-center justify-center py-8">
           <h2
-                    class="text-3xl font-extrabold mb-8 px-12"
-                    style={`color: ${theme.schedule.titleColor};`}
+            class="text-3xl font-extrabold mb-8 px-4"
+            style={`color: ${theme.schedule.titleColor};`}
           >
-                    Nuestros Socios
+            Nuestros Socios
           </h2>
-
+        
           <div
-                    class="px-12 grid grid-cols-1 gap-6 max-w-4xl w-full md:grid-cols-2 lg:grid-cols-3"
-          >
-                    {
-                              partners.map((partner) => (
-                                        <div class="flex flex-col items-center justify-center p-4 bg-white/10 backdrop-blur-md rounded-lg w-full">
-                                                  <img
-                                                            src={partner.image}
-                                                            alt={`Imagen de ${partner.alt}`}
-                                                            class="object-contain w-20 h-20 border-2 border-white rounded-full"
-                                                            draggable="false"
-                                                  />
-                                        </div>
-                              ))
-                    }
-          </div>
-</section>
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl w-full px-4"
+>
+          {
+                    partners.map((partner) => (
+                              <div class="flex flex-col items-center justify-center p-4 bg-white/10 backdrop-blur-md rounded-lg w-full">
+                                        <img
+                                                  src={partner.image}
+                                                  alt={`Imagen de ${partner.alt}`}
+                                                  class="object-contain w-20 h-20 border-2 border-white rounded-full"
+                                                  draggable="false"
+                                        />
+                              </div>
+                    ))
+          }
+</div>
+        </section>
 
 <style>
           section {

@@ -3,12 +3,13 @@ import { theme } from "../pages/theme";
 ---
 
 <div
-	class="flex flex-col max-w-4xl items-center justify-center p-4 rounded-lg shadow-lg backdrop-blur-md transition-all duration-300
+	class="flex flex-col items-center p-6 rounded-lg shadow-lg backdrop-blur-md transition-all duration-300
+   rounded-lg shadow-lg backdrop-blur-md transition-all duration-300
 	bg-white/10 hover:bg-[#496080]/20 cursor-pointer"
 	style={`color: ${theme.cardColors.textColor}`}
 >
 	<slot name="background" class="rounded-full" />
-	<div class="pb-5" style={`color: ${theme.common.textColor};`}>
+	<div class="pb-4" style={`color: ${theme.common.textColor};`}>
 		<h5>
 			<slot
 				name="title"

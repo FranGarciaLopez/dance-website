@@ -7,6 +7,7 @@ import Knowledge from "@/components/Knowledge.astro";
 import { theme } from "@/pages/theme";
 import Partners from "@/components/Partners.astro";
 import PresentationVideo from "@/components/PresentationVideo.astro";
+import Footer from "@/components/Footer.astro";
 
 let KnowledgeData = [
 	{
@@ -34,89 +35,88 @@ let KnowledgeData = [
 
 <Layout title="The Latin Action | Salsa y Bachata">
 	<main class="flex flex-col">
-		<section>
-			<HeroSection>
+		<HeroSection>
+			<div
+				class="max-w-4xl container relative flex flex-col lg:flex-row mx-auto lg:pt-2 lg:px-4"
+				slot="heroImage"
+			>
+				<!-- For small screens -->
 				<div
-					class="max-w-4xl container relative flex flex-col pt-8 lg:flex-row px-8 mx-auto lg:pt-24 lg:px-4"
-					slot="heroImage"
+					class="relative order-2 lg:order-none flex flex-col items-center justify-center lg:w-1/2 lg:max-w-lg lg:mx-6"
 				>
-					<!-- For large screens -->
-					<div
-                                        class="relative order-2 lg:order-none pt-8 flex flex-col items-center justify-center lg:w-1/2 lg:mx-6"
-                              >
-                                        <picture
-                                                  class="z-20 aspect-w-16 aspect-h-9 h-auto w-full max-w-[400px] lg:hidden"
-                                        >
-                                                  <img
-                                                            decoding="async"
-                                                            class="h-full w-full object-cover opacity-80 rounded-lg"
-                                                            alt="Fotografía de Sara Panero"
-                                                            src="https://imagedelivery.net/4-G5Kx2wHcK3gRDUXWrgEw/f39784e7-d142-4780-c4ff-a8203dbeb800/public"
-                                                            draggable="false"
-                                                            loading="eager"
-                                                  />
-                                        </picture>
-
-						<!-- div responsive -->
-						<div
-							class="absolute z-30 flex flex-col items-center justify-center text-center lg:text-left lg:pl-12s"
-						>
-							<span
-								class="hidden lg:block w-24 h-2 mb-10 bg-gradient-to-r from-gray-600 to-white rounded"
-							></span>
-							<h1
-								class="mx-auto px-6 sm:px-8 md:px-10 max-w-md text-3xl lg:text-4xl xl:text-5xl font-extrabold leading-tight uppercase"
-								style={`color: ${theme.common.titleColor};`}
-							>
-								Aprende
-								Bachata
-								<span
-									class="text-[#ff638c] text-3xl lg:text-4xl xl:text-5xl"
-									>Clases
-									Presenciales</span
-								>
-							</h1>
-							<a
-								href="https://wa.me/34645089122?text=Hola,%20quiero%20más%20información%20sobre%20la%20clase%20de%20prueba"
-								class="mt-4 sm:mt-8 px-4 py-2 bg-[#ff638c] text-white text-sm sm:text-base rounded-full transition-transform transform hover:scale-105 hover:bg-[#ff2c69] hover:shadow-lg"
-							>
-								Clase
-								de
-								prueba
-								gratis
-							</a>
-						</div>
-					</div>
-
-					<!-- For large screens -->
-					<div
-						class="relative order-1 lg:order-none pt-12 lg:w-1/2 lg:mx-6 hidden lg:block"
+					<picture
+						class="block lg:hidden mt-8"
 					>
-						<HomeImage />
+						<img
+							decoding="async"
+							class="w-full max-w-md mx-auto object-cover rounded-lg shadow-lg opacity-90 h-screen"
+							alt="Fotografía de Juan Carlos Latin Action Bachata en Elche"
+							src="https://imagedelivery.net/4-G5Kx2wHcK3gRDUXWrgEw/f39784e7-d142-4780-c4ff-a8203dbeb800/public"
+							draggable="false"
+							loading="eager"
+						/>
+					</picture>
+
+					<!-- Responsive Content -->
+					<div
+						class="absolute z-30 flex flex-col items-center justify-center text-center lg:text-left lg:pl-12"
+					>
+						<span
+							class="hidden lg:block w-24 h-2 mb-10 bg-gradient-to-r from-gray-600 to-white rounded"
+						></span>
+						<h1
+							class="text-5xl p-4 text-white md:text-6xl font-bold tracking-wide"
+						>
+							Aprende
+							Bachata de
+							forma
+							presencial
+							con <span
+								class="text-[#ff638c]"
+								>The
+								Latin
+								Action</span
+							>
+						</h1>
+						<a
+						href="https://wa.me/34645089122?text=Hola,%20quiero%20más%20información%20sobre%20las%20clases"
+						class="px-8 py-4 bg-[#ff638c] text-white font-medium rounded-full shadow-md hover:bg-[#ff638c] transition duration-300 transform hover:scale-105"
+					>
+						¡Reserva tu clase de
+						prueba!
+					</a>
 					</div>
 				</div>
-			</HeroSection>
-		</section>
 
+				<!-- For large screens -->
+				<div
+					class="relative order-1 lg:order-none pt-12 lg:w-1/2 lg:mx-6 hidden lg:block"
+				>
+					<HomeImage />
+				</div>
+			</div>
+		</HeroSection>
+
+		<!-- Rest of your sections remain unchanged -->
 		<h2
-			class="text-3xl font-extrabold text-white px-12 pt-10 flex flex-wrap items-center max-w-4xl w-full mx-auto lg:px-4"
+			class="text-3xl font-extrabold text-white px-4 pt-10 flex flex-wrap items-center max-w-4xl w-full mx-auto lg:px-4"
 		>
-			¿Qué aprenderás en las clases de{" "}
-			<span class="text-[#ff638c] ml-2"
+			¿Qué aprenderás en las clases de <span
+				class="text-[#ff638c] ml-2"
 				>Latin Action</span
 			>?
 		</h2>
 
 		<p
-			class="text-lg mt-6 text-white px-12 pb-10 px-12 max-w-4xl mx-auto lg:px-4"
+			class="text-lg mt-6 text-white px-4 pb-10 max-w-4xl mx-auto lg:px-4"
 		>
 			Ya seas principiante o tengas experiencia, en
 			Latin Action encontrarás clases adaptadas a tu
 			nivel. Aprende a moverte al ritmo de la bachata, a
 			expresar tus emociones con libertad y a dominar
 			los pasos básicos y avanzados. ¡Ven y disfruta de
-			una clase gratis con el <span
-				class="text-[#ff638c]"
+			una clase gratis con el
+			<span class="text-[#ff638c]"
 				>profesor experto</span
 			> Juan Carlos!
 		</p>
@@ -130,7 +130,7 @@ let KnowledgeData = [
 				loop="loop"
 				preload="preload"
 				src="https://res.cloudinary.com/dgvvnopu7/video/upload/v1732571099/vqprqk7p7ujdoctm7res.webm"
-				class="w-full h-auto object-contain rounded-lg shadow-lg opacity-80 px-6"
+				class="w-full h-auto object-contain rounded-lg shadow-lg opacity-80"
 				slot="mobile-video"></video>
 
 			<!-- Desktop Video -->
@@ -151,6 +151,8 @@ let KnowledgeData = [
 		<Schedule />
 
 		<Partners />
+
+		<Footer />
 	</main>
 
 	<style>
