@@ -1,24 +1,42 @@
 ---
+// Astro file
 interface Props {
 	title: string;
 }
 
 const { title } = Astro.props;
 import { ViewTransitions } from "astro:transitions";
-import Header from '../components/Header.astro';
+import Header from "../components/Header.astro";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
+	<!-- Idioma corregido a español -->
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="https://res.cloudinary.com/dgvvnopu7/image/upload/v1733045642/mdxefmywlroo3wpogcvj.png" />
+		<meta
+			name="description"
+			content="Aprende a bailar bachata y salsa como un profesional.
+			 Encuentra clases presenciales en The Latin Action Elche."
+		/>
+
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<!-- Ajuste adicional -->
+		<link
+			rel="icon"
+			type="image/svg+xml"
+			href="https://res.cloudinary.com/dgvvnopu7/image/upload/v1733045642/mdxefmywlroo3wpogcvj.png"
+		/>
 		<title>{title}</title>
+		<!-- El título se interpolará desde las props -->
 		<ViewTransitions />
 	</head>
-	<body class="bg-gradient-to-r from-slate-950 via-slate-700 to-slate-800">
+	<body
+		class="bg-gradient-to-r from-slate-950 via-slate-700 to-slate-800"
+	>
 		<Header />
 		<slot />
 	</body>
@@ -49,6 +67,6 @@ import Header from '../components/Header.astro';
 	}
 
 	.exclude-filter {
-		filter: none !important; 
+		filter: none !important;
 	}
 </style>
