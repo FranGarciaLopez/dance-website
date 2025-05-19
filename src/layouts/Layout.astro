@@ -1,73 +1,126 @@
 ---
-// Astro file
 interface Props {
-	title: string;
+  title: string;
+  description?: string;
+  canonical?: string;
 }
-
-const { title } = Astro.props;
+const { title, description, canonical } = Astro.props;
 import { ViewTransitions } from "astro:transitions";
 import Header from "../components/Header.astro";
 ---
 
 <!doctype html>
 <html lang="es">
-	<!-- Idioma corregido a español -->
-	<head>
-		<meta charset="UTF-8" />
-		<meta
-			name="description"
-			content="Aprende a bailar bachata y salsa como un profesional.
-			 Encuentra clases presenciales en The Latin Action Elche."
-		/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0"
-		/>
-		<!-- Ajuste adicional -->
-		<link
-			rel="icon"
-			type="image/svg+xml"
-			href="https://res.cloudinary.com/dgvvnopu7/image/upload/v1733045642/mdxefmywlroo3wpogcvj.png"
-		/>
-		<link rel="apple-touch-icon" href="https://imagedelivery.net/4-G5Kx2wHcK3gRDUXWrgEw/edfc08fc-6db4-45e3-dae5-541d714b7100/public">
-		<title>{title}</title>
-		<!-- El título se interpolará desde las props -->
-		<ViewTransitions />
-	</head>
-	<body
-		class="bg-gradient-to-r from-slate-950 via-slate-700 to-slate-800"
-	>
-		<Header />
-		<slot />
-	</body>
+    <title>{title}</title>
+
+    <meta
+      name="description"
+      content={description ??
+        "Academia de baile The Latin Action. Aprende bachata y salsa en Elche."}
+    />
+
+    <!-- Canonical URL -->
+    {canonical && <link rel="canonical" href={canonical} />}
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta
+      property="og:description"
+      content={description ??
+        "Descubre tus clases de baile favoritas en The Latin Action."}
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/opengraph-default.jpg" />
+    <meta
+      property="og:url"
+      content={canonical ?? "https://thelatinaction.com"}
+    />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta
+      name="twitter:description"
+      content={description ??
+        "Bachata y salsa para todos los niveles en Elche."}
+    />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://res.cloudinary.com/dgvvnopu7/image/upload/v1733045642/mdxefmywlroo3wpogcvj.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://res.cloudinary.com/dgvvnopu7/image/upload/v1733045642/mdxefmywlroo3wpogcvj.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="https://res.cloudinary.com/dgvvnopu7/image/upload/v1733045642/mdxefmywlroo3wpogcvj.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="sitemap" type="application/rss+xml" href="/sitemap-index.xml" />
+
+    <ViewTransitions />
+  </head>
+  <body class="bg-gradient-to-r from-slate-950 via-slate-700 to-slate-800">
+    <Header />
+    <slot />
+  </body>
 </html>
 
 <style is:global>
-	html {
-		scroll-behavior: smooth;
-	}
-	@font-face {
-		font-family: "Dance";
-		src: url("/fonts/Dancing Script.ttf") format("truetype");
-		font-weight: semibold;
-	}
-	img {
-		mask-image: linear-gradient(black 70%, transparent 95%);
-	}
+  html {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(to right, #0f172a, #1e293b, #334155);
+    color: white;
+  }
+  @font-face {
+    font-family: "Dance";
+    src: url("/fonts/Dancing Script.ttf") format("truetype");
+    font-weight: semibold;
+  }
+  img {
+    mask-image: linear-gradient(black 70%, transparent 95%);
+  }
 
-	.scale-transition {
-		transition: transform 0.5s ease-out;
-		transform: scale(1);
-		filter: drop-shadow(0 0 0.5rem white);
-	}
+  .scale-transition {
+    transition: transform 0.5s ease-out;
+    transform: scale(1);
+    filter: drop-shadow(0 0 0.5rem white);
+  }
 
-	.scale-transition:hover {
-		transform: scale(1.05); /* Scale on hover */
-		filter: drop-shadow(0 0 0.5rem #ff004d);
-	}
+  .scale-transition:hover {
+    transform: scale(1.05); /* Scale on hover */
+    filter: drop-shadow(0 0 0.5rem #ff004d);
+  }
 
-	.exclude-filter {
-		filter: none !important;
-	}
+  .exclude-filter {
+    filter: none !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    line-height: 1.6;
+    color: #e0e7ff;
+  }
 </style>

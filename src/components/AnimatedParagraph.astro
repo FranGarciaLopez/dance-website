@@ -1,0 +1,70 @@
+---
+const text =
+  "Bienvenido a The Latin Action, la escuela donde el ritmo cobra vida.";
+const letters = text.split("");
+---
+
+<p id="animated-text" class="text-white text-2xl font-semibold tracking-wide">
+  {
+    letters.map((char, index) => (
+      <span class="inline-block opacity-0">
+        {char === " " ? "\u00A0" : char}
+      </span>
+    ))
+  }
+</p>
+
+<script>
+  import gsap from "gsap";
+  document.addEventListener("DOMContentLoaded", () => {
+    const chars = document.querySelectorAll("#animated-text span");
+    gsap.to(chars, {
+      opacity: 1,
+      stagger: 0.05,
+      duration: 0.4,
+      ease: "power1.out",
+    });
+  });
+</script>
+
+<!-- set text to the left -->
+<p class="animated-text text-white text-2xl font-semibold tracking-wide">
+  En <strong>The Latin Action</strong>, somos una escuela de baile apasionada
+  por las danzas latinas.
+</p>
+
+<script>
+  import gsap from "gsap";
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".animated-text").forEach((paragraph) => {
+      // Split text nodes into spans
+      function wrapChars(element) {
+        element.childNodes.forEach((node) => {
+          if (node.nodeType === Node.TEXT_NODE) {
+            const chars = node.textContent.split("");
+            const fragment = document.createDocumentFragment();
+            chars.forEach((char) => {
+              const span = document.createElement("span");
+              span.textContent = char === " " ? "\u00A0" : char;
+              span.className = "inline-block opacity-0";
+              fragment.appendChild(span);
+            });
+            node.replaceWith(fragment);
+          } else if (node.nodeType === Node.ELEMENT_NODE) {
+            wrapChars(node);
+          }
+        });
+      }
+      wrapChars(paragraph);
+
+      // Animate with GSAP
+      const chars = paragraph.querySelectorAll("span");
+      gsap.to(chars, {
+        opacity: 1,
+        stagger: 0.05,
+        duration: 0.4,
+        ease: "power1.out",
+      });
+    });
+  });
+</script>

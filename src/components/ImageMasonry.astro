@@ -1,49 +1,52 @@
 ---
 interface Props {
-          images: string[];
+  images: string[];
 }
 const { images } = Astro.props;
 debugger;
 ---
 
-<section class="masonry-section px-8 py-12">
-          <h2 class="text-3xl font-bold text-center mb-8">
-                    Galería de Imágenes
-          </h2>
-          <!-- Añadimos 'max-w-4xl mx-auto' para centrar el contenido -->
-          <div class="masonry-grid max-w-4xl mx-auto">
-                    {
-                              images.map((image) => (
-                                        <div class="masonry-item">
-                                                  <img
-                                                            src={image}
-                                                            alt="Galería"
-                                                            class="w-full h-auto object-cover rounded-lg"
-                                                  />
-                                        </div>
-                              ))
-                    }
-          </div>
+<section class="masonry-section px-8 py-12" id="galeria">
+  <h2 class="text-3xl font-bold text-center mb-8">
+    Galería de Imágenes con grandes artistas del mundo de la salsa y la bachata
+  </h2>
+  <!-- Añadimos 'max-w-4xl mx-auto' para centrar el contenido -->
+  <div class="masonry-grid max-w-4xl mx-auto">
+    {
+      images.map((image) => (
+        <div class="masonry-item">
+          <img
+            aria-label="Galería de Imágenes bachata y salsa con grandes artistas del momento"
+            title="Galería de Imágenes bachata y salsa con grandes artistas del momento"
+            src={image}
+            alt="Galería de Imágenes bachata y salsa con grandes artistas del momento"
+            class="w-full h-auto object-cover rounded-lg"
+            loading="lazy"
+          />
+        </div>
+      ))
+    }
+  </div>
 </section>
 
 <style>
-          .masonry-grid {
-                    column-count: 1;
-                    column-gap: 1rem;
-          }
-          
-          @media (min-width: 768px) {
-                    .masonry-grid {
-                              column-count: 2;
-                    }
-          }
-          @media (min-width: 1024px) {
-                    .masonry-grid {
-                              column-count: 3;
-                    }
-          }
-          .masonry-item {
-                    margin-bottom: 1rem;
-                    break-inside: avoid;
-          }
+  .masonry-grid {
+    column-count: 1;
+    column-gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .masonry-grid {
+      column-count: 2;
+    }
+  }
+  @media (min-width: 1024px) {
+    .masonry-grid {
+      column-count: 3;
+    }
+  }
+  .masonry-item {
+    margin-bottom: 1rem;
+    break-inside: avoid;
+  }
 </style>
