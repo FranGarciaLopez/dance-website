@@ -1,23 +1,20 @@
 ---
-import AnimatedText from "../components/AnimatedParagraph.astro";
+import AnimatedParagraph from "./AnimatedParagraph.astro";
 ---
 
 <section class="history-location-section px-8 py-12">
   <div class="max-w-4xl mx-auto">
     <!-- Encabezado principal con palabras clave -->
-    <h2 class="text-3xl font-bold text-center mb-8 blur-reveal">
-      Clases Presenciales de Baile en Elche, Alicante y Murcia
+    <h2 class="text-2xl md:text-3xl lg:text-5xl font-bold mb-8 blur-reveal">
+      Clases de Bachata y Salsa Presenciales en Elche
     </h2>
 
     <!-- Historia de la escuela con palabras clave integradas -->
-    <p class="reveal-text" id="animated-paragraph">
-      En <strong>The Latin Action</strong>, somos una escuela de baile
-      apasionada por las danzas latinas. Desde nuestros inicios en 2010, hemos
-      ofrecido <strong>clases presenciales de bachata y salsa</strong> en las ciudades
-      de <strong>Elche</strong>, <strong>Alicante</strong> y <strong
-        >Murcia</strong
-      >, compartiendo nuestra pasión con cientos de estudiantes.
-    </p>
+    <AnimatedParagraph
+      text={`En The Latin Action, somos especialistas en clases presenciales de bachata en Elche, ofreciendo un espacio único para que aprendas a bailar este sensual y apasionado ritmo latino. Nuestros instructores profesionales te guiarán paso a paso, desde los movimientos básicos hasta técnicas avanzadas, en un ambiente amigable y motivador.
+      Ya seas principiante o quieras perfeccionar tu estilo, nuestras clases de bachata te ayudarán a conectar con la música y mejorar tu confianza en la pista de baile. Además, organizamos eventos y prácticas para que pongas en práctica lo aprendido y disfrutes de la comunidad latina de Elche.
+      ¡Únete a The Latin Action y vive la experiencia auténtica de la bachata con nosotros!`}
+    />
 
     <!-- Subtítulo con palabras clave -->
     <h2 class="text-2xl font-semibold my-6 blur-reveal">
@@ -26,12 +23,12 @@ import AnimatedText from "../components/AnimatedParagraph.astro";
 
     <!-- Información detallada de las ubicaciones -->
     <p class="text-lg mb-6 highlight-text">
-      Ofrecemos <strong>clases presenciales</strong> en tres ubicaciones principales:
+      Ofrecemos <strong>clases presenciales</strong> en nuestras sedes de Elche:
     </p>
     <ul class="list-disc list-inside mb-6 blur-reveal">
       <li>
         <strong>Elche:</strong> Nuestra sede principal se encuentra en el corazón
-        de Elche, en el Carrer Sabadell, 10.
+        de Elche, en el Carrer Sabadell.
       </li>
     </ul>
 
@@ -50,7 +47,7 @@ import AnimatedText from "../components/AnimatedParagraph.astro";
     <!-- Llamada a la acción con palabras clave -->
     <p class="text-lg text-center highlight-text">
       ¿Listo para comenzar tus <strong
-        >clases presenciales de baile en Elche, Alicante o Murcia</strong
+        >clases presenciales de baile en Elche</strong
       >? <a href="/contacto" class="text-pink-600 font-semibold hover:underline"
         >¡Contáctanos hoy mismo!</a
       >

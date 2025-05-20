@@ -1,7 +1,4 @@
 ---
-import { onMount } from "solid-js";
-import gsap from "gsap";
-
 export interface Modality {
   title: string;
   image: string;
@@ -13,25 +10,15 @@ interface Props {
   modalities: Modality[];
 }
 const { modalities } = Astro.props;
-
-let container;
-
-onMount(() => {
-  const cards = container.querySelectorAll(".card");
-  gsap.from(cards, {
-    opacity: 0,
-    y: 40,
-    stagger: 0.2,
-    duration: 0.8,
-    ease: "power3.out",
-  });
-});
 ---
 
-<section class="max-w-4xl mx-auto px-6 py-16" ref={container}>
-  <h2
-    class="text-4xl font-extrabold text-white mb-12 text-center drop-shadow-lg"
-  >
+<section
+  class="max-w-4xl mx-auto px-6 py-16"
+  id="modalidades"
+  aria-label="Modalidades de baile"
+  role="region"
+>
+  <h2 class="text-2xl md:text-3xl lg:text-5xl font-bold text-center mb-8">
     Modalidades
   </h2>
   <div
