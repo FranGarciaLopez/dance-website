@@ -13,7 +13,10 @@ import Header from "../components/Header.astro";
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
 
     <title>{title}</title>
 
@@ -54,18 +57,18 @@ import Header from "../components/Header.astro";
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="https://res.cloudinary.com/dgvvnopu7/image/upload/v1733045642/mdxefmywlroo3wpogcvj.png"
+      href="https://res.cloudinary.com/dgvvnopu7/image/upload/v1747913778/gu9isd9n7m4iwojv87f4.webp"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="https://res.cloudinary.com/dgvvnopu7/image/upload/v1733045642/mdxefmywlroo3wpogcvj.png"
+      href="https://res.cloudinary.com/dgvvnopu7/image/upload/v1747913778/gu9isd9n7m4iwojv87f4.webp"
     />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="https://res.cloudinary.com/dgvvnopu7/image/upload/v1733045642/mdxefmywlroo3wpogcvj.png"
+      href="https://res.cloudinary.com/dgvvnopu7/image/upload/v1747913778/gu9isd9n7m4iwojv87f4.webp"
     />
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="sitemap" type="application/rss+xml" href="/sitemap-index.xml" />
@@ -98,6 +101,7 @@ import Header from "../components/Header.astro";
     font-family: "Dance";
     src: url("/fonts/Dancing Script.ttf") format("truetype");
     font-weight: semibold;
+    font-display: swap;
   }
   img {
     mask-image: linear-gradient(black 70%, transparent 95%);

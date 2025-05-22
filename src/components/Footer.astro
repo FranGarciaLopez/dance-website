@@ -1,53 +1,38 @@
 ---
-import Socials from '@/components/Socials.astro'
+import Socials from "@/components/Socials.astro";
 ---
 
 <footer class="bg-gray-900 text-white py-8">
-          <div
-                    class="max-w-4xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center"
-          >
-                    <!-- Sección Izquierda -->
-                    <div class="mb-6 md:mb-0">
-                              <img
-                                        src="https://res.cloudinary.com/dgvvnopu7/image/upload/v1733045642/mdxefmywlroo3wpogcvj.png"
-                                        alt="logo"
-                                        class="size-16 mr-2"
-                              />
-                    </div>
-                    <!-- Sección Central -->
-                    <div class="mb-6 md:mb-0 text-center flex flex-row gap-5">
-                              <li class="list-none">
-                                        <a href="/" class="hover:text-pink-500"
-                                                  >Inicio</a
-                                        >
-                              </li>
-                              <li class="list-none">
-                                        <a
-                                                  href="/clases"
-                                                  class="hover:text-pink-500"
-                                                  >Clases</a
-                                        >
-                              </li>
-                              <li class="list-none">
-                                        <a
-                                                  href="/eventos"
-                                                  class="hover:text-pink-500"
-                                                  >Eventos</a
-                                        >
-                              </li>
-                              <li class="list-none">
-                                        <a
-                                                  href="/contacto"
-                                                  class="hover:text-pink-500"
-                                                  >Contacto</a
-                                        >
-                              </li>
-                    </div>
+  <div
+    class="max-w-4xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center"
+  >
+    <!-- Sección Izquierda -->
+    <div class="mb-6 md:mb-0">
+      <img
+        src="https://res.cloudinary.com/dgvvnopu7/image/upload/v1747913778/gu9isd9n7m4iwojv87f4.webp"
+        alt="logo"
+        class="size-16 mr-2"
+      />
+    </div>
+    <!-- Sección Central -->
+    <div class="mb-6 md:mb-0 text-center flex flex-row gap-5">
+      <li class="list-none">
+        <a href="/" class="hover:text-pink-500">Inicio</a>
+      </li>
+      <li class="list-none">
+        <a href="/clases" class="hover:text-pink-500">Clases</a>
+      </li>
+      <li class="list-none">
+        <a href="/eventos" class="hover:text-pink-500">Eventos</a>
+      </li>
+      <li class="list-none">
+        <a href="/contacto" class="hover:text-pink-500">Contacto</a>
+      </li>
+    </div>
 
-                    <Socials />
-          </div>
+    <Socials />
+  </div>
 </footer>
 <div class="my-8 text-center text-sm text-gray-400">
-          &copy; {new Date().getFullYear()} The Latin Action. Todos los derechos
-          reservados.
+  &copy; {new Date().getFullYear()} The Latin Action. Todos los derechos reservados.
 </div>
