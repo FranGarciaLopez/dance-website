@@ -1,79 +1,83 @@
 ---
+import Layout from "@/layouts/Layout.astro";
+
 const { mobileImage, tabletImage, xlImage } = Astro.props;
 const { heroTitle, heroSpan, heroSubtitle } = Astro.props;
 ---
 
-<section
-  id="hero"
-  aria-label="Sección de bienvenida"
-  role="banner"
-  class="relative h-screen w-full flex flex-col items-end md:items-center justify-end md:justify-center text-center overflow-hidden"
->
-  <!-- Fondo degradado superior a inferior -->
-  <div
-    class="absolute inset-0 bg-gradient-to-b from-[#1c1c23] via-[#1c1c23] to-[#0d0d11] z-0"
+<Layout title="Luna | Lady Style by The Latin Action en Elche">
+  <section
+    id="hero"
+    aria-label="Sección de bienvenida"
+    role="banner"
+    class="relative h-screen w-full flex flex-col items-end md:items-center justify-center md:justify-center text-center overflow-hidden"
   >
-  </div>
+    <!-- Fondo degradado superior a inferior -->
+    <div
+      class="absolute inset-0 bg-gradient-to-b from-[#1c1c23] via-[#1c1c23] to-[#0d0d11] z-0"
+    >
+    </div>
 
-  <!-- Imagen fondo móvil -->
-  <div
-    class="absolute inset-0 bg-no-repeat bg-center bg-cover z-10 md:hidden"
-    style={`background-image: url('${mobileImage}')`}
-  >
-  </div>
+    <!-- Imagen fondo móvil -->
+    <div
+      class="absolute inset-0 bg-no-repeat bg-center bg-cover z-10 md:hidden"
+      style={`background-image: url('${mobileImage}')`}
+    >
+    </div>
 
-  <!-- Imagen fondo tablet/desktop -->
-  <div
-    class="absolute inset-0 bg-no-repeat bg-center bg-cover z-10 hidden md:block xl:hidden"
-    style={`background-image: url('${tabletImage}')`}
-  >
-  </div>
+    <!-- Imagen fondo tablet/desktop -->
+    <div
+      class="absolute inset-0 bg-no-repeat bg-center bg-cover z-10 hidden md:block xl:hidden"
+      style={`background-image: url('${tabletImage}')`}
+    >
+    </div>
 
-  <!-- Imagen fondo pantallas XL -->
-  <div
-    class="absolute inset-0 bg-no-repeat bg-center bg-cover z-10 hidden xl:block"
-    style={`background-image: url('${xlImage}')`}
-  >
-  </div>
+    <!-- Imagen fondo pantallas XL -->
+    <div
+      class="absolute inset-0 bg-no-repeat bg-center bg-cover z-10 hidden xl:block"
+      style={`background-image: url('${xlImage}')`}
+    >
+    </div>
 
-  <!-- Texto centrado superpuesto -->
-  <div
-    class="relative z-20 max-w-4xl pt-4 md:pt-0 pb-20 md:pb-0 px-6 md:px-0 text-center
+    <!-- Texto centrado superpuesto -->
+    <div
+      class="relative z-20 max-w-4xl pt-4 md:pt-0 py-20 md:pb-0 px-6 md:px-0 text-center
          bg-black/10 md:bg-transparent
          rounded-xl md:rounded-none
          -mb-8 md:mb-0 md:-translate-y-6 transition-all duration-300"
-  >
-    <h1
-      class="text-4xl md:text-7xl font-extrabold text-white tracking-wide
-         drop-shadow-[0_0_15px_rgba(236,72,153,0.7)] uppercase"
     >
-      {heroTitle}
-      <span
-        class="bg-gradient-to-r from-pink-400 via-pink-600 to-pink-500 bg-clip-text text-transparent"
+      <h1
+        class="text-4xl md:text-7xl font-extrabold text-white tracking-wide
+         drop-shadow-[0_0_15px_rgba(236,72,153,0.7)] uppercase"
       >
-        {heroSpan}
-      </span>
-    </h1>
-    <p class="text-base md:text-2xl text-white mb-8 max-w-2xl mx-auto">
-      {heroSubtitle}
-    </p>
+        {heroTitle}
+        <span
+          class="bg-gradient-to-r from-pink-400 via-pink-600 to-pink-500 bg-clip-text text-transparent"
+        >
+          {heroSpan}
+        </span>
+      </h1>
+      <p class="text-base md:text-2xl text-white mb-8 max-w-2xl mx-auto">
+        {heroSubtitle}
+      </p>
 
-    <a
-      href="https://wa.me/34645089122?text=Hola,%20quiero%20más%20información%20sobre%20las%20clases"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="inline-block bg-gradient-to-r from-pink-500 via-pink-600 to-pink-700
+      <a
+        href="https://wa.me/34645089122?text=Hola,%20quiero%20más%20información%20sobre%20las%20clases"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block bg-gradient-to-r from-pink-500 via-pink-600 to-pink-700
          text-white text-sm font-medium py-2 px-6 rounded-full shadow-md
          transition-transform duration-300 ease-in-out hover:scale-110 hover:shadow-xl
          hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-pink-400/60"
-    >
-      ¡Reserva tu clase de prueba!
-    </a>
-  </div>
+      >
+        ¡Reserva tu clase de prueba!
+      </a>
+    </div>
 
-  <!-- Sombra inferior para fade al contenido -->
-  <div
-    class="absolute bottom-0 w-full h-0 bg-gradient-to-t from-[#0d0d11] to-transparent z-10 pointer-events-none"
-  >
-  </div>
-</section>
+    <!-- Sombra inferior para fade al contenido -->
+    <div
+      class="absolute bottom-0 w-full h-0 bg-gradient-to-t from-[#0d0d11] to-transparent z-10 pointer-events-none"
+    >
+    </div>
+  </section>
+</Layout>
