@@ -6,29 +6,13 @@ let schedule = [
     day: "Lunes",
     slots: [
       {
-        time: "18:00 - 19:30",
-        class: "Bachata Intermedio",
-      },
-      {
-        time: "20:00 - 21:30",
-        class: "Bachata Avanzado",
-      },
-    ],
-  },
-  {
-    day: "Martes",
-    slots: [
-      {
-        time: "18:30 - 19:30",
-        class: "Bachata Inicio",
-      },
-      {
-        time: "19:30 - 20:30",
-        class: "Salsa Inicio",
-      },
-      {
         time: "20:30 - 21:30",
-        class: "Bachata Inicio -> Intermedio",
+        class: "Bachata Lady Style - Academia Dairen",
+        ageRange: "Adultos (18+)",
+        location: {
+          name: "Academia Dairen, Elche",
+          url: "https://maps.app.goo.gl/16UnuAExaLCYFaWU8",
+        },
       },
     ],
   },
@@ -36,59 +20,27 @@ let schedule = [
     day: "Miércoles",
     slots: [
       {
-        time: "18:30 - 20:00",
-        class: "Bachata Intermedio",
-      },
-      {
-        time: "20:30 - 22:00",
-        class: "Bachata Avanzado",
-      },
-    ],
-  },
-  {
-    day: "Jueves",
-    slots: [
-      {
-        time: "18:30 - 19:30",
-        class: "Bachata Inicio",
-      },
-      {
-        time: "19:30 - 20:30",
-        class: "Bachata Inicio -> Intermedio",
-      },
-      {
-        time: "20:30 - 21:30",
-        class: "Bachata Medio -> Avanzado",
-      },
-      {
-        time: "21:30 - 22:30",
-        class: "Salsa Medio",
+        time: "20:00 - 21:15",
+        class: "Bachata Lady Style Coreográfico - Academia Dairen",
+        ageRange: "Adultos (18+)",
+        location: {
+          name: "Academia Dairen, Elche",
+          url: "https://maps.app.goo.gl/16UnuAExaLCYFaWU8",
+        },
       },
     ],
   },
   {
-    day: "Viernes",
+    day: "Sábados",
     slots: [
       {
-        time: "18:30 - 20:00",
-        class: "Práctica Libre",
-      },
-    ],
-  },
-  {
-    day: "Sábado",
-    slots: [
-      {
-        time: "17:30 - 18:30",
-        class: "Salsa Inicio",
-      },
-      {
-        time: "18:30 - 19:30",
-        class: "Bachata Intermedio",
-      },
-      {
-        time: "19:30 - 20:30",
-        class: "Salsa Cubana Inicio",
+        time: "16:30 - 17:30",
+        class: "Bachata Lady Style Kids - Academia Dairen",
+        ageRange: "Niños (6-16 años)",
+        location: {
+          name: "Academia Dairen, Elche",
+          url: "https://maps.app.goo.gl/16UnuAExaLCYFaWU8",
+        },
       },
     ],
   },
@@ -96,12 +48,12 @@ let schedule = [
 ---
 
 <section class="flex flex-col items-center justify-center py-8">
-  <h2
+  <h2Q
     class="text-3xl font-extrabold mb-8 px-6"
     style={`color: ${theme.schedule.titleColor};`}
   >
     Horarios de Clases
-  </h2>
+  </h2Q>
 
   <div
     class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-4xl px-4"
@@ -126,11 +78,24 @@ let schedule = [
               <p class="text-sm" style={`color: ${theme.common.textColor};`}>
                 {slot.class}
               </p>
+              <p class="text-sm italic text-white/40 mt-1">
+                Edad: {slot.ageRange}
+              </p>
+              <p class="text-sm italic text-white/40">
+                Lugar:{" "}
+                <a
+                  href={slot.location.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="underline hover:text-[#ff004d]"
+                >
+                  {slot.location.name}
+                </a>
+              </p>
             </div>
           ))}
         </div>
       ))
-    }
     }
   </div>
 </section>

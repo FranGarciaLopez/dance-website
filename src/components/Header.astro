@@ -1,148 +1,124 @@
 <header
-          id="landing-header"
-          class="py-1 px-3 flex items-center fixed top-0 w-full justify-between text-white z-40"
+  id="landing-header"
+  class="py-1 px-3 flex items-center fixed top-0 w-full justify-between text-white z-40"
 >
-          <!-- Logo -->
-          <div class="flex items-center">
-                    <img
-                              src="https://res.cloudinary.com/dgvvnopu7/image/upload/v1733045642/mdxefmywlroo3wpogcvj.png"
-                              alt="logo"
-                              class="size-16 mr-2"
-                    />
-          </div>
+  <!-- Logo -->
+  <div class="flex items-center">
+    <img
+      src="https://res.cloudinary.com/dgvvnopu7/image/upload/v1733045642/mdxefmywlroo3wpogcvj.png"
+      alt="logo"
+      class="size-16 mr-2"
+    />
+  </div>
 
-          <!-- Menu Button (Visible only on small screens) -->
-          <button
-                    id="menu-button"
-                    class="xl:hidden flex items-center px-4 py-2 rounded-full bg-black/30 text-white hover:bg-black/50 transition-colors duration-300"
-          >
-                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24">
-                              <path
-                                        stroke="currentColor"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M4 6h16M4 12h16m-7 6h7"></path>
-                    </svg>
-          </button>
+  <!-- Menu Button (Visible only on small screens) -->
+  <button
+    id="menu-button"
+    class="xl:hidden flex items-center px-4 py-2 rounded-full bg-black/30 text-white hover:bg-black/50 transition-colors duration-300"
+  >
+    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24">
+      <path
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M4 6h16M4 12h16m-7 6h7"></path>
+    </svg>
+  </button>
 
-          <!-- Primary Menu -->
+  <!-- Primary Menu -->
 
-          <nav
-                    id="primary-menu"
-                    
-                    class="fixed top-0 left-0 w-full h-full bg-white/30 backdrop-blur-lg z-50 text-xs flex flex-col items-center justify-center transform -translate-y-full transition-transform duration-300 ease-in-out
-                    xl:translate-y-0 xl:relative xl:flex xl:flex-row xl:items-center xl:justify-center xl:bg-transparent xl:backdrop-blur-none xl:h-auto xl:w-auto xl:space-x-6" 
-          >
-                    <button
-                              id="close-menu"
-                              class="absolute top-4 right-4 flex items-center px-4 rounded-full bg-black/30 text-white hover:bg-black/50 transition-colors duration-300 xl:hidden"
-                    >
-                              <svg
-                                        class="w-6 h-6"
-                                        fill="white"
-                                        viewBox="0 0 24 24"
-                              >
-                                        <path
-                                                  stroke="currentColor"
-                                                  stroke-linecap="round"
-                                                  stroke-linejoin="round"
-                                                  stroke-width="2"
-                                                  d="M6 18L18 6M6 6l12 12"
-                                        ></path>
-                              </svg>
-                    </button>
-                    <ul
-                              class="flex flex-col xl:flex-row items-center space-y-6 xl:space-y-0 text-white gap-5"
-                    >
-                              <li>
-                                        <a
-                                                  href="/"
-                                                  class="px-4 py-2 rounded-md hover:bg-white/50 hover:text-black transition-colors text-lg bg-black/30"
-                                                  >Home</a
-                                        >
-                              </li>
-                              
-                              <li>
-                                        <a
-                                                  href="/bachata-en-pareja-elche"
-                                                  class="px-4 py-2 rounded-md hover:bg-white/50 hover:text-black transition-colors text-lg bg-black/30"
-                                                  >Bachata en pareja</a
-                                        >
-                              </li>
+  <nav
+    id="primary-menu"
+    class="fixed top-0 left-0 w-full h-full bg-white/30 backdrop-blur-lg z-50 text-xs flex flex-col items-center justify-center transform -translate-y-full transition-transform duration-300 ease-in-out
+                    xl:translate-y-0 xl:relative xl:flex xl:flex-row xl:items-center xl:justify-center xl:bg-transparent xl:backdrop-blur-none xl:h-auto xl:w-auto xl:space-x-6"
+  >
+    <button
+      id="close-menu"
+      class="absolute top-5 right-3 flex items-center px-4 py-2 rounded-full bg-black/30 text-white hover:bg-black/50 transition-colors duration-300 xl:hidden"
+    >
+      <svg class="w-6 h-6" fill="white" viewBox="0 0 24 24">
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+    <ul
+      class="flex flex-col xl:flex-row items-center space-y-6 xl:space-y-0 text-white gap-5"
+    >
+      <li>
+        <a
+          href="/"
+          class="px-4 py-2 rounded-md hover:bg-white/50 hover:text-black transition-colors text-lg bg-black/30"
+          >Home</a
+        >
+      </li>
 
-                              <li>
-                                        <a
-                                                  href="/salsa-elche"
-                                                  class="px-4 py-2 rounded-md hover:bg-white/50 hover:text-black transition-colors text-lg bg-black/30"
-                                                  >Salsa</a
-                                        >
-                              </li>
-                              <li>
-                                        <a
-                                                  href="/lady-style-elche"
-                                                  class="px-4 py-2 rounded-md hover:bg-white/50 hover:text-black transition-colors text-lg bg-black/30"
-                                                  >Estilo chica</a
-                                        >
-                              </li>
-                    </ul>
-          </nav>
+      <li>
+        <a
+          href="/bachata-en-pareja-elche"
+          class="px-4 py-2 rounded-md hover:bg-white/50 hover:text-black transition-colors text-lg bg-black/30"
+          >Bachata en pareja</a
+        >
+      </li>
+
+      <li>
+        <a
+          href="/salsa-elche"
+          class="px-4 py-2 rounded-md hover:bg-white/50 hover:text-black transition-colors text-lg bg-black/30"
+          >Salsa</a
+        >
+      </li>
+      <li>
+        <a
+          href="/lady-style-elche"
+          class="px-4 py-2 rounded-md hover:bg-white/50 hover:text-black transition-colors text-lg bg-black/30"
+          >Estilo chica</a
+        >
+      </li>
+    </ul>
+  </nav>
 </header>
 
 <script>
-          document.addEventListener("astro:page-load", () => {
-                    const menuButton = document.getElementById("menu-button");
-                    const closeMenuButton =
-                              document.getElementById("close-menu");
-                    const primaryMenu = document.getElementById("primary-menu");
+  document.addEventListener("astro:page-load", () => {
+    const menuButton = document.getElementById("menu-button");
+    const closeMenuButton = document.getElementById("close-menu");
+    const primaryMenu = document.getElementById("primary-menu");
 
-                    if (menuButton && closeMenuButton && primaryMenu) {
-                              menuButton.addEventListener("click", function () {
-                                        primaryMenu.classList.remove(
-                                                  "-translate-y-full",
-                                        );
-                                        primaryMenu.classList.add(
-                                                  "translate-y-0",
-                                        );
-                                        closeMenuButton.classList.remove(
-                                                  "hidden",
-                                        );
-                                        menuButton.classList.add("hidden");
-                              });
+    if (menuButton && closeMenuButton && primaryMenu) {
+      menuButton.addEventListener("click", function () {
+        primaryMenu.classList.remove("-translate-y-full");
+        primaryMenu.classList.add("translate-y-0");
+        closeMenuButton.classList.remove("hidden");
+        menuButton.classList.add("hidden");
+      });
 
-                              closeMenuButton.addEventListener(
-                                        "click",
-                                        function () {
-                                                  primaryMenu.classList.remove(
-                                                            "translate-y-0",
-                                                  );
-                                                  primaryMenu.classList.add(
-                                                            "-translate-y-full",
-                                                  );
-                                                  closeMenuButton.classList.add(
-                                                            "hidden",
-                                                  );
-                                                  menuButton.classList.remove(
-                                                            "hidden",
-                                                  );
-                                        },
-                              );
-                    }
-          });
+      closeMenuButton.addEventListener("click", function () {
+        primaryMenu.classList.remove("translate-y-0");
+        primaryMenu.classList.add("-translate-y-full");
+        closeMenuButton.classList.add("hidden");
+        menuButton.classList.remove("hidden");
+      });
+    }
+  });
 </script>
 
 <style>
-          header {
-                    animation: enhanceHeader linear both;
-                    animation-timeline: scroll(root);
-                    animation-range: 0% 200px;
-          }
+  header {
+    animation: enhanceHeader linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0% 200px;
+  }
 
-          @keyframes enhanceHeader {
-                    to {
-                              background: rgba(0, 0, 0, 0.422);
-                              background-filter: blur(5px);
-                              color: rgb(0, 0, 0);
-                    }
-          }
+  @keyframes enhanceHeader {
+    to {
+      background: rgba(0, 0, 0, 0.422);
+      background-filter: blur(5px);
+      color: rgb(0, 0, 0);
+    }
+  }
 </style>

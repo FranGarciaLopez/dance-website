@@ -72,9 +72,14 @@ import Header from "../components/Header.astro";
 
     <ViewTransitions />
   </head>
-  <body class="bg-gradient-to-r from-slate-950 via-slate-700 to-slate-800">
+  <body>
     <Header />
-    <slot />
+    <div
+      class="min-h-screen bg-black bg-opacity-40 rounded-xl
+           shadow-lg backdrop-blur-sm text-white"
+    >
+      <slot />
+    </div>
   </body>
 </html>
 
