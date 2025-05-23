@@ -3,25 +3,38 @@ import Card from "./Card.astro";
 
 const { KnowledgeData } = Astro.props;
 ---
-
 <div
   class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl mx-auto bg-opacity-50 z-10 p-4"
 >
   {
     KnowledgeData.map(
       (item: { title: string; image: string; shortDesc: string }) => (
-        <Card>
-          <img
+        <Card class="flex flex-col items-center bg-gray-200 rounded-lg overflow-hidden shadow-lg">
+          <div
             slot="background"
-            src={item.image}
-            alt={`Imagen de ${item.title}`}
-            class="object-contain w-full h-80"
-            draggable="false"
-          />
-          <h5 slot="title" class="flex items-center justify-center">
+            class="w-full h-96 flex items-center justify-center bg-white"
+          >
+            <img
+              src={item.image}
+              alt={`Imagen de ${item.title}`}
+              class="max-h-full w-auto object-contain"
+              draggable="false"
+            />
+          </div>
+
+          <h5
+            slot="title"
+            class="mt-4 text-white text-lg font-semibold text-center px-4"
+          >
             {item.title}
           </h5>
-          <p slot="content">{item.shortDesc}</p>
+          <p
+            slot="content"
+            class="text-gray-300 text-sm text-center px-6 py-2"
+            style="max-width: 280px;"
+          >
+            {item.shortDesc}
+          </p>
         </Card>
       )
     )

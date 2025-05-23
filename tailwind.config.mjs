@@ -6,6 +6,9 @@ export default {
 			fontFamily: {
 				dance: ['Dancing Script OT', 'cursive']
 			},
+			height: {
+				'96':'24rem'
+			}
 		},
 	},
 	plugins: [],
