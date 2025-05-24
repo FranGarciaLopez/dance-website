@@ -6,6 +6,7 @@ import Layout from "@/layouts/Layout.astro";
 import Footer from "@/components/Footer.astro";
 import Schedule from "@/components/Schedule.astro";
 import Partners from "@/components/Partners.astro";
+import Benefits from "@/components/Benefits.astro";
 
 const KnowledgeData = [
   {
@@ -30,7 +31,8 @@ const KnowledgeData = [
   },
   {
     title: "Coreografía",
-    image: "https://res.cloudinary.com/dgvvnopu7/image/upload/v1748021632/eyhjrdcmfyrfapkagjuf.webp",
+    image:
+      "https://res.cloudinary.com/dgvvnopu7/image/upload/v1748021632/eyhjrdcmfyrfapkagjuf.webp",
     shortDesc:
       "Domina las secuencias de pasos y los movimientos más populares de la bachata.",
   },
@@ -57,7 +59,7 @@ const KnowledgeData = [
 
   <p
     class="mt-6 max-w-4xl mx-auto px-4 pb-5 text-lg leading-relaxed text-gray-300 lg:px-4
-         drop-shadow-[0_0_10px_rgba(255,182,193,0.7)]"
+         drop-shadow-[0_0_10px_rgba(255,182,193,0.5)]"
   >
     Es hora de dejar salir tu lado más <span class="font-semibold text-pink-400"
       >atrevido</span
@@ -96,6 +98,8 @@ const KnowledgeData = [
   </PresentationVideo>
 
   <Knowledge KnowledgeData={KnowledgeData} />
+  
+  <Benefits />
 
   <Schedule />
 

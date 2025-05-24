@@ -3,7 +3,7 @@ import { theme } from "../pages/theme";
 ---
 
 <div
-  class="group flex flex-col items-center overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] cursor-pointer"
+  class="group flex flex-col items-center overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-[1.03] cursor-pointer"
   style={`color: ${theme.cardColors.textColor}`}
 >
   <div class="relative w-full aspect-video mb-4">
@@ -11,9 +11,9 @@ import { theme } from "../pages/theme";
   </div>
 
   <div class="text-center pb-2" style={`color: ${theme.common.textColor};`}>
-    <h5 class="text-lg font-semibold group-hover:text-white transition-colors duration-300">
+    <h3 class="text-lg font-semibold group-hover:text-white transition-colors duration-300">
       <slot name="title" />
-    </h5>
+    </h3>
   </div>
 
   <p class="text-sm text-gray-300 text-center leading-relaxed px-2">
