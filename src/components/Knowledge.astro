@@ -4,7 +4,7 @@ import Card from "./Card.astro";
 const { KnowledgeData } = Astro.props;
 ---
 <div
-  class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl mx-auto bg-opacity-50 z-10 p-4"
+  class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl mx-auto  z-10 p-4"
 >
   {
     KnowledgeData.map(
@@ -12,7 +12,7 @@ const { KnowledgeData } = Astro.props;
         <Card class="flex flex-col items-center bg-gray-200 rounded-lg overflow-hidden shadow-lg">
           <div
             slot="background"
-            class="w-full h-96 flex items-center justify-center bg-white"
+            class="w-full h-96 flex items-center justify-center bg-white rounded-t-lg overflow-hidden"
           >
             <img
               src={item.image}

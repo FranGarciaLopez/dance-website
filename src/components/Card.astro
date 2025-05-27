@@ -1,22 +1,22 @@
 ---
+// Card.astro
 import { theme } from "../pages/theme";
 ---
-
 <div
-  class="group flex flex-col items-center overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-[1.03] cursor-pointer"
+  class="group flex flex-col items-center overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-lg cursor-pointer"
   style={`color: ${theme.cardColors.textColor}`}
 >
-  <div class="relative w-full aspect-video mb-4">
+  <div class="relative w-full aspect-[4/3] bg-black">
     <slot name="background" />
   </div>
 
-  <div class="text-center pb-2" style={`color: ${theme.common.textColor};`}>
-    <h3 class="text-lg font-semibold group-hover:text-white transition-colors duration-300">
+  <div class="w-full text-center px-4 pt-4">
+    <h3 class="text-xl font-semibold text-white group-hover:text-pink-400 transition-colors duration-300">
       <slot name="title" />
     </h3>
   </div>
 
-  <p class="text-sm text-gray-300 text-center leading-relaxed px-2">
+  <p class="text-sm text-gray-300 text-center leading-relaxed px-6 pb-6 pt-2">
     <slot name="content" />
   </p>
 </div>
