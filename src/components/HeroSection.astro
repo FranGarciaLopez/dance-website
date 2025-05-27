@@ -1,5 +1,6 @@
 ---
-const { mobileImage, tabletImage, xlImage, heroTitle, heroSpan, heroSubtitle } = Astro.props;
+const { mobileImage, tabletImage, xlImage, heroTitle, heroSpan, heroSubtitle } =
+  Astro.props;
 ---
 
 <section
@@ -9,25 +10,27 @@ const { mobileImage, tabletImage, xlImage, heroTitle, heroSpan, heroSubtitle } =
   class="relative h-screen w-full flex flex-col items-end md:items-center justify-center md:justify-center text-center overflow-hidden"
 >
   <!-- Fondo degradado superior a inferior -->
-  <div class="absolute inset-0 bg-gradient-to-b from-[#1c1c23] via-[#1c1c23] to-[#0d0d11] z-0"></div>
+  <div
+    class="absolute inset-0 bg-gradient-to-b from-[#1c1c23] via-[#1c1c23] to-[#0d0d11] z-0"
+  >
+  </div>
 
   <!-- Imagen fondo móvil -->
   <div
-    class="absolute inset-0 bg-no-repeat bg-center bg-cover z-10 md:hidden"
+    class="absolute inset-0 h-full w-full bg-no-repeat bg-center bg-cover z-0 md:hidden pointer-events-none"
     style={`background-image: url('${mobileImage}')`}
-  ></div>
-
-  <!-- Imagen fondo tablet/desktop -->
+  >
+  </div>
   <div
-    class="absolute inset-0 bg-no-repeat bg-center bg-cover z-10 hidden md:block xl:hidden"
+    class="absolute inset-0 h-full w-full bg-no-repeat bg-center bg-cover z-0 hidden md:block xl:hidden pointer-events-none"
     style={`background-image: url('${tabletImage}')`}
-  ></div>
-
-  <!-- Imagen fondo pantallas XL -->
+  >
+  </div>
   <div
-    class="absolute inset-0 bg-no-repeat bg-center bg-cover z-10 hidden xl:block"
+    class="absolute inset-0 h-full w-full bg-no-repeat bg-center bg-cover z-0 hidden xl:block pointer-events-none"
     style={`background-image: url('${xlImage}')`}
-  ></div>
+  >
+  </div>
 
   <!-- Texto centrado superpuesto -->
   <div
@@ -38,7 +41,9 @@ const { mobileImage, tabletImage, xlImage, heroTitle, heroSpan, heroSubtitle } =
       class="text-4xl md:text-7xl font-extrabold text-white tracking-wide uppercase"
     >
       {heroTitle}
-      <span class="bg-gradient-to-r from-pink-400 via-pink-600 to-pink-500 bg-clip-text text-transparent">
+      <span
+        class="bg-gradient-to-r from-pink-400 via-pink-600 to-pink-500 bg-clip-text text-transparent"
+      >
         {heroSpan}
       </span>
     </h1>
@@ -62,5 +67,6 @@ const { mobileImage, tabletImage, xlImage, heroTitle, heroSpan, heroSubtitle } =
   <!-- Sombra inferior para fade al contenido -->
   <div
     class="absolute bottom-0 w-full h-20 bg-gradient-to-t from-[#0d0d11] to-transparent z-10 pointer-events-none"
-  ></div>
+  >
+  </div>
 </section>
