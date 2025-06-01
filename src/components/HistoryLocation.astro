@@ -1,39 +1,71 @@
----
-import AnimatedParagraph from "./AnimatedParagraph.astro";
----
-
-<section class="history-location-section px-8 py-12">
-  <div class="max-w-4xl mx-auto">
-    <!-- Encabezado principal con palabras clave -->
-    <h2 class="text-2xl md:text-3xl lg:text-5xl font-bold mb-8 blur-reveal">
+<section class="history-location-section max-w-4xl mx-auto px-8 py-16 text-gray-100">
+  <div class="space-y-10">
+    <!-- Título principal -->
+    <h1 class="text-4xl md:text-5xl font-extrabold text-white">
       Clases de Bachata y Salsa Presenciales en Elche
-    </h2>
+    </h1>
 
-    <!-- Historia de la escuela con palabras clave integradas -->
-    <AnimatedParagraph
-      text={`En The Latin Action, somos especialistas en clases presenciales de bachata en Elche, ofreciendo un espacio único para que aprendas a bailar este sensual y apasionado ritmo latino. Nuestros instructores profesionales te guiarán paso a paso, desde los movimientos básicos hasta técnicas avanzadas, en un ambiente amigable y motivador.
-      Ya seas principiante o quieras perfeccionar tu estilo, nuestras clases de bachata te ayudarán a conectar con la música y mejorar tu confianza en la pista de baile. Además, organizamos eventos y prácticas para que pongas en práctica lo aprendido y disfrutes de la comunidad latina de Elche.
-      ¡Únete a The Latin Action y vive la experiencia auténtica de la bachata con nosotros!`}
-    />
-
-    <!-- Subtítulo con palabras clave -->
-    <h2 class="text-2xl font-semibold my-6 blur-reveal">
-      ¿Dónde Impartimos Nuestras Clases?
-    </h2>
-
-    <!-- Información detallada de las ubicaciones -->
-    <p class="text-lg mb-6 highlight-text">
-      Ofrecemos <strong>clases presenciales</strong> en nuestras sedes de Elche:
+    <!-- Historia de la escuela -->
+    <p class="text-lg leading-relaxed text-gray-300">
+      En <strong>The Latin Action</strong>, nos apasiona enseñar bachata y salsa desde el corazón de Elche. Creamos un ambiente acogedor donde cada clase es una experiencia divertida, auténtica y llena de ritmo. Nuestros profesores, con amplia experiencia en estilos latinos, te acompañan desde tus primeros pasos hasta que domines la pista con confianza.
     </p>
-    <ul class="list-disc list-inside mb-6 blur-reveal">
-      <li>
-        <strong>Elche:</strong> Nuestra sede principal se encuentra en el corazón
-        de Elche, en el Carrer Sabadell.
-      </li>
-    </ul>
 
-    <!-- Mapa de Google Maps centrado en la ubicación principal -->
-    <div class="map-container mb-6 blur-reveal">
+    <p class="text-lg leading-relaxed text-gray-300">
+      Ofrecemos clases presenciales adaptadas a todos los niveles, tanto en pareja como individuales, incluyendo estilos como <strong>lady style</strong> y bachata sensual. Además, organizamos eventos sociales y prácticas para que puedas disfrutar de lo aprendido y conectar con la comunidad latina de la ciudad.
+    </p>
+
+    <!-- Subtítulo -->
+    <h2 class="text-2xl font-semibold text-white">¿Dónde estamos?</h2>
+
+    <!-- Ubicación -->
+    <p class="text-lg text-gray-300">
+      Actualmente impartimos nuestras <strong>clases presenciales</strong> en:
+    </p>
+
+    <!-- Formato mejorado de ubicaciones -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Ubicación 1 -->
+      <div class="flex items-start gap-4 p-5 rounded-2xl bg-[#1a1a1f] shadow-md border border-[#2a2a32]">
+        <span class="text-pink-500 text-3xl">📍</span>
+        <div>
+          <h3 class="text-xl font-semibold text-white">
+            Elche – Carrer Petrer, 31
+          </h3>
+          <p class="text-gray-300 text-lg mt-1">
+            Sala espaciosa y equipada para disfrutar al máximo de cada clase.
+          </p>
+        </div>
+      </div>
+    
+      <!-- Ubicación 2 -->
+      <div class="flex items-start gap-4 p-5 rounded-2xl bg-[#1a1a1f] shadow-md border border-[#2a2a32]">
+        <span class="text-pink-500 text-3xl">📍</span>
+        <div>
+          <h3 class="text-xl font-semibold text-white">
+            Elche – Carrer Sabadell, 10 - Sala de baile Bubaloo
+          </h3>
+          <p class="text-gray-300 text-lg mt-1">
+            Una de nuestras sedes principales, ideal para bailar con comodidad y energía.
+          </p>
+        </div>
+      </div>
+    
+      <!-- Ubicación 3 -->
+      <div class="flex items-start gap-4 p-5 rounded-2xl bg-[#1a1a1f] shadow-md border border-[#2a2a32]">
+        <span class="text-pink-500 text-3xl">📍</span>
+        <div>
+          <h3 class="text-xl font-semibold text-white">
+            Elche – Carrer Sabadell, 16 - Sala de baile BabyOh
+          </h3>
+          <p class="text-gray-300 text-lg mt-1">
+            Espacio equipado para clases dinámicas en un entorno cómodo y profesional.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mapa -->
+    <div class="map-container mt-8 shadow-lg border border-[#2a2a32] rounded-xl overflow-hidden">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3132.367111614581!2d-0.6756925227856836!3d38.27098208341982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd63b53e6d2c4d53%3A0x70e65a188acaadba!2sBubaloo.!5e0!3m2!1ses!2ses!4v1733048030190!5m2!1ses!2ses"
         width="100%"
@@ -41,16 +73,43 @@ import AnimatedParagraph from "./AnimatedParagraph.astro";
         style="border:0;"
         allowfullscreen=""
         loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"></iframe>
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
     </div>
 
-    <!-- Llamada a la acción con palabras clave -->
-    <p class="text-lg text-center highlight-text">
-      ¿Listo para comenzar tus <strong
-        >clases presenciales de baile en Elche</strong
-      >? <a href="/contacto" class="text-pink-600 font-semibold hover:underline"
-        >¡Contáctanos hoy mismo!</a
-      >
+    <!-- Beneficios destacados -->
+    <h2 class="text-2xl font-semibold text-white mt-10">¿Por qué elegirnos?</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+      <div class="flex items-start gap-4 p-4 rounded-xl bg-[#1a1a1f] shadow-md border border-[#2a2a32]">
+        <span class="text-pink-500 text-2xl">🎯</span>
+        <p class="text-lg text-gray-300 leading-relaxed">
+          Ambiente cercano, divertido y profesional
+        </p>
+      </div>
+      <div class="flex items-start gap-4 p-4 rounded-xl bg-[#1a1a1f] shadow-md border border-[#2a2a32]">
+        <span class="text-pink-500 text-2xl">👠</span>
+        <p class="text-lg text-gray-300 leading-relaxed">
+          Clases de bachata en pareja, lady style y salsa
+        </p>
+      </div>
+      <div class="flex items-start gap-4 p-4 rounded-xl bg-[#1a1a1f] shadow-md border border-[#2a2a32]">
+        <span class="text-pink-500 text-2xl">🎉</span>
+        <p class="text-lg text-gray-300 leading-relaxed">
+          Eventos sociales y prácticas regulares
+        </p>
+      </div>
+      <div class="flex items-start gap-4 p-4 rounded-xl bg-[#1a1a1f] shadow-md border border-[#2a2a32]">
+        <span class="text-pink-500 text-2xl">💃</span>
+        <p class="text-lg text-gray-300 leading-relaxed">
+          Comunidad activa de bailarines en Elche
+        </p>
+      </div>
+    </div>
+
+    <!-- Llamada a la acción -->
+    <p class="text-lg text-center mt-10 text-gray-300">
+      ¿Listo para comenzar tus <strong>clases de baile en Elche</strong>?  
+      <a href="/contacto" class="text-pink-500 font-semibold hover:underline">¡Contáctanos hoy mismo!</a>
     </p>
   </div>
 </section>

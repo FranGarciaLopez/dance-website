@@ -5,6 +5,7 @@ import Modalities from "@/components/Modalities.astro";
 import ImageMasonry from "@/components/ImageMasonry.astro";
 import HistoryLocation from "@/components/HistoryLocation.astro";
 import Footer from "@/components/Footer.astro";
+import Logros from "@/components/Logros.astro";
 
 // Datos de las modalidades de baile
 const modalitiesData = [
@@ -12,7 +13,8 @@ const modalitiesData = [
     title: "Bachata en Pareja",
     image:
       "https://media.istockphoto.com/id/1195081192/es/foto/bailarines-en-jeans-vaqueros-bailando-bachata-sobre-fondo-gris.jpg?s=2048x2048&w=is&k=20&c=69O3UhF8uGByN06ef7WGDm2KE34jAUKL2-qgo1YjJts=",
-    description: "Aprende los movimientos sensuales de la bachata en pareja.",
+    description:
+      "Vive la pasión de la bachata en pareja en Elche. Aprende figuras, conexión y estilo en cada clase",
     link: "/bachata-en-pareja-elche",
   },
   {
@@ -20,7 +22,7 @@ const modalitiesData = [
     image:
       "https://media.istockphoto.com/id/1195081192/es/foto/bailarines-en-jeans-vaqueros-bailando-bachata-sobre-fondo-gris.jpg?s=2048x2048&w=is&k=20&c=69O3UhF8uGByN06ef7WGDm2KE34jAUKL2-qgo1YjJts=",
     description:
-      "Disfruta del ritmo y la alegría de la salsa en nuestras clases de elche.",
+      "Aprende a bailar salsa en Elche con clases dinámicas, divertidas y adaptadas a todos los niveles",
     link: "/salsa-elche",
   },
   {
@@ -28,10 +30,11 @@ const modalitiesData = [
     image:
       "https://media.istockphoto.com/id/1195081192/es/foto/bailarines-en-jeans-vaqueros-bailando-bachata-sobre-fondo-gris.jpg?s=2048x2048&w=is&k=20&c=69O3UhF8uGByN06ef7WGDm2KE34jAUKL2-qgo1YjJts=",
     description:
-      "Domina la técnica y el estilo de la salsa en línea con el profesor más experimentado.",
+      "Explora tu lado más expresivo con nuestras clases de Lady Style en Elche. Técnica, actitud y elegancia",
     link: "/lady-style-elche",
   },
 ];
+
 
 // URLs de imágenes para el masonry
 
@@ -44,17 +47,50 @@ const galleryImages = [
 ];
 ---
 
-<Layout title="The Latin Action | Escuela de Baile en Elche">
+<Layout
+  title="Clases de Baile en Elche | The Latin Action - Salsa, Bachata y Lady Style"
+  description="Descubre las mejores clases de baile en Elche con The Latin Action. Aprende salsa, bachata y lady style con instructores profesionales."
+  canonical="https://www.thelatinaction.com/"
+>
   <main class="text-white">
+
+    
     <!-- Hero Section -->
     <HeroSection
-      mobileImage=""
-      tabletImage=""
-      xlImage="https://res.cloudinary.com/dgvvnopu7/image/upload/v1747902762/vjchy6wqnxdc3afva06b.webp"
-      heroTitle="Domina tu"
-      heroSpan="Lady Style"
-      heroSubtitle="Explora la bachata desde una nueva perspectiva: elegante y con actitud."
+    mobileImage=""
+    tabletImage=""
+    xlImage=""
+    heroTitle="Clases de Baile en Elche"
+    heroSpan="Salsa, Bachata y Lady Style"
+    heroSubtitle="Aprende a bailar con pasión y técnica en The Latin Action."
     />
+    
+    <Logros />
+
+    <!-- Sección Informativa -->
+    <section class="py-8 px-8 max-w-4xl mx-auto">
+      <h1 class="text-3xl font-bold mb-4">Clases de Baile en Elche</h1>
+      <p class="mb-4 text-xl">
+        En <strong>The Latin Action</strong>, ofrecemos <strong
+          >clases de baile en Elche</strong
+        > para todos los niveles. Ya sea que quieras aprender <strong
+          >salsa</strong
+        >, <strong>bachata</strong> o <strong>lady style</strong>, nuestros
+        instructores profesionales te guiarán en cada paso.
+      </p>
+      <p class="mb-4 text-xl">
+        Nuestras clases están diseñadas para mejorar tu técnica, confianza y
+        estilo en la pista de baile. Además, fomentamos un ambiente amigable y
+        divertido donde podrás conocer a otras personas apasionadas por el
+        baile.
+      </p>
+      <p class="mb-4 text-xl">
+        ¿Estás listo para comenzar? ¡<a
+          href="/contacto"
+          class="text-blue-500 underline">Contáctanos</a
+        > y reserva tu primera clase!
+      </p>
+    </section>
 
     <!-- Modalidades -->
     <Modalities modalities={modalitiesData} />
