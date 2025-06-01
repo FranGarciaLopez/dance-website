@@ -3,14 +3,18 @@ const { mobileImage, tabletImage, xlImage, heroTitle, heroSpan, heroSubtitle } =
   Astro.props;
 const currentPath = Astro.url.pathname;
 
+interface RouteTitles {
+  [key: string]: string;
+}
 // Diccionario de rutas a nombres legibles
-const routeTitles = {
-  "/lady-style-elche": "Lady Style en Elche",
-  "/bachata-en-pareja-elche": "Bachata en Pareja en Elche",
-  "/salsa-elche": "Salsa en Elche",
+const routeTitles: RouteTitles = {
+  "/lady-style-elche": "Lady Style Elche",
+  "/bachata-en-pareja-elche": "Bachata en Pareja Elche",
+  "/salsa-elche": "Salsa Elche",
 };
 
 const readableTitle = routeTitles[currentPath] ?? "vuestras clases";
+
 const encodedMessage = encodeURIComponent(
   `Hola, quiero más información sobre ${readableTitle}`,
 );
