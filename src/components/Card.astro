@@ -2,7 +2,7 @@
 const { title, image, shortDesc } = Astro.props;
 
 // Helper function to insert width transformation in Cloudinary URL
-function cloudinaryResize(url, width) {
+function cloudinaryResize(url: string, width: number) {
   return url.replace('/upload/', `/upload/w_${width},`);
 }
 ---
