@@ -29,26 +29,23 @@ const whatsappLink = `https://wa.me/34645089122?text=${encodedMessage}`;
 >
   <!-- Fondo degradado superior a inferior -->
   <div
-    class="absolute inset-0 bg-gradient-to-b from-[#1c1c23] via-[#1c1c23] to-[#0d0d11] z-0"
+    class="absolute inset-0 bg-gradient-to-t from-pink-900/20 via-pink-700/10 to-pink-100/10 z-0"
   >
   </div>
 
-  <!-- Imagen fondo móvil -->
-  <div
-    class="absolute inset-0 h-full w-full bg-no-repeat bg-center bg-cover z-0 md:hidden pointer-events-none"
-    style={`background-image: url('${mobileImage}')`}
+  <figure
+    class="absolute inset-0 h-full w-full bg-no-repeat bg-center bg-cover z-0 pointer-events-none"
   >
-  </div>
-  <div
-    class="absolute inset-0 h-full w-full bg-no-repeat bg-center bg-cover z-0 hidden md:block xl:hidden pointer-events-none"
-    style={`background-image: url('${tabletImage}')`}
-  >
-  </div>
-  <div
-    class="absolute inset-0 h-full w-full bg-no-repeat bg-center bg-cover z-0 hidden xl:block pointer-events-none"
-    style={`background-image: url('${xlImage}')`}
-  >
-  </div>
+    <picture>
+      <source srcset={xlImage} media="(min-width: 1280px)" />
+      <source srcset={tabletImage} media="(min-width: 768px)" />
+      <img
+        src={mobileImage}
+        alt="Hero image description"
+        class="w-full h-full object-cover"
+      />
+    </picture>
+  </figure>
 
   <!-- Texto centrado superpuesto -->
   <div
@@ -73,10 +70,10 @@ const whatsappLink = `https://wa.me/34645089122?text=${encodedMessage}`;
       href={whatsappLink}
       target="_blank"
       rel="noopener noreferrer"
-      class="inline-block bg-gradient-to-r from-pink-500 via-pink-600 to-pink-700
+      class="inline-block bg-gradient-to-t from-pink-400 via-pink-600 to-pink-700
          text-white text-lg font-medium py-5 px-6 rounded-full shadow-md
          transition-transform duration-300 ease-in-out hover:scale-110 hover:shadow-xl
-         hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-pink-400/60"
+         hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-cyan-400/60"
     >
       ¡Reserva tu clase con nosotros!
     </a>
@@ -84,7 +81,7 @@ const whatsappLink = `https://wa.me/34645089122?text=${encodedMessage}`;
 
   <!-- Sombra inferior para fade al contenido -->
   <div
-    class="absolute bottom-0 w-full h-20 bg-gradient-to-t from-[#0d0d11] to-transparent z-10 pointer-events-none"
+    class="absolute bottom-0 w-full h-20 bg-gradient-to-t from-[#051419] to-transparent z-10 pointer-events-none"
   >
   </div>
 </section>

@@ -1,22 +1,22 @@
 ---
-// Card.astro
-import { theme } from "../pages/theme";
+const { title, image, shortDesc } = Astro.props;
 ---
-<div
-  class="group flex flex-col items-center overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-lg cursor-pointer"
-  style={`color: ${theme.cardColors.textColor}`}
->
-  <div class="relative w-full aspect-[4/3] bg-black">
-    <slot name="background" />
-  </div>
 
-  <div class="w-full text-center px-4 pt-4">
-    <h3 class="text-xl font-semibold text-white group-hover:text-pink-400 transition-colors duration-300">
-      <slot name="title" />
-    </h3>
-  </div>
+<article class="relative group aspect-[2/3] w-full rounded-xl overflow-hidden shadow-xl transition-transform hover:scale-105 cursor-pointer bg-[#111827]">
+  <!-- Background image -->
+  <img
+    src={image}
+    alt={title}
+    class="w-full h-full object-cover"
+    draggable="false"
+  />
 
-  <p class="text-sm text-gray-300 text-center leading-relaxed px-6 pb-6 pt-2">
-    <slot name="content" />
-  </p>
-</div>
+  <!-- Colored gradient overlay for better visual impact -->
+  <div class="absolute inset-0 bg-gradient-to-t from-pink-900/30 via-pink-700/10 to-transparent" />
+
+  <!-- Text overlay -->
+  <div class="absolute bottom-0 left-0 w-full px-6 py-5 text-center z-10">
+    <h2 class="text-white text-5xl font-bold drop-shadow-md">{title}</h2>
+    <p class="text-white text-lg mt-2 drop-shadow-sm">{shortDesc}</p>
+  </div>
+</article>
