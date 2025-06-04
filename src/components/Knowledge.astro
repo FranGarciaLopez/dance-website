@@ -7,7 +7,7 @@ const { KnowledgeData } = Astro.props;
   {
     KnowledgeData.map(
       (item: { title: string; image: string; shortDesc: string }) => (
-        <Card title={item.title} image={item.image} shortDesc={item.shortDesc}/>
+        <Card title={item.title} image={item.image} shortDesc={item.shortDesc} />
       )
     )
   }

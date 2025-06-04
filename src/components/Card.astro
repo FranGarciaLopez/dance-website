@@ -1,20 +1,30 @@
 ---
 const { title, image, shortDesc } = Astro.props;
+
+// Helper function to insert width transformation in Cloudinary URL
+function cloudinaryResize(url, width) {
+  return url.replace('/upload/', `/upload/w_${width},`);
+}
 ---
 
 <article class="relative group aspect-[2/3] w-full rounded-xl overflow-hidden shadow-xl transition-transform hover:scale-105 cursor-pointer bg-[#111827]">
-  <!-- Background image -->
+  <!-- Responsive Cloudinary image -->
   <img
-    src={image}
+    src={cloudinaryResize(image, 600)}
+    srcset={`
+      ${cloudinaryResize(image, 300)} 300w,
+      ${cloudinaryResize(image, 600)} 600w,
+      ${cloudinaryResize(image, 900)} 900w
+    `}
+    sizes="(max-width: 600px) 300px, (max-width: 900px) 600px, 900px"
     alt={title}
     class="w-full h-full object-cover"
+    loading="lazy"
     draggable="false"
   />
 
-  <!-- Colored gradient overlay for better visual impact -->
   <div class="absolute inset-0 bg-gradient-to-t from-pink-900/30 via-pink-700/10 to-transparent" />
-
-  <!-- Text overlay -->
+  
   <div class="absolute bottom-0 left-0 w-full px-6 py-5 text-center z-10">
     <h2 class="text-white text-5xl font-bold drop-shadow-md">{title}</h2>
     <p class="text-white text-lg mt-2 drop-shadow-sm">{shortDesc}</p>
