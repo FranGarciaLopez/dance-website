@@ -3,7 +3,7 @@ import Card from "./Card.astro";
 const { KnowledgeData } = Astro.props;
 ---
 
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-4xl mx-auto px-4 py-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl mx-auto px-4 py-6">
   {
     KnowledgeData.map(
       (item: { title: string; image: string; shortDesc: string }) => (

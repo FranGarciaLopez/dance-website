@@ -1,57 +1,87 @@
 ---
 import { theme } from "../pages/theme.js";
-
 let partners = [
   {
     image:
       "https://res.cloudinary.com/dgvvnopu7/image/upload/v1747908596/mtomj9v3xbveljpvkohi.webp",
-    alt: "Academia de baile DAIREN",
+    alt: "Academia de baile DAIREN Elche",
+    location: {
+      name: "Elche",
+      url: "https://maps.app.goo.gl/16UnuAExaLCYFaWU8",
+      profesorado: "Luna by The Latin Action SB company",
+    },
   },
   {
     image:
       "https://imagedelivery.net/4-G5Kx2wHcK3gRDUXWrgEw/17c66790-c8f1-4fb4-285e-77ccf4959900/public",
-    alt: "Bubaloo Academia de baile",
+    alt: "Bubaloo Academia de baile Elche",
+    location: {
+      name: "Elche",
+      url: "https://maps.app.goo.gl/16UnuAExaLCYFaWU8",
+      profesorado: "Luna by The Latin Action SB company",
+    },
   },
   {
     image:
       "https://imagedelivery.net/4-G5Kx2wHcK3gRDUXWrgEw/9ed7195e-560b-486e-fbba-370ab8865f00/public",
-    alt: "Baby Oh Multi Sala de baile",
+    alt: "Baby Oh Multi Sala de baile Elche",
+    location: {
+      name: "Elche",
+      url: "https://maps.app.goo.gl/16UnuAExaLCYFaWU8",
+      profesorado: "Luna by The Latin Action SB company",
+    },
   },
 ];
 ---
 
-<section class="flex flex-col items-center justify-center py-12">
+<section class="flex flex-col items-center justify-center py-16 relative z-10">
   <h2
-    class="text-4xl font-extrabold mb-10 px-4"
+    class="text-4xl md:text-5xl font-extrabold mb-14 px-6 text-center tracking-tight"
     style={`color: ${theme.schedule.titleColor};`}
   >
     Nuestros Socios
   </h2>
 
   <div
-    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-4xl w-full px-4"
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-5xl w-full px-4"
   >
     {
       partners.map((partner) => (
         <div
-          class="flex flex-col items-center justify-center p-6 bg-white/10 backdrop-blur-lg rounded-xl shadow-lg
-                 transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer"
+          class="flex flex-col items-center justify-center p-6 rounded-2xl shadow-xl backdrop-blur-xl bg-white/10 
+                 border border-white/10 hover:shadow-pink-500/30 transition-background duration-300"
           title={partner.alt}
         >
-          <img
-            src={partner.image}
-            alt={`Imagen de ${partner.alt}`}
-            class="object-contain w-24 h-24 border-4 border-white rounded-full drop-shadow-lg"
-            draggable="false"
-          />
+          <div class="w-28 h-28 rounded-full overflow-hidden border-4 border-white shadow-md group-hover:shadow-xl transition-all duration-300">
+            <img
+              src={partner.image}
+              alt={`Imagen de ${partner.alt}`}
+              class="object-cover w-full h-full"
+              draggable="false"
+            />
+          </div>
+          <p class="mt-4 text-white/90 text-lg font-semibold text-center">
+            {partner.alt}
+          </p>
+
+          <p class="text-sm text-gray-300 mt-1">
+            {partner.location.profesorado
+              ? `Profesorado: ${partner.location.profesorado}`
+              : ""}
+          </p>
+          <p class="text-sm text-pink-300 mt-1">
+            Ubicación:{" "}
+            <a
+              href={partner.location.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="underline hover:text-pink-400"
+            >
+              {partner.location.name}
+            </a>
+          </p>
         </div>
       ))
     }
   </div>
 </section>
-
-<style>
-  section {
-    overflow: hidden;
-  }
-</style>
