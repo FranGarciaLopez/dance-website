@@ -1,0 +1,7 @@
+{
+  "rules": {
+    "react/jsx-no-undef": "off",
+    "jsx-a11y/section-has-heading": "off",
+    // Agrega aquí otras reglas que quieras desactivar
+  }
+}
