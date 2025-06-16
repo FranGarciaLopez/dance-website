@@ -1,17 +1,17 @@
 ---
 const { title, image, shortDesc } = Astro.props;
 
-// Helper function to insert width transformation in Cloudinary URL
 function cloudinaryResize(url: string, width: number) {
   return url.replace('/upload/', `/upload/w_${width},`);
 }
 ---
 
-<article class="relative group aspect-[full] w-full rounded-xl overflow-hidden shadow-xl transition-transform hover:scale-105 cursor-pointer bg-[#111827]">
-  <!-- Responsive Cloudinary image -->
+<article
+  class="relative group aspect-[4/5] w-full rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-105 cursor-pointer"
+>
   <img
     src={cloudinaryResize(image, 600)}
-    srcset={`
+    srcset={` 
       ${cloudinaryResize(image, 300)} 300w,
       ${cloudinaryResize(image, 600)} 600w,
       ${cloudinaryResize(image, 900)} 900w
@@ -23,10 +23,17 @@ function cloudinaryResize(url: string, width: number) {
     draggable="false"
   />
 
-  <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent" />
-  
-  <div class="absolute bottom-0 left-0 w-full px-6 py-5 text-center z-10">
-    <h2 class="text-white text-5xl font-bold drop-shadow-md">{title}</h2>
-    <p class="text-white text-lg mt-2 drop-shadow-sm">{shortDesc}</p>
+  <!-- Soft full overlay for contrast -->
+  <div class="absolute inset-0 bg-black/30 z-10"></div>
+
+  <!-- Centered text block -->
+  <div class="absolute inset-0 flex flex-col justify-center items-center text-center z-20 px-4">
+    <h2 class="text-white text-3xl md:text-4xl font-extrabold drop-shadow-lg">
+      {title}
+    </h2>
+    <p class="mt-2 text-white/90 text-lg md:text-xl max-w-xs drop-shadow">
+      {shortDesc}
+    </p>
   </div>
 </article>
+
