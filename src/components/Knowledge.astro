@@ -2,12 +2,16 @@
 import Card from "./Card.astro";
 const { KnowledgeData } = Astro.props;
 ---
-
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl mx-auto px-4 py-6">
   {
     KnowledgeData.map(
-      (item: { title: string; image: string; shortDesc: string }) => (
-        <Card title={item.title} image={item.image} shortDesc={item.shortDesc} />
+      (item: { title: string; image: string; shortDesc: string }, index: number) => (
+        <Card
+          title={item.title}
+          image={item.image}
+          shortDesc={item.shortDesc}
+          eager={index === 0} 
+        />
       )
     )
   }

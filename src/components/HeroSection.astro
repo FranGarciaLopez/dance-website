@@ -1,12 +1,19 @@
 ---
-const { mobileImage, tabletImage, xlImage, heroTitle, heroSpan, heroSubtitle } =
-  Astro.props;
+const {
+  mobileImage,
+  tabletImage,
+  xlImage,
+  heroTitle,
+  heroSpan,
+  heroSubtitle,
+} = Astro.props;
+
 const currentPath = Astro.url.pathname;
 
 interface RouteTitles {
   [key: string]: string;
 }
-// Diccionario de rutas a nombres legibles
+
 const routeTitles: RouteTitles = {
   "/lady-style-elche": "Lady Style Elche",
   "/bachata-en-pareja-elche": "Bachata en Pareja Elche",
@@ -19,7 +26,6 @@ const encodedMessage = encodeURIComponent(
   `Hola, quiero más información sobre ${readableTitle}`,
 );
 const whatsappLink = `https://wa.me/34645089122?text=${encodedMessage}`;
-
 ---
 
 <section
@@ -28,21 +34,35 @@ const whatsappLink = `https://wa.me/34645089122?text=${encodedMessage}`;
   role="banner"
   class="relative h-screen w-full flex flex-col items-end md:items-center justify-center text-center overflow-hidden"
 >
-  <!-- Fondo degradado inferior para fade -->
+  <!-- Fondo degradado inferior -->
   <div
     class="absolute bottom-0 w-full h-40 bg-gradient-to-t from-black/90 to-transparent z-10 pointer-events-none"
-  >
-  </div>
+  ></div>
 
-  <!-- Imagen de fondo -->
+  <!-- Imagen de fondo responsive y optimizada -->
   <figure class="absolute inset-0 h-full w-full z-0 pointer-events-none">
     <picture>
-      <source srcset={xlImage} media="(min-width: 1280px)" />
-      <source srcset={tabletImage} media="(min-width: 768px)" />
+      <source
+        srcset={`${xlImage.replace("/upload/", "/upload/w_1920,c_fill,f_auto,q_auto/")}`}
+        media="(min-width: 1280px)"
+        width="1920"
+        height="1080"
+      />
+      <source
+        srcset={`${tabletImage.replace("/upload/", "/upload/w_1024,c_fill,f_auto,q_auto/")}`}
+        media="(min-width: 768px)"
+        width="1024"
+        height="768"
+      />
       <img
-        src={mobileImage}
+        src={mobileImage.replace("/upload/", "/upload/w_768,c_fill,f_auto,q_auto/")}
         alt="Hero image"
         class="w-full h-full object-cover object-center brightness-75"
+        width="768"
+        height="1024"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
       />
     </picture>
   </figure>
