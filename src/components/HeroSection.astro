@@ -43,19 +43,31 @@ const whatsappLink = `https://wa.me/34645089122?text=${encodedMessage}`;
   <figure class="absolute inset-0 h-full w-full z-0 pointer-events-none">
     <picture>
       <source
-        srcset={`${xlImage.replace("/upload/", "/upload/w_1920,c_fill,f_auto,q_auto/")}`}
+        srcset={
+          xlImage
+            ? xlImage.replace("/upload/", "/upload/w_1920,c_fill,f_auto,q_auto/")
+            : ""
+        }
         media="(min-width: 1280px)"
         width="1920"
         height="1080"
       />
       <source
-        srcset={`${tabletImage.replace("/upload/", "/upload/w_1024,c_fill,f_auto,q_auto/")}`}
+        srcset={
+          tabletImage
+            ? tabletImage.replace("/upload/", "/upload/w_1024,c_fill,f_auto,q_auto/")
+            : ""
+        }
         media="(min-width: 768px)"
         width="1024"
         height="768"
       />
       <img
-        src={mobileImage.replace("/upload/", "/upload/w_768,c_fill,f_auto,q_auto/")}
+        src={
+          mobileImage
+            ? mobileImage.replace("/upload/", "/upload/w_768,c_fill,f_auto,q_auto/")
+            : ""
+        }
         alt="Hero image"
         class="w-full h-full object-cover object-center brightness-75"
         width="768"
@@ -64,7 +76,7 @@ const whatsappLink = `https://wa.me/34645089122?text=${encodedMessage}`;
         fetchpriority="high"
         decoding="async"
       />
-    </picture>
+    </picture>    
   </figure>
 
   <!-- Contenido -->
