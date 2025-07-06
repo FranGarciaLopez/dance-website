@@ -5,34 +5,39 @@ function cloudinaryResize(url: string, width: number) {
   // Enforce 4:5 aspect ratio, smart crop, auto format and quality
   return url.replace(
     "/upload/",
-    `/upload/w_${width},ar_4:5,c_fill,g_center,f_auto,q_auto,`
+    `/upload/w_${width},ar_4:5,c_fill,g_center,f_auto,q_auto,`,
   );
 }
 ---
+
 <article
   class="relative group aspect-[4/5] w-full rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-105 cursor-pointer"
   style="content-visibility: auto; contain-intrinsic-size: 500px"
 >
   <!-- Responsive image with fixed aspect and size hints -->
-  <img
-    src={cloudinaryResize(image, 600)}
-    srcset={`${cloudinaryResize(image, 300)} 300w, ${cloudinaryResize(image, 600)} 600w, ${cloudinaryResize(image, 900)} 900w`}
-    sizes="(max-width: 600px) 300px, (max-width: 900px) 600px, 900px"
-    alt={title}
-    class="w-full h-full object-cover aspect-[4/5]"
-    width="600"
-    height="750"
-    loading={eager ? "eager" : "lazy"}
-    fetchpriority={eager ? "high" : "auto"}
-    decoding="async"
-    draggable="false"
-  />
+  <picture>
+    <source type="image/avif" srcset={image} />
+    <source type="image/webp" srcset={image} />
+    <img
+      src={image.fallback}
+      alt={title}
+      class="w-full h-full object-cover aspect-[4/5]"
+      width="600"
+      height="750"
+      loading={eager ? "eager" : "lazy"}
+      decoding="async"
+      draggable="false"
+    />
+  </picture>
+  
 
   <!-- Overlay -->
   <div class="absolute inset-0 bg-black/30 z-10"></div>
 
   <!-- Centered content -->
-  <div class="absolute inset-0 flex flex-col justify-center items-center text-center z-20 px-4">
+  <div
+    class="absolute inset-0 flex flex-col justify-center items-center text-center z-20 px-4"
+  >
     <h2 class="text-white text-3xl md:text-4xl font-extrabold drop-shadow-lg">
       {title}
     </h2>

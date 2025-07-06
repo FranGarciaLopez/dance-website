@@ -1,8 +1,7 @@
 ---
 let partners = [
   {
-    image:
-      "/dairen.webp",
+    image: "/dairen.webp",
     alt: "Academia de baile DAIREN Elche",
     location: {
       name: "Elche",
@@ -11,8 +10,7 @@ let partners = [
     },
   },
   {
-    image:
-      "/bubaloo.webp",
+    image: "/bubaloo.webp",
     alt: "Bubaloo Academia de baile Elche",
     location: {
       name: "Elche",
@@ -21,8 +19,7 @@ let partners = [
     },
   },
   {
-    image:
-      "/babyoh.webp",
+    image: "/babyoh.webp",
     alt: "Baby Oh Multi Sala de baile Elche",
     location: {
       name: "Elche",
@@ -54,6 +51,10 @@ let partners = [
               src={partner.image}
               alt={`Imagen de ${partner.alt}`}
               class="object-cover w-full h-full"
+              width="112"
+              height="112"
+              loading="lazy"
+              decoding="async"
               draggable="false"
             />
           </div>
