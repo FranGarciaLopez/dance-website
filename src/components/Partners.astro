@@ -41,7 +41,7 @@ let partners = [
     class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-5xl w-full px-4"
   >
     {
-      partners.map((partner) => (
+      partners.map((partner, index) => (
         <div
           class="flex flex-col items-center justify-center p-6 rounded-2xl bg-[#27272a] backdrop-blur-xl shadow-lg hover:shadow-freshEggplant-800/90 transition-shadow duration-300"
           title={partner.alt}
@@ -53,7 +53,7 @@ let partners = [
               class="object-cover w-full h-full"
               width="112"
               height="112"
-              loading="lazy"
+              loading={index === 0 ? "eager" : "lazy"}
               decoding="async"
               draggable="false"
             />

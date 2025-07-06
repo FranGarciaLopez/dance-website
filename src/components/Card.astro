@@ -16,10 +16,20 @@ function cloudinaryResize(url: string, width: number) {
 >
   <!-- Responsive image with fixed aspect and size hints -->
   <picture>
-    <source type="image/avif" srcset={image} />
-    <source type="image/webp" srcset={image} />
+    <!-- WebP sources con diferentes anchos para responsive -->
+    <source
+      type="image/webp"
+      srcset={`
+        ${image.replace(".webp", "-300.webp")} 300w,
+        ${image.replace(".webp", "-600.webp")} 600w,
+        ${image} 900w
+      `}
+      sizes="(max-width: 600px) 300px, (max-width: 900px) 600px, 900px"
+    />
+    
+    <!-- Fallback a la imagen original WebP -->
     <img
-      src={image.fallback}
+      src={image}
       alt={title}
       class="w-full h-full object-cover aspect-[4/5]"
       width="600"
@@ -27,9 +37,9 @@ function cloudinaryResize(url: string, width: number) {
       loading={eager ? "eager" : "lazy"}
       decoding="async"
       draggable="false"
+      sizes="(max-width: 600px) 300px, (max-width: 900px) 600px, 900px"
     />
-  </picture>
-  
+  </picture>  
 
   <!-- Overlay -->
   <div class="absolute inset-0 bg-black/30 z-10"></div>
