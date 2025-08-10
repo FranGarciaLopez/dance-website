@@ -2,101 +2,116 @@
 import Layout from "@/layouts/Layout.astro";
 ---
 
-<Layout title="Contacto | The Latin Action - Lady Style en Elche">
-       <section class="max-w-4xl mx-auto px-6 py-24">
-              {/* Título principal */}
-              <h1 class="text-5xl font-bold text-pink-600 mb-8">
-                     ¡Contáctanos!
-              </h1>
+<Layout
+  title="Contacto | The Latin Action - Salsa y Bachata en Elche"
+  description="Contacta con The Latin Action para más información sobre nuestras clases de salsa, bachata y Lady Style en Elche."
+  canonical="https://thelatinaction.com/contacto/"
+>
+  <section class="max-w-4xl mx-auto px-6 py-24">
+    <h1 class="text-5xl font-bold text-pink-600 mb-8">¡Contáctanos!</h1>
 
-              {/* Descripción */}
-              <p class="mb-12 text-lg leading-relaxed">
-                     ¿Tienes alguna pregunta o deseas más información sobre
-                     nuestras clases? ¡Déjanos un mensaje y te responderemos
-                     pronto!
-              </p>
+    <p class="mb-12 text-lg leading-relaxed">
+      ¿Tienes alguna pregunta o deseas más información sobre nuestras clases?
+      ¡Déjanos un mensaje y te responderemos pronto!
+    </p>
 
-              {/* Formulario */}
-              <form
-                     class="rounded-xl mx-auto space-y-10"
-                     action="#"
-                     method="POST"
-                     novalidate
-              >
-                     {/* Nombre */}
-                     <div class="relative">
-                            <input
-                                   type="text"
-                                   id="name"
-                                   name="name"
-                                   placeholder="Fran"
-                                   required
-                                   class="peer block w-full rounded-md border border-gray-700 bg-gray-900 px-4 py-3 text-gray-300 text-xl appearance-none focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-pink-600"
-                            />
-                     </div>
+    <!-- Formulario con Formspree -->
+    <form
+      action="https://formspree.io/f/xjkojaqz"
+      method="POST"
+      class="rounded-xl mx-auto space-y-10"
+      onsubmit="handleSubmit(event)"
+    >
+      <div class="relative">
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Fran"
+          required
+          class="peer block w-full rounded-md border border-gray-700 bg-gray-900 px-4 py-3 text-gray-300 text-xl focus:outline-none focus:ring-2 focus:ring-pink-600"
+        />
+      </div>
 
-                     {/* Email */}
-                     <div class="relative">
-                            <input
-                                   type="email"
-                                   id="email"
-                                   name="email"
-                                   placeholder="info@latinaction.com"
-                                   required
-                                   class="peer block w-full rounded-md border border-gray-700 bg-gray-900 px-4 py-3 text-gray-300 text-xl appearance-none focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-pink-600"
-                            />
-                     </div>
+      <div class="relative">
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="info@latinaction.com"
+          required
+          class="peer block w-full rounded-md border border-gray-700 bg-gray-900 px-4 py-3 text-gray-300 text-xl focus:outline-none focus:ring-2 focus:ring-pink-600"
+        />
+      </div>
 
-                     {/* Mensaje */}
-                     <div class="relative">
-                            <textarea
-                                   id="message"
-                                   name="message"
-                                   rows="5"
-                                   placeholder="Me gustaría pedir información sobre las clases de ... en Elche."
-                                   required
-                                   class="peer block w-full rounded-md border border-gray-700 bg-gray-900 px-4 py-3 text-gray-300 text-xl resize-none appearance-none focus:outline-none focus:ring-2 focus:ring-pink-600 focus:border-pink-600"
-                            ></textarea>
-                     </div>
+      <div class="relative">
+        <textarea
+          id="message"
+          name="message"
+          rows="5"
+          placeholder="Me gustaría pedir información sobre las clases de ... en Elche."
+          required
+          class="peer block w-full rounded-md border border-gray-700 bg-gray-900 px-4 py-3 text-gray-300 text-xl resize-none focus:outline-none focus:ring-2 focus:ring-pink-600"
+        ></textarea>
+      </div>
 
-                     {/* Botón */}
-                     <button
-                            type="submit"
-                            class="w-full rounded-lg bg-pink-600 px-6 py-3 text-white font-semibold text-xl shadow-md shadow-pink-500/50 hover:bg-pink-700 focus:outline-none focus:ring-4 focus:ring-pink-400 transition-colors"
-                     >
-                            Enviar mensaje
-                     </button>
-              </form>
+      <button
+        type="submit"
+        class="w-full rounded-lg bg-pink-600 px-6 py-3 text-white font-semibold text-xl shadow-md shadow-pink-500/50 hover:bg-pink-700 focus:outline-none focus:ring-4 focus:ring-pink-400 transition-colors"
+      >
+        Enviar mensaje
+      </button>
 
-              {/* Contacto directo */}
-              <div
-                     class="mx-auto mt-12 text-gray-300 border-t border-gray-900 pt-8"
-              >
-                     <h2 class="text-3xl font-semibold mb-6 text-pink-600">
-                            O contáctanos directamente
-                     </h2>
-                     <ul class="space-y-4">
-                            <li class="flex items-center gap-4">
-                                   <span
-                                          class="text-pink-600 text-2xl select-none"
-                                          >📞</span
-                                   >
-                                   <a
-                                          href="tel:+34645089122"
-                                          class="hover:underline text-lg"
-                                          >+34 645 08 91 22</a
-                                   >
-                            </li>
-                            <li class="flex items-center gap-4">
-                                   <span
-                                          class="text-pink-600 text-2xl select-none"
-                                          >📍</span
-                                   >
-                                   <span class="text-lg"
-                                          >Elche, Alicante, España</span
-                                   >
-                            </li>
-                     </ul>
-              </div>
-       </section>
+      <p id="form-status" class="text-center text-lg mt-4"></p>
+    </form>
+
+    <script>
+      async function handleSubmit(e: Event) {
+        e.preventDefault();
+        const form = e.target as HTMLFormElement;
+        const status = document.getElementById("form-status");
+
+        if (!status) return;
+
+        try {
+          const data = new FormData(form);
+          const res = await fetch(form.action, {
+            method: form.method,
+            body: data,
+            headers: { Accept: "application/json" },
+          });
+
+          if (res.ok) {
+            status.textContent = "✅ ¡Mensaje enviado con éxito!";
+            status.classList.add("text-green-500");
+            form.reset();
+          } else {
+            status.textContent = "❌ Error al enviar. Intenta de nuevo.";
+            status.classList.add("text-red-500");
+          }
+        } catch (err) {
+          status.textContent = "⚠️ Error de conexión.";
+          status.classList.add("text-red-500");
+        }
+      }
+    </script>
+
+    <div class="mx-auto mt-12 text-gray-300 border-t border-gray-900 pt-8">
+      <h2 class="text-3xl font-semibold mb-6 text-pink-600">
+        O contáctanos directamente
+      </h2>
+      <ul class="space-y-4">
+        <li class="flex items-center gap-4">
+          <span class="text-pink-600 text-2xl">📞</span>
+          <a href="tel:+34645089122" class="hover:underline text-lg"
+            >+34 645 08 91 22</a
+          >
+        </li>
+        <li class="flex items-center gap-4">
+          <span class="text-pink-600 text-2xl">📍</span>
+          <span class="text-lg">Elche, Alicante, España</span>
+        </li>
+      </ul>
+    </div>
+  </section>
 </Layout>
