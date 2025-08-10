@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://thelatinaction.com/sitemap-index.xml
+Sitemap: https://thelatinaction.com/sitemap.xml
