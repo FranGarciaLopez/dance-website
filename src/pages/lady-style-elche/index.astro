@@ -1,102 +1,90 @@
 ---
-import Layout from "@/layouts/Layout.astro";
 import HeroSection from "@/components/HeroSection.astro";
-import Modalities from "@/components/Modalities.astro";
-import ImageMasonry from "@/components/ImageMasonry.astro";
-import HistoryLocation from "@/components/HistoryLocation.astro";
+import Knowledge from "@/components/Knowledge.astro";
+import PresentationVideo from "@/components/PresentationVideo.astro";
+import Layout from "@/layouts/Layout.astro";
 import Footer from "@/components/Footer.astro";
-import Logros from "@/components/Logros.astro";
+import Schedule from "@/components/Schedule.astro";
+import Partners from "@/components/Partners.astro";
+import Benefits from "@/components/Benefits.astro";
 
-// Datos de las modalidades de baile
-const modalitiesData = [
+const KnowledgeData = [
   {
-    title: "Bachata en Pareja",
-    image:
-      "https://media.istockphoto.com/id/1195081192/es/foto/bailarines-en-jeans-vaqueros-bailando-bachata-sobre-fondo-gris.jpg?s=2048x2048&w=is&k=20&c=69O3UhF8uGByN06ef7WGDm2KE34jAUKL2-qgo1YjJts=",
-    description:
-      "Vive la pasión de la bachata en pareja en Elche. Aprende figuras, conexión y estilo en cada clase",
-    link: "/bachata-en-pareja-elche",
+    title: "Movimiento de brazos",
+    image: "/movimiento-brazos.webp",
+    shortDesc:
+      "Aprende a mover tus brazos con gracia y elegancia para darle un toque especial a tu baile.",
   },
   {
-    title: "Salsa",
-    image:
-      "https://media.istockphoto.com/id/1195081192/es/foto/bailarines-en-jeans-vaqueros-bailando-bachata-sobre-fondo-gris.jpg?s=2048x2048&w=is&k=20&c=69O3UhF8uGByN06ef7WGDm2KE34jAUKL2-qgo1YjJts=",
-    description:
-      "Aprende a bailar salsa en Elche con clases dinámicas, divertidas y adaptadas a todos los niveles",
-    link: "/salsa-elche",
+    title: "Movimiento Corporal",
+    image: "/movimiento-corporal.webp",
+    shortDesc:
+      "Descubre cómo mover tu cuerpo de forma fluida y femenina en nuestras clases de bachata en elche.",
   },
   {
-    title: "Lady Style",
-    image:
-      "https://media.istockphoto.com/id/1195081192/es/foto/bailarines-en-jeans-vaqueros-bailando-bachata-sobre-fondo-gris.jpg?s=2048x2048&w=is&k=20&c=69O3UhF8uGByN06ef7WGDm2KE34jAUKL2-qgo1YjJts=",
-    description:
-      "Explora tu lado más expresivo con nuestras clases de Lady Style en Elche. Técnica, actitud y elegancia",
-    link: "/lady-style-elche",
+    title: "Sensualidad",
+    image: "/sensualidad.webp",
+    shortDesc:
+      "Aprende a bailar sin pareja y a expresarte con libertad en la pista.",
   },
-];
-
-// URLs de imágenes para el masonry
-
-const galleryImages = [
-  "https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?w=600&h=800&fit=crop",
-  "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop",
-  "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop",
-  "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop",
-  "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop",
+  {
+    title: "Coreografía",
+    image: "/coreografía.webp",
+    shortDesc:
+      "Domina las secuencias de pasos y los movimientos más populares de la bachata.",
+  },
 ];
 ---
 
 <Layout
-  title="Lady Style en Elche | The Latin Action"
-  description="Clases de Lady Style en Elche para potenciar tu estilo y confianza al bailar salsa y bachata. Aprende técnica, elegancia y actitud."
-  canonical="https://thelatinaction.com/lady-style-elche/"
+  title="The Latin Action | Clases de Salsa y Bachata en Elche"
+  description="Academia de baile en Elche especializada en salsa y bachata. Aprende a bailar con profesores expertos en un ambiente divertido y profesional."
+  canonical="https://thelatinaction.com/"
 >
-  <main class="text-white">
-    <!-- Hero Section -->
-    <HeroSection
-      mobileImage=""
-      tabletImage=""
-      xlImage=""
-      heroTitle="Clases de Baile en Elche"
-      heroSpan="Salsa, Bachata y Lady Style"
-      heroSubtitle="Aprende a bailar con pasión y técnica en The Latin Action."
-    />
+  <HeroSection
+    mobileImage="https://res.cloudinary.com/dgvvnopu7/image/upload/f_auto,q_auto/v1748358937/prpkxxafvcddvczygq9j"
+    tabletImage="https://res.cloudinary.com/dgvvnopu7/image/upload/f_auto,q_auto/v1748358937/prpkxxafvcddvczygq9j"
+    xlImage="/header-1.webp"
+    heroTitle="Domina tu"
+    heroSpan="Lady Style"
+    heroSubtitle="Explora la bachata desde una nueva perspectiva: elegante y con actitud."
+  />
 
-    <Logros />
+  <h2
+    class="text-4xl font-extrabold tracking-tight text-freshEggplant-200
+         px-4 pt-10 mb-14 max-w-5xl w-full mx-auto lg:px-4 drop-shadow-md"
+  >
+    ¿Qué aprenderás en las clases de
+    <span class="text-white font-extrabold tracking-wide">Lady Style</span>?
+  </h2>
 
-    <!-- Sección Informativa -->
-    <section class="py-8 px-8 max-w-4xl mx-auto">
-      <h1 class="text-3xl font-bold mb-4">Clases de Baile en Elche</h1>
-      <p class="mb-4 text-xl">
-        En <strong>The Latin Action</strong>, ofrecemos <strong
-          >clases de baile en Elche</strong
-        > para todos los niveles. Ya sea que quieras aprender <strong
-          >salsa</strong
-        >, <strong>bachata</strong> o <strong>lady style</strong>, nuestros
-        instructores profesionales te guiarán en cada paso.
-      </p>
-      <p class="mb-4 text-xl">
-        Nuestras clases están diseñadas para mejorar tu técnica, confianza y
-        estilo en la pista de baile. Además, fomentamos un ambiente amigable y
-        divertido donde podrás conocer a otras personas apasionadas por el
-        baile.
-      </p>
-      <p class="mb-4 text-xl">
-        ¿Estás listo para comenzar? ¡<a
-          href="/contacto"
-          class="text-blue-500 underline">Contáctanos</a
-        > y reserva tu primera clase!
-      </p>
-    </section>
+  <p
+    class="mt-10 max-w-5xl mx-auto px-4 pb-5 text-xl leading-relaxed text-gray-300 lg:px-4"
+  >
+    Es hora de dejar salir tu lado más
+    <span class="font-semibold text-pink-400">atrevido</span>
+    en la pista. La bachata es mucho más que pasos: es
+    <span
+      class="font-semibold bg-gradient-eggplant bg-clip-text text-transparent"
+    >
+      actitud, pasión y sensualidad
+    </span>
+    . Aprende a moverte con seguridad, a destacar con tu estilo y a expresarte con
+    fuerza femenina. De la mano de una de las mejores bailarinas internacionales,
+    potenciarás tu presencia escénica y tu autenticidad en cada coreografía.
+  </p>
 
-    <!-- Modalidades -->
-    <Modalities modalities={modalitiesData} />
+  <PresentationVideo>
+    <!-- Aquí puedes añadir tus videos, con clases responsivas -->
+  </PresentationVideo>
 
-    <!-- Galería de Imágenes -->
-    <ImageMasonry images={galleryImages} />
+  <Knowledge KnowledgeData={KnowledgeData} />
 
-    <!-- Historia y Ubicación -->
-    <HistoryLocation />
-  </main>
+  <Benefits />
+
+  <Schedule />
+
+  <Partners />
+
   <Footer />
 </Layout>

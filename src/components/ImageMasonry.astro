@@ -1,40 +1,167 @@
 ---
+import "photoswipe/dist/photoswipe.css";
+
 interface Props {
   images: string[];
 }
 const { images } = Astro.props;
-debugger;
+
+const CLOUD_NAME = "dgvvnopu7";
+
+function cldUrl(publicId: string, width?: number, height?: number) {
+  const w = width ? `w_${width},` : "";
+  const h = height ? `h_${height},` : "";
+  return `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/${w}${h}c_limit,q_auto,f_auto/${publicId}.jpg`;
+}
 ---
 
-<section class="masonry-section px-8 py-12 max-w-4xl mx-auto" id="galeria">
+<section class="masonry-section px-8 py-12 max-w-5xl mx-auto" id="galeria">
   <h2 class="text-2xl md:text-3xl lg:text-5xl font-bold text-center mb-8">
-    Galería de Imágenes con grandes artistas del mundo de la salsa y la bachata
+    Galería de Imágenes - The Latin Action
   </h2>
-  <!-- Añadimos 'max-w-4xl mx-auto' para centrar el contenido -->
-  <div class="masonry-grid max-w-4xl mx-auto">
+
+  <div class="masonry-grid mx-auto" id="pswp-gallery">
     {
-      images.map((image) => (
-        <div class="masonry-item">
-          <img
-            aria-label="Galería de Imágenes bachata y salsa con grandes artistas del momento"
-            title="Galería de Imágenes bachata y salsa con grandes artistas del momento"
-            src={image}
-            alt="Galería de Imágenes bachata y salsa con grandes artistas del momento"
-            class="w-full h-auto object-cover rounded-lg"
-            loading="lazy"
-          />
-        </div>
+      images.slice(0, 7).map((publicId) => (
+        <a
+          href={cldUrl(publicId)}
+          class="masonry-item block"
+          data-pswp-width="0"
+          data-pswp-height="0"
+          data-cropped="false"
+        >
+          <div class="aspect-box">
+            <img
+              src={cldUrl(publicId, 600)}
+              alt={publicId.replace(/[_-]/g, " ")}
+              class="w-full h-full object-cover rounded-lg cursor-pointer hover:opacity-90 transition"
+              loading="lazy"
+              onload={(e: Event) => {
+                const imgEl = e.currentTarget as HTMLImageElement;
+                const link = imgEl.closest("a") as HTMLAnchorElement;
+                if (link) {
+                  link.dataset.pswpWidth = imgEl.naturalWidth.toString();
+                  link.dataset.pswpHeight = imgEl.naturalHeight.toString();
+                  // Store orientation type for better handling
+                  link.dataset.orientation =
+                    imgEl.naturalWidth > imgEl.naturalHeight
+                      ? "landscape"
+                      : "portrait";
+                }
+              }}
+            />
+          </div>
+        </a>
       ))
     }
   </div>
 </section>
+
+<!-- PhotoSwipe template -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="pswp__bg"></div>
+  <div class="pswp__scroll-wrap">
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    <div class="pswp__ui pswp__ui--hidden">
+      <div class="pswp__top-bar">
+        <div class="pswp__counter"></div>
+        <button class="pswp__button pswp__button--close" title="Cerrar (Esc)"
+        ></button>
+        <button class="pswp__button pswp__button--zoom" title="Zoom in/out"
+        ></button>
+        <div class="pswp__preloader">
+          <div class="pswp__preloader__icn">
+            <div class="pswp__preloader__cut">
+              <div class="pswp__preloader__donut"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pswp__caption">
+        <div class="pswp__caption__center"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="module" is:inline>
+  import PhotoSwipeLightbox from "https://cdn.jsdelivr.net/npm/photoswipe@5.3.9/dist/photoswipe-lightbox.esm.min.js";
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: "#pswp-gallery",
+    children: "a",
+    pswpModule: () =>
+      import(
+        "https://cdn.jsdelivr.net/npm/photoswipe@5.3.9/dist/photoswipe.esm.min.js"
+      ),
+    showHideAnimationType: "fade",
+    arrowKeys: true,
+    clickToCloseNonZoomable: true,
+    wheelToZoom: true,
+    maxSpreadZoom: 2,
+  });
+
+  lightbox.on("gettingData", (e) => {
+    if (!e.element || !e.data) return;
+
+    // Get dimensions and orientation
+    const width = parseInt(e.element.dataset.pswpWidth || "0");
+    const height = parseInt(e.element.dataset.pswpHeight || "0");
+    const orientation = e.element.dataset.orientation;
+
+    // Ensure dimensions are set properly
+    if (width && height) {
+      e.data.width = width;
+      e.data.height = height;
+
+      // Calculate proper dimensions based on viewport and image orientation
+      const viewportWidth = window.innerWidth * 0.8;
+      const viewportHeight = window.innerHeight * 0.8;
+
+      // Set the appropriate size based on orientation
+      if (orientation === "portrait") {
+        // Portrait: Maintain height, adjust width
+        const ratio = height / width;
+        const targetHeight = Math.min(height, viewportHeight);
+        e.data.width = targetHeight / ratio;
+        e.data.height = targetHeight;
+      } else {
+        // Landscape: Maintain width, adjust height
+        const ratio = width / height;
+        const targetWidth = Math.min(width, viewportWidth);
+        e.data.width = targetWidth;
+        e.data.height = targetWidth / ratio;
+      }
+    }
+  });
+
+  // Add custom positioning for images
+  lightbox.on("contentLoad", (e) => {
+    if (e.content && e.content.element) {
+      const img = e.content.element.querySelector("img");
+      if (img) {
+        const orientation = e.content.data.element.dataset.orientation;
+
+        // Add orientation class to help with CSS positioning
+        if (orientation) {
+          img.classList.add(`pswp-${orientation}`);
+        }
+      }
+    }
+  });
+
+  lightbox.init();
+</script>
 
 <style>
   .masonry-grid {
     column-count: 1;
     column-gap: 1rem;
   }
-
   @media (min-width: 768px) {
     .masonry-grid {
       column-count: 2;
@@ -48,5 +175,36 @@ debugger;
   .masonry-item {
     margin-bottom: 1rem;
     break-inside: avoid;
+    display: block;
+  }
+
+  /* PhotoSwipe image orientation styles */
+  :global(.pswp__zoom-wrap) {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  :global(.pswp__img) {
+    max-height: 90vh !important;
+    max-width: 90vw !important;
+    object-fit: contain !important;
+    position: relative !important;
+    margin: 0 auto !important;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+  }
+
+  :global(.pswp-portrait) {
+    max-height: 85vh !important;
+    width: auto !important;
+  }
+
+  :global(.pswp-landscape) {
+    max-width: 85vw !important;
+    height: auto !important;
   }
 </style>

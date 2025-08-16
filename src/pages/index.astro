@@ -1,90 +1,86 @@
 ---
-import HeroSection from "@/components/HeroSection.astro";
-import Knowledge from "@/components/Knowledge.astro";
-import PresentationVideo from "@/components/PresentationVideo.astro";
 import Layout from "@/layouts/Layout.astro";
+import HeroSection from "@/components/HeroSection.astro";
+import Modalities from "@/components/Modalities.astro";
+import ImageMasonry from "@/components/ImageMasonry.astro";
+import HistoryLocation from "@/components/HistoryLocation.astro";
 import Footer from "@/components/Footer.astro";
-import Schedule from "@/components/Schedule.astro";
-import Partners from "@/components/Partners.astro";
-import Benefits from "@/components/Benefits.astro";
+import Logros from "@/components/Logros.astro";
+import { galleryImages } from "@/data/galleryImages";
 
-const KnowledgeData = [
+// Datos de modalidades (puedes personalizar)
+const modalitiesData = [
   {
-    title: "Movimiento de brazos",
-    image: "/movimiento-brazos.webp",
-    shortDesc:
-      "Aprende a mover tus brazos con gracia y elegancia para darle un toque especial a tu baile.",
+    title: "Bachata en Pareja",
+    image: `https://res.cloudinary.com/dgvvnopu7/image/upload/v1755352383/Foto_de_Juan_Carlos_y_Luna_The_Latin_Action_Salsa_y_Bachata_en_la_playa_absfwn.jpg`,
+    description:
+      "Clases de Bachata en Pareja en Elche con Juan Carlos y Luna - The Latin Action - Clases de Salsa y Bachata",
+    link: "/bachata-en-pareja-elche",
   },
   {
-    title: "Movimiento Corporal",
-    image: "/movimiento-corporal.webp",
-    shortDesc:
-      "Descubre cómo mover tu cuerpo de forma fluida y femenina en nuestras clases de bachata en elche.",
+    title: "Salsa",
+    image: "...",
+    description:
+      "Clases de Salsa en Elche con Juan Carlos y Luna - The Latin Action - Clases de Salsa y Bachata",
+    link: "/salsa-elche",
   },
   {
-    title: "Sensualidad",
-    image: "/sensualidad.webp",
-    shortDesc:
-      "Aprende a bailar sin pareja y a expresarte con libertad en la pista.",
-  },
-  {
-    title: "Coreografía",
-    image: "/coreografía.webp",
-    shortDesc:
-      "Domina las secuencias de pasos y los movimientos más populares de la bachata.",
+    title: "Bachata Lady Style",
+    image: `https://res.cloudinary.com/dgvvnopu7/image/upload/w_600,c_fill,q_auto,f_auto/foto_alumnado_intensivo_bachata_lady_style_dairen_-_Luna_the_latin_action_hgoqus.jpg`,
+    description:
+      "Clases de Bachata Lady Style en Elche con Luna The Latin Action",
+    link: "/lady-style-elche",
   },
 ];
 ---
 
 <Layout
-  title="The Latin Action | Clases de Salsa y Bachata en Elche"
-  description="Academia de baile en Elche especializada en salsa y bachata. Aprende a bailar con profesores expertos en un ambiente divertido y profesional."
-  canonical="https://thelatinaction.com/"
+  title="Lady Style en Elche | The Latin Action"
+  description="Clases de Bachata Lady Style en Elche - Luna the Latin Action - Clases de Salsa y Bachata"
+  keywords="Bachata Lady Style, Clases de Baile en Elche, The Latin Action - Clases de Salsa y Bachata"
+  canonical="https://thelatinaction.com/lady-style-elche/"
 >
-  <HeroSection
-    mobileImage="https://res.cloudinary.com/dgvvnopu7/image/upload/f_auto,q_auto/v1748358937/prpkxxafvcddvczygq9j"
-    tabletImage="https://res.cloudinary.com/dgvvnopu7/image/upload/f_auto,q_auto/v1748358937/prpkxxafvcddvczygq9j"
-    xlImage="/header-1.webp"
-    heroTitle="Domina tu"
-    heroSpan="Lady Style"
-    heroSubtitle="Explora la bachata desde una nueva perspectiva: elegante y con actitud."
-  />
+  <main class="text-white">
+    <HeroSection
+      mobileImage="https://res.cloudinary.com/dgvvnopu7/image/upload/v1755353968/foto_juancarlos_y_luna_the_latin_salsa_y_bachata_bg_fnfd2n.jpg"
+      tabletImage="https://res.cloudinary.com/dgvvnopu7/image/upload/v1755353968/foto_juancarlos_y_luna_the_latin_salsa_y_bachata_bg_fnfd2n.jpg"
+      xlImage="https://res.cloudinary.com/dgvvnopu7/image/upload/v1755355363/foto_juancarlos_y_luna_the_latin_salsa_y_bachata_bg_2_gmx6to.jpg"
+      heroTitle="Clases de Baile en Elche"
+      heroSpan="Salsa, Bachata y Lady Style"
+      heroSubtitle="Aprende a bailar con pasión y técnica en The Latin Action."
+    />
 
-  <h2
-    class="text-4xl font-extrabold tracking-tight text-freshEggplant-200
-         px-4 pt-10 mb-14 max-w-5xl w-full mx-auto lg:px-4 drop-shadow-md"
-  >
-    ¿Qué aprenderás en las clases de
-    <span class="text-white font-extrabold tracking-wide">Lady Style</span>?
-  </h2>
+    <Logros />
 
-  <p
-    class="mt-10 max-w-5xl mx-auto px-4 pb-5 text-xl leading-relaxed text-gray-300 lg:px-4"
-  >
-    Es hora de dejar salir tu lado más
-    <span class="font-semibold text-pink-400">atrevido</span>
-    en la pista. La bachata es mucho más que pasos: es
-    <span
-      class="font-semibold bg-gradient-eggplant bg-clip-text text-transparent"
-    >
-      actitud, pasión y sensualidad
-    </span>
-    . Aprende a moverte con seguridad, a destacar con tu estilo y a expresarte con
-    fuerza femenina. De la mano de una de las mejores bailarinas internacionales,
-    potenciarás tu presencia escénica y tu autenticidad en cada coreografía.
-  </p>
+    <section class="py-8 px-8 max-w-5xl mx-auto">
+      <h1 class="text-4xl font-bold mb-4">
+        Clases de Baile Salsa y Bachata - The Latin Action
+      </h1>
+      <!-- Historia de la escuela -->
+      <p class="text-lg leading-relaxed text-gray-300 mb-4">
+        En <strong>The Latin Action</strong>, nos apasiona enseñar bachata y
+        salsa desde el corazón de Elche. Creamos un ambiente acogedor donde cada
+        clase es una experiencia divertida, auténtica y llena de ritmo. Nuestros
+        profesores, con amplia experiencia en estilos latinos, te acompañan
+        desde tus primeros pasos hasta que domines la pista con confianza.
+      </p>
 
-  <PresentationVideo>
-    <!-- Aquí puedes añadir tus videos, con clases responsivas -->
-  </PresentationVideo>
+      <p class="text-lg leading-relaxed text-gray-300">
+        Ofrecemos clases presenciales adaptadas a todos los niveles, tanto en
+        pareja como individuales, incluyendo estilos como <strong
+          >lady style</strong
+        > y bachata sensual. Además, organizamos eventos sociales y prácticas para
+        que puedas disfrutar de lo aprendido y conectar con la comunidad latina de
+        la ciudad.
+      </p>
+    </section>
 
-  <Knowledge KnowledgeData={KnowledgeData} />
+    <Modalities modalities={modalitiesData} />
 
-  <Benefits />
+    <!-- Galería -->
+    <ImageMasonry images={galleryImages} />
 
-  <Schedule />
-
-  <Partners />
-
+    <HistoryLocation />
+  </main>
   <Footer />
 </Layout>
