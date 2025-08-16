@@ -1,4 +1,11 @@
 ---
+type ColorType = "freshEggplant" | "freshPeach" | "softBlue";
+let pageColor: ColorType = "freshEggplant";
+if (Astro.url.pathname.includes("lady-style")) pageColor = "freshEggplant";
+else if (Astro.url.pathname.includes("bachata-en-pareja"))
+  pageColor = "freshPeach";
+else if (Astro.url.pathname.includes("salsa")) pageColor = "softBlue";
+else pageColor = "freshEggplant"; // homepage u otras rutas
 let schedule = [
   {
     day: "Lunes",
@@ -43,42 +50,86 @@ let schedule = [
     ],
   },
 ];
+
+const colorClasses = {
+  freshEggplant: {
+    textTitle: "text-freshEggplant-200",
+    textItem: "text-freshEggplant-300",
+    textSubItem: "text-freshEggplant-400",
+    shadowHover: "hover:shadow-freshEggplant-800/90",
+    linkHover: "hover:text-freshEggplant-500",
+  },
+  freshPeach: {
+    textTitle: "text-freshPeach-200",
+    textItem: "text-freshPeach-300",
+    textSubItem: "text-freshPeach-400",
+    shadowHover: "hover:shadow-freshPeach-800/90",
+    linkHover: "hover:text-freshPeach-500",
+  },
+  softBlue: {
+    textTitle: "text-softBlue-200",
+    textItem: "text-softBlue-300",
+    textSubItem: "text-softBlue-400",
+    shadowHover: "hover:shadow-softBlue-800/90",
+    linkHover: "hover:text-softBlue-500",
+  },
+};
 ---
 
 <section class="py-6">
   <h2
     id="horario-semanal"
-    class="text-4xl md:text-5xl font-extrabold mb-14 px-6 text-center tracking-tight text-freshEggplant-200"
+    class={`text-4xl md:text-5xl font-extrabold mb-14 px-6 text-center tracking-tight ${colorClasses[pageColor].textTitle}`}
   >
     Horario Semanal de Clases
   </h2>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto px-4">
-    {schedule.map((day) => (
-      <div class="bg-[#27272a] backdrop-blur-xl rounded-2xl p-6 shadow-lg hover:shadow-freshEggplant-800/90 transition-shadow duration-300 text-freshEggplant-100">
-        <h3 class="text-xl font-semibold text-freshEggplant-400 border-b border-freshEggplant-800 pb-2 mb-4">
-          {day.day}
-        </h3>
-        {day.slots.map((slot) => (
-          <div class="mb-6">
-            <p class="text-lg font-bold text-freshEggplant-200">{slot.time}</p>
-            <p class="text-sm text-freshEggplant-300">{slot.class}</p>
-            <p class="text-sm italic text-freshEggplant-400">Edad: {slot.ageRange}</p>
-            <p class="text-sm italic text-freshEggplant-400">
-              Lugar:{" "}
-              <a
-                href={slot.location.url}
-                class="underline hover:text-freshEggplant-500"
-                target="_blank"
-                rel="noopener noreferrer"
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto px-4"
+  >
+    {
+      schedule.map((day) => (
+        <div
+          class={`bg-[#27272a] backdrop-blur-xl rounded-2xl p-6 shadow-lg ${colorClasses[pageColor].shadowHover} transition-shadow duration-300 ${colorClasses[pageColor].textTitle}`}
+        >
+          <h3
+            class={`text-xl font-semibold ${colorClasses[pageColor].textSubItem} border-b border-white pb-2 mb-4`}
+          >
+            {day.day}
+          </h3>
+          {day.slots.map((slot) => (
+            <div class="mb-6">
+              <p
+                class={`text-lg font-bold ${colorClasses[pageColor].textTitle}`}
               >
-                {slot.location.name}
-              </a>
-            </p>
-          </div>
-        ))}
-      </div>
-    ))}
+                {slot.time}
+              </p>
+              <p class={`text-sm ${colorClasses[pageColor].textItem}`}>
+                {slot.class}
+              </p>
+              <p
+                class={`text-sm italic ${colorClasses[pageColor].textSubItem}`}
+              >
+                Edad: {slot.ageRange}
+              </p>
+              <p
+                class={`text-sm italic ${colorClasses[pageColor].textSubItem}`}
+              >
+                Lugar:{" "}
+                <a
+                  href={slot.location.url}
+                  class={`underline ${colorClasses[pageColor].linkHover}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {slot.location.name}
+                </a>
+              </p>
+            </div>
+          ))}
+        </div>
+      ))
+    }
   </div>
 </section>
 

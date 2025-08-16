@@ -1,157 +1,86 @@
 ---
-import Layout from "@/layouts/Layout.astro";
 import HeroSection from "@/components/HeroSection.astro";
-import Schedule from "@/components/Schedule.astro";
-import HomeImage from "@/components/HomeImage.astro";
 import Knowledge from "@/components/Knowledge.astro";
-import Partners from "@/components/Partners.astro";
 import PresentationVideo from "@/components/PresentationVideo.astro";
+import Layout from "@/layouts/Layout.astro";
 import Footer from "@/components/Footer.astro";
+import Schedule from "@/components/Schedule.astro";
+import Partners from "@/components/Partners.astro";
+import Benefits from "@/components/Benefits.astro";
 
-let KnowledgeData = [
+const KnowledgeData = [
   {
-    title: "Ritmo de Bachata",
-    image:
-      "https://imagedelivery.net/4-G5Kx2wHcK3gRDUXWrgEw/6c17daf9-3d58-444d-3786-258e5c33d500/public",
+    title: "Conexión en Pareja",
+    image: "/conexion-pareja.webp",
     shortDesc:
-      "Aprende a seguir el ritmo de la bachata, una danza suave y sensual.",
+      "Aprende a guiar y dejarte guiar, creando una conexión auténtica con tu pareja de baile.",
   },
   {
-    title: "Movimiento Corporal",
-    image:
-      "https://imagedelivery.net/4-G5Kx2wHcK3gRDUXWrgEw/7bbf6cf6-d766-40e7-369e-887722b39600/public",
+    title: "Técnica de Giro",
+    image: "/tecnica-giro.webp",
     shortDesc:
-      "Domina el movimiento corporal para una expresión más sensorial y fluida.",
+      "Domina los giros básicos y avanzados para que tu baile sea fluido y elegante.",
   },
   {
-    title: "Baile Sin Pareja",
-    image:
-      "https://imagedelivery.net/4-G5Kx2wHcK3gRDUXWrgEw/c4adda27-6696-4487-d5ff-91501b218e00/public",
+    title: "Estilo y Expresión",
+    image: "/expresion-estilo.webp",
     shortDesc:
-      "Baila con libertad sin pareja, adaptando tus movimientos a la música.",
+      "Añade tu toque personal a cada paso y disfruta expresando emociones en la pista.",
   },
   {
-    title: "Coreografía de Bachata",
-    image:
-      "https://imagedelivery.net/4-G5Kx2wHcK3gRDUXWrgEw/c3d597d2-6730-4afc-e467-a91a93e42600/public",
+    title: "Musicalidad",
+    image: "/musicalidad.webp",
     shortDesc:
-      "Aprende los pasos y movimientos que definen la bachata moderna y tradicional.",
+      "Aprende a interpretar la música, marcando pausas, acentos y jugando con los tiempos.",
   },
 ];
 ---
 
 <Layout
-  title="Bachata en Pareja en Elche | The Latin Action"
-  description="Aprende bachata en pareja en Elche. Clases para todos los niveles con profesores expertos en un ambiente dinámico y divertido."
+  title="The Latin Action | Clases de Bachata en Pareja en Elche"
+  description="Clases de Bachata en Pareja en Elche con Juan Carlos y Luna - Aprende a bailar con pasión, técnica y conexión en un ambiente cálido y profesional."
+  keywords="Bachata en Pareja, Clases de Bachata en Elche, The Latin Action"
   canonical="https://thelatinaction.com/bachata-en-pareja-elche/"
 >
-  <main class="flex flex-col">
-    <HeroSection>
-      <div
-        class="max-w-4xl container relative flex flex-col lg:flex-row mx-auto lg:pt-2 lg:px-4"
-        slot="heroImage"
-      >
-        <!-- For small screens -->
-        <div
-          class="relative order-2 lg:order-none flex flex-col items-center justify-center lg:w-1/2 lg:max-w-lg lg:mx-6"
-        >
-          <picture class="block lg:hidden mt-8">
-            <img
-              decoding="async"
-              class="w-full max-w-md mx-auto object-cover rounded-lg shadow-lg opacity-90 h-screen"
-              alt="Fotografía de Juan Carlos Latin Action Bachata en Elche"
-              src="https://imagedelivery.net/4-G5Kx2wHcK3gRDUXWrgEw/f39784e7-d142-4780-c4ff-a8203dbeb800/public"
-              draggable="false"
-              loading="eager"
-            />
-          </picture>
+  <HeroSection
+    mobileImage="https://res.cloudinary.com/dgvvnopu7/image/upload/v1755363437/IMG_20250816_185043_rcvf3z.jpg"
+    tabletImage="https://res.cloudinary.com/dgvvnopu7/image/upload/v1755363437/IMG_20250816_185043_rcvf3z.jpg"
+    xlImage="https://res.cloudinary.com/dgvvnopu7/image/upload/v1755352383/Foto_de_Juan_Carlos_y_Luna_The_Latin_Action_Salsa_y_Bachata_en_la_playa_absfwn.jpg"
+    heroTitle="Bachata en Pareja"
+    heroSpan="en Elche"
+    heroSubtitle="Descubre la complicidad, el ritmo y la pasión de la bachata con The Latin Action."
+  />
 
-          <!-- Responsive Content -->
-          <div
-            class="absolute z-30 flex flex-col items-center justify-center text-center lg:text-left lg:pl-12"
-          >
-            <span
-              class="hidden lg:block w-24 h-2 mb-10 bg-gradient-to-r from-gray-600 to-white rounded"
-            ></span>
-            <h1
-              class="text-5xl p-4 text-white md:text-6xl font-bold tracking-wide"
-            >
-              Aprende Bachata de forma presencial con <span
-                class="text-[#ff638c]">The Latin Action</span
-              >
-            </h1>
-            <a
-              href="https://wa.me/34645089122?text=Hola,%20quiero%20más%20información%20sobre%20las%20clases"
-              class="px-8 py-4 bg-[#ff638c] text-white font-medium rounded-full shadow-md hover:bg-[#ff638c] transition duration-300 transform hover:scale-105"
-            >
-              ¡Reserva tu clase de prueba!
-            </a>
-          </div>
-        </div>
+  <h2
+    class="text-4xl font-extrabold tracking-tight text-freshPeach-500
+         px-4 pt-10 mb-14 max-w-5xl w-full mx-auto lg:px-4 drop-shadow-md"
+  >
+    ¿Qué aprenderás en las clases de
+    <span class="text-freshApricot-200 font-extrabold tracking-wide"
+      >Bachata en Pareja</span
+    >?
+  </h2>
 
-        <!-- For large screens -->
-        <div
-          class="relative order-1 lg:order-none pt-12 lg:w-1/2 lg:mx-6 hidden lg:block"
-        >
-          <HomeImage />
-        </div>
-      </div>
-    </HeroSection>
+  <p
+    class="mt-10 max-w-5xl mx-auto px-4 pb-5 text-xl leading-relaxed text-freshPeach-100 lg:px-4"
+  >
+    La bachata en pareja es un baile que transmite
+    <span class="font-semibold text-freshPeach-500"
+      >cercanía, emoción y complicidad</span
+    >. En nuestras clases aprenderás a conectar con tu pareja a través del
+    movimiento, a interpretar la música y a expresarte con naturalidad en cada
+    paso. Con la experiencia de
+    <span class="font-semibold text-freshMint-400">Juan Carlos y Luna</span>,
+    descubrirás cómo convertir el baile en una experiencia única y romántica.
+  </p>
 
-    <!-- Rest of your sections remain unchanged -->
-    <h2
-      class="text-3xl font-extrabold text-white px-4 pt-10 flex flex-wrap items-center max-w-4xl w-full mx-auto lg:px-4"
-    >
-      ¿Qué aprenderás en las clases de <span class="text-[#ff638c] ml-2"
-        >Latin Action</span
-      >?
-    </h2>
+  <Knowledge KnowledgeData={KnowledgeData} />
 
-    <p class="text-lg mt-6 text-white px-4 pb-10 max-w-4xl mx-auto lg:px-4">
-      Ya seas principiante o tengas experiencia, en Latin Action encontrarás
-      clases adaptadas a tu nivel. Aprende a moverte al ritmo de la bachata, a
-      expresar tus emociones con libertad y a dominar los pasos básicos y
-      avanzados. ¡Ven y disfruta de una clase gratis con el
-      <span class="text-[#ff638c]">profesor experto</span> Juan Carlos!
-    </p>
+  <Benefits />
 
-    <PresentationVideo>
-      <!-- Mobile Video -->
-      <video
-        autoplay="autoplay"
-        controls="controls"
-        muted="muted"
-        loop="loop"
-        preload="preload"
-        src="https://res.cloudinary.com/dgvvnopu7/video/upload/v1732571099/vqprqk7p7ujdoctm7res.webm"
-        class="w-full h-auto object-contain rounded-lg shadow-lg opacity-80"
-        slot="mobile-video"></video>
+  <Schedule />
 
-      <!-- Desktop Video -->
-      <video
-        autoplay="autoplay"
-        controls="controls"
-        muted="muted"
-        loop="loop"
-        preload="preload"
-        src="https://res.cloudinary.com/dgvvnopu7/video/upload/v1732571111/fyxa1hcq6hlljpijs7bu.webm"
-        class="w-full h-auto object-cover rounded-lg shadow-lg opacity-80"
-        slot="desktop-video"></video>
-    </PresentationVideo>
+  <Partners />
 
-    <!-- Knowledge Section -->
-    <Knowledge KnowledgeData={KnowledgeData} />
-
-    <!--     <Schedule /> -->
-
-    <Partners />
-
-    <Footer />
-  </main>
-
-  <style>
-    main {
-      overflow: hidden;
-    }
-  </style>
+  <Footer />
 </Layout>

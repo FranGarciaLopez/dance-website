@@ -1,29 +1,65 @@
 ---
-const {
-  mobileImage,
-  tabletImage,
-  xlImage,
-  heroTitle,
-  heroSpan,
-  heroSubtitle,
-} = Astro.props;
+const { mobileImage, tabletImage, xlImage, heroTitle, heroSpan, heroSubtitle } =
+  Astro.props;
 
 const currentPath = Astro.url.pathname;
 
-interface RouteTitles {
-  [key: string]: string;
+interface RouteClasses {
+  [key: string]: {
+    gradient: string;
+    buttonBg: string;
+    buttonHover: string;
+    textGradient: string;
+  };
 }
 
-const routeTitles: RouteTitles = {
+const routeClasses: RouteClasses = {
+  "/lady-style-elche": {
+    gradient: "bg-gradient-ladyStyle",
+    buttonBg: "bg-gradient-ladyStyle",
+    buttonHover: "hover:shadow-lg",
+    textGradient:
+      "bg-gradient-to-r from-ladyStyle-gradient-from to-ladyStyle-gradient-to",
+  },
+  "/bachata-en-pareja-elche": {
+    gradient: "bg-gradient-bachata",
+    buttonBg: "bg-bachata-gradient-from",
+    buttonHover: "hover:bg-bachata-gradient-to",
+    textGradient:
+      "bg-gradient-to-r from-bachata-gradient-from to-bachata-gradient-to",
+  },
+  "/salsa-elche": {
+    gradient: "bg-gradient-salsa",
+    buttonBg: "bg-salsa-gradient-from",
+    buttonHover: "hover:bg-salsa-gradient-to",
+    textGradient:
+      "bg-gradient-to-r from-salsa-gradient-from to-salsa-gradient-to",
+  },
+  "/": {
+    gradient: "bg-gradient-main",
+    buttonBg: "bg-main-gradient-from",
+    buttonHover: "hover:bg-main-gradient-to",
+    textGradient:
+      "bg-gradient-to-r from-main-gradient-from to-main-gradient-to",
+  },
+};
+
+const currentClasses = routeClasses[currentPath] ?? {
+  gradient: "bg-gray-500",
+  buttonBg: "bg-gray-600",
+  buttonHover: "hover:bg-gray-400",
+  textGradient: "text-white",
+};
+
+const routeTitles: Record<string, string> = {
   "/lady-style-elche": "Lady Style Elche",
   "/bachata-en-pareja-elche": "Bachata en Pareja Elche",
   "/salsa-elche": "Salsa Elche",
 };
 
 const readableTitle = routeTitles[currentPath] ?? "vuestras clases";
-
 const encodedMessage = encodeURIComponent(
-  `Hola, quiero más información sobre ${readableTitle}`,
+  `Hola, quiero más información sobre ${readableTitle}`
 );
 const whatsappLink = `https://wa.me/34645089122?text=${encodedMessage}`;
 ---
@@ -37,37 +73,38 @@ const whatsappLink = `https://wa.me/34645089122?text=${encodedMessage}`;
   <!-- Fondo degradado inferior -->
   <div
     class="absolute bottom-0 w-full h-40 bg-gradient-to-t from-black/90 to-transparent z-10 pointer-events-none"
-  ></div>
+  >
+  </div>
 
-  <!-- Imagen de fondo responsive y optimizada -->
+  <!-- Imagen de fondo responsive -->
   <figure class="absolute inset-0 h-full w-full z-0 pointer-events-none">
     <picture>
       <source
-        srcset={
-          xlImage
-            ? xlImage.replace("/upload/", "/upload/w_1920,c_fill,f_auto,q_auto/")
-            : ""
-        }
+        srcset={xlImage
+          ? xlImage.replace("/upload/", "/upload/w_1920,c_fill,f_auto,q_auto/")
+          : ""}
         media="(min-width: 1280px)"
         width="1920"
         height="1080"
       />
       <source
-        srcset={
-          tabletImage
-            ? tabletImage.replace("/upload/", "/upload/w_1024,c_fill,f_auto,q_auto/")
-            : ""
-        }
+        srcset={tabletImage
+          ? tabletImage.replace(
+              "/upload/",
+              "/upload/w_1024,c_fill,f_auto,q_auto/"
+            )
+          : ""}
         media="(min-width: 768px)"
         width="1024"
         height="768"
       />
       <img
-        src={
-          mobileImage
-            ? mobileImage.replace("/upload/", "/upload/w_768,c_fill,f_auto,q_auto/")
-            : ""
-        }
+        src={mobileImage
+          ? mobileImage.replace(
+              "/upload/",
+              "/upload/w_768,c_fill,f_auto,q_auto/"
+            )
+          : ""}
         alt="Hero image"
         class="w-full h-full object-cover object-center brightness-75"
         width="768"
@@ -76,24 +113,24 @@ const whatsappLink = `https://wa.me/34645089122?text=${encodedMessage}`;
         fetchpriority="high"
         decoding="async"
       />
-    </picture>    
+    </picture>
   </figure>
 
   <!-- Contenido -->
   <div
-    class="relative z-20 max-w-5xl w-full px-6 md:px-0 py-10 md:py-16 
-    bg-black/50 backdrop-blur-xs rounded-xl shadow-sm mx-auto text-white mt-28 md:mt-40 transition-all duration-300"
+    class={`relative z-20 max-w-5xl w-full px-6 md:px-0 py-10 md:py-16 bg-black/50 backdrop-blur-xs rounded-xl shadow-sm mx-auto text-white mt-28 md:mt-40 transition-all duration-300`}
   >
     <h1
       class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight mb-4 uppercase"
     >
       {heroTitle}
       <span
-        class="block semibold bg-gradient-eggplant bg-clip-text text-transparent"
+        class={`block semibold ${currentClasses.textGradient} bg-clip-text text-transparent`}
       >
         {heroSpan}
       </span>
     </h1>
+
     <p
       class="text-base md:text-2xl text-white/80 mb-8 max-w-3xl mx-auto leading-relaxed"
     >
@@ -104,7 +141,7 @@ const whatsappLink = `https://wa.me/34645089122?text=${encodedMessage}`;
       href={whatsappLink}
       target="_blank"
       rel="noopener noreferrer"
-      class="inline-block bg-gradient-eggplant text-white text-lg font-semibold py-4 px-6 rounded-full shadow-md hover:scale-105 hover:shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-freshEggplant-300/60"
+      class={`inline-block ${currentClasses.buttonBg} text-white text-lg font-semibold py-4 px-6 rounded-full shadow-md hover:scale-105 ${currentClasses.buttonHover} transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-freshEggplant-300/60`}
     >
       ¡Reserva tu clase con nosotros!
     </a>

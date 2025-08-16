@@ -36,19 +36,6 @@ function cldUrl(publicId: string, width?: number, height?: number) {
               alt={publicId.replace(/[_-]/g, " ")}
               class="w-full h-full object-cover rounded-lg cursor-pointer hover:opacity-90 transition"
               loading="lazy"
-              onload={(e: Event) => {
-                const imgEl = e.currentTarget as HTMLImageElement;
-                const link = imgEl.closest("a") as HTMLAnchorElement;
-                if (link) {
-                  link.dataset.pswpWidth = imgEl.naturalWidth.toString();
-                  link.dataset.pswpHeight = imgEl.naturalHeight.toString();
-                  // Store orientation type for better handling
-                  link.dataset.orientation =
-                    imgEl.naturalWidth > imgEl.naturalHeight
-                      ? "landscape"
-                      : "portrait";
-                }
-              }}
             />
           </div>
         </a>
