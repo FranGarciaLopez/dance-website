@@ -8,3 +8,5 @@
   "Foto_taller_de_Bachata_Juan_Carlos_y_Luna_The_Latin_Action_Salsa_y_Bachata_-_Lyons_Alicante_2025_i6fspa",
 ];
  */
+
+export const galleryImages = [""];
