@@ -4,6 +4,11 @@
                               "source": "/salsa-elche",
                               "destination": "/bachata-y-salsa-en-pareja-elche",
                               "permanent": true
+                    },
+                    {
+                              "source": "/bachata-en-parejaelche",
+                              "destination": "/bachata-y-salsa-en-pareja-elche",
+                              "permanent": true
                     }
           ]
 }
