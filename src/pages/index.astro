@@ -47,11 +47,13 @@ const modalitiesData = [
 
     <Logros />
 
-    <h1 class="text-4xl font-bold mb-6 lg:mb-8 px-4">
+    <h1 class="text-4xl font-bold mb-6 lg:mb-8 px-4 max-w-5xl mx-auto">
       Clases de Baile Salsa y Bachata - The Latin Action
     </h1>
 
-    <p class="text-lg leading-relaxed text-gray-300 mb-6 lg:mb-8 px-4">
+    <p
+      class="text-lg leading-relaxed text-gray-300 mb-6 lg:mb-8 px-4 max-w-5xl mx-auto"
+    >
       En <strong class="text-mainColors-400">The Latin Action</strong>, nos
       apasiona enseñar bachata y salsa desde el corazón de Elche. Creamos un
       ambiente acogedor donde cada clase es una experiencia divertida, auténtica
@@ -60,7 +62,9 @@ const modalitiesData = [
       con confianza.
     </p>
 
-    <p class="text-lg leading-relaxed text-gray-300 mb-6 lg:mb-8 px-4">
+    <p
+      class="text-lg leading-relaxed text-gray-300 mb-6 lg:mb-8 px-4 max-w-5xl mx-auto"
+    >
       Ofrecemos clases presenciales adaptadas a todos los niveles, tanto en
       pareja como individuales, incluyendo estilos como <strong
         class="text-mainColors-400">lady style</strong
@@ -71,47 +75,7 @@ const modalitiesData = [
   </main>
 
   <!-- Modalidades -->
-  <section
-    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16"
-    id="modalidades"
-    aria-label="Modalidades de baile"
-    role="region"
-  >
-    <h2
-      class="text-2xl md:text-3xl lg:text-5xl font-bold text-center mb-10 lg:mb-12"
-    >
-      Modalidades
-    </h2>
-
-    <div
-      class="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-10"
-      aria-label="Modalidades de baile"
-    >
-      {
-        modalitiesData.map((modality) => (
-          <a
-            href={modality.link}
-            class="card group block rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-gray-800 via-gray-900 to-black transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl border border-gray-700 hover:border-blue-500"
-            aria-label={`Más información sobre ${modality.title}`}
-          >
-            <div
-              class="h-64 w-full bg-contain bg-no-repeat rounded-t-xl"
-              style={`background-image: url(${modality.image});`}
-              aria-hidden="true"
-            />
-            <div class="p-4">
-              <h3 class="text-2xl font-semibold mb-3 text-white group-hover:text-pink-500 transition-colors duration-300">
-                {modality.title}
-              </h3>
-              <p class="text-lg text-gray-300 group-hover:text-gray-100 transition-colors duration-300">
-                {modality.description}
-              </p>
-            </div>
-          </a>
-        ))
-      }
-    </div>
-  </section>
+  <Modalities modalities={modalitiesData} />
 
   <!-- Galería -->
   <ImageMasonry images={galleryImages} />
