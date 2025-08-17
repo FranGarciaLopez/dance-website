@@ -8,25 +8,20 @@ import Footer from "@/components/Footer.astro";
 import Logros from "@/components/Logros.astro";
 import { galleryImages } from "@/data/galleryImages";
 
-// Datos de modalidades (puedes personalizar)
+// Datos de modalidades
 const modalitiesData = [
   {
-    title: "Bachata en Pareja",
-    image: `https://res.cloudinary.com/dgvvnopu7/image/upload/v1755352383/Foto_de_Juan_Carlos_y_Luna_The_Latin_Action_Salsa_y_Bachata_en_la_playa_absfwn.jpg`,
+    title: "Bachata y Salsa en Elche",
+    image:
+      "https://res.cloudinary.com/dgvvnopu7/image/upload/v1755352383/Foto_de_Juan_Carlos_y_Luna_The_Latin_Action_Salsa_y_Bachata_en_la_playa_absfwn.jpg",
     description:
       "Clases de Bachata en Pareja en Elche con Juan Carlos y Luna - The Latin Action - Clases de Salsa y Bachata",
-    link: "/bachata-en-pareja-elche",
-  },
-  {
-    title: "Salsa",
-    image: "...",
-    description:
-      "Clases de Salsa en Elche con Juan Carlos y Luna - The Latin Action - Clases de Salsa y Bachata",
-    link: "/salsa-elche",
+    link: "/bachata-y-salsa-en-pareja-elche",
   },
   {
     title: "Bachata Lady Style",
-    image: `https://res.cloudinary.com/dgvvnopu7/image/upload/w_600,c_fill,q_auto,f_auto/foto_alumnado_intensivo_bachata_lady_style_dairen_-_Luna_the_latin_action_hgoqus.jpg`,
+    image:
+      "https://res.cloudinary.com/dgvvnopu7/image/upload/w_600,c_fill,q_auto,f_auto/foto_alumnado_intensivo_bachata_lady_style_dairen_-_Luna_the_latin_action_hgoqus.jpg",
     description:
       "Clases de Bachata Lady Style en Elche con Luna The Latin Action",
     link: "/lady-style-elche",
@@ -52,35 +47,77 @@ const modalitiesData = [
 
     <Logros />
 
-    <section class="py-8 px-8 max-w-5xl mx-auto">
-      <h1 class="text-4xl font-bold mb-4">
-        Clases de Baile Salsa y Bachata - The Latin Action
-      </h1>
-      <!-- Historia de la escuela -->
-      <p class="text-lg leading-relaxed text-gray-300 mb-4">
-        En <strong>The Latin Action</strong>, nos apasiona enseñar bachata y
-        salsa desde el corazón de Elche. Creamos un ambiente acogedor donde cada
-        clase es una experiencia divertida, auténtica y llena de ritmo. Nuestros
-        profesores, con amplia experiencia en estilos latinos, te acompañan
-        desde tus primeros pasos hasta que domines la pista con confianza.
-      </p>
+    <h1 class="text-4xl font-bold mb-6 lg:mb-8 px-4">
+      Clases de Baile Salsa y Bachata - The Latin Action
+    </h1>
 
-      <p class="text-lg leading-relaxed text-gray-300">
-        Ofrecemos clases presenciales adaptadas a todos los niveles, tanto en
-        pareja como individuales, incluyendo estilos como <strong
-          >lady style</strong
-        > y bachata sensual. Además, organizamos eventos sociales y prácticas para
-        que puedas disfrutar de lo aprendido y conectar con la comunidad latina de
-        la ciudad.
-      </p>
-    </section>
+    <p class="text-lg leading-relaxed text-gray-300 mb-6 lg:mb-8 px-4">
+      En <strong class="text-mainColors-400">The Latin Action</strong>, nos
+      apasiona enseñar bachata y salsa desde el corazón de Elche. Creamos un
+      ambiente acogedor donde cada clase es una experiencia divertida, auténtica
+      y llena de ritmo. Nuestros profesores, con amplia experiencia en estilos
+      latinos, te acompañan desde tus primeros pasos hasta que domines la pista
+      con confianza.
+    </p>
 
-    <Modalities modalities={modalitiesData} />
-
-    <!-- Galería -->
-    <ImageMasonry images={galleryImages} />
-
-    <HistoryLocation />
+    <p class="text-lg leading-relaxed text-gray-300 mb-6 lg:mb-8 px-4">
+      Ofrecemos clases presenciales adaptadas a todos los niveles, tanto en
+      pareja como individuales, incluyendo estilos como <strong
+        class="text-mainColors-400">lady style</strong
+      > y <strong class="text-mainColors-400">bachata sensual</strong>. Además,
+      organizamos eventos sociales y prácticas para que puedas disfrutar de lo
+      aprendido y conectar con la comunidad latina de la ciudad.
+    </p>
   </main>
+
+  <!-- Modalidades -->
+  <section
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16"
+    id="modalidades"
+    aria-label="Modalidades de baile"
+    role="region"
+  >
+    <h2
+      class="text-2xl md:text-3xl lg:text-5xl font-bold text-center mb-10 lg:mb-12"
+    >
+      Modalidades
+    </h2>
+
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-10"
+      aria-label="Modalidades de baile"
+    >
+      {
+        modalitiesData.map((modality) => (
+          <a
+            href={modality.link}
+            class="card group block rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-gray-800 via-gray-900 to-black transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl border border-gray-700 hover:border-blue-500"
+            aria-label={`Más información sobre ${modality.title}`}
+          >
+            <div
+              class="h-64 w-full bg-contain bg-no-repeat rounded-t-xl"
+              style={`background-image: url(${modality.image});`}
+              aria-hidden="true"
+            />
+            <div class="p-4">
+              <h3 class="text-2xl font-semibold mb-3 text-white group-hover:text-pink-500 transition-colors duration-300">
+                {modality.title}
+              </h3>
+              <p class="text-lg text-gray-300 group-hover:text-gray-100 transition-colors duration-300">
+                {modality.description}
+              </p>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Galería -->
+  <ImageMasonry images={galleryImages} />
+
+  <!-- Historia y ubicación -->
+  <HistoryLocation />
+
   <Footer />
 </Layout>

@@ -1,33 +1,29 @@
 ---
-type ColorType = "freshEggplant" | "freshPeach" | "softBlue";
+type ColorType = "freshEggplant" | "bachataSalsa";
 let pageColor: ColorType = "freshEggplant";
+
 if (Astro.url.pathname.includes("lady-style")) pageColor = "freshEggplant";
-else if (Astro.url.pathname.includes("bachata-en-pareja"))
-  pageColor = "freshPeach";
-else if (Astro.url.pathname.includes("salsa")) pageColor = "softBlue";
-else pageColor = "freshEggplant"; // homepage u otras rutas
+else if (
+  Astro.url.pathname.includes("bachata-en-pareja") ||
+  Astro.url.pathname.includes("salsa")
+)
+  pageColor = "bachataSalsa";
+else pageColor = "freshEggplant"; // homepage or other routes
 
 const colorClasses = {
   freshEggplant: {
     text: "text-freshEggplant-200",
-    shadowHover: "hover:shadow-freshEggplant-800/90",
+    shadowHover: "hover:shadow-freshEggplant",
     textItem: "text-freshEggplant-300",
     buttonGradient: "bg-gradient-freshEggplant",
     buttonRing: "focus:ring-2 focus:ring-freshEggplant-600/60",
   },
-  freshPeach: {
-    text: "text-freshPeach-200",
-    shadowHover: "hover:shadow-freshPeach-800/90",
-    textItem: "text-freshPeach-300",
-    buttonGradient: "bg-gradient-bachata",
-    buttonRing: "focus:ring-2 focus:ring-bachata-600/60",
-  },
-  softBlue: {
-    text: "text-softBlue-200",
-    shadowHover: "hover:shadow-softBlue-800/90",
-    textItem: "text-softBlue-300",
-    buttonGradient: "bg-gradient-salsa",
-    buttonRing: "focus:ring-2 focus:ring-softBlue-600/60",
+  bachataSalsa: {
+    text: "text-bachataSalsa-200",
+    shadowHover: "hover:shadow-bachataSalsa",
+    textItem: "text-bachataSalsa-300",
+    buttonGradient: "bg-gradient-bachataSalsa",
+    buttonRing: "focus:ring-2 focus:ring-bachataSalsa-600/60",
   },
 };
 
@@ -42,17 +38,11 @@ const benefitsText = {
     { emoji: "💫", text: "Ambiente cercano, divertido y profesional" },
     { emoji: "💃", text: "Comunidad activa de bailarines en Elche" },
   ],
-  freshPeach: [
-    { emoji: "🎯", text: "Aprende Bachata con diversión y ritmo" },
+  bachataSalsa: [
+    { emoji: "🎯", text: "Aprende Bachata y Salsa con diversión y ritmo" },
     { emoji: "🔥", text: "Coreografías modernas y dinámicas" },
     { emoji: "💫", text: "Clases adaptadas a todos los niveles" },
     { emoji: "💃", text: "Crea comunidad y conoce otros bailarines" },
-  ],
-  softBlue: [
-    { emoji: "🎯", text: "Domina los pasos de Salsa con seguridad" },
-    { emoji: "🔥", text: "Clases con coreografías actuales y creativas" },
-    { emoji: "💫", text: "Aprende a tu ritmo y mejora tu estilo" },
-    { emoji: "💃", text: "Participa en eventos y encuentros de baile" },
   ],
 };
 ---
@@ -66,9 +56,7 @@ const benefitsText = {
       {
         pageColor === "freshEggplant"
           ? "¿Por qué elegir nuestras clases en Elche?"
-          : pageColor === "freshPeach"
-            ? "Descubre por qué nuestras clases de Bachata son únicas"
-            : "Aprende Salsa con nosotros y diviértete"
+          : "Descubre por qué nuestras clases de Bachata y Salsa son únicas"
       }
     </h2>
 
@@ -95,7 +83,7 @@ const benefitsText = {
         target="_blank"
         rel="noopener noreferrer"
         class={`inline-block ${colorClasses[pageColor].buttonGradient} text-white text-lg font-semibold py-4 px-8 rounded-full shadow-lg
-                transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-xl ${colorClasses[pageColor].buttonRing}`}
+        transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-xl ${colorClasses[pageColor].buttonRing}`}
       >
         ¡Contacta con nosotros!
       </a>

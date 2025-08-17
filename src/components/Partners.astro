@@ -1,11 +1,12 @@
 ---
-type ColorType = "freshEggplant" | "freshPeach" | "softBlue";
+// Define colors
+type ColorType = "freshEggplant" | "freshPeach";
 let pageColor: ColorType = "freshEggplant";
+
 if (Astro.url.pathname.includes("lady-style")) pageColor = "freshEggplant";
-else if (Astro.url.pathname.includes("bachata-en-pareja"))
+else if (Astro.url.pathname.includes("bachata-y-salsa-en-pareja-elche"))
   pageColor = "freshPeach";
-else if (Astro.url.pathname.includes("salsa")) pageColor = "softBlue";
-else pageColor = "freshEggplant"; // homepage u otras rutas
+else pageColor = "freshEggplant";
 
 let partners = [
   {
@@ -14,7 +15,7 @@ let partners = [
     location: {
       name: "Elche",
       url: "https://maps.app.goo.gl/16UnuAExaLCYFaWU8",
-      profesorado: "Luna by The Latin Action SB company",
+      profesorado: "Juan Carlos y Luna - The Latin Action SB company",
     },
   },
   {
@@ -23,7 +24,7 @@ let partners = [
     location: {
       name: "Elche",
       url: "https://maps.app.goo.gl/16UnuAExaLCYFaWU8",
-      profesorado: "Luna by The Latin Action SB company",
+      profesorado: "Juan Carlos y Luna - The Latin Action SB company",
     },
   },
   {
@@ -32,7 +33,25 @@ let partners = [
     location: {
       name: "Elche",
       url: "https://maps.app.goo.gl/16UnuAExaLCYFaWU8",
-      profesorado: "Luna by The Latin Action SB company",
+      profesorado: "Juan Carlos y Luna - The Latin Action SB company",
+    },
+  },
+  {
+    image: "/nvfit.png",
+    alt: "⏳ NVFit Novelda",
+    location: {
+      name: "Novelda",
+      url: "https://maps.app.goo.gl/mgu7ZQAdGUk6xHcDA",
+      profesorado: "Juan Carlos y Luna - The Latin Action SB company",
+    },
+  },
+  {
+    image: "/virginia.jpg",
+    alt: "⏳ Virginia Domenech - Vivir es bailar",
+    location: {
+      name: "Elda",
+      url: "https://maps.app.goo.gl/89nE61n4d95nZ24Y6",
+      profesorado: "Juan Carlos y Luna - The Latin Action SB company",
     },
   },
 ];
@@ -51,13 +70,6 @@ const colorClasses = {
     textSubItem: "text-freshPeach-400",
     shadowHover: "hover:shadow-freshPeach-800/90",
     linkHover: "hover:text-freshPeach-100",
-  },
-  softBlue: {
-    textTitle: "text-softBlue-200",
-    textItem: "text-softBlue-300",
-    textSubItem: "text-softBlue-400",
-    shadowHover: "hover:shadow-softBlue-800/90",
-    linkHover: "hover:text-softBlue-100",
   },
 };
 ---
@@ -82,7 +94,7 @@ const colorClasses = {
             <img
               src={partner.image}
               alt={`Imagen de ${partner.alt}`}
-              class="object-cover w-full h-full"
+              class="object-cover w-full h-full bg-white"
               width="112"
               height="112"
               loading={index === 0 ? "eager" : "lazy"}

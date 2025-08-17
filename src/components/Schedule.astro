@@ -1,56 +1,198 @@
 ---
-type ColorType = "freshEggplant" | "freshPeach" | "softBlue";
+// Define page color based on URL
+type ColorType = "freshEggplant" | "freshPeach";
 let pageColor: ColorType = "freshEggplant";
-if (Astro.url.pathname.includes("lady-style")) pageColor = "freshEggplant";
-else if (Astro.url.pathname.includes("bachata-en-pareja"))
-  pageColor = "freshPeach";
-else if (Astro.url.pathname.includes("salsa")) pageColor = "softBlue";
-else pageColor = "freshEggplant"; // homepage u otras rutas
-let schedule = [
-  {
-    day: "Lunes",
-    slots: [
-      {
-        time: "20:30 - 21:30",
-        class: "Bachata Lady Style - Academia Dairen",
-        ageRange: "Adultos (18+)",
-        location: {
-          name: "Academia Dairen, Elche",
-          url: "https://maps.app.goo.gl/16UnuAExaLCYFaWU8",
-        },
-      },
-    ],
-  },
-  {
-    day: "Miércoles",
-    slots: [
-      {
-        time: "20:00 - 21:15",
-        class: "Bachata Lady Style Coreográfico - Academia Dairen",
-        ageRange: "Adultos (18+)",
-        location: {
-          name: "Academia Dairen, Elche",
-          url: "https://maps.app.goo.gl/16UnuAExaLCYFaWU8",
-        },
-      },
-    ],
-  },
-  {
-    day: "Sábados",
-    slots: [
-      {
-        time: "16:30 - 17:30",
-        class: "Bachata Lady Style Kids - Academia Dairen",
-        ageRange: "Niños (6-16 años)",
-        location: {
-          name: "Academia Dairen, Elche",
-          url: "https://maps.app.goo.gl/16UnuAExaLCYFaWU8",
-        },
-      },
-    ],
-  },
-];
 
+if (Astro.url.pathname.includes("lady-style")) pageColor = "freshEggplant";
+else if (Astro.url.pathname.includes("bachata-y-salsa-en-pareja-elche"))
+  pageColor = "freshPeach";
+else pageColor = "freshEggplant";
+
+// Schedule data per page
+const scheduleData = {
+  horarios: [
+    {
+      day: "Martes",
+      slots: [
+        {
+          time: "19:30",
+          class: "Bachata nivel inicio",
+          ageRange: "Adultos",
+          location: {
+            name: "Gimnasio NVFIT, Novelda",
+            url: "https://nvfit.es/",
+          },
+        },
+        {
+          time: "20:30",
+          class: "Bachata nivel medio",
+          ageRange: "Adultos",
+          location: {
+            name: "Gimnasio NVFIT, Novelda",
+            url: "https://nvfit.es/",
+          },
+        },
+      ],
+    },
+    {
+      day: "Jueves",
+      slots: [
+        {
+          time: "19:00",
+          class: "Bachata Inicio",
+          ageRange: "Adultos",
+          location: {
+            name: "Sala Bubaloo, Elche",
+            url: "https://www.google.com/maps/place/Bubaloo./@38.2709779,-0.6731176,17z/data=!3m1!4b1!4m6!3m5!1s0xd63b53e6d2c4d53:0x70e65a188acaadba!8m2!3d38.2709779!4d-0.6731176!16s%2Fg%2F11t8205q0g?entry=ttu&g_ep=EgoyMDI1MDgxMy4wIKXMDSoASAFQAw%3D%3D",
+          },
+        },
+        {
+          time: "19:30",
+          class: "Bachata Inicio/Medio",
+          ageRange: "Adultos",
+          location: {
+            name: "Sala Bubaloo, Elche",
+            url: "https://www.google.com/maps/place/Bubaloo./@38.2709779,-0.6731176,17z/data=!3m1!4b1!4m6!3m5!1s0xd63b53e6d2c4d53:0x70e65a188acaadba!8m2!3d38.2709779!4d-0.6731176!16s%2Fg%2F11t8205q0g?entry=ttu&g_ep=EgoyMDI1MDgxMy4wIKXMDSoASAFQAw%3D%3D",
+          },
+        },
+        {
+          time: "20:30",
+          class: "Bachata Medio",
+          ageRange: "Adultos",
+          location: {
+            name: "Sala Bubaloo, Elche",
+            url: "https://www.google.com/maps/place/Bubaloo./@38.2709779,-0.6731176,17z/data=!3m1!4b1!4m6!3m5!1s0xd63b53e6d2c4d53:0x70e65a188acaadba!8m2!3d38.2709779!4d-0.6731176!16s%2Fg%2F11t8205q0g?entry=ttu&g_ep=EgoyMDI1MDgxMy4wIKXMDSoASAFQAw%3D%3D",
+          },
+        },
+        {
+          time: "21:30",
+          class: "Salsa Medio",
+          ageRange: "Adultos",
+          location: {
+            name: "Sala Bubaloo, Elche",
+            url: "https://www.google.com/maps/place/Bubaloo./@38.2709779,-0.6731176,17z/data=!3m1!4b1!4m6!3m5!1s0xd63b53e6d2c4d53:0x70e65a188acaadba!8m2!3d38.2709779!4d-0.6731176!16s%2Fg%2F11t8205q0g?entry=ttu&g_ep=EgoyMDI1MDgxMy4wIKXMDSoASAFQAw%3D%3D",
+          },
+        },
+      ],
+    },
+    {
+      day: "⏳ Viernes - A partir de Octubre",
+      slots: [
+        {
+          time: "19:30",
+          class: "Bachata Inicio/Medio",
+          ageRange: "Adultos",
+          location: {
+            name: "Virginia Domenech, Elda",
+            url: "https://www.google.com/maps/place/C.+Pablo+Iglesias,+97,+03600+Elda,+Alicante/@38.4758699,-0.7914332,17z/data=!3m1!4b1!4m6!3m5!1s0xd63c529756aec1d:0x234190c0f79eede8!8m2!3d38.4758699!4d-0.7888583!16s%2Fg%2F11c1bbnv6l?entry=ttu&g_ep=EgoyMDI1MDgxMy4wIKXMDSoASAFQAw%3D%3D",
+          },
+        },
+        {
+          time: "20:30",
+          class: "Bachata Medio",
+          ageRange: "Adultos",
+          location: {
+            name: "Virginia Domenech, Elda",
+            url: "https://www.google.com/maps/place/C.+Pablo+Iglesias,+97,+03600+Elda,+Alicante/@38.4758699,-0.7914332,17z/data=!3m1!4b1!4m6!3m5!1s0xd63c529756aec1d:0x234190c0f79eede8!8m2!3d38.4758699!4d-0.7888583!16s%2Fg%2F11c1bbnv6l?entry=ttu&g_ep=EgoyMDI1MDgxMy4wIKXMDSoASAFQAw%3D%3D",
+          },
+        },
+        {
+          time: "21:30",
+          class: "Salsa Medio",
+          ageRange: "Adultos",
+          location: {
+            name: "Virginia Domenech, Elda",
+            url: "https://www.google.com/maps/place/C.+Pablo+Iglesias,+97,+03600+Elda,+Alicante/@38.4758699,-0.7914332,17z/data=!3m1!4b1!4m6!3m5!1s0xd63c529756aec1d:0x234190c0f79eede8!8m2!3d38.4758699!4d-0.7888583!16s%2Fg%2F11c1bbnv6l?entry=ttu&g_ep=EgoyMDI1MDgxMy4wIKXMDSoASAFQAw%3D%3D",
+          },
+        },
+      ],
+    },
+    {
+      day: "Sábados",
+      slots: [
+        {
+          time: "18:30",
+          class: "Bachata",
+          ageRange: "Adultos",
+          location: {
+            name: "Academia Dairen, Elche",
+            url: "https://www.google.com/maps/place/Academia+De+Baile+Dairen+-+Bachata,+Salsa,+Kizomba,+Tango+%26+Fitness+Fun!/@38.27623,-0.7227349,17z/data=!3m1!4b1!4m6!3m5!1s0xd63b7a95fca44fd:0x25dfa35a1113dc35!8m2!3d38.27623!4d-0.72016!16s%2Fg%2F11hbm_cg5w?entry=ttu&g_ep=EgoyMDI1MDgxMy4wIKXMDSoASAFQAw%3D%3D",
+          },
+        },
+        {
+          time: "19:30",
+          class: "Salsa",
+          ageRange: "Adultos",
+          location: {
+            name: "Academia Dairen, Elche",
+            url: "https://www.google.com/maps/place/Academia+De+Baile+Dairen+-+Bachata,+Salsa,+Kizomba,+Tango+%26+Fitness+Fun!/@38.27623,-0.7227349,17z/data=!3m1!4b1!4m6!3m5!1s0xd63b7a95fca44fd:0x25dfa35a1113dc35!8m2!3d38.27623!4d-0.72016!16s%2Fg%2F11hbm_cg5w?entry=ttu&g_ep=EgoyMDI1MDgxMy4wIKXMDSoASAFQAw%3D%3D",
+          },
+        },
+        {
+          time: "20:30",
+          class: "Salsa y Rueda Cubana",
+          ageRange: "Adultos",
+          location: {
+            name: "Academia Dairen, Elche",
+            url: "https://www.google.com/maps/place/Academia+De+Baile+Dairen+-+Bachata,+Salsa,+Kizomba,+Tango+%26+Fitness+Fun!/@38.27623,-0.7227349,17z/data=!3m1!4b1!4m6!3m5!1s0xd63b7a95fca44fd:0x25dfa35a1113dc35!8m2!3d38.27623!4d-0.72016!16s%2Fg%2F11hbm_cg5w?entry=ttu&g_ep=EgoyMDI1MDgxMy4wIKXMDSoASAFQAw%3D%3D",
+          },
+        },
+      ],
+    },
+  ],
+
+  ladyStyle: [
+    {
+      day: "Lunes",
+      slots: [
+        {
+          time: "20:30 - 21:30",
+          class: "Bachata Lady Style - Academia Dairen",
+          ageRange: "Adultos (18+)",
+          location: {
+            name: "Academia Dairen, Elche",
+            url: "https://maps.app.goo.gl/16UnuAExaLCYFaWU8",
+          },
+        },
+      ],
+    },
+    {
+      day: "Miércoles",
+      slots: [
+        {
+          time: "20:00 - 21:15",
+          class: "Bachata Lady Style Coreográfico - Academia Dairen",
+          ageRange: "Adultos (18+)",
+          location: {
+            name: "Academia Dairen, Elche",
+            url: "https://maps.app.goo.gl/16UnuAExaLCYFaWU8",
+          },
+        },
+      ],
+    },
+    {
+      day: "Sábados",
+      slots: [
+        {
+          time: "16:30 - 17:30",
+          class: "Bachata Lady Style Kids - Academia Dairen",
+          ageRange: "Niños (6-16 años)",
+          location: {
+            name: "Academia Dairen, Elche",
+            url: "https://maps.app.goo.gl/16UnuAExaLCYFaWU8",
+          },
+        },
+      ],
+    },
+  ],
+};
+
+// Select which schedule to show based on the URL
+let schedule = Astro.url.pathname.includes("lady-style")
+  ? scheduleData.ladyStyle
+  : scheduleData.horarios;
+
+// Tailwind classes by page color
 const colorClasses = {
   freshEggplant: {
     textTitle: "text-freshEggplant-200",
@@ -65,13 +207,6 @@ const colorClasses = {
     textSubItem: "text-freshPeach-400",
     shadowHover: "hover:shadow-freshPeach-800/90",
     linkHover: "hover:text-freshPeach-500",
-  },
-  softBlue: {
-    textTitle: "text-softBlue-200",
-    textItem: "text-softBlue-300",
-    textSubItem: "text-softBlue-400",
-    shadowHover: "hover:shadow-softBlue-800/90",
-    linkHover: "hover:text-softBlue-500",
   },
 };
 ---

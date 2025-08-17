@@ -1,0 +1,9 @@
+{
+          "redirects": [
+                    {
+                              "source": "/salsa-elche",
+                              "destination": "/bachata-y-salsa-en-pareja-elche",
+                              "permanent": true
+                    }
+          ]
+}

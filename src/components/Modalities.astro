@@ -22,7 +22,7 @@ const { modalities } = Astro.props;
     Modalidades
   </h2>
   <div
-    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10"
+    class="grid grid-cols-1 sm:grid-cols-2 gap-10"
     aria-label="Modalidades de baile"
   >
     {
@@ -36,10 +36,11 @@ const { modalities } = Astro.props;
           aria-label={`Más información sobre ${modality.title}`}
         >
           <div
-            class="h-64 bg-contain bg-contain bg-no-repeat rounded-t-xl"
+            class="w-full aspect-[16/9] bg-cover bg-center rounded-t-xl"
             style={`background-image: url(${modality.image});`}
             aria-hidden="true"
           />
+
           <div class="p-4">
             <h3 class="text-2xl font-semibold mb-3 text-white group-hover:text-pink-500 transition-colors duration-300">
               {modality.title}
