@@ -4,7 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        dance: ["Dancing Script OT", "cursive"],
+        dance: ["Dancing Script", "cursive"],
+        bebas: ["Bebas Neue", "sans-serif"],
       },
       height: {
         96: "24rem",
@@ -55,8 +56,8 @@ export default {
           "gradient-to": "#DB2777",
         },
         bachataSalsa: {
-          "gradient-from": "#E07A5F",
-          "gradient-to": "#F2CC8F",
+          "gradient-from": "#d14e2eff", // más oscuro que #ee5f37
+          "gradient-to": "#d89d36ff",
         },
         main: {
           "gradient-from": "#8338EC",

@@ -13,14 +13,15 @@ const { modalities } = Astro.props;
 ---
 
 <section
-  class="max-w-5xl px-4 py-4 mx-auto"
   id="modalidades"
   aria-label="Modalidades de baile"
   role="region"
+  class="max-w-5xl px-4 py-12 mx-auto"
 >
-  <h2 class="text-2xl md:text-3xl lg:text-5xl font-bold text-center mb-8">
+  <h2 class="text-4xl lg:text-5xl font-normal text-center mb-10 leading-snug">
     Modalidades
   </h2>
+
   <div
     class="grid grid-cols-1 sm:grid-cols-2 gap-10"
     aria-label="Modalidades de baile"
@@ -29,23 +30,22 @@ const { modalities } = Astro.props;
       modalities.map((modality) => (
         <a
           href={modality.link}
-          class="card group block rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-gray-800 via-gray-900 to-black 
-          transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl
-          border border-gray-700 hover:border-blue-500
-          "
+          class="card group block rounded-2xl overflow-hidden shadow-lg bg-gradient-to-br from-gray-800 via-gray-900 to-black
+                 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl
+                 border border-gray-700 hover:border-pink-500"
           aria-label={`Más información sobre ${modality.title}`}
         >
           <div
-            class="w-full aspect-[16/9] bg-cover bg-center rounded-t-xl"
+            class="w-full aspect-[16/9] bg-cover bg-center rounded-t-2xl"
             style={`background-image: url(${modality.image});`}
             aria-hidden="true"
           />
 
-          <div class="p-4">
-            <h3 class="text-2xl font-semibold mb-3 text-white group-hover:text-pink-500 transition-colors duration-300">
+          <div class="p-5">
+            <h3 class="text-2xl font-normal mb-3 text-white group-hover:text-pink-500 transition-colors duration-300 font-pacifico">
               {modality.title}
             </h3>
-            <p class="text-lg text-gray-300 group-hover:text-gray-100 transition-colors duration-300">
+            <p class="text-lg text-gray-200 group-hover:text-gray-100 transition-colors duration-300 font-inter leading-relaxed">
               {modality.description}
             </p>
           </div>

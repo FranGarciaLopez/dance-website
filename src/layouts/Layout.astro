@@ -89,23 +89,16 @@ import Header from "../components/Header.astro";
 </html>
 
 <style is:global>
+  @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;700&display=swap");
+
+  /* Base */
   html,
-/* global.css */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: "Poppins", sans-serif;
+  body {
+    font-family: "Inter", sans-serif;
     background: linear-gradient(to bottom, #3a304d, #281f38);
     color: white;
     max-width: 100vw;
     overflow-x: hidden;
-  }
-
-  @font-face {
-    font-family: "Dance";
-    src: url("/fonts/Dancing Script.ttf") format("truetype");
-    font-weight: semibold;
-    font-display: swap;
   }
 
   .scale-transition {
@@ -115,7 +108,7 @@ body {
   }
 
   .scale-transition:hover {
-    transform: scale(1.05); /* Scale on hover */
+    transform: scale(1.05);
     filter: drop-shadow(0 0 0.5rem #ff004d);
   }
 
@@ -123,17 +116,47 @@ body {
     filter: none !important;
   }
 
+  /* Títulos más suaves con Pacifico */
+  /* Títulos con florituras sutiles */
   h1,
   h2,
   h3,
   h4 {
-    font-family: "Poppins", sans-serif;
-    font-weight: 900;
-    letter-spacing: -0.02em;
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    color: #fff;
   }
 
+  h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+  }
+  h2 {
+    font-size: 2.5rem;
+    line-height: 1.3;
+  }
+  h3 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+  }
+  h4 {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+
+  /* Párrafos */
   p {
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
     line-height: 1.6;
     color: #e0e7ff;
+    margin-bottom: 1rem;
+  }
+
+  /* Opcional: pequeños detalles decorativos en títulos cortos */
+  h1 span,
+  h2 span {
+    font-family: "Alex Brush", cursive;
+    font-size: 1.2em;
   }
 </style>
