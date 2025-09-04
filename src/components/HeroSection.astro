@@ -47,7 +47,7 @@ const routeTitles: Record<string, string> = {
 
 const readableTitle = routeTitles[currentPath] ?? "vuestras clases";
 const encodedMessage = encodeURIComponent(
-  `Hola, quiero más información sobre ${readableTitle}`
+  `Hola, quiero más información sobre ${readableTitle}`,
 );
 const whatsappLink = `https://wa.me/34645089122?text=${encodedMessage}`;
 ---
@@ -77,7 +77,7 @@ const whatsappLink = `https://wa.me/34645089122?text=${encodedMessage}`;
         srcset={tabletImage
           ? tabletImage.replace(
               "/upload/",
-              "/upload/w_1024,c_fill,f_auto,q_auto/"
+              "/upload/c_fill,f_auto,q_auto,dpr_auto/",
             )
           : ""}
         media="(min-width: 768px)"
@@ -85,16 +85,12 @@ const whatsappLink = `https://wa.me/34645089122?text=${encodedMessage}`;
         height="768"
       />
       <img
-        src={mobileImage
-          ? mobileImage.replace(
-              "/upload/",
-              "/upload/w_768,c_fill,f_auto,q_auto/"
-            )
-          : ""}
+        src={mobileImage.replace(
+          "/upload/",
+          "/upload/c_fill,f_auto,q_auto,dpr_auto/",
+        )}
         alt="Hero image"
         class="w-full h-full object-cover object-center brightness-75"
-        width="768"
-        height="1024"
         loading="eager"
         fetchpriority="high"
         decoding="async"

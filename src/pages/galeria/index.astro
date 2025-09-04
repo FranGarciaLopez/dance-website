@@ -1,0 +1,48 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { galleryImages } from "@/data/galleryImages";
+import ImageMasonry from "@/components/ImageMasonry.astro";
+
+const currentPath = Astro.url.pathname.replace(/\/$/, "").toLowerCase();
+
+// Filtrar imágenes según ruta
+const displayedImages =
+       currentPath === "/galeria"
+              ? galleryImages
+              : galleryImages.filter(
+                       (img) =>
+                              !["aiinhoa", "cann"].some((word) =>
+                                     img.toLowerCase().includes(word),
+                              ),
+                );
+
+const CLOUD_NAME = "dgvvnopu7";
+
+function cldUrl(publicId: string, width?: number, height?: number) {
+       const w = width ? `w_${width},` : "";
+       const h = height ? `h_${height},` : "";
+       return `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/${w}${h}c_limit,q_auto,f_auto/${publicId}.jpg`;
+}
+---
+
+<Layout
+       title="Galería de Fotos - The Latin Action"
+       description="Explora nuestra galería de fotos y revive los mejores momentos de nuestras clases y eventos de salsa y bachata en Elche."
+>
+       <!-- Introducción -->
+       <section
+              class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center"
+       >
+              <h1 class="text-4xl md:text-5xl font-bold mb-4">
+                     Galería de Fotos
+              </h1>
+              <p class="text-lg md:text-xl leading-relaxed">
+                     Explora nuestra galería de fotos y revive los mejores
+                     momentos de nuestras clases y eventos de salsa y bachata en
+                     Elche. Descubre la energía, la pasión y la diversión que
+                     compartimos en cada sesión.
+              </p>
+       </section>
+
+       <ImageMasonry images={displayedImages} />
+</Layout>

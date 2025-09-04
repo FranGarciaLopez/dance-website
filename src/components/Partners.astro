@@ -37,7 +37,7 @@ let partners = [
     },
   },
   {
-    image: "/virginia.jpg",
+    image: "/virginia.webp",
     alt: "⏳ Virginia Domenech - Vivir es bailar",
     location: {
       name: "Elda",
@@ -85,7 +85,7 @@ const colorClasses = {
             <img
               src={partner.image}
               alt={`Imagen de ${partner.alt}`}
-              class="object-cover w-full h-full bg-white"
+              class="object-contain w-full h-full bg-white"
               width="112"
               height="112"
               loading={index === 0 ? "eager" : "lazy"}
