@@ -3,6 +3,7 @@ import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import solid from "@astrojs/solid-js";
+import path from "path";
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,12 +11,8 @@ export default defineConfig({
     tailwind(),
     sitemap({
       filter: (page) => {
-        // Exclude specific pages from the sitemap http
-        /* if (page.includes("/404") || page.includes("/500")) {
-          return false;
-        } */
-        // Include all other pages in the sitemap
-
+        // Exclude specific pages from the sitemap
+        // if (page.includes("/404") || page.includes("/500")) return false;
         return true;
       },
       changefreq: "weekly",
@@ -25,4 +22,11 @@ export default defineConfig({
     solid(),
   ],
   site: "https://thelatinaction.com",
+  vite: {
+    resolve: {
+      alias: {
+        "@": path.resolve("./src"),
+      },
+    },
+  },
 });
