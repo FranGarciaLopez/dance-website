@@ -12,5 +12,6 @@ export const galleryImages = [
   "Intensivo_bachata_lady_style_-_estilo_chica_-_Luna_The_Latin_Action_SB_-_Salsa_y_Bachata_te3un5",
   "Foto_alumnos_taller_sala_bubaloo_elche_-_The_Latin_Action_-_Clases_Salsa_y_Bachata_en_Elche_hsmczy",
   "Laydies_The_Latin_Action_-_Intensivo_bachata_y_Salsa_en_Elche_-_1_xdhhuj",
+  "Juan_Carlos_y_Luna_the_Latin_SB_Action_-_Salsa_y_bachata_-_Taller_sala_bubaloo_elche_-_2_gbc97z_52ee86"
 ];
 
