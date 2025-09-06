@@ -1,7 +1,9 @@
 ---
+// Props
 const { mobileImage, tabletImage, xlImage, heroTitle, heroSpan, heroSubtitle } =
   Astro.props;
 
+// Paths y gradientes
 const currentPath = Astro.url.pathname.replace(/\/$/, "").toLowerCase();
 
 interface RouteClasses {
@@ -33,18 +35,23 @@ const routeClasses: RouteClasses = {
     buttonBg: "bg-main-gradient-from",
     buttonHover: "hover:bg-main-gradient-to",
     textGradient:
-    "bg-gradient-to-r from-main-gradient-from via-main-gradient-to to-main-gradient-from",
+      "bg-gradient-to-r from-main-gradient-from via-main-gradient-to to-main-gradient-from",
   },
 };
 
 const currentClasses = routeClasses[currentPath] ?? routeClasses["/"];
 
+// Fallbacks para imágenes
+const mobile = mobileImage ?? xlImage ?? "/fallback-mobile.jpg";
+const tablet = tabletImage ?? mobile;
+const desktop = xlImage ?? xlImage;
+
+// WhatsApp link
 const routeTitles: Record<string, string> = {
   "/lady-style-elche": "Lady Style Elche",
   "/bachata-y-salsa-en-pareja-elche": "Bachata y Salsa en Pareja Elche",
   "/salsa-elche": "Salsa Elche",
 };
-
 const readableTitle = routeTitles[currentPath] ?? "vuestras clases";
 const encodedMessage = encodeURIComponent(
   `Hola, quiero más información sobre ${readableTitle}`,
@@ -59,40 +66,43 @@ const whatsappLink = `https://wa.me/34645089122?text=${encodedMessage}`;
   class="relative h-screen w-full flex flex-col items-end md:items-center justify-center text-center overflow-hidden"
 >
   <!-- Imagen de fondo responsive -->
-  <figure class="absolute inset-0 h-full w-full z-0 pointer-events-none">
-    <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/30"></div>
-    <picture>
-      <source
-        srcset={xlImage?.replace("/upload/", "/upload/w_1920,c_fill,f_auto,q_auto,dpr_auto/")}
-        media="(min-width: 1280px)"
-        width="1920"
-        height="1080"
-      />
-      <source
-        srcset={tabletImage?.replace("/upload/", "/upload/w_1024,c_fill,f_auto,q_auto,dpr_auto/")}
-        media="(min-width: 768px)"
-        width="1024"
-        height="768"
-      />
-      <img
-        src={mobileImage.replace("/upload/", "/upload/w_480,c_fill,f_auto,q_auto,dpr_auto/")}
-        srcset={`
-          ${mobileImage.replace("/upload/", "/upload/w_480,c_fill,f_auto,q_auto,dpr_auto/")} 480w,
-          ${tabletImage.replace("/upload/", "/upload/w_1024,c_fill,f_auto,q_auto,dpr_auto/")} 1024w,
-          ${xlImage.replace("/upload/", "/upload/w_1920,c_fill,f_auto,q_auto,dpr_auto/")} 1920w
-        `}
-        sizes="100vw"
-        alt="Hero image"
-        class="w-full h-full object-cover object-center brightness-75"
-        loading="eager"
-        fetchpriority="high"
-      />
-    </picture>
-  </figure>
+  <picture class="absolute inset-0 w-full h-full z-0 pointer-events-none">
+    <source
+      srcset={desktop.replace(
+        "/upload/",
+        "/upload/c_fill,f_auto,q_auto,dpr_auto/",
+      )}
+      media="(min-width: 1280px)"
+    />
+    <source
+      srcset={tablet.replace(
+        "/upload/",
+        "/upload/c_fill,f_auto,q_auto,dpr_auto/",
+      )}
+      media="(min-width: 768px)"
+    />
+    <img
+      src={mobile.replace(
+        "/upload/",
+        "/upload/c_fill,f_auto,q_auto,dpr_auto/",
+      )}
+      alt="Hero image"
+      class="w-full h-full object-cover brightness-75"
+      loading="eager"
+    />
+  </picture>
+
+  <!-- Overlay -->
+  <div
+    class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/30 z-10 pointer-events-none"
+  >
+  </div>
 
   <!-- Contenido -->
-  <div class="relative z-10 max-w-5xl w-full py-2 md:px-4 md:py-6 mx-auto text-white mt-16 md:mt-20 transition-all duration-300">
-    <h1 class="text-4xl md:text-5xl font-dance leading-relaxed uppercase ">
+  <div
+    class="relative z-20 max-w-5xl w-full py-2 md:px-4 md:py-6 mx-auto text-white mt-16 md:mt-20 transition-all duration-300"
+  >
+    <h1 class="text-4xl md:text-5xl font-dance leading-relaxed uppercase">
       {heroTitle}{" "}
       <strong
         class={`inline-block font-dance ${currentClasses.textGradient} bg-clip-text py-1 px-2 text-transparent`}
@@ -101,7 +111,9 @@ const whatsappLink = `https://wa.me/34645089122?text=${encodedMessage}`;
       </strong>
     </h1>
 
-    <p class="text-lg md:text-2xl text-white/80 mb-4 max-w-2xl mx-auto leading-relaxed font-inter">
+    <p
+      class="text-lg md:text-2xl text-white/80 mb-4 max-w-2xl mx-auto leading-relaxed font-inter"
+    >
       {heroSubtitle}
     </p>
 
@@ -110,7 +122,7 @@ const whatsappLink = `https://wa.me/34645089122?text=${encodedMessage}`;
       target="_blank"
       rel="noopener noreferrer"
       class={`inline-block ${currentClasses.buttonBg} text-white text-base font-semibold font-inter py-2 px-5 rounded-full 
-      shadow-md hover:scale-105 ${currentClasses.buttonHover} transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-freshEggplant-300/60`}
+        shadow-md hover:scale-105 ${currentClasses.buttonHover} transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-freshEggplant-300/60`}
     >
       ¡Reserva tu clase con nosotros!
     </a>

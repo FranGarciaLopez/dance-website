@@ -21,7 +21,7 @@ const filteredImages =
       );
 
 // Determine how many images to show
-const numImages = currentPath === "/galeria" ? 9 : 7; // +2 images for /galeria
+const numImages = currentPath === "/galeria" ? images.length : 7;
 const displayedImages = filteredImages.slice(0, numImages);
 
 const CLOUD_NAME = "dgvvnopu7";
@@ -29,7 +29,7 @@ const CLOUD_NAME = "dgvvnopu7";
 function cldUrl(publicId: string, width?: number, height?: number) {
   const w = width ? `w_${width},` : "";
   const h = height ? `h_${height},` : "";
-  return `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/${w}${h}c_limit,q_auto,f_auto,dpr_auto/${publicId}.jpg`;
+  return `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/${w}${h}c_limit,q_auto,f_auto,dpr_auto/${publicId}.webp`;
 }
 ---
 
