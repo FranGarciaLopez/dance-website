@@ -64,16 +64,16 @@ const colorClasses = {
   },
 };
 ---
-
-<section class="flex flex-col items-center justify-center py-16 relative z-10">
+<section class="flex flex-col items-start justify-center py-12 px-6 relative z-10
+  max-w-5xl mx-auto" id="partners-section">
   <h2
-    class={`text-4xl md:text-5xl mb-14 px-6 text-center tracking-tight ${colorClasses[pageColor].textTitle}`}
+    class={`text-4xl md:text-5xl mb-14 tracking-tight font-bebas ${colorClasses[pageColor].textTitle}`}
   >
     Nuestros Socios
   </h2>
 
   <div
-    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-5xl w-full px-4"
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-5xl w-full"
   >
     {
       partners.map((partner, index) => (
@@ -93,18 +93,23 @@ const colorClasses = {
               draggable="false"
             />
           </div>
+
+          <!-- Partner name -->
           <p
-            class={`mt-4 ${colorClasses[pageColor].textTitle} text-lg font-semibold text-center`}
+            class={`mt-4 ${colorClasses[pageColor].textTitle} text-lg font-dance text-center`}
           >
             {partner.alt}
           </p>
 
-          <p class={`text-sm ${colorClasses[pageColor].textItem} mt-1`}>
+          <!-- Profesorado -->
+          <p class={`text-sm font-inter ${colorClasses[pageColor].textItem} mt-1`}>
             {partner.location.profesorado
               ? `Profesorado: ${partner.location.profesorado}`
               : ""}
           </p>
-          <p class={`text-sm ${colorClasses[pageColor].textSubItem} mt-1`}>
+
+          <!-- Ubicación -->
+          <p class={`text-sm font-inter ${colorClasses[pageColor].textSubItem} mt-1`}>
             Ubicación:{" "}
             <a
               href={partner.location.url}

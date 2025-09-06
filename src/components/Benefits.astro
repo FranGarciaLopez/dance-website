@@ -47,11 +47,11 @@ const benefitsText = {
 };
 ---
 
-<section aria-labelledby="beneficios-title" class="py-12">
-  <div class="max-w-5xl mx-auto px-4">
+<section aria-labelledby="beneficios-title" class="py-12 px-6">
+  <div class="max-w-5xl mx-auto ">
     <h2
       id="beneficios-title"
-      class={`text-4xl md:text-5xl mb-14 px-6 text-center tracking-tight ${colorClasses[pageColor].text}`}
+      class={`text-4xl md:text-5xl mb-14 text-start tracking-tight font-bebas ${colorClasses[pageColor].text}`}
     >
       {
         pageColor === "freshEggplant"
@@ -59,6 +59,7 @@ const benefitsText = {
           : "Descubre por qué nuestras clases de Bachata y Salsa son únicas"
       }
     </h2>
+
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
       {
@@ -82,7 +83,7 @@ const benefitsText = {
         href="https://wa.me/34645089122?text=Hola,%20quiero%20más%20información%20sobre%20las%20clases"
         target="_blank"
         rel="noopener noreferrer"
-        class={`inline-block ${colorClasses[pageColor].buttonGradient} text-white text-lg font-semibold py-4 px-8 rounded-full shadow-lg
+        class={`inline-block ${colorClasses[pageColor].buttonGradient} text-white text-lg font-semibold py-4 rounded-full shadow-lg px-4
         transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-xl ${colorClasses[pageColor].buttonRing}`}
       >
         ¡Contacta con nosotros!

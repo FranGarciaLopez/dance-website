@@ -16,7 +16,9 @@ const excludeMain = ["aiinhoa", "cann"];
 const filteredImages =
   currentPath === "/galeria"
     ? images // show all images in /galeria
-    : images.filter((img) => !excludeMain.some((word) => img.toLowerCase().includes(word)));
+    : images.filter(
+        (img) => !excludeMain.some((word) => img.toLowerCase().includes(word)),
+      );
 
 // Determine how many images to show
 const numImages = currentPath === "/galeria" ? 9 : 7; // +2 images for /galeria
@@ -27,28 +29,27 @@ const CLOUD_NAME = "dgvvnopu7";
 function cldUrl(publicId: string, width?: number, height?: number) {
   const w = width ? `w_${width},` : "";
   const h = height ? `h_${height},` : "";
-  return `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/${w}${h}c_limit,q_auto,f_auto/${publicId}.jpg`;
+  return `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/${w}${h}c_limit,q_auto,f_auto,dpr_auto/${publicId}.jpg`;
 }
-
 ---
 
-<section class="masonry-section px-4 py-12 max-w-5xl mx-auto" id="galeria">
+<section class="masonry-section px-6 py-12 max-w-5xl mx-auto" id="galeria">
   {
-    currentPath === "/galeria" ? null :
-    <h2 class="text-4xl lg:text-5xl font-normal text-center mb-8">
-      Galería de Imágenes - The Latin Action
-    </h2>
+    currentPath === "/galeria" ? null : (
+      <h2 class="text-4xl lg:text-5xl font-bebas font-normal tracking-tight uppercase  mb-14 max-w-5xl w-full mx-auto  drop-shadow-md">
+        Galería de Imágenes - The Latin Action
+      </h2>
+    )
   }
 
   <div class="masonry-grid mx-auto" id="pswp-gallery">
     {
       displayedImages.map((publicId) => (
         <a
-          href={cldUrl(publicId)}
+          href={cldUrl(publicId, 2000)}
+          data-pswp-width="2000"
+          data-pswp-height="1333"
           class="masonry-item block"
-          data-pswp-width="0"
-          data-pswp-height="0"
-          data-cropped="false"
         >
           <div class="aspect-box">
             <img
@@ -62,15 +63,18 @@ function cldUrl(publicId: string, width?: number, height?: number) {
       ))
     }
   </div>
-  {currentPath !== "/galeria" && (
-    <div class="text-center mt-8">
-      <a
-        href="/galeria"
-        class="inline-block px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition"
-        >Ver Más Fotos</a
-      >
-    </div>
-  )}
+  {
+    currentPath !== "/galeria" && (
+      <div class="text-center mt-8">
+        <a
+          href="/galeria"
+          class="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-pink-400 to-purple-600 text-white font-bebas text-xl hover:scale-105 transform transition duration-300 uppercase shadow-lg hover:shadow-xl"
+        >
+          Ver Más Fotos
+        </a>
+      </div>
+    )
+  }
 </section>
 
 <!-- PhotoSwipe template -->
@@ -107,66 +111,30 @@ function cldUrl(publicId: string, width?: number, height?: number) {
 <script type="module" is:inline>
   import PhotoSwipeLightbox from "https://cdn.jsdelivr.net/npm/photoswipe@5.3.9/dist/photoswipe-lightbox.esm.min.js";
 
-  const lightbox = new PhotoSwipeLightbox({
-    gallery: "#pswp-gallery",
-    children: "a",
-    pswpModule: () =>
-      import(
-        "https://cdn.jsdelivr.net/npm/photoswipe@5.3.9/dist/photoswipe.esm.min.js"
-      ),
-    showHideAnimationType: "fade",
-    arrowKeys: true,
-    clickToCloseNonZoomable: true,
-    wheelToZoom: true,
-    maxSpreadZoom: 2,
-  });
+ const lightbox = new PhotoSwipeLightbox({
+  gallery: "#pswp-gallery",
+  children: "a",
+  pswpModule: () =>
+    import(
+      "https://cdn.jsdelivr.net/npm/photoswipe@5.3.9/dist/photoswipe.esm.min.js"
+    ),
+  
+  zoomAnimationDuration: 0,
+  arrowKeys: true,
+  clickToCloseNonZoomable: true,
+  mainScroll: false, // <-- prevents the small thumbnail "jump"
+  maxSpreadZoom: 2,
+});
 
   lightbox.on("gettingData", (e) => {
     if (!e.element || !e.data) return;
 
-    // Get dimensions and orientation
     const width = parseInt(e.element.dataset.pswpWidth || "0");
     const height = parseInt(e.element.dataset.pswpHeight || "0");
-    const orientation = e.element.dataset.orientation;
 
-    // Ensure dimensions are set properly
     if (width && height) {
       e.data.width = width;
       e.data.height = height;
-
-      // Calculate proper dimensions based on viewport and image orientation
-      const viewportWidth = window.innerWidth * 0.8;
-      const viewportHeight = window.innerHeight * 0.8;
-
-      // Set the appropriate size based on orientation
-      if (orientation === "portrait") {
-        // Portrait: Maintain height, adjust width
-        const ratio = height / width;
-        const targetHeight = Math.min(height, viewportHeight);
-        e.data.width = targetHeight / ratio;
-        e.data.height = targetHeight;
-      } else {
-        // Landscape: Maintain width, adjust height
-        const ratio = width / height;
-        const targetWidth = Math.min(width, viewportWidth);
-        e.data.width = targetWidth;
-        e.data.height = targetWidth / ratio;
-      }
-    }
-  });
-
-  // Add custom positioning for images
-  lightbox.on("contentLoad", (e) => {
-    if (e.content && e.content.element) {
-      const img = e.content.element.querySelector("img");
-      if (img) {
-        const orientation = e.content.data.element.dataset.orientation;
-
-        // Add orientation class to help with CSS positioning
-        if (orientation) {
-          img.classList.add(`pswp-${orientation}`);
-        }
-      }
     }
   });
 
@@ -196,31 +164,25 @@ function cldUrl(publicId: string, width?: number, height?: number) {
 
   /* PhotoSwipe image orientation styles */
   :global(.pswp__zoom-wrap) {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 100% !important;
-    height: 100% !important;
-  }
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
 
-  :global(.pswp__img) {
-    max-height: 90vh !important;
-    max-width: 90vw !important;
-    object-fit: contain !important;
-    position: relative !important;
-    margin: 0 auto !important;
-    top: 0 !important;
-    left: 0 !important;
-    transform: none !important;
-  }
+:global(.pswp__img) {
+  margin: 0 auto !important;
+  top: 0 !important;
+  left: 0 !important;
+  object-fit: contain !important;
+}
 
-  :global(.pswp-portrait) {
-    max-height: 85vh !important;
-    width: auto !important;
-  }
+:global(.pswp-portrait) {
+  max-height: 90vh !important;
+  width: auto !important;
+}
 
   :global(.pswp-landscape) {
-    max-width: 85vw !important;
+    max-width: 90vw !important;
     height: auto !important;
   }
 </style>

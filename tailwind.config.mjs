@@ -4,9 +4,17 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        dance: ["Dancing Script", "cursive"],
-        bebas: ["Bebas Neue", "sans-serif"],
+        dance: ["Summer Dance", "cursive"],
+        bebas: ["Dance With The Devil", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
       },
+      fontSize: {
+        'h1': ['4rem', { lineHeight: '1.2', letterSpacing: '-0.02em' }],
+        'h2': ['3rem', { lineHeight: '1.3', letterSpacing: '-0.01em' }],
+        'h3': ['2xl', { lineHeight: '1.4' }],
+        'p-lg': ['1.125rem', { lineHeight: '1.75rem' }],
+      },
+
       height: {
         96: "24rem",
       },
@@ -60,8 +68,8 @@ export default {
           "gradient-to": "#d89d36ff",
         },
         main: {
-          "gradient-from": "#8338EC",
-          "gradient-to": "#FF006E",
+          "gradient-from": "#ff004d",
+          "gradient-to": "#a100f2",
         },
       },
       backgroundImage: {
@@ -69,7 +77,7 @@ export default {
           "linear-gradient(to right, #d9008b, #d9008b, #d9008b)",
         "gradient-ladyStyle": "linear-gradient(to right, #6B21A8, #DB2777)",
         "gradient-bachataSalsa": "linear-gradient(to right, #E07A5F, #F2CC8F)",
-        "gradient-main": "linear-gradient(to right, #8338EC, #FF006E)",
+        "gradient-main": "linear-gradient(to right, #9333ea, #4c1d6f)",
       },
       boxShadow: {
         freshEggplant: "0 4px 15px rgba(179,29,106,0.6)",

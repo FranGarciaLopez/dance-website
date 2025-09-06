@@ -91,72 +91,52 @@ import Header from "../components/Header.astro";
 <style is:global>
   @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;700&display=swap");
 
-  /* Base */
-  html,
-  body {
-    font-family: "Inter", sans-serif;
-    background: linear-gradient(to bottom, #3a304d, #281f38);
-    color: white;
-    max-width: 100vw;
-    overflow-x: hidden;
-  }
+/* === Custom FontSpace Fonts === */
+@font-face {
+  font-family: "Summer Dance";
+  src: url("/src/assets/fonts/SummerDance-JR0KB.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
-  .scale-transition {
-    transition: transform 0.5s ease-out;
-    transform: scale(1);
-    filter: drop-shadow(0 0 0.5rem white);
-  }
+@font-face {
+  font-family: "Dance With The Devil";
+  src: url("/src/assets/fonts/DanceWithTheDevil-ALxY6.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
-  .scale-transition:hover {
-    transform: scale(1.05);
-    filter: drop-shadow(0 0 0.5rem #ff004d);
-  }
+/* === Base Styles === */
+html,
+body {
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(to bottom, #3a304d, #281f38);
+  color: white;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
 
-  .exclude-filter {
-    filter: none !important;
-  }
+.scale-transition {
+  transition: transform 0.5s ease-out;
+  transform: scale(1);
+  filter: drop-shadow(0 0 0.5rem white);
+}
 
-  /* Títulos más suaves con Pacifico */
-  /* Títulos con florituras sutiles */
-  h1,
-  h2,
-  h3,
-  h4 {
-    font-family: "Playfair Display", serif;
-    font-weight: 700;
-    color: #fff;
-  }
+.scale-transition:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 0.5rem #ff004d);
+}
 
-  h1 {
-    font-size: 3rem;
-    line-height: 1.2;
-  }
-  h2 {
-    font-size: 2.5rem;
-    line-height: 1.3;
-  }
-  h3 {
-    font-size: 1.8rem;
-    line-height: 1.3;
-  }
-  h4 {
-    font-size: 1.5rem;
-    line-height: 1.3;
-  }
+.exclude-filter {
+  filter: none !important;
+}
 
-  /* Párrafos */
-  p {
-    font-family: "Inter", sans-serif;
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #e0e7ff;
-    margin-bottom: 1rem;
-  }
 
-  /* Opcional: pequeños detalles decorativos en títulos cortos */
-  h1 span,
-  h2 span {
-    font-family: "Alex Brush", cursive;
-    font-size: 1.2em;
-  }
+/* Decorative spans */
+h1 span,
+h2 span {
+  font-family: "Alex Brush", cursive;
+  font-size: 1.2em;
+}
+
 </style>

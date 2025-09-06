@@ -211,45 +211,39 @@ const colorClasses = {
 };
 ---
 
-<section class="py-6">
+<section id="horario-semanal" class="max-w-5xl mx-auto py-6 px-6">
   <h2
     id="horario-semanal"
-    class={`text-4xl md:text-5xl mb-14 px-6 text-center tracking-tight ${colorClasses[pageColor].textTitle}`}
+    class={`text-4xl md:text-5xl mb-14 text-start tracking-tight font-bebas ${colorClasses[pageColor].textTitle}`}
   >
     Horario Semanal de Clases
   </h2>
 
   <div
-    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto px-4"
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
   >
     {
       schedule.map((day) => (
         <div
-          class={`bg-[#27272a] backdrop-blur-xl rounded-2xl p-6 shadow-lg ${colorClasses[pageColor].shadowHover} transition-shadow duration-300 ${colorClasses[pageColor].textTitle}`}
+          class={`schedule-card bg-[#27272a] backdrop-blur-xl rounded-2xl p-6 shadow-lg ${colorClasses[pageColor].shadowHover} transition-shadow duration-300`}
         >
           <h3
-            class={`text-xl font-semibold ${colorClasses[pageColor].textSubItem} border-b border-white pb-2 mb-4`}
+            class={`text-xl font-semibold font-inter ${colorClasses[pageColor].textSubItem} border-b border-white pb-2 mb-4`}
           >
             {day.day}
           </h3>
           {day.slots.map((slot) => (
             <div class="mb-6">
-              <p
-                class={`text-lg font-bold ${colorClasses[pageColor].textTitle}`}
-              >
+              <p class={`text-lg font-bold font-inter ${colorClasses[pageColor].textTitle}`}>
                 {slot.time}
               </p>
-              <p class={`text-sm ${colorClasses[pageColor].textItem}`}>
+              <p class={`text-sm font-inter ${colorClasses[pageColor].textItem}`}>
                 {slot.class}
               </p>
-              <p
-                class={`text-sm italic ${colorClasses[pageColor].textSubItem}`}
-              >
+              <p class={`text-sm italic font-inter ${colorClasses[pageColor].textSubItem}`}>
                 Edad: {slot.ageRange}
               </p>
-              <p
-                class={`text-sm italic ${colorClasses[pageColor].textSubItem}`}
-              >
+              <p class={`text-sm italic font-inter ${colorClasses[pageColor].textSubItem}`}>
                 Lugar:{" "}
                 <a
                   href={slot.location.url}
@@ -269,10 +263,11 @@ const colorClasses = {
 </section>
 
 <style>
-  section {
+  #weekly-schedule {
     overflow: hidden;
   }
-  div:hover {
+
+  .schedule-card:hover {
     cursor: pointer;
   }
 </style>

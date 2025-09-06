@@ -1,139 +1,87 @@
 <section
-  class="history-location-section max-w-5xl mx-auto px-4 py-16 text-gray-100"
+  id="history-location"
+  class="max-w-5xl mx-auto px-6 py-12 text-gray-100"
+  aria-label="Historia y ubicación de The Latin Action"
 >
-  <div class="space-y-12">
+  <div class="space-y-10">
     <!-- Título principal -->
-    <h2 class="text-4xl lg:text-5xl font-normal text-center text-white">
+    <h2 class="text-4xl lg:text-5xl font-bebas font-normal tracking-tight uppercase mb-14 max-w-5xl w-full mx-auto drop-shadow-md">
       ¿Dónde estamos?
     </h2>
 
-    <!-- Ubicación -->
-    <p class="text-xl text-gray-300">
+    <!-- Introducción -->
+    <p class="text-xl text-gray-300 text-start font-inter ">
       Actualmente impartimos nuestras <strong>clases presenciales</strong> en:
     </p>
 
-    <!-- Formato mejorado de ubicaciones -->
+    <!-- Ubicaciones -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <!-- Ubicación 1 -->
-      <div
-        class="flex items-start gap-5 p-6 rounded-2xl bg-[#1a1a1f] shadow-md border border-[#2a2a32]"
-      >
-        <div>
-          <h3 class="text-xl text-white up font-normal">
-            📍 Elche - Academia de baile Dairen, Carrer Petrer, 31
-          </h3>
-          <p class="text-xl text-gray-300 mt-2">
-            Sala espaciosa y equipada para disfrutar al máximo de cada clase.
-          </p>
+      {[
+        {
+          title: "📍 Elche – Academia de baile Dairen, Carrer Petrer, 31",
+          description: "Sala espaciosa y equipada para disfrutar al máximo de cada clase."
+        },
+        {
+          title: "📍 Elche – Sala de baile Bubaloo, Carrer Sabadell, 10",
+          description: "Una de nuestras sedes principales, ideal para bailar con comodidad y energía."
+        },
+        {
+          title: "📍 Novelda – NVFit Novelda, Carrer Garcia Lorca, 12",
+          description: "Espacio equipado para clases dinámicas en un entorno cómodo y profesional."
+        },
+        {
+          title: "📍 Elda – Virginia Domenech, Carrer Pablo Iglesias, 97",
+          description: "Escuela de baile con un ambiente acogedor y profesional, ideal para aprender y disfrutar de la salsa y bachata."
+        }
+      ].map((loc) => (
+        <div
+          class="flex flex-col p-6 rounded-2xl bg-[#1a1a1f] shadow-md border border-[#2a2a32] hover:scale-[1.02] transition-transform duration-300"
+        >
+          <h3 class="text-xl text-white font-dance">{loc.title}</h3>
+          <p class="text-gray-300 mt-2 font-inter">{loc.description}</p>
         </div>
-      </div>
-
-      <!-- Ubicación 2 -->
-      <div
-        class="flex items-start gap-5 p-6 rounded-2xl bg-[#1a1a1f] shadow-md border border-[#2a2a32]"
-      >
-        <div>
-          <h3 class="text-xl text-white up">
-            📍Elche - Sala de baile Bubaloo, Carrer Sabadell, 10
-          </h3>
-          <p class="text-xl text-gray-300 mt-2">
-            Una de nuestras sedes principales, ideal para bailar con comodidad y
-            energía.
-          </p>
-        </div>
-      </div>
-
-      <!-- Ubicación 3 -->
-      <div
-        class="flex items-start gap-5 p-6 rounded-2xl bg-[#1a1a1f] shadow-md border border-[#2a2a32]"
-      >
-        <div>
-          <h3 class="text-xl text-white up">
-            📍Novelda – NVFit Novelda, Carrer Garcia Lorca, 12 - 
-            inscripciones abiertas
-          </h3>
-          <p class="text-xl text-gray-300 mt-2">
-            Espacio equipado para clases dinámicas en un entorno cómodo y
-            profesional.
-          </p>
-        </div>
-      </div>
-
-      <div
-        class="flex items-start gap-5 p-6 rounded-2xl bg-[#1a1a1f] shadow-md border border-[#2a2a32]"
-      >
-        <div>
-          <h3 class="text-xl text-white up">
-            📍Elda - Virginia Domenech, Carrer Pablo Iglesias, 97 - 
-            inscripciones abiertas
-          </h3>
-          <p class="text-xl text-gray-300 mt-2">
-            Escuela de baile con un ambiente acogedor y profesional, ideal para
-            aprender y disfrutar de la salsa y bachata.
-          </p>
-        </div>
-      </div>
+      ))}
     </div>
 
     <!-- Mapa -->
-    <div
-      class="map-container mt-10 shadow-lg border border-[#2a2a32] rounded-xl overflow-hidden"
-    >
+    <div class="mt-10 rounded-xl overflow-hidden shadow-lg border border-[#2a2a32]">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3132.367111614581!2d-0.6756925227856836!3d38.27098208341982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd63b53e6d2c4d53%3A0x70e65a188acaadba!2sBubaloo.!5e0!3m2!1ses!2ses!4v1733048030190!5m2!1ses!2ses"
         width="100%"
         height="500"
         style="border:0;"
-        allowfullscreen=""
+        allowfullscreen
         loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"></iframe>
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Mapa de ubicaciones de The Latin Action"
+      ></iframe>
     </div>
 
     <!-- Beneficios destacados -->
-    <h2 class="text-4xl lg:text-5xl font-normal text-center text-white mt-12">
+    <h2 class="text-4xl lg:text-5xl font-bebas font-normal tracking-tight uppercase pt-10 mb-14 max-w-5xl w-full mx-auto drop-shadow-md">
       ¿Por qué elegirnos?
     </h2>
+
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
-      <div
-        class="flex items-start gap-5 p-5 rounded-xl bg-[#1a1a1f] shadow-md border border-[#2a2a32]"
-      >
-        <span class="text-pink-500 text-3xl">🎯</span>
-        <p class="text-xl text-gray-300 leading-relaxed">
-          Ambiente cercano, divertido y profesional
-        </p>
-      </div>
-      <div
-        class="flex items-start gap-5 p-5 rounded-xl bg-[#1a1a1f] shadow-md border border-[#2a2a32]"
-      >
-        <span class="text-pink-500 text-3xl">👠</span>
-        <p class="text-xl text-gray-300 leading-relaxed">
-          Clases de bachata en pareja, lady style y salsa
-        </p>
-      </div>
-      <div
-        class="flex items-start gap-5 p-5 rounded-xl bg-[#1a1a1f] shadow-md border border-[#2a2a32]"
-      >
-        <span class="text-pink-500 text-3xl">🎉</span>
-        <p class="text-xl text-gray-300 leading-relaxed">
-          Eventos sociales y prácticas regulares
-        </p>
-      </div>
-      <div
-        class="flex items-start gap-5 p-5 rounded-xl bg-[#1a1a1f] shadow-md border border-[#2a2a32]"
-      >
-        <span class="text-pink-500 text-3xl">💃</span>
-        <p class="text-xl text-gray-300 leading-relaxed">
-          Comunidad activa de bailarines en Elche
-        </p>
-      </div>
+      {[
+        { icon: "🎯", text: "Ambiente cercano, divertido y profesional" },
+        { icon: "👠", text: "Clases de bachata en pareja, lady style y salsa" },
+        { icon: "🎉", text: "Eventos sociales y prácticas regulares" },
+        { icon: "💃", text: "Comunidad activa de bailarines en Elche" }
+      ].map((benefit) => (
+        <div class="flex items-start gap-5 p-5 rounded-xl bg-[#1a1a1f] shadow-md border border-[#2a2a32]">
+          <span class="text-pink-500 text-3xl">{benefit.icon}</span>
+          <p class="text-xl text-gray-300 leading-relaxed font-inter">{benefit.text}</p>
+        </div>
+      ))}
     </div>
 
     <!-- Llamada a la acción -->
-    <p class="text-xl text-center mt-12 text-gray-300">
+    <p class="text-xl text-center mt-12 text-gray-300 font-inter">
       ¿Listo para comenzar tus <strong>clases de baile en Elche</strong>?
-      <a href="/contacto" class="text-pink-500 font-semibold hover:underline"
-        >¡Contáctanos hoy mismo!</a
-      >
+      <a href="/contacto" class="text-pink-500 font-semibold hover:underline">
+        ¡Contáctanos hoy mismo!
+      </a>
     </p>
   </div>
 </section>
