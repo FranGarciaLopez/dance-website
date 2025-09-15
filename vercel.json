@@ -22,17 +22,7 @@
       "permanent": true
     },
     {
-      "source": "http://www.thelatinaction.com/:path*",
-      "destination": "https://thelatinaction.com/:path*",
-      "permanent": true
-    },
-    {
-      "source": "https://www.thelatinaction.com/:path*",
-      "destination": "https://thelatinaction.com/:path*",
-      "permanent": true
-    },
-    {
-      "source": "http://thelatinaction.com/:path*",
+      "source": "/:path*",
       "destination": "https://thelatinaction.com/:path*",
       "permanent": true
     }
