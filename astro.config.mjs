@@ -22,7 +22,7 @@ export default defineConfig({
   ],
 
   site: "https://thelatinaction.com",
-  trailingSlash: "never",
+  trailingSlash: "always",
 
   vite: {
     resolve: {
