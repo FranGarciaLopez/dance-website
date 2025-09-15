@@ -20,11 +20,6 @@
       "source": "/bachata-en-pareja-elche/",
       "destination": "/bachata-y-salsa-en-pareja-elche/",
       "permanent": true
-    },
-    {
-      "source": "/:path*",
-      "destination": "https://thelatinaction.com/:path*",
-      "permanent": true
     }
   ]
 }
