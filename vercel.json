@@ -40,6 +40,26 @@
       "source": "/galeria",
       "destination": "/galeria/",
       "permanent": true
+    },
+    {
+      "source": "/clases",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/clases/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/eventos",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/eventos/",
+      "destination": "/",
+      "permanent": true
     }
   ]
 }

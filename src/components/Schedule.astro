@@ -228,22 +228,22 @@ const colorClasses = {
           class={`schedule-card bg-[#27272a] backdrop-blur-xl rounded-2xl p-6 shadow-lg ${colorClasses[pageColor].shadowHover} transition-shadow duration-300`}
         >
           <h3
-            class={`text-xl font-semibold font-inter ${colorClasses[pageColor].textSubItem} border-b border-white pb-2 mb-4`}
+            class={`text-xl font-semibold font-noral ${colorClasses[pageColor].textSubItem} border-b border-white pb-2 mb-4`}
           >
             {day.day}
           </h3>
           {day.slots.map((slot) => (
             <div class="mb-6">
-              <p class={`text-lg font-bold font-inter ${colorClasses[pageColor].textTitle}`}>
+              <p class={`text-lg font-bold font-noral ${colorClasses[pageColor].textTitle}`}>
                 {slot.time}
               </p>
-              <p class={`text-sm font-inter ${colorClasses[pageColor].textItem}`}>
+              <p class={`text-sm font-noral ${colorClasses[pageColor].textItem}`}>
                 {slot.class}
               </p>
-              <p class={`text-sm italic font-inter ${colorClasses[pageColor].textSubItem}`}>
+              <p class={`text-sm italic font-noral ${colorClasses[pageColor].textSubItem}`}>
                 Edad: {slot.ageRange}
               </p>
-              <p class={`text-sm italic font-inter ${colorClasses[pageColor].textSubItem}`}>
+              <p class={`text-sm italic font-noral ${colorClasses[pageColor].textSubItem}`}>
                 Lugar:{" "}
                 <a
                   href={slot.location.url}

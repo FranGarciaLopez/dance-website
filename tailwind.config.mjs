@@ -4,8 +4,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        dance: ["Summer Dance", "cursive"],
-        bebas: ["Dance With The Devil", "sans-serif"],
+        dance: ["Roboto", "Arial", "sans-serif"], // replaced Summer Dance
+        bebas: ["Arial", "Helvetica", "sans-serif"], // replaced Dance With The Devil
+
         inter: ["Inter", "sans-serif"],
       },
       fontSize: {

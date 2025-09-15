@@ -5,12 +5,12 @@
 >
   <div class="space-y-10">
     <!-- Título principal -->
-    <h2 class="text-4xl lg:text-5xl font-bebas font-normal tracking-tight uppercase mb-14 max-w-5xl w-full mx-auto drop-shadow-md">
+    <h2 class="text-4xl lg:text-5xl font-bebas tracking-tight uppercase mb-14 max-w-5xl w-full mx-auto drop-shadow-md">
       ¿Dónde estamos?
     </h2>
 
     <!-- Introducción -->
-    <p class="text-xl text-gray-300 text-start font-inter ">
+    <p class="text-xl text-gray-300 text-start font-normal leading-relaxed max-w-5xl mx-auto">
       Actualmente impartimos nuestras <strong>clases presenciales</strong> en:
     </p>
 
@@ -38,7 +38,7 @@
           class="flex flex-col p-6 rounded-2xl bg-[#1a1a1f] shadow-md border border-[#2a2a32] hover:scale-[1.02] transition-transform duration-300"
         >
           <h3 class="text-xl text-white font-dance">{loc.title}</h3>
-          <p class="text-gray-300 mt-2 font-inter">{loc.description}</p>
+          <p class="text-gray-300 mt-2 font-normal">{loc.description}</p>
         </div>
       ))}
     </div>
@@ -58,7 +58,7 @@
     </div>
 
     <!-- Beneficios destacados -->
-    <h2 class="text-4xl lg:text-5xl font-bebas font-normal tracking-tight uppercase pt-10 mb-14 max-w-5xl w-full mx-auto drop-shadow-md">
+    <h2 class="text-4xl lg:text-5xl font-bebas tracking-tight uppercase pt-10 mb-14 max-w-5xl w-full mx-auto drop-shadow-md">
       ¿Por qué elegirnos?
     </h2>
 
@@ -71,13 +71,13 @@
       ].map((benefit) => (
         <div class="flex items-start gap-5 p-5 rounded-xl bg-[#1a1a1f] shadow-md border border-[#2a2a32]">
           <span class="text-pink-500 text-3xl">{benefit.icon}</span>
-          <p class="text-xl text-gray-300 leading-relaxed font-inter">{benefit.text}</p>
+          <p class="text-xl text-gray-300 leading-relaxed font-normal">{benefit.text}</p>
         </div>
       ))}
     </div>
 
     <!-- Llamada a la acción -->
-    <p class="text-xl text-center mt-12 text-gray-300 font-inter">
+    <p class="text-xl text-center mt-12 text-gray-300 font-normal leading-relaxed max-w-5xl mx-auto">
       ¿Listo para comenzar tus <strong>clases de baile en Elche</strong>?
       <a href="/contacto/" class="text-pink-500 font-semibold hover:underline">
         ¡Contáctanos hoy mismo!
