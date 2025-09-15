@@ -20,6 +20,36 @@
       "source": "/bachata-en-pareja-elche/",
       "destination": "/bachata-y-salsa-en-pareja-elche/",
       "permanent": true
+    },
+    {
+      "source": "/lady-style-elche",
+      "destination": "/lady-style-elche/",
+      "permanent": true
+    },
+    {
+      "source": "/lady-style-elche/",
+      "destination": "/lady-style-elche/",
+      "permanent": true
+    },
+    {
+      "source": "/contacto",
+      "destination": "/contacto/",
+      "permanent": true
+    },
+    {
+      "source": "/contacto/",
+      "destination": "/contacto/",
+      "permanent": true
+    },
+    {
+      "source": "/galeria",
+      "destination": "/galeria/",
+      "permanent": true
+    },
+    {
+      "source": "/galeria/",
+      "destination": "/galeria/",
+      "permanent": true
     }
   ]
 }
