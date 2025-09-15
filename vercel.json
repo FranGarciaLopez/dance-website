@@ -30,6 +30,16 @@
       "source": "/lady-style-elche",
       "destination": "/lady-style-elche/",
       "permanent": true
+    },
+    {
+      "source": "/contacto",
+      "destination": "/contacto/",
+      "permanent": true
+    },
+    {
+      "source": "/galeria",
+      "destination": "/galeria/",
+      "permanent": true
     }
   ]
 }
