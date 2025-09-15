@@ -61,7 +61,7 @@
 
       <li>
         <a
-          href="/bachata-y-salsa-en-pareja-elche"
+          href="/bachata-y-salsa-en-pareja-elche/"
           class="px-4 py-2 rounded-md hover:bg-white/50 hover:text-black transition-colors text-lg bg-black/30"
           >Bachata y Salsa</a
         >
@@ -69,7 +69,7 @@
 
       <li>
         <a
-          href="/lady-style-elche"
+          href="/lady-style-elche/"
           class="px-4 py-2 rounded-md hover:bg-white/50 hover:text-black transition-colors text-lg bg-black/30"
           >Estilo chica</a
         >
@@ -78,8 +78,8 @@
   </nav>
 </header>
 
-<script>
-  document.addEventListener("astro:page-load", () => {
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
     const menuButton = document.getElementById("menu-button");
     const closeMenuButton = document.getElementById("close-menu");
     const primaryMenu = document.getElementById("primary-menu");

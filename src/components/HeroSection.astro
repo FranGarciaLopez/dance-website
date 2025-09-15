@@ -16,14 +16,14 @@ interface RouteClasses {
 }
 
 const routeClasses: RouteClasses = {
-  "/lady-style-elche": {
+  "/lady-style-elche/": {
     gradient: "bg-gradient-ladyStyle",
     buttonBg: "bg-gradient-ladyStyle",
     buttonHover: "hover:shadow-lg",
     textGradient:
       "bg-gradient-to-r from-ladyStyle-gradient-from to-ladyStyle-gradient-to",
   },
-  "/bachata-y-salsa-en-pareja-elche": {
+  "/bachata-y-salsa-en-pareja-elche/": {
     gradient: "bg-gradient-bachataSalsa",
     buttonBg: "bg-bachataSalsa-gradient-from",
     buttonHover: "hover:bg-bachataSalsa-gradient-to",
@@ -48,9 +48,9 @@ const desktop = xlImage ?? xlImage;
 
 // WhatsApp link
 const routeTitles: Record<string, string> = {
-  "/lady-style-elche": "Lady Style Elche",
-  "/bachata-y-salsa-en-pareja-elche": "Bachata y Salsa en Pareja Elche",
-  "/salsa-elche": "Salsa Elche",
+  "/lady-style-elche/": "Lady Style Elche",
+  "/bachata-y-salsa-en-pareja-elche/": "Bachata y Salsa en Pareja Elche",
+  "/salsa-elche/": "Salsa Elche",
 };
 const readableTitle = routeTitles[currentPath] ?? "vuestras clases";
 const encodedMessage = encodeURIComponent(

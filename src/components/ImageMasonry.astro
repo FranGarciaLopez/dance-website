@@ -7,22 +7,22 @@ interface Props {
 }
 const { images } = Astro.props;
 
-// Determine current path
+// Normalize current path (remove trailing slash)
 const currentPath = Astro.url.pathname.replace(/\/$/, "").toLowerCase();
+const isGaleria = currentPath === "/galeria";
 
 // Images to exclude from homepage
 const excludeMain = ["aiinhoa", "cann"];
 
 // Filter images depending on route
-const filteredImages =
-  currentPath === "/galeria"
-    ? images // show all on /galeria
-    : images.filter(
-        (img) => !excludeMain.some((word) => img.toLowerCase().includes(word))
-      );
+const filteredImages = isGaleria
+  ? images // show all on /galeria
+  : images.filter(
+      (img) => !excludeMain.some((word) => img.toLowerCase().includes(word))
+    );
 
 // Limit homepage images
-const numImages = currentPath === "/galeria" ? images.length : 7;
+const numImages = isGaleria ? images.length : 7;
 const displayedImages = filteredImages.slice(0, numImages);
 
 const CLOUD_NAME = "dgvvnopu7";
@@ -34,11 +34,6 @@ function cldUrl(publicId: string, width?: number, height?: number) {
 ---
 
 <section class="masonry-section px-6 py-12 max-w-5xl mx-auto" id="galeria">
-  {currentPath !== "/galeria" && (
-    <h2 class="text-4xl lg:text-5xl font-bebas font-normal tracking-tight uppercase mb-14 max-w-5xl w-full mx-auto drop-shadow-md">
-      Galería de Imágenes - The Latin Action
-    </h2>
-  )}
 
   <div class="masonry-grid mx-auto" data-pswp-gallery>
     {displayedImages.map((publicId) => (
@@ -60,10 +55,10 @@ function cldUrl(publicId: string, width?: number, height?: number) {
     ))}
   </div>
 
-  {currentPath !== "/galeria" && (
+  {!isGaleria && (
     <div class="text-center mt-8">
       <a
-        href="/galeria"
+        href="/galeria/"
         class="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-pink-400 to-purple-600 text-white font-bebas text-xl hover:scale-105 transform transition duration-300 uppercase shadow-lg hover:shadow-xl"
       >
         Ver Más Fotos
