@@ -1,14 +1,44 @@
 {
-          "redirects": [
-                    {
-                              "source": "/salsa-elche",
-                              "destination": "/bachata-y-salsa-en-pareja-elche",
-                              "permanent": true
-                    },
-                    {
-                              "source": "/bachata-en-pareja-elche",
-                              "destination": "/bachata-y-salsa-en-pareja-elche",
-                              "permanent": true
-                    }
-          ]
+       "redirects": [
+              {
+                     "source": "/salsa-elche",
+                     "destination": "/bachata-y-salsa-en-pareja-elche/",
+                     "permanent": true
+              },
+              {
+                     "source": "/salsa-elche/",
+                     "destination": "/bachata-y-salsa-en-pareja-elche/",
+                     "permanent": true
+              },
+              {
+                     "source": "/bachata-en-pareja-elche",
+                     "destination": "/bachata-y-salsa-en-pareja-elche/",
+                     "permanent": true
+              },
+              {
+                     "source": "/bachata-en-pareja-elche/",
+                     "destination": "/bachata-y-salsa-en-pareja-elche/",
+                     "permanent": true
+              },
+              {
+                     "source": "/:path((?!.*\\/$).*)",
+                     "destination": "/:path/",
+                     "permanent": true
+              },
+              {
+                     "source": "http://www.thelatinaction.com/:path*",
+                     "destination": "https://thelatinaction.com/:path*",
+                     "permanent": true
+              },
+              {
+                     "source": "https://www.thelatinaction.com/:path*",
+                     "destination": "https://thelatinaction.com/:path*",
+                     "permanent": true
+              },
+              {
+                     "source": "http://thelatinaction.com/:path*",
+                     "destination": "https://thelatinaction.com/:path*",
+                     "permanent": true
+              }
+       ]
 }

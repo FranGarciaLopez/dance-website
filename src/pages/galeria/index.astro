@@ -1,74 +1,20 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import { galleryImages } from "@/data/galleryImages";
 import ImageMasonry from "@/components/ImageMasonry.astro";
-
-const currentPath = Astro.url.pathname.replace(/\/$/, "").toLowerCase();
-
-// Filter images depending on the route
-const displayedImages =
-  currentPath === "/galeria"
-    ? galleryImages
-    : galleryImages.filter(
-        (img) =>
-          !["aiinhoa", "cann"].some((word) =>
-            img.toLowerCase().includes(word)
-          )
-      );
-
-const CLOUD_NAME = "dgvvnopu7";
-
-function cldUrl(publicId: string, width?: number, height?: number) {
-  const w = width ? `w_${width},` : "";
-  const h = height ? `h_${height},` : "";
-  return `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/${w}${h}c_limit,q_auto,f_auto/${publicId}.jpg`;
-}
+import { galleryImages } from "@/data/galleryImages";
 ---
 
 <Layout
-  title="Galería de Fotos - The Latin Action"
-  description="Explora nuestra galería de fotos y revive los mejores momentos de nuestras clases y eventos de salsa y bachata en Elche."
+  title="Galería de Fotos | The Latin Action"
+  description="Revive los mejores momentos de nuestras clases y eventos de salsa y bachata en Elche."
+  canonical="https://thelatinaction.com/galeria/"
 >
-  <!-- Introducción -->
-  <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4">Galería de Fotos</h1>
-    <p class="text-lg md:text-xl leading-relaxed">
-      Explora nuestra galería de fotos y revive los mejores momentos de nuestras
-      clases y eventos de salsa y bachata en Elche. Descubre la energía, la pasión
-      y la diversión que compartimos en cada sesión.
+  <section class="text-center py-24 px-6 max-w-5xl mx-auto">
+    <h1 class="text-4xl md:text-5xl font-bold mb-6">Galería de Fotos</h1>
+    <p class="text-lg md:text-xl leading-relaxed text-freshPeach-100">
+      Explora nuestra galería de fotos y revive los momentos más emocionantes con <span class="text-freshMint-400 font-semibold">Juan Carlos y Luna</span>.
     </p>
   </section>
 
-  <!-- Image Masonry Gallery -->
-  <ImageMasonry images={displayedImages} />
-
+  <ImageMasonry images={galleryImages} />
 </Layout>
-
-<!-- PhotoSwipe template -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="pswp__bg"></div>
-  <div class="pswp__scroll-wrap">
-    <div class="pswp__container">
-      <div class="pswp__item"></div>
-      <div class="pswp__item"></div>
-      <div class="pswp__item"></div>
-    </div>
-    <div class="pswp__ui pswp__ui--hidden">
-      <div class="pswp__top-bar">
-        <div class="pswp__counter"></div>
-        <button class="pswp__button pswp__button--close" title="Cerrar (Esc)"></button>
-        <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-        <div class="pswp__preloader">
-          <div class="pswp__preloader__icn">
-            <div class="pswp__preloader__cut">
-              <div class="pswp__preloader__donut"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="pswp__caption">
-        <div class="pswp__caption__center"></div>
-      </div>
-    </div>
-  </div>
-</div>

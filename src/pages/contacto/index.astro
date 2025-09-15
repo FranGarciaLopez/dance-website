@@ -1,16 +1,16 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 ---
+
 <Layout
   title="Contacto | The Latin Action - Salsa y Bachata en Elche"
   description="Contacta con The Latin Action para más información sobre nuestras clases de salsa, bachata y Lady Style en Elche."
   canonical="https://thelatinaction.com/contacto/"
+  keywords="Contacto, Academia de baile Elche, Salsa Elche, Bachata Elche, Lady Style Elche, Clases de baile en Elche"
 >
   <section class="max-w-5xl mx-auto px-6 py-24">
     <!-- Heading -->
-    <h1 class="text-5xl font-dance text-pink-600 mb-8">
-      ¡Contáctanos!
-    </h1>
+    <h1 class="text-5xl font-dance text-pink-600 mb-8">¡Contáctanos!</h1>
 
     <p class="mb-12 text-lg leading-relaxed font-inter">
       ¿Tienes alguna pregunta o deseas más información sobre nuestras clases?
@@ -22,9 +22,9 @@ import Layout from "@/layouts/Layout.astro";
       action="https://formspree.io/f/xjkojaqz"
       method="POST"
       class="rounded-xl mx-auto space-y-10 font-inter"
-      onsubmit="handleSubmit(event)"
     >
       <div class="relative">
+        <label for="name" class="sr-only">Nombre</label>
         <input
           type="text"
           id="name"
@@ -36,6 +36,7 @@ import Layout from "@/layouts/Layout.astro";
       </div>
 
       <div class="relative">
+        <label for="email" class="sr-only">Correo electrónico</label>
         <input
           type="email"
           id="email"
@@ -47,6 +48,7 @@ import Layout from "@/layouts/Layout.astro";
       </div>
 
       <div class="relative">
+        <label for="message" class="sr-only">Mensaje</label>
         <textarea
           id="message"
           name="message"
@@ -63,8 +65,6 @@ import Layout from "@/layouts/Layout.astro";
       >
         Enviar mensaje
       </button>
-
-      <p id="form-status" class="text-center text-lg font-inter mt-4"></p>
     </form>
 
     <!-- Direct contact -->

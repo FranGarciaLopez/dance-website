@@ -1,4 +1,5 @@
 ---
+// Layout.astro
 interface Props {
   title: string;
   description?: string;
@@ -6,137 +7,100 @@ interface Props {
   keywords?: string;
 }
 const { title, description, canonical } = Astro.props;
-import { ViewTransitions } from "astro:transitions";
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <title>{title}</title>
 
-    <!-- SEO Meta Tags -->
-    <meta name="robots" content="index, follow" />
-    <meta
-      name="author"
-      content="The Latin Action | Compañia de salsa y bachata en elche"
-    />
-    <meta
-      name="keywords"
-      content="Lady Style, Bachata, Baile en Elche, Bachata Elche, Salsa Elche, Clases de baile, Baile latino Elche, Talleres de bachata, Clases de salsa, Baile femenino, Bachata sensual, Danza en Elche, Latin dance Elche, Academia de baile Elche, Baile para mujeres"
-    />
-
-    <meta
-      name="description"
-      content={description ??
-        "Academia de baile The Latin Action. Aprende bachata y salsa en Elche."}
-    />
-
-    <!-- Canonical URL -->
+    <meta name="description" content={description ?? "The Latin Action - Salsa y Bachata en Elche"} />
     {canonical && <link rel="canonical" href={canonical} />}
 
-    <!-- Open Graph -->
-    <meta property="og:title" content={title} />
-    <meta
-      property="og:description"
-      content={description ??
-        "Descubre tus clases de baile favoritas en The Latin Action."}
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="/opengraph-default.jpg" />
-    <meta
-      property="og:url"
-      content={canonical ?? "https://thelatinaction.com"}
-    />
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta
-      name="twitter:description"
-      content={description ??
-        "Bachata y salsa para todos los niveles en Elche."}
-    />
-
-    <!-- One .ico fallback -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-
-    <!-- Modern PNG favicons -->
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
-
-    <!-- Apple touch icon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-
-    <!-- Manifest for PWA and theme color -->
-    <link rel="manifest" href="/site.webmanifest" />
-    <meta name="theme-color" content="#0f172a" />
-
-    <link rel="sitemap" type="application/rss+xml" href="/sitemap-index.xml" />
-
-    <ViewTransitions />
+    <link rel="stylesheet" href="https://unpkg.com/photoswipe/dist/photoswipe.css" />
   </head>
-  <body>
+  <body class="bg-gray-900 text-white">
+
     <Header />
-    <div
-      class="min-h-screen bg-white/5 rounded-xl shadow-lg backdrop-blur-md text-white"
-    >
+
+    <main class="min-h-screen">
       <slot />
+    </main>
+
+    <Footer />
+
+    <!-- PhotoSwipe template (global) -->
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="pswp__bg"></div>
+      <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+          <div class="pswp__item"></div>
+          <div class="pswp__item"></div>
+          <div class="pswp__item"></div>
+        </div>
+        <div class="pswp__ui pswp__ui--hidden">
+          <div class="pswp__top-bar">
+            <div class="pswp__counter"></div>
+            <button class="pswp__button pswp__button--close" title="Cerrar (Esc)"></button>
+            <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+            <div class="pswp__preloader">
+              <div class="pswp__preloader__icn">
+                <div class="pswp__preloader__cut">
+                  <div class="pswp__preloader__donut"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pswp__caption">
+            <div class="pswp__caption__center"></div>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- Global PhotoSwipe Initialization -->
+    <script type="module" is:inline>
+      import PhotoSwipeLightbox from "https://cdn.jsdelivr.net/npm/photoswipe@5.3.9/dist/photoswipe-lightbox.esm.min.js";
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const galleryEls = document.querySelectorAll("[data-pswp-gallery]");
+        galleryEls.forEach((galleryEl) => {
+          const lightbox = new PhotoSwipeLightbox({
+            gallery: galleryEl,
+            children: "a",
+            pswpModule: () =>
+              import("https://cdn.jsdelivr.net/npm/photoswipe@5.3.9/dist/photoswipe.esm.min.js"),
+            zoomAnimationDuration: 0,
+            arrowKeys: true,
+            clickToCloseNonZoomable: true,
+            mainScroll: false,
+            maxSpreadZoom: 2,
+          });
+
+          lightbox.on("gettingData", (e) => {
+            if (!e.element || !e.data) return;
+            e.data.width = parseInt(e.element.dataset.pswpWidth || "0");
+            e.data.height = parseInt(e.element.dataset.pswpHeight || "0");
+          });
+
+          lightbox.init();
+        });
+      });
+    </script>
   </body>
 </html>
 
 <style is:global>
-  @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;700&display=swap");
-
-/* === Custom FontSpace Fonts === */
-@font-face {
-  font-family: "Summer Dance";
-  src: url("/src/assets/fonts/SummerDance-JR0KB.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Dance With The Devil";
-  src: url("/src/assets/fonts/DanceWithTheDevil-ALxY6.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
-/* === Base Styles === */
-html,
-body {
-  font-family: "Inter", sans-serif;
-  background: linear-gradient(to bottom, #3a304d, #281f38);
-  color: white;
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-.scale-transition {
-  transition: transform 0.5s ease-out;
-  transform: scale(1);
-  filter: drop-shadow(0 0 0.5rem white);
-}
-
-.scale-transition:hover {
-  transform: scale(1.05);
-  filter: drop-shadow(0 0 0.5rem #ff004d);
-}
-
-.exclude-filter {
-  filter: none !important;
-}
-
-
-/* Decorative spans */
-h1 span,
-h2 span {
-  font-family: "Alex Brush", cursive;
-  font-size: 1.2em;
-}
-
+  html, body {
+    font-family: "Inter", sans-serif;
+    background: linear-gradient(to bottom, #3a304d, #281f38);
+    color: white;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
 </style>
