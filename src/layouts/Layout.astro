@@ -11,21 +11,26 @@ import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
 
-    <meta name="description" content={description ?? "The Latin Action - Salsa y Bachata en Elche"} />
+    <meta
+      name="description"
+      content={description ?? "The Latin Action - Salsa y Bachata en Elche"}
+    />
     {canonical && <link rel="canonical" href={canonical} />}
 
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="https://unpkg.com/photoswipe/dist/photoswipe.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/photoswipe/dist/photoswipe.css"
+    />
   </head>
   <body class="bg-gray-900 text-white">
-
     <Header />
 
     <main class="min-h-screen">
@@ -46,8 +51,11 @@ import Footer from "@/components/Footer.astro";
         <div class="pswp__ui pswp__ui--hidden">
           <div class="pswp__top-bar">
             <div class="pswp__counter"></div>
-            <button class="pswp__button pswp__button--close" title="Cerrar (Esc)"></button>
-            <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+            <button
+              class="pswp__button pswp__button--close"
+              title="Cerrar (Esc)"></button>
+            <button class="pswp__button pswp__button--zoom" title="Zoom in/out"
+            ></button>
             <div class="pswp__preloader">
               <div class="pswp__preloader__icn">
                 <div class="pswp__preloader__cut">
@@ -65,38 +73,40 @@ import Footer from "@/components/Footer.astro";
 
     <!-- Global PhotoSwipe Initialization -->
     <script type="module" is:inline>
-      import PhotoSwipeLightbox from "https://cdn.jsdelivr.net/npm/photoswipe@5.3.9/dist/photoswipe-lightbox.esm.min.js";
+import PhotoSwipeLightbox from "https://cdn.jsdelivr.net/npm/photoswipe@5.3.9/dist/photoswipe-lightbox.esm.min.js";
 
-      document.addEventListener("DOMContentLoaded", () => {
-        const galleryEls = document.querySelectorAll("[data-pswp-gallery]");
-        galleryEls.forEach((galleryEl) => {
-          const lightbox = new PhotoSwipeLightbox({
-            gallery: galleryEl,
-            children: "a",
-            pswpModule: () =>
-              import("https://cdn.jsdelivr.net/npm/photoswipe@5.3.9/dist/photoswipe.esm.min.js"),
-            zoomAnimationDuration: 0,
-            arrowKeys: true,
-            clickToCloseNonZoomable: true,
-            mainScroll: false,
-            maxSpreadZoom: 2,
-          });
+document.addEventListener("DOMContentLoaded", () => {
+  const galleryEls = document.querySelectorAll("[data-pswp-gallery]");
 
-          lightbox.on("gettingData", (e) => {
-            if (!e.element || !e.data) return;
-            e.data.width = parseInt(e.element.dataset.pswpWidth || "0");
-            e.data.height = parseInt(e.element.dataset.pswpHeight || "0");
-          });
+  galleryEls.forEach((galleryEl) => {
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: galleryEl,
+      children: "a",
+      pswpModule: () =>
+        import("https://cdn.jsdelivr.net/npm/photoswipe@5.3.9/dist/photoswipe.esm.min.js"),
+      zoomAnimationDuration: 300,
+      arrowKeys: true,
+      clickToCloseNonZoomable: true,
+      mainScroll: false,
+      maxSpreadZoom: window.innerWidth < 768 ? 4 : 3,
+    });
 
-          lightbox.init();
-        });
-      });
-    </script>
+    lightbox.on("gettingData", (e) => {
+      if (!e.element || !e.data) return;
+      e.data.width = parseInt(e.element.dataset.pswpWidth || "0");
+      e.data.height = parseInt(e.element.dataset.pswpHeight || "0");
+    });
+
+    lightbox.init();
+  });
+});
+</script>
   </body>
 </html>
 
 <style is:global>
-  html, body {
+  html,
+  body {
     font-family: "Inter", sans-serif;
     background: linear-gradient(to bottom, #3a304d, #281f38);
     color: white;
