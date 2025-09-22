@@ -3,7 +3,12 @@ dist/
 
 # generated types
 .astro/
+
+# editor settings
 .vscode/
+.idea/
+.yarn/
+
 # dependencies
 node_modules/
 
@@ -20,5 +25,15 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
-# jetbrains setting folder
-.idea/
+# Yarn Berry (v2+) cache & artifacts
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+
+# Yarn PnP logs
+.pnp.*.log
+.pnp.cjs
+.pnp.loader.mjs
+.yarnrc.yml

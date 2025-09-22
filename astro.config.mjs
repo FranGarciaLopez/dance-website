@@ -30,5 +30,11 @@ export default defineConfig({
         "@": path.resolve("./src"),
       },
     },
+    server: {
+      watch: {
+        usePolling: true,
+        interval: 100, // check every 100ms
+      },
+    },
   },
 });

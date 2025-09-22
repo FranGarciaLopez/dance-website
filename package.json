@@ -2,6 +2,8 @@
   "name": "dance-website",
   "type": "module",
   "version": "0.0.1",
+  "private": true,
+  "license": "MIT",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -10,11 +12,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.5.10",
-    "@astrojs/sitemap": "^3.4.0",
-    "@astrojs/solid-js": "^5.0.10",
-    "@astrojs/tailwind": "^5.1.0",
-    "astro": "^4.6.0",
+    "@astrojs/check": "0.9.4",
+    "@astrojs/sitemap": "3.6.0",
+    "@astrojs/solid-js": "5.1.1",
+    "@astrojs/tailwind": "6.0.2",
+    "astro": "5.13.9",
     "gsap": "^3.13.0",
     "photoswipe": "^5.4.4",
     "react-photoswipe-gallery": "^3.1.1",
@@ -26,5 +28,6 @@
   "devDependencies": {
     "@types/react": "^19.1.4",
     "@types/react-dom": "^19.1.5"
-  }
+  },
+  "packageManager": "yarn@4.10.2"
 }
