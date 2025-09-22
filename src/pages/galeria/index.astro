@@ -5,16 +5,49 @@ import { galleryImages } from "@/data/galleryImages";
 ---
 
 <Layout
-  title="Galería de Fotos | The Latin Action"
-  description="Revive los mejores momentos de nuestras clases y eventos de salsa y bachata en Elche."
+  title="Galería de Fotos | The Latin Action - Salsa y Bachata en Elche"
+  description="Revive los mejores momentos de nuestras clases y eventos de salsa y bachata en Elche. Explora nuestra galería de fotos de baile."
   canonical="https://thelatinaction.com/galeria/"
+  keywords="Galería fotos baile, Salsa Elche, Bachata Elche, Lady Style Elche, eventos de baile, The Latin Action"
 >
-  <section class="text-center pt-24 px-6 max-w-5xl mx-auto">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4">Galería de Fotos</h1>
-    <p class="text-lg md:text-xl leading-relaxed text-freshPeach-100">
-      Explora nuestra galería de fotos y revive los momentos más emocionantes con <span class="text-freshMint-400 font-semibold">Juan Carlos y Luna</span>.
-    </p>
+  <section class="max-w-5xl mx-auto px-6 py-14 animate-fade-in">
+    <h1 
+      class="text-4xl lg:text-5xl font-bebas tracking-bebas uppercase mb-6 text-center bg-gradient-to-r from-main-gradient-from to-main-gradient-to bg-clip-text text-transparent drop-shadow-sm"
+    >
+      Galería de momentos
+    </h1>
+    
+    <div class="max-w-3xl mx-auto text-center mb-10">
+      <p class="text-lg leading-relaxed text-gray-200">
+        Explora nuestra colección de recuerdos y revive los momentos más emocionantes con 
+        <span class="text-main-gradient-from font-medium">Juan Carlos y Luna</span>. 
+      </p>
+    </div>
+    
+    <div class="flex justify-center items-center mb-10">
+      <hr class="flex-grow border-main-gradient-from/20 max-w-xs" />
+      <div class="px-4">
+        <span class="inline-block rounded-full p-2.5 bg-black/20 backdrop-blur-sm border border-main-gradient-from/10">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-main-gradient-from">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
+          </svg>
+        </span>
+      </div>
+      <hr class="flex-grow border-main-gradient-from/20 max-w-xs" />
+    </div>
   </section>
 
   <ImageMasonry images={galleryImages} />
 </Layout>
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 1.2s ease-out forwards;
+  }
+</style>

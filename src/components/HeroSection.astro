@@ -1,6 +1,7 @@
 ---
 // Props
-const { mobileImage, tabletImage, xlImage, heroTitle, heroSpan, heroSubtitle } = Astro.props;
+const { mobileImage, tabletImage, xlImage, heroTitle, heroSpan, heroSubtitle } =
+  Astro.props;
 
 // Paths y gradientes
 const currentPath = Astro.url.pathname.replace(/\/$/, "").toLowerCase();
@@ -17,49 +18,57 @@ interface RouteClasses {
     decorative: {
       primary: string;
       secondary: string;
-    }
+    };
   };
 }
 
 const routeClasses: RouteClasses = {
   "/lady-style-elche": {
-    gradient: "bg-gradient-to-br from-ladyStyle-gradient-from to-ladyStyle-gradient-to",
-    buttonBg: "bg-gradient-to-r from-ladyStyle-gradient-from to-ladyStyle-gradient-to",
+    gradient:
+      "bg-gradient-to-br from-ladyStyle-gradient-from to-ladyStyle-gradient-to",
+    buttonBg:
+      "bg-gradient-to-r from-ladyStyle-gradient-from to-ladyStyle-gradient-to",
     buttonHover: "hover:shadow-lg hover:shadow-ladyStyle-gradient-from/30",
-    textGradient: "bg-gradient-to-r from-ladyStyle-gradient-from to-ladyStyle-gradient-to",
+    textGradient:
+      "bg-gradient-to-r from-ladyStyle-gradient-from to-ladyStyle-gradient-to",
     accent: "text-ladyStyle-gradient-from",
     borderColor: "border-ladyStyle-gradient-from/10",
     hoverBg: "hover:bg-ladyStyle-gradient-from/20",
     decorative: {
       primary: "from-ladyStyle-gradient-from/30 to-ladyStyle-gradient-to/30",
-      secondary: "from-purple-500/30 to-pink-400/30"
-    }
+      secondary: "from-purple-500/30 to-pink-400/30",
+    },
   },
   "/bachata-y-salsa-en-pareja-elche": {
-    gradient: "bg-gradient-to-br from-bachataSalsa-gradient-from to-bachataSalsa-gradient-to",
-    buttonBg: "bg-gradient-to-r from-bachataSalsa-gradient-from to-bachataSalsa-gradient-to",
+    gradient:
+      "bg-gradient-to-br from-bachataSalsa-gradient-from to-bachataSalsa-gradient-to",
+    buttonBg:
+      "bg-gradient-to-r from-bachataSalsa-gradient-from to-bachataSalsa-gradient-to",
     buttonHover: "hover:shadow-lg hover:shadow-bachataSalsa-gradient-from/30",
-    textGradient: "bg-gradient-to-r from-bachataSalsa-gradient-from to-bachataSalsa-gradient-to",
+    textGradient:
+      "bg-gradient-to-r from-bachataSalsa-gradient-from to-bachataSalsa-gradient-to",
     accent: "text-bachataSalsa-gradient-from",
     borderColor: "border-bachataSalsa-gradient-from/10",
     hoverBg: "hover:bg-bachataSalsa-gradient-from/20",
     decorative: {
-      primary: "from-bachataSalsa-gradient-from/30 to-bachataSalsa-gradient-to/30",
-      secondary: "from-amber-500/30 to-red-500/30"
-    }
+      primary:
+        "from-bachataSalsa-gradient-from/30 to-bachataSalsa-gradient-to/30",
+      secondary: "from-amber-500/30 to-red-500/30",
+    },
   },
   "/": {
     gradient: "bg-gradient-to-br from-main-gradient-from to-main-gradient-to",
     buttonBg: "bg-gradient-to-r from-main-gradient-from to-main-gradient-to",
     buttonHover: "hover:shadow-lg hover:shadow-main-gradient-from/30",
-    textGradient: "bg-gradient-to-r from-main-gradient-from to-main-gradient-to",
+    textGradient:
+      "bg-gradient-to-r from-main-gradient-from to-main-gradient-to",
     accent: "text-main-gradient-from",
     borderColor: "border-main-gradient-from/10",
     hoverBg: "hover:bg-main-gradient-from/20",
     decorative: {
       primary: "from-main-gradient-from/30 to-main-gradient-to/30",
-      secondary: "from-freshEggplant-700/30 to-freshEggplant-500/30"
-    }
+      secondary: "from-freshEggplant-700/30 to-freshEggplant-500/30",
+    },
   },
 };
 
@@ -113,27 +122,44 @@ const whatsappLink = `https://wa.me/34645089122?text=${encodedMessage}`;
       alt="Imagen principal de The Latin Action"
       class="w-full h-full object-cover scale-[1.01]"
       loading="eager"
-    
     />
   </picture>
 
   <!-- Overlay mejorado con gradiente menos intenso -->
   <div class="absolute inset-0 z-10">
-    <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-black/50"></div>
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,rgba(0,0,0,0.3)_100%)]"></div>
+    <div
+      class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-black/50"
+    >
+    </div>
+    <div
+      class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,rgba(0,0,0,0.3)_100%)]"
+    >
+    </div>
   </div>
 
   <!-- Elementos decorativos con menor opacidad -->
-  <div class="absolute inset-0 z-[11] overflow-hidden opacity-20 mix-blend-soft-light">
-    <div class={`absolute -top-[10%] -left-[10%] w-[40%] h-[40%] rounded-full bg-gradient-to-br ${currentClasses.decorative.primary} blur-[80px]`}></div>
-    <div class={`absolute -bottom-[10%] -right-[10%] w-[40%] h-[40%] rounded-full bg-gradient-to-br ${currentClasses.decorative.secondary} blur-[80px]`}></div>
+  <div
+    class="absolute inset-0 z-[11] overflow-hidden opacity-20 mix-blend-soft-light"
+  >
+    <div
+      class={`absolute -top-[10%] -left-[10%] w-[40%] h-[40%] rounded-full bg-gradient-to-br ${currentClasses.decorative.primary} blur-[80px]`}
+    >
+    </div>
+    <div
+      class={`absolute -bottom-[10%] -right-[10%] w-[40%] h-[40%] rounded-full bg-gradient-to-br ${currentClasses.decorative.secondary} blur-[80px]`}
+    >
+    </div>
   </div>
 
   <!-- Contenido principal más compacto y semitransparente -->
-  <div class="relative z-20 max-w-4xl w-full px-6 md:px-8 mx-auto text-white animate-fade-in">
+  <div
+    class="relative z-20 max-w-4xl w-full px-6 md:px-8 mx-auto text-white animate-fade-in"
+  >
     <!-- Logo pequeño sobre el título -->
     <div class="mb-3 flex justify-center">
-      <div class={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/30 border ${currentClasses.borderColor} shadow-lg`}>
+      <div
+        class={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/30 border ${currentClasses.borderColor} shadow-lg`}
+      >
         <span class="text-xs tracking-wide uppercase font-medium text-white/80">
           The Latin Action
         </span>
@@ -141,13 +167,17 @@ const whatsappLink = `https://wa.me/34645089122?text=${encodedMessage}`;
     </div>
 
     <!-- Título principal más compacto -->
-    <h1 class="text-4xl md:text-5xl lg:text-6xl font-dance tracking-tight uppercase drop-shadow-md">
+    <h1
+      class="text-4xl md:text-5xl lg:text-6xl font-dance tracking-tight uppercase drop-shadow-md"
+    >
       <span class="block mb-1 font-dance text-white">{heroTitle}</span>
       <strong
         class={`relative inline-block font-dance ${currentClasses.textGradient} bg-clip-text text-transparent`}
       >
         {heroSpan}
-        <span class="absolute -bottom-1 left-0 w-full h-px bg-white/20 rounded-full"></span>
+        <span
+          class="absolute -bottom-1 left-0 w-full h-px bg-white/20 rounded-full"
+        ></span>
       </strong>
     </h1>
 
@@ -167,37 +197,41 @@ const whatsappLink = `https://wa.me/34645089122?text=${encodedMessage}`;
         class={`inline-flex items-center gap-2 ${currentClasses.buttonBg} text-white text-sm md:text-base font-medium py-2.5 px-6 rounded-full 
           shadow-lg ${currentClasses.buttonHover} transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/30`}
       >
-        <svg width="18" height="18" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
-          <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+        <svg
+          width="18"
+          height="18"
+          fill="currentColor"
+          viewBox="0 0 16 16"
+          aria-hidden="true"
+        >
+          <path
+            d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"
+          ></path>
         </svg>
         Reserva tu clase
       </a>
-
-      { 
-        currentPath === "/" && (
-          <a
-            href="/#modalidades"
-            class={`inline-flex items-center gap-2 ${currentClasses.buttonBg} text-white text-sm md:text-base font-medium py-2.5 px-6 rounded-full 
-              shadow-lg ${currentClasses.buttonHover} transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/30`}
-          >
-            <svg width="18" height="18" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
-              <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.93 4.588-4.39 4.39a.25.25 0 0 1-.354 0l-2.196-2.196a.25.25 0 1 1 .354-.354l2.023 2.023 4.213-4.213a.25.25 0 1 1 .354.354z" />
-            </svg>
-            Prueba una clase gratis
-          </a>
-        )
-      }
     </div>
   </div>
 
   <!-- Scroll indicator with slight delay -->
-  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 animate-bounce-delay">
-    <a 
-      href="" 
+  <div
+    class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 animate-bounce-delay"
+  >
+    <a
+      href="#contenido"
       class={`p-2 rounded-full flex items-center justify-center transition-colors bg-black/20 ${currentClasses.hoverBg}`}
     >
-      <svg width="18" height="18" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M19 13l-7 7-7-7"></path>
+      <svg
+        width="18"
+        height="18"
+        fill="none"
+        stroke="white"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 13l-7 7-7-7"
+        ></path>
       </svg>
     </a>
   </div>
