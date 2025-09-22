@@ -1,26 +1,73 @@
 ---
 import Card from "./Card.astro";
+
+interface KnowledgeItem {
+  title: string;
+  image: string;
+  shortDesc: string;
+}
+
+interface Props {
+  KnowledgeData: KnowledgeItem[];
+}
+
 const { KnowledgeData } = Astro.props;
+
+// Get current path to determine theme colors
+const currentPath = Astro.url.pathname.replace(/\/$/, "").toLowerCase();
+
+let gradientClass = "from-main-gradient-from to-main-gradient-to";
+let accentColor = "text-main-gradient-from";
+
+if (currentPath.includes("lady-style")) {
+  gradientClass = "from-ladyStyle-gradient-from to-ladyStyle-gradient-to";
+  accentColor = "text-ladyStyle-gradient-from";
+} else if (currentPath.includes("bachata-y-salsa")) {
+  gradientClass = "from-bachataSalsa-gradient-from to-bachataSalsa-gradient-to";
+  accentColor = "text-bachataSalsa-gradient-from";
+}
 ---
 
-<div
-  class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl mx-auto py-6 px-6 lg:px-4 pb-2"
->
-  {
-    KnowledgeData.map(
-      (
-        item: { title: string; image: string; shortDesc: string },
-        index: number,
-      ) => (
+<section id="conocimiento" class="py-6 px-6 max-w-5xl mx-auto">
+  <h2
+    class={`text-4xl lg:text-5xl font-bebas tracking-tight uppercase mb-8 bg-gradient-to-r ${gradientClass} bg-clip-text text-transparent drop-shadow-sm text-start md:text-left`}
+  >
+    Lo que aprenderás
+  </h2>
+
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl mx-auto  lg:px-4 pb-2"
+  >
+    {
+      KnowledgeData.map((item, index) => (
         <Card
           title={item.title}
           image={item.image}
           shortDesc={item.shortDesc}
-          eager={true}
-          all
-          eager
+          eager={index < 2}
+          gradientClass={gradientClass}
+          accentColor={accentColor}
+          index={index}
         />
-      ),
-    )
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
-</div>
+
+  .animate-fade-in {
+    animation: fadeIn 1.2s ease-out forwards;
+    animation-delay: var(--animation-delay, 0.3s);
+  }
+</style>

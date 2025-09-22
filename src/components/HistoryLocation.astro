@@ -1,50 +1,68 @@
 <section
   id="history-location"
-  class="max-w-5xl mx-auto px-6 py-12 text-gray-100"
+  class="max-w-5xl mx-auto px-6 py-14 text-white"
   aria-label="Historia y ubicación de The Latin Action"
 >
   <div class="space-y-10">
     <!-- Título principal -->
-    <h2 class="text-4xl lg:text-5xl font-bebas tracking-tight uppercase mb-14 max-w-5xl w-full mx-auto drop-shadow-md">
+    <h2 class="text-4xl lg:text-5xl font-bebas tracking-tight uppercase mb-10 main-gradient-text drop-shadow-sm">
       ¿Dónde estamos?
     </h2>
 
     <!-- Introducción -->
-    <p class="text-xl text-gray-300 text-start font-normal leading-relaxed max-w-5xl mx-auto">
-      Actualmente impartimos nuestras <strong>clases presenciales</strong> en:
+    <p class="text-lg lg:text-xl text-gray-200 text-start font-normal leading-relaxed max-w-5xl mx-auto">
+      Actualmente impartimos nuestras <strong class="text-main-gradient-from">clases presenciales</strong> en:
     </p>
 
     <!-- Ubicaciones -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fade-in">
       {[
         {
-          title: "📍 Elche – Academia de baile Dairen, Carrer Petrer, 31",
-          description: "Sala espaciosa y equipada para disfrutar al máximo de cada clase."
+          title: "Elche – Academia de baile Dairen",
+          address: "Carrer Petrer, 31",
+          description: "Sala espaciosa y equipada para disfrutar al máximo de cada clase.",
+          gradient: "from-mainColors-600 to-mainColors-800"
         },
         {
-          title: "📍 Elche – Sala de baile Bubaloo, Carrer Sabadell, 10",
-          description: "Una de nuestras sedes principales, ideal para bailar con comodidad y energía."
+          title: "Elche – Sala de baile Bubaloo",
+          address: "Carrer Sabadell, 10",
+          description: "Una de nuestras sedes principales, ideal para bailar con comodidad y energía.",
+          gradient: "from-bachataSalsa-gradient-from to-bachataSalsa-gradient-to"
         },
         {
-          title: "📍 Novelda – NVFit Novelda, Carrer Garcia Lorca, 12",
-          description: "Espacio equipado para clases dinámicas en un entorno cómodo y profesional."
+          title: "Novelda – NVFit Novelda",
+          address: "Carrer Garcia Lorca, 12",
+          description: "Espacio equipado para clases dinámicas en un entorno cómodo y profesional.",
+          gradient: "from-freshEggplant-700 to-freshEggplant-900"
         },
         {
-          title: "📍 Elda – Virginia Domenech, Carrer Pablo Iglesias, 97",
-          description: "Escuela de baile con un ambiente acogedor y profesional, ideal para aprender y disfrutar de la salsa y bachata."
+          title: "Elda – Virginia Domenech",
+          address: "Carrer Pablo Iglesias, 97",
+          description: "Escuela de baile con un ambiente acogedor y profesional, ideal para aprender y disfrutar de la salsa y bachata.",
+          gradient: "from-ladyStyle-gradient-from to-ladyStyle-gradient-to"
         }
-      ].map((loc) => (
+      ].map((loc, index) => (
         <div
-          class="flex flex-col p-6 rounded-2xl bg-[#1a1a1f] shadow-md border border-[#2a2a32] hover:scale-[1.02] transition-transform duration-300"
+          class="flex flex-col p-6 rounded-2xl bg-black/20 backdrop-blur-sm shadow-md border border-white/10 hover:bg-black/30 hover:border-white/20 hover:-translate-y-1 transition-all duration-300"
+          style={`--animation-delay: ${index * 0.15}s;`}
         >
-          <h3 class="text-xl text-white font-dance">{loc.title}</h3>
-          <p class="text-gray-300 mt-2 font-normal">{loc.description}</p>
+          <div class="flex items-center gap-3 mb-3">
+            <div class={`flex items-center justify-center h-10 w-10 rounded-full bg-gradient-to-br ${loc.gradient} text-white shadow-lg`}>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-medium text-white">{loc.title}</h3>
+          </div>
+          <p class="text-sm text-gray-300 font-medium mb-2">{loc.address}</p>
+          <p class="text-gray-300 mt-1 font-normal leading-relaxed">{loc.description}</p>
         </div>
       ))}
     </div>
 
     <!-- Mapa -->
-    <div class="mt-10 rounded-xl overflow-hidden shadow-lg border border-[#2a2a32]">
+    <div class="mt-10 rounded-2xl overflow-hidden shadow-lg border border-white/10 animate-fade-in" style="--animation-delay: 0.6s;">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3132.367111614581!2d-0.6756925227856836!3d38.27098208341982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd63b53e6d2c4d53%3A0x70e65a188acaadba!2sBubaloo.!5e0!3m2!1ses!2ses!4v1733048030190!5m2!1ses!2ses"
         width="100%"
@@ -58,30 +76,72 @@
     </div>
 
     <!-- Beneficios destacados -->
-    <h2 class="text-4xl lg:text-5xl font-bebas tracking-tight uppercase pt-10 mb-14 max-w-5xl w-full mx-auto drop-shadow-md">
+    <h2 class="text-4xl lg:text-5xl font-bebas tracking-tight uppercase pt-10 mb-10 w-full main-gradient-text drop-shadow-sm">
       ¿Por qué elegirnos?
     </h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fade-in" style="--animation-delay: 0.8s;">
       {[
-        { icon: "🎯", text: "Ambiente cercano, divertido y profesional" },
-        { icon: "👠", text: "Clases de bachata en pareja, lady style y salsa" },
-        { icon: "🎉", text: "Eventos sociales y prácticas regulares" },
-        { icon: "💃", text: "Comunidad activa de bailarines en Elche" }
-      ].map((benefit) => (
-        <div class="flex items-start gap-5 p-5 rounded-xl bg-[#1a1a1f] shadow-md border border-[#2a2a32]">
-          <span class="text-pink-500 text-3xl">{benefit.icon}</span>
-          <p class="text-xl text-gray-300 leading-relaxed font-normal">{benefit.text}</p>
+        { 
+          icon: "🎯", 
+          text: "Ambiente cercano, divertido y profesional",
+          gradient: "from-main-gradient-from to-main-gradient-to"
+        },
+        { 
+          icon: "👠", 
+          text: "Clases de bachata en pareja, lady style y salsa",
+          gradient: "from-ladyStyle-gradient-from to-ladyStyle-gradient-to"
+        },
+        { 
+          icon: "🎉", 
+          text: "Eventos sociales y prácticas regulares",
+          gradient: "from-bachataSalsa-gradient-from to-bachataSalsa-gradient-to"
+        },
+        { 
+          icon: "💃", 
+          text: "Comunidad activa de bailarines en Elche",
+          gradient: "from-freshEggplant-700 to-freshEggplant-900"
+        }
+      ].map((benefit, index) => (
+        <div class="flex items-start gap-4 p-6 rounded-2xl bg-black/20 backdrop-blur-sm shadow-md border border-white/10 hover:bg-black/30 hover:border-white/20 transition-all duration-300 transform hover:-translate-y-1">
+          <div class={`flex items-center justify-center h-12 w-12 rounded-full bg-gradient-to-br ${benefit.gradient} text-white shadow-lg`}>
+            <span class="text-2xl" aria-hidden="true">{benefit.icon}</span>
+          </div>
+          <p class="text-lg text-gray-200 leading-relaxed font-normal">{benefit.text}</p>
         </div>
       ))}
     </div>
 
     <!-- Llamada a la acción -->
-    <p class="text-xl text-center mt-12 text-gray-300 font-normal leading-relaxed max-w-5xl mx-auto">
-      ¿Listo para comenzar tus <strong>clases de baile en Elche</strong>?
-      <a href="/contacto/" class="text-pink-500 font-semibold hover:underline">
-        ¡Contáctanos hoy mismo!
+    <div class="flex flex-col items-center justify-center pt-8 pb-4 animate-fade-in" style="--animation-delay: 1s;">
+      <p class="text-lg md:text-xl text-center mb-6 text-gray-200 font-normal leading-relaxed max-w-3xl">
+        ¿Listo para comenzar tus <strong class="text-main-gradient-from">clases de baile en Elche</strong>?
+      </p>
+      <a 
+        href="/contacto/" 
+        class="inline-flex items-center gap-2 bg-gradient-to-r from-main-gradient-from to-main-gradient-to text-white text-base font-medium py-3 px-8 rounded-full shadow-lg hover:shadow-main-gradient-from/30 hover:scale-105 transition-all duration-300"
+      >
+        Contáctanos hoy mismo
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 9.75a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+        </svg>
       </a>
-    </p>
+    </div>
   </div>
 </section>
+
+<style>
+  .main-gradient-text {
+    @apply bg-gradient-to-r from-main-gradient-from to-main-gradient-to bg-clip-text text-transparent;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 1.2s ease-out forwards;
+    animation-delay: var(--animation-delay, 0s);
+  }
+</style>

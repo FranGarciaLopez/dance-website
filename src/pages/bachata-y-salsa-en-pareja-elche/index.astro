@@ -40,31 +40,68 @@ const KnowledgeData = [
     xlImage="https://res.cloudinary.com/dgvvnopu7/image/upload/v1755352383/Foto_de_Juan_Carlos_y_Luna_The_Latin_Action_Salsa_y_Bachata_en_la_playa_absfwn.jpg"
     heroTitle="Clases de"
     heroSpan="Bachata y Salsa"
+    heroSubtitle="En pareja con Juan Carlos y Luna en Elche, Novelda y Elda"
   />
 
-  <h2
-    class="text-4xl font-bebas tracking-tight text-freshPeach-500 uppercase px-6 pt-10 mb-14 max-w-5xl w-full mx-auto drop-shadow-md"
-  >
-    Vive la experiencia de nuestras Clases de Bachata y Salsa en Elche, Novelda y Elda
-  </h2>
+  <section class="max-w-5xl mx-auto px-6 py-14 text-white animate-fade-in">
+    <h2
+      class="text-4xl lg:text-5xl font-bebas tracking-tight uppercase mb-10 leading-snug lg:leading-tight bachata-salsa-gradient-text drop-shadow-sm"
+    >
+      Vive la experiencia de nuestras Clases de Bachata y Salsa en Elche, Novelda y Elda
+    </h2>
 
-  <p
-    class="mt-10 max-w-5xl mx-auto px-6 pb-2 text-xl leading-relaxed text-freshPeach-100 lg:px-4 font-normal"
-  >
-    Bailar en pareja no es solo moverse al ritmo, es <strong>crear complicidad</strong>. 
-    Aquí aprenderás a guiar y dejarte guiar, a escuchar la música… y a tu pareja. 
-    Con <span class="font-normal text-freshMint-400 font-semibold">Juan Carlos y Luna</span> 
-    descubrirás que cada paso puede ser natural, divertido y hasta romántico.
-  </p>
+    <div class="space-y-6">
+      <p class="text-lg lg:text-xl leading-relaxed text-gray-200">
+        Bailar en pareja no es solo moverse al ritmo, es <strong class="text-bachataSalsa-gradient-from">crear complicidad</strong>. 
+        Aquí aprenderás a guiar y dejarte guiar, a escuchar la música… y a tu pareja. 
+        Con <span class="text-bachataSalsa-gradient-to font-medium">Juan Carlos y Luna</span> 
+        descubrirás que cada paso puede ser natural, divertido y hasta romántico.
+      </p>
 
-  <p
-    class="mt-10 max-w-5xl mx-auto px-6 pb-2 text-xl leading-relaxed text-freshPeach-100 lg:px-4 font-normal"
-  >
-    Practicamos <strong>baile, conexión y musicalidad</strong>, mezclando la 
-    <strong>bachata tradicional</strong> con toques de <strong>bachata sensual</strong>. 
-    Así podrás adaptarte al ritmo de cada canción y disfrutar de un baile más fluido, 
-    elegante y lleno de energía compartida.
-  </p>
+      <div class="flex items-center py-2">
+        <hr class="flex-grow border-bachataSalsa-gradient-from/20" />
+        <div class="px-4">
+          <span class="inline-block rounded-full p-2 bg-black/20 backdrop-blur-sm border border-bachataSalsa-gradient-from/10">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-bachataSalsa-gradient-from">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+            </svg>
+          </span>
+        </div>
+        <hr class="flex-grow border-bachataSalsa-gradient-from/20" />
+      </div>
+
+      <p class="text-lg lg:text-xl leading-relaxed text-gray-200">
+        Practicamos <strong class="text-bachataSalsa-gradient-to">baile, conexión y musicalidad</strong>, mezclando la 
+        <strong class="text-bachataSalsa-gradient-from">bachata tradicional</strong> con toques de <strong class="text-bachataSalsa-gradient-to">bachata sensual</strong>. 
+        Así podrás adaptarte al ritmo de cada canción y disfrutar de un baile más fluido, 
+        elegante y lleno de energía compartida.
+      </p>
+      
+      <div class="pt-8">
+        <a 
+          href="#horario-semanal" 
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-gradient-to-r from-bachataSalsa-gradient-from to-bachataSalsa-gradient-to text-white text-base font-medium py-3 px-8 rounded-full shadow-lg hover:shadow-bachataSalsa-gradient-from/30 hover:scale-105 transition-all duration-300"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+            ></path>
+          </svg>
+          Horarios Semanales
+        </a>
+      </div>
+    </div>
+  </section>
 
   <Knowledge KnowledgeData={KnowledgeData} />
 
@@ -75,3 +112,19 @@ const KnowledgeData = [
   <Partners />
 
 </Layout>
+
+<style>
+  .bachata-salsa-gradient-text {
+    @apply bg-gradient-to-r from-bachataSalsa-gradient-from to-bachataSalsa-gradient-to bg-clip-text text-transparent;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 1.2s ease-out forwards;
+    animation-delay: var(--animation-delay, 0s);
+  }
+</style>

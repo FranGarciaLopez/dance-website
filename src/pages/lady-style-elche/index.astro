@@ -2,7 +2,6 @@
 import HeroSection from "@/components/HeroSection.astro";
 import Knowledge from "@/components/Knowledge.astro";
 import Layout from "@/layouts/Layout.astro";
-
 import Schedule from "@/components/Schedule.astro";
 import Partners from "@/components/Partners.astro";
 import Benefits from "@/components/Benefits.astro";
@@ -10,7 +9,8 @@ import Benefits from "@/components/Benefits.astro";
 const KnowledgeData = [
   {
     title: "Sensualidad",
-    image: "https://res.cloudinary.com/dgvvnopu7/image/upload/v1757765862/IMG_0770_o4hxof.jpg",
+    image:
+      "https://res.cloudinary.com/dgvvnopu7/image/upload/v1757765862/IMG_0770_o4hxof.jpg",
     shortDesc:
       "Aprende a bailar sin pareja y a expresarte con libertad en la pista.",
   },
@@ -22,13 +22,15 @@ const KnowledgeData = [
   },
   {
     title: "Movimiento Corporal",
-    image: "https://res.cloudinary.com/dgvvnopu7/image/upload/v1757765957/IMG_0747_mtgmdf.jpg",
+    image:
+      "https://res.cloudinary.com/dgvvnopu7/image/upload/v1757765957/IMG_0747_mtgmdf.jpg",
     shortDesc:
       "Descubre cómo mover tu cuerpo de forma fluida y femenina en nuestras clases de bachata en Elche.",
   },
   {
     title: "Coreografía",
-    image: "https://res.cloudinary.com/dgvvnopu7/image/upload/v1757766208/1000022804_igoszs.jpg",
+    image:
+      "https://res.cloudinary.com/dgvvnopu7/image/upload/v1757766208/1000022804_igoszs.jpg",
     shortDesc:
       "Domina las secuencias de pasos y los movimientos más populares de la bachata.",
   },
@@ -50,22 +52,61 @@ const KnowledgeData = [
     heroSubtitle="Explora la bachata desde una nueva perspectiva: elegante y con actitud."
   />
 
-  <h2 class="text-4xl md:text-5xl font-bebas leading-relaxed uppercase max-w-5xl w-full mx-auto text-start mt-10 md:mt-14 px-6 md:px-4 text-freshEggplant-400">
-    ¿Qué aprenderás en nuestras clases de
-    <span class="text-freshEggplant-400 bg-clip-text font-bebas text-4xl md:text-5xl">Bachata Lady Style?</span>
-  </h2>
+  <section class="max-w-5xl mx-auto px-6 py-14 text-white animate-fade-in">
+    <h2
+      class="text-4xl lg:text-5xl font-bebas tracking-tight uppercase mb-10 leading-snug lg:leading-tight bg-gradient-to-r from-ladyStyle-gradient-from to-ladyStyle-gradient-to bg-clip-text text-transparent drop-shadow-sm"
+    >
+      ¿Qué aprenderás en nuestras clases de Bachata Lady Style?
+    </h2>
 
-  <p class="mt-10 max-w-5xl mx-auto px-6 pb-5 text-xl leading-relaxed text-gray-300 lg:px-4">
-    Es hora de dejar salir tu lado más
-    <span class="font-semibold text-pink-400 bg-clip-text">atrevido</span>
-    en la pista. La bachata es mucho más que pasos: es
-    <span class="font-semibold text-pink-400 bg-clip-text">
-      actitud, pasión y sensualidad
-    </span>
-    . Aprende a moverte con seguridad, a destacar con tu estilo y a expresarte con
-    fuerza femenina. De la mano de una de las mejores bailarinas internacionales,
-    potenciarás tu presencia escénica y tu autenticidad en cada coreografía.
-  </p>
+    <div class="space-y-6">
+      <p class="text-lg lg:text-xl leading-relaxed text-gray-200">
+        Es hora de dejar salir tu lado más
+        <strong class="text-ladyStyle-gradient-from">atrevido</strong>
+        en la pista. La bachata es mucho más que pasos: es
+        <strong class="text-ladyStyle-gradient-to">
+          actitud, pasión y sensualidad
+        </strong>
+        . Aprende a moverte con seguridad, a destacar con tu estilo y a expresarte
+        con fuerza femenina.
+      </p>
+
+      <p class="text-lg lg:text-xl leading-relaxed text-gray-200">
+        De la mano de una de las mejores bailarinas internacionales, potenciarás
+        tu <strong class="text-ladyStyle-gradient-from"
+          >presencia escénica</strong
+        > y tu
+        <strong class="text-ladyStyle-gradient-to">autenticidad</strong> en cada
+        coreografía, creando un estilo único que te hará brillar en cualquier pista
+        de baile.
+      </p>
+
+      <div class="pt-8">
+        <a
+          href="#horario"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-gradient-to-r from-ladyStyle-gradient-from to-ladyStyle-gradient-to text-white text-base font-medium py-3 px-8 rounded-full shadow-lg hover:shadow-ladyStyle-gradient-from/30 hover:scale-105 transition-all duration-300"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+            ></path>
+          </svg>
+
+          Consulta los horarios
+        </a>
+      </div>
+    </div>
+  </section>
 
   <Knowledge KnowledgeData={KnowledgeData} />
 
@@ -74,5 +115,22 @@ const KnowledgeData = [
   <Schedule />
 
   <Partners />
-
 </Layout>
+
+<style>
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 1.2s ease-out forwards;
+    animation-delay: var(--animation-delay, 0s);
+  }
+</style>

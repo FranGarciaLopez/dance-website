@@ -10,51 +10,119 @@ interface Props {
   modalities: Modality[];
 }
 const { modalities } = Astro.props;
+
+// Get current path to highlight active modality
+const currentPath = Astro.url.pathname.replace(/\/$/, "").toLowerCase();
 ---
 
 <section
   id="modalidades"
   aria-label="Modalidades de baile"
   role="region"
-  class="max-w-5xl px-6 py-12 mx-auto"
+  class="max-w-5xl px-6 py-16 mx-auto"
 >
   <!-- Section Title -->
   <h2
-    class="text-4xl lg:text-5xl font-bebas tracking-tight uppercase mb-14 max-w-5xl mx-auto drop-shadow-md"
+    class="text-4xl lg:text-5xl font-bebas tracking-tight uppercase mb-10 main-gradient-text drop-shadow-sm"
   >
     Modalidades
   </h2>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-10" aria-label="Modalidades de baile">
-    {modalities.map((modality) => (
-      <a
-        href={modality.link}
-        class="card group block rounded-2xl overflow-hidden shadow-lg bg-gradient-to-br from-gray-800 via-gray-900 to-black
-        transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl
-        border border-gray-700 hover:border-pink-500"
-        aria-label={`Más información sobre ${modality.title}`}
-      >
-        <!-- Image -->
-        <div
-          class="w-full aspect-[16/9] bg-cover bg-center rounded-t-2xl"
-          style={`background-image: url(${modality.image});`}
-          aria-hidden="true"
-        />
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 animate-fade-in" aria-label="Modalidades de baile">
+    {modalities.map((modality, index) => {
+      const isActive = modality.link.replace(/\/$/, "").toLowerCase() === currentPath;
+      const isFirstCard = index === 0;
+      const isSecondCard = index === 1;
+      
+      // Determine which gradient to use based on card position
+      let gradientClasses = "from-mainColors-700/20 to-mainColors-900/20";
+      let hoverBorderClasses = "hover:border-main-gradient-from";
+      let hoverTextClasses = "group-hover:text-main-gradient-from";
+      
+      if (isFirstCard) {
+        gradientClasses = "from-bachataSalsa-gradient-from/20 to-bachataSalsa-gradient-to/20";
+        hoverBorderClasses = "hover:border-bachataSalsa-gradient-from";
+        hoverTextClasses = "group-hover:text-bachataSalsa-gradient-from";
+      } else if (isSecondCard) {
+        gradientClasses = "from-ladyStyle-gradient-from/20 to-ladyStyle-gradient-to/20";
+        hoverBorderClasses = "hover:border-ladyStyle-gradient-from";
+        hoverTextClasses = "group-hover:text-ladyStyle-gradient-from";
+      }
+      
+      return (
+        <a
+          href={modality.link}
+          class={`card group block rounded-2xl overflow-hidden shadow-lg backdrop-blur-sm bg-black/40 
+          transform transition-all duration-300 hover:scale-[1.02] hover:shadow-xl
+          border border-white/10 ${hoverBorderClasses} ${isActive ? 'ring-2 ring-offset-2 ring-main-gradient-from' : ''}`}
+          aria-label={`Más información sobre ${modality.title}`}
+          style={`--animation-delay: ${index * 0.15}s;`}
+        >
+          <!-- Gradient Overlay for Card -->
+          <div class={`absolute inset-0 bg-gradient-to-br ${gradientClasses} opacity-70 pointer-events-none`}></div>
+          
+          <!-- Image -->
+          <div
+            class="w-full aspect-[16/9] bg-cover bg-center rounded-t-2xl relative overflow-hidden"
+            aria-hidden="true"
+          >
+            <img 
+              src={modality.image.replace("/upload/", "/upload/c_fill,g_auto,f_auto,q_auto,dpr_auto/")} 
+              alt={modality.title}
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              loading="lazy"
+              width="600"
+              height="337"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20 pointer-events-none"></div>
+          </div>
 
-        <!-- Content -->
-        <div class="p-5">
-          <h3
-            class="text-2xl font-dance mb-3 text-white group-hover:text-pink-500 transition-colors duration-300"
-          >
-            {modality.title}
-          </h3>
-          <p
-            class="text-lg text-gray-200 group-hover:text-gray-100 transition-colors duration-300 font-normal leading-relaxed"
-          >
-            {modality.description}
-          </p>
-        </div>
-      </a>
-    ))}
+          <!-- Content -->
+          <div class="p-6 relative">
+            <h3
+              class={`text-2xl font-dance mb-2 text-white ${hoverTextClasses} transition-colors duration-300`}
+            >
+              {modality.title}
+            </h3>
+            <p
+              class="text-base text-gray-200 group-hover:text-white transition-colors duration-300 font-normal leading-relaxed"
+            >
+              {modality.description}
+            </p>
+            
+            <div class="mt-4 flex items-center text-sm font-medium">
+              <span class={`${hoverTextClasses.replace('group-hover:', '')} transition-colors duration-300 flex items-center gap-1.5`}>
+                Ver detalles
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </span>
+            </div>
+          </div>
+        </a>
+      );
+    })}
   </div>
 </section>
+
+<style>
+  .main-gradient-text {
+    @apply bg-gradient-to-r from-main-gradient-from to-main-gradient-to bg-clip-text text-transparent;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 1.2s ease-out forwards;
+    animation-delay: var(--animation-delay, 0s);
+  }
+  
+  /* Style for active card */
+  .ring-offset-2 {
+    --tw-ring-offset-color: #281f38;
+  }
+</style>

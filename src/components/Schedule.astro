@@ -1,12 +1,57 @@
 ---
-// Define page color based on URL
-type ColorType = "freshEggplant" | "freshPeach";
-let pageColor: ColorType = "freshEggplant";
+// Get current path to determine theme colors
+const currentPath = Astro.url.pathname.replace(/\/$/, "").toLowerCase();
 
-if (Astro.url.pathname.includes("lady-style")) pageColor = "freshEggplant";
-else if (Astro.url.pathname.includes("bachata-y-salsa-en-pareja-elche"))
-  pageColor = "freshPeach";
-else pageColor = "freshEggplant";
+interface RouteClasses {
+  [key: string]: {
+    gradient: string;
+    buttonBg: string;
+    buttonHover: string;
+    textGradient: string;
+    accent: string;
+    borderColor: string;
+    hoverBg: string;
+    decorative: {
+      primary: string;
+      secondary: string;
+    }
+  };
+}
+
+const routeClasses: RouteClasses = {
+  "/lady-style-elche": {
+    gradient: "bg-gradient-to-r from-ladyStyle-gradient-from to-ladyStyle-gradient-to",
+    textGradient: "from-ladyStyle-gradient-from to-ladyStyle-gradient-to",
+    accent: "text-ladyStyle-gradient-from",
+    borderColor: "border-ladyStyle-gradient-from/20",
+    hoverBg: "hover:bg-ladyStyle-gradient-from/10",
+    dayBg: "bg-ladyStyle-gradient-from/10",
+    cardBorder: "border-ladyStyle-gradient-from/10",
+    cardHover: "hover:border-ladyStyle-gradient-from/30"
+  },
+  "/bachata-y-salsa-en-pareja-elche": {
+    gradient: "bg-gradient-to-r from-bachataSalsa-gradient-from to-bachataSalsa-gradient-to",
+    textGradient: "from-bachataSalsa-gradient-from to-bachataSalsa-gradient-to",
+    accent: "text-bachataSalsa-gradient-from",
+    borderColor: "border-bachataSalsa-gradient-from/20",
+    hoverBg: "hover:bg-bachataSalsa-gradient-from/10",
+    dayBg: "bg-bachataSalsa-gradient-from/10",
+    cardBorder: "border-bachataSalsa-gradient-from/10",
+    cardHover: "hover:border-bachataSalsa-gradient-from/30"
+  },
+  "/": {
+    gradient: "bg-gradient-to-r from-main-gradient-from to-main-gradient-to",
+    textGradient: "from-main-gradient-from to-main-gradient-to",
+    accent: "text-main-gradient-from",
+    borderColor: "border-main-gradient-from/20",
+    hoverBg: "hover:bg-main-gradient-from/10",
+    dayBg: "bg-main-gradient-from/10",
+    cardBorder: "border-main-gradient-from/10",
+    cardHover: "hover:border-main-gradient-from/30"
+  },
+};
+
+const currentClasses = routeClasses[currentPath] ?? routeClasses[""];
 
 // Schedule data per page
 const scheduleData = {
@@ -192,82 +237,103 @@ let schedule = Astro.url.pathname.includes("lady-style")
   ? scheduleData.ladyStyle
   : scheduleData.horarios;
 
-// Tailwind classes by page color
-const colorClasses = {
-  freshEggplant: {
-    textTitle: "text-freshEggplant-200",
-    textItem: "text-freshEggplant-300",
-    textSubItem: "text-freshEggplant-400",
-    shadowHover: "hover:shadow-freshEggplant-800/90",
-    linkHover: "hover:text-freshEggplant-500",
-  },
-  freshPeach: {
-    textTitle: "text-freshPeach-200",
-    textItem: "text-freshPeach-300",
-    textSubItem: "text-freshPeach-400",
-    shadowHover: "hover:shadow-freshPeach-800/90",
-    linkHover: "hover:text-freshPeach-500",
-  },
+// Títulos dinámicos según la página
+const titleText: Record<string, string> = {
+  "/lady-style-elche": "Horario de clases Lady Style",
+  "/bachata-y-salsa-en-pareja-elche": "Horario semanal de Bachata y Salsa",
+  "": "Horario de nuestras clases"
 };
+
+const currentTitle = titleText[currentPath] ?? titleText[""];
 ---
 
-<section id="horario-semanal" class="max-w-5xl mx-auto py-6 px-6">
+<section id="horario" aria-labelledby="horario-title" class="max-w-5xl mx-auto px-6 py-14">
   <h2
-    id="horario-semanal"
-    class={`text-4xl md:text-5xl mb-14 text-start tracking-tight font-bebas ${colorClasses[pageColor].textTitle}`}
+    id="horario-title"
+    class={`text-4xl lg:text-5xl font-bebas tracking-tight uppercase mb-10 bg-gradient-to-r ${currentClasses.textGradient} bg-clip-text text-transparent drop-shadow-sm`}
   >
-    Horario Semanal de Clases
+    {currentTitle}
   </h2>
 
-  <div
-    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
-  >
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     {
-      schedule.map((day) => (
+      schedule.map((day, dayIndex) => (
         <div
-          class={`schedule-card bg-[#27272a] backdrop-blur-xl rounded-2xl p-6 shadow-lg ${colorClasses[pageColor].shadowHover} transition-shadow duration-300`}
+          class={`bg-black/20 backdrop-blur-sm border ${currentClasses.cardBorder} rounded-2xl overflow-hidden shadow-lg transition-all duration-300 ${currentClasses.cardHover} hover:-translate-y-1 animate-fade-in`}
+          style={`--animation-delay: ${0.2 + dayIndex * 0.1}s;`}
         >
-          <h3
-            class={`text-xl font-semibold font-noral ${colorClasses[pageColor].textSubItem} border-b border-white pb-2 mb-4`}
-          >
-            {day.day}
-          </h3>
-          {day.slots.map((slot) => (
-            <div class="mb-6">
-              <p class={`text-lg font-bold font-noral ${colorClasses[pageColor].textTitle}`}>
-                {slot.time}
-              </p>
-              <p class={`text-sm font-noral ${colorClasses[pageColor].textItem}`}>
-                {slot.class}
-              </p>
-              <p class={`text-sm italic font-noral ${colorClasses[pageColor].textSubItem}`}>
-                Edad: {slot.ageRange}
-              </p>
-              <p class={`text-sm italic font-noral ${colorClasses[pageColor].textSubItem}`}>
-                Lugar:{" "}
-                <a
-                  href={slot.location.url}
-                  class={`underline ${colorClasses[pageColor].linkHover}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {slot.location.name}
-                </a>
-              </p>
-            </div>
-          ))}
+          <div class={`${currentClasses.dayBg} px-6 py-3 border-b ${currentClasses.borderColor}`}>
+            <h3 class="text-xl font-medium text-white">
+              {day.day}
+            </h3>
+          </div>
+          
+          <div class="p-5">
+            {day.slots.map((slot, slotIndex) => (
+              <div class={`mb-5 ${slotIndex < day.slots.length - 1 ? `pb-5 border-b ${currentClasses.borderColor}` : ""}`}>
+                <div class="flex items-center gap-2 mb-1">
+                  <div class={`w-1.5 h-1.5 rounded-full ${currentClasses.accent}`}></div>
+                  <p class={`text-lg font-medium ${currentClasses.accent}`}>
+                    {slot.time}
+                  </p>
+                </div>
+                
+                <p class="text-white text-base font-medium ml-3.5 mb-1">
+                  {slot.class}
+                </p>
+                
+                <div class="flex items-center gap-1 ml-3.5 text-sm text-gray-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                  <span>{slot.ageRange}</span>
+                </div>
+                
+                <div class="flex items-start gap-1 ml-3.5 text-sm text-gray-300 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  <a
+                    href={slot.location.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class={`hover:underline ${currentClasses.accent} transition-colors duration-300`}
+                  >
+                    {slot.location.name}
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       ))
     }
   </div>
+
+  <div class="flex justify-center items-center mt-12 pt-4 animate-fade-in" style="--animation-delay: 0.8s;">
+    <a
+      href="https://wa.me/34645089122?text=Hola,%20me%20gustaría%20información%20sobre%20los%20horarios%20de%20clases"
+      target="_blank"
+      rel="noopener noreferrer"
+      class={`inline-flex items-center gap-2 ${currentClasses.gradient} text-white text-base font-medium py-3 px-8 rounded-full shadow-lg hover:shadow-lg hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/30`}
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+      </svg>
+      Consultar disponibilidad
+    </a>
+  </div>
 </section>
 
 <style>
-  #weekly-schedule {
-    overflow: hidden;
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
-
-  .schedule-card:hover {
-    cursor: pointer;
+  
+  .animate-fade-in {
+    animation: fadeIn 1.2s ease-out forwards;
+    animation-delay: var(--animation-delay, 0s);
   }
 </style>

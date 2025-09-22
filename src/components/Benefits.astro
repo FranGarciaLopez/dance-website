@@ -1,76 +1,141 @@
 ---
-type ColorType = "freshEggplant" | "bachataSalsa";
-let pageColor: ColorType = "freshEggplant";
+// Get current path to determine theme colors
+const currentPath = Astro.url.pathname.replace(/\/$/, "").toLowerCase();
 
-if (Astro.url.pathname.includes("lady-style")) pageColor = "freshEggplant";
-else if (
-  Astro.url.pathname.includes("bachata-en-pareja") ||
-  Astro.url.pathname.includes("salsa")
-)
-  pageColor = "bachataSalsa";
-else pageColor = "freshEggplant"; // homepage or other routes
+interface RouteClasses {
+  [key: string]: {
+    gradient: string;
+    buttonBg: string;
+    buttonHover: string;
+    textGradient: string;
+    accent: string;
+    borderColor: string;
+    hoverBg: string;
+  };
+}
 
-const colorClasses = {
-  freshEggplant: {
-    text: "text-freshEggplant-200",
-    shadowHover: "hover:shadow-freshEggplant",
-    textItem: "text-freshEggplant-300",
-    buttonGradient: "bg-gradient-freshEggplant",
-    buttonRing: "focus:ring-2 focus:ring-freshEggplant-600/60",
+const routeClasses: RouteClasses = {
+  "/lady-style-elche": {
+    gradient: "bg-gradient-to-r from-ladyStyle-gradient-from to-ladyStyle-gradient-to",
+    buttonBg: "bg-gradient-to-r from-ladyStyle-gradient-from to-ladyStyle-gradient-to",
+    buttonHover: "hover:shadow-lg hover:shadow-ladyStyle-gradient-from/30",
+    textGradient: "from-ladyStyle-gradient-from to-ladyStyle-gradient-to",
+    accent: "text-ladyStyle-gradient-from",
+    borderColor: "border-ladyStyle-gradient-from/10",
+    hoverBg: "hover:bg-ladyStyle-gradient-from/20",
   },
-  bachataSalsa: {
-    text: "text-bachataSalsa-200",
-    shadowHover: "hover:shadow-bachataSalsa",
-    textItem: "text-bachataSalsa-300",
-    buttonGradient: "bg-gradient-bachataSalsa",
-    buttonRing: "focus:ring-2 focus:ring-bachataSalsa-600/60",
+  "/bachata-y-salsa-en-pareja-elche": {
+    gradient: "bg-gradient-to-r from-bachataSalsa-gradient-from to-bachataSalsa-gradient-to",
+    buttonBg: "bg-gradient-to-r from-bachataSalsa-gradient-from to-bachataSalsa-gradient-to",
+    buttonHover: "hover:shadow-lg hover:shadow-bachataSalsa-gradient-from/30",
+    textGradient: "from-bachataSalsa-gradient-from to-bachataSalsa-gradient-to",
+    accent: "text-bachataSalsa-gradient-from",
+    borderColor: "border-bachataSalsa-gradient-from/10",
+    hoverBg: "hover:bg-bachataSalsa-gradient-from/20",
+  },
+  "/": {
+    gradient: "bg-gradient-to-r from-main-gradient-from to-main-gradient-to",
+    buttonBg: "bg-gradient-to-r from-main-gradient-from to-main-gradient-to",
+    buttonHover: "hover:shadow-lg hover:shadow-main-gradient-from/30",
+    textGradient: "from-main-gradient-from to-main-gradient-to",
+    accent: "text-main-gradient-from",
+    borderColor: "border-main-gradient-from/10",
+    hoverBg: "hover:bg-main-gradient-from/20",
   },
 };
+
+const currentClasses = routeClasses[currentPath] ?? routeClasses["/"];
 
 // Textos dinámicos según la página
 const benefitsText = {
-  freshEggplant: [
-    { emoji: "🎯", text: "Enfoque en técnica y seguridad en la pista" },
-    {
-      emoji: "🔥",
-      text: "Coreografías actualizadas con tendencias del momento",
+  "/lady-style-elche/": [
+    { 
+      icon: "👠", 
+      text: "Enfoque en técnica, estilo y seguridad en la pista" 
     },
-    { emoji: "💫", text: "Ambiente cercano, divertido y profesional" },
-    { emoji: "💃", text: "Comunidad activa de bailarines en Elche" },
+    {
+      icon: "💃",
+      text: "Coreografías actualizadas con las tendencias del momento",
+    },
+    { 
+      icon: "💫", 
+      text: "Ambiente cercano, divertido y profesional" 
+    },
+    { 
+      icon: "👑", 
+      text: "Comunidad activa de bailarinas en Elche" 
+    },
   ],
-  bachataSalsa: [
-    { emoji: "🎯", text: "Aprende Bachata y Salsa con diversión y ritmo" },
-    { emoji: "🔥", text: "Coreografías modernas y dinámicas" },
-    { emoji: "💫", text: "Clases adaptadas a todos los niveles" },
-    { emoji: "💃", text: "Crea comunidad y conoce otros bailarines" },
+  "/bachata-y-salsa-en-pareja-elche/": [
+    { 
+      icon: "🎯", 
+      text: "Aprende Bachata y Salsa con diversión y ritmo" 
+    },
+    { 
+      icon: "👫", 
+      text: "Mejora tu conexión en pareja y fluidez en el baile" 
+    },
+    { 
+      icon: "🎵", 
+      text: "Clases adaptadas a todos los niveles" 
+    },
+    { 
+      icon: "🔥", 
+      text: "Crea comunidad y conoce otros bailarines" 
+    },
+  ],
+  "/": [
+    { 
+      icon: "🎯", 
+      text: "Clases adaptadas a todos los niveles, desde principiante a avanzado" 
+    },
+    {
+      icon: "💃",
+      text: "Diversas modalidades: bachata, salsa, lady style y más",
+    },
+    { 
+      icon: "💫", 
+      text: "Ambiente cercano, divertido y profesional" 
+    },
+    { 
+      icon: "🎵", 
+      text: "Eventos sociales regulares para practicar lo aprendido" 
+    },
   ],
 };
+
+const currentBenefits = benefitsText[currentPath] ?? benefitsText["/"];
+
+// Títulos dinámicos según la página
+const titleText = {
+  "/lady-style-elche": "¿Por qué elegir nuestras clases de Lady Style?",
+  "/bachata-y-salsa-en-pareja-elche": "Descubre por qué nuestras clases de Bachata y Salsa son únicas",
+  "/": "¿Por qué elegir The Latin Action?",
+};
+
+const currentTitle = titleText[currentPath] ?? titleText["/"];
 ---
 
-<section aria-labelledby="beneficios-title" class="py-12 px-6 max-w-5xl mx-auto">
-  <div class=" ">
+<section aria-labelledby="beneficios-title" class="py-14 px-6 max-w-5xl mx-auto">
+  <div class="animate-fade-in" style="--animation-delay: 0.2s;">
     <h2
       id="beneficios-title"
-      class={`text-4xl md:text-5xl mb-14 text-start tracking-tight font-bebas ${colorClasses[pageColor].text}`}
+      class={`text-4xl lg:text-5xl font-bebas tracking-tight uppercase mb-10 bg-gradient-to-r ${currentClasses.textGradient} bg-clip-text text-transparent drop-shadow-sm`}
     >
-      {
-        pageColor === "freshEggplant"
-          ? "¿Por qué elegir nuestras clases en Elche?"
-          : "Descubre por qué nuestras clases de Bachata y Salsa son únicas"
-      }
+      {currentTitle}
     </h2>
 
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
       {
-        benefitsText[pageColor].map((item) => (
+        currentBenefits.map((item, index) => (
           <div
-            class={`flex items-start gap-4 p-6 rounded-2xl bg-[#27272a] backdrop-blur-xl shadow-lg ${colorClasses[pageColor].shadowHover} transition-shadow duration-300`}
+            class="flex items-start gap-4 p-6 rounded-2xl bg-black/20 backdrop-blur-sm shadow-md border border-white/10 hover:bg-black/30 hover:border-white/20 hover:-translate-y-1 transition-all duration-300 animate-fade-in"
+            style={`--animation-delay: ${0.3 + index * 0.15}s;`}
           >
-            <span class="text-3xl">{item.emoji}</span>
-            <p
-              class={`${colorClasses[pageColor].textItem} text-base leading-relaxed`}
-            >
+            <div class={`flex items-center justify-center h-12 w-12 rounded-full ${currentClasses.gradient} text-white shadow-lg flex-shrink-0`}>
+              <span class="text-2xl" aria-hidden="true">{item.icon}</span>
+            </div>
+            <p class="text-gray-200 text-lg leading-relaxed">
               {item.text}
             </p>
           </div>
@@ -78,16 +143,31 @@ const benefitsText = {
       }
     </div>
 
-    <div class="flex justify-center items-center mt-16">
+    <div class="flex justify-center items-center mt-12 pt-4 animate-fade-in" style="--animation-delay: 0.8s;">
       <a
         href="https://wa.me/34645089122?text=Hola,%20quiero%20más%20información%20sobre%20las%20clases"
         target="_blank"
         rel="noopener noreferrer"
-        class={`inline-block ${colorClasses[pageColor].buttonGradient} text-white text-lg font-semibold py-4 rounded-full shadow-lg px-4
-        transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-xl ${colorClasses[pageColor].buttonRing}`}
+        class={`inline-flex items-center gap-2 ${currentClasses.buttonBg} text-white text-base font-medium py-3 px-8 rounded-full 
+          shadow-lg ${currentClasses.buttonHover} transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/30`}
       >
-        ¡Contacta con nosotros!
+        <svg width="18" height="18" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+          <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+        </svg>
+        Contacta con nosotros
       </a>
     </div>
   </div>
 </section>
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 1.2s ease-out forwards;
+    animation-delay: var(--animation-delay, 0s);
+  }
+</style>
