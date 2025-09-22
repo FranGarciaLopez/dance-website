@@ -15,41 +15,63 @@ interface RouteClasses {
       primary: string;
       secondary: string;
     }
+    dayBg: string;
+    cardBorder: string;
+    cardHover: string;
   };
 }
 
 const routeClasses: RouteClasses = {
   "/lady-style-elche": {
     gradient: "bg-gradient-to-r from-ladyStyle-gradient-from to-ladyStyle-gradient-to",
+    buttonBg: "bg-gradient-to-r from-ladyStyle-gradient-from to-ladyStyle-gradient-to",
+    buttonHover: "hover:shadow-lg hover:shadow-ladyStyle-gradient-from/30",
     textGradient: "from-ladyStyle-gradient-from to-ladyStyle-gradient-to",
     accent: "text-ladyStyle-gradient-from",
-    borderColor: "border-ladyStyle-gradient-from/20",
-    hoverBg: "hover:bg-ladyStyle-gradient-from/10",
+    borderColor: "border-ladyStyle-gradient-from/10",
+    hoverBg: "hover:bg-ladyStyle-gradient-from/20",
+    decorative: {
+      primary: "from-ladyStyle-gradient-from/30 to-ladyStyle-gradient-to/30",
+      secondary: "from-purple-500/30 to-pink-400/30",
+    },
     dayBg: "bg-ladyStyle-gradient-from/10",
     cardBorder: "border-ladyStyle-gradient-from/10",
-    cardHover: "hover:border-ladyStyle-gradient-from/30"
+    cardHover: "hover:border-ladyStyle-gradient-from/30",
   },
   "/bachata-y-salsa-en-pareja-elche": {
     gradient: "bg-gradient-to-r from-bachataSalsa-gradient-from to-bachataSalsa-gradient-to",
+    buttonBg: "bg-gradient-to-r from-bachataSalsa-gradient-from to-bachataSalsa-gradient-to",
+    buttonHover: "hover:shadow-lg hover:shadow-bachataSalsa-gradient-from/30",
     textGradient: "from-bachataSalsa-gradient-from to-bachataSalsa-gradient-to",
     accent: "text-bachataSalsa-gradient-from",
-    borderColor: "border-bachataSalsa-gradient-from/20",
-    hoverBg: "hover:bg-bachataSalsa-gradient-from/10",
+    borderColor: "border-bachataSalsa-gradient-from/10",
+    hoverBg: "hover:bg-bachataSalsa-gradient-from/20",
+    decorative: {
+      primary: "from-bachataSalsa-gradient-from/30 to-bachataSalsa-gradient-to/30",
+      secondary: "from-amber-500/30 to-red-500/30",
+    },
     dayBg: "bg-bachataSalsa-gradient-from/10",
     cardBorder: "border-bachataSalsa-gradient-from/10",
-    cardHover: "hover:border-bachataSalsa-gradient-from/30"
+    cardHover: "hover:border-bachataSalsa-gradient-from/30",
   },
   "/": {
     gradient: "bg-gradient-to-r from-main-gradient-from to-main-gradient-to",
+    buttonBg: "bg-gradient-to-r from-main-gradient-from to-main-gradient-to",
+    buttonHover: "hover:shadow-lg hover:shadow-main-gradient-from/30",
     textGradient: "from-main-gradient-from to-main-gradient-to",
     accent: "text-main-gradient-from",
-    borderColor: "border-main-gradient-from/20",
-    hoverBg: "hover:bg-main-gradient-from/10",
+    borderColor: "border-main-gradient-from/10",
+    hoverBg: "hover:bg-main-gradient-from/20",
+    decorative: {
+      primary: "from-main-gradient-from/30 to-main-gradient-to/30",
+      secondary: "from-freshEggplant-700/30 to-freshEggplant-500/30",
+    },
     dayBg: "bg-main-gradient-from/10",
     cardBorder: "border-main-gradient-from/10",
-    cardHover: "hover:border-main-gradient-from/30"
+    cardHover: "hover:border-main-gradient-from/30",
   },
 };
+
 
 const currentClasses = routeClasses[currentPath] ?? routeClasses[""];
 

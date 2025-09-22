@@ -47,7 +47,7 @@ const routeClasses: RouteClasses = {
 const currentClasses = routeClasses[currentPath] ?? routeClasses["/"];
 
 // Textos dinámicos según la página
-const benefitsText = {
+const benefitsText: Record<string, { icon: string; text: string }[]> =  {
   "/lady-style-elche/": [
     { 
       icon: "👠", 
@@ -107,7 +107,7 @@ const benefitsText = {
 const currentBenefits = benefitsText[currentPath] ?? benefitsText["/"];
 
 // Títulos dinámicos según la página
-const titleText = {
+const titleText: Record<string, string> = {
   "/lady-style-elche": "¿Por qué elegir nuestras clases de Lady Style?",
   "/bachata-y-salsa-en-pareja-elche": "Descubre por qué nuestras clases de Bachata y Salsa son únicas",
   "/": "¿Por qué elegir The Latin Action?",
@@ -127,7 +127,7 @@ const currentTitle = titleText[currentPath] ?? titleText["/"];
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
       {
-        currentBenefits.map((item, index) => (
+        currentBenefits.map((item : { icon: string; text: string }, index : number) => (
           <div
             class="flex items-start gap-4 p-6 rounded-2xl bg-black/20 backdrop-blur-sm shadow-md border border-white/10 hover:bg-black/30 hover:border-white/20 hover:-translate-y-1 transition-all duration-300 animate-fade-in"
             style={`--animation-delay: ${0.3 + index * 0.15}s;`}
