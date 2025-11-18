@@ -4,22 +4,15 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        dance: ["Roboto", "Arial", "sans-serif"], // replaced Summer Dance
-        bebas: [
-          "Bebas Neue", 
-          "Anton",
-          "Oswald", 
-          "Impact", 
-          "Arial Black", 
-          "sans-serif"
-        ], // Enhanced font stack with Anton as additional fallback
+        dance: ["Roboto", "Arial", "sans-serif"],
+        bebas: ["Bebas Neue", "Anton", "Oswald", "Impact", "Arial Black", "sans-serif"],
         inter: ["Inter", "system-ui", "sans-serif"],
       },
       fontSize: {
-        'h1': ['4rem', { lineHeight: '1.1', letterSpacing: '0.04em' }], // Increased spacing for better readability
-        'h2': ['3rem', { lineHeight: '1.2', letterSpacing: '0.035em' }], // Increased spacing
-        'h3': ['2xl', { lineHeight: '1.3', letterSpacing: '0.03em' }], // Increased spacing
-        'p-lg': ['1.125rem', { lineHeight: '1.75rem', letterSpacing: '0.005em' }], // Subtle spacing for body text
+        'h1': ['4rem', { lineHeight: '1.1', letterSpacing: '0.04em' }],
+        'h2': ['3rem', { lineHeight: '1.2', letterSpacing: '0.035em' }],
+        'h3': ['2xl', { lineHeight: '1.3', letterSpacing: '0.03em' }],
+        'p-lg': ['1.125rem', { lineHeight: '1.75rem', letterSpacing: '0.005em' }],
       },
       letterSpacing: {
         'tighter': '-0.05em',
@@ -28,11 +21,11 @@ export default {
         'wide': '0.025em',
         'wider': '0.05em',
         'widest': '0.1em',
-        'bebas-tight': '0.02em',    // For tighter contexts
-        'bebas': '0.04em',          // Optimal spacing for Bebas Neue
-        'bebas-wide': '0.06em',     // For maximum legibility
-        'title': '0.03em',          // Increased for headers
-        'body': '0.01em',           // Slightly increased for body text
+        'bebas-tight': '0.02em',
+        'bebas': '0.04em',
+        'bebas-wide': '0.06em',
+        'title': '0.03em',
+        'body': '0.01em',
       },
       height: {
         96: "24rem",
@@ -79,8 +72,8 @@ export default {
           1000: "#000000",
         },
         ladyStyle: {
-          "gradient-from": "#b44aff", // Brightened even more for better visibility
-          "gradient-to": "#f87dc1",   // Slightly adjusted for better contrast
+          "gradient-from": "#b44aff",
+          "gradient-to": "#f87dc1",
         },
         bachataSalsa: {
           "gradient-from": "#d14e2eff",
@@ -92,16 +85,15 @@ export default {
         },
       },
       backgroundImage: {
-        "gradient-freshEggplant":
-          "linear-gradient(to right, #d9008b, #d9008b, #d9008b)",
-        "gradient-ladyStyle": "linear-gradient(to right, #b44aff, #f87dc1)", // Updated to match new colors
+        "gradient-freshEggplant": "linear-gradient(to right, #d9008b, #d9008b, #d9008b)",
+        "gradient-ladyStyle": "linear-gradient(to right, #b44aff, #f87dc1)",
         "gradient-bachataSalsa": "linear-gradient(to right, #E07A5F, #F2CC8F)",
         "gradient-main": "linear-gradient(to right, #ff004d, #a100f2)",
       },
       boxShadow: {
         freshEggplant: "0 4px 15px rgba(179,29,106,0.6)",
         bachataSalsa: "0 4px 15px rgba(224,122,95,0.6)",
-        ladyStyle: "0 4px 15px rgba(180,74,255,0.5)", // Updated shadow for enhanced ladyStyle
+        ladyStyle: "0 4px 15px rgba(180,74,255,0.5)",
       },
     },
   },

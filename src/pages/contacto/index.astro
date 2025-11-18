@@ -3,21 +3,87 @@ import Layout from "@/layouts/Layout.astro";
 ---
 
 <Layout
-  title="Contacto | The Latin Action - Salsa y Bachata en Elche"
-  description="Contacta con The Latin Action para más información sobre nuestras clases de salsa, bachata y Lady Style en Elche."
+  title="Contacto | The Latin Action - Academia de Salsa y Bachata en Elche ☎️ 645 08 91 22"
+  description="📍 Contacta con The Latin Action para información sobre clases de salsa, bachata y Lady Style en Elche, Novelda y Elda. ☎️ 645 08 91 22 📧 Email directo"
   canonical="https://thelatinaction.com/contacto/"
-  keywords="Contacto, Academia de baile Elche, Salsa Elche, Bachata Elche, Lady Style Elche, Clases de baile en Elche"
+  keywords="contacto academia baile Elche, teléfono clases salsa Elche, email bachata Elche, dirección The Latin Action, ubicación clases baile Alicante"
 >
-  <section class="max-w-5xl mx-auto px-6 py-14 animate-fade-in">
-    <!-- Heading with gradient -->
-    <h1 class="text-4xl lg:text-5xl font-bebas tracking-bebas uppercase mb-6 bg-gradient-to-r from-main-gradient-from to-main-gradient-to bg-clip-text text-transparent drop-shadow-sm">
-      Contáctanos
-    </h1>
+  <!-- Local Business Schema for Contact Page -->
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "mainEntity": {
+        "@type": "DanceSchool",
+        "name": "The Latin Action",
+        "telephone": "+34645089122",
+        "email": "juancarlosyluna.latinaction@gmail.com",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+34645089122",
+          "contactType": "customer service",
+          "availableLanguage": ["Spanish", "English"],
+          "areaServed": ["Elche", "Novelda", "Elda", "Alicante"]
+        },
+        "address": [
+          {
+            "@type": "PostalAddress",
+            "name": "Academia Dairen",
+            "streetAddress": "Calle de la ubicación específica",
+            "addressLocality": "Elche",
+            "addressRegion": "Alicante",
+            "addressCountry": "ES"
+          },
+          {
+            "@type": "PostalAddress", 
+            "name": "Bubaloo Academia",
+            "streetAddress": "Calle de la ubicación específica",
+            "addressLocality": "Elche",
+            "addressRegion": "Alicante", 
+            "addressCountry": "ES"
+          }
+        ]
+      }
+    }
+  </script>
 
-    <p class="mb-10 text-lg leading-relaxed text-gray-200 max-w-2xl">
-      ¿Tienes alguna pregunta o deseas más información sobre nuestras clases?
-      ¡Déjanos un mensaje y te responderemos pronto!
-    </p>
+  <section class="max-w-5xl mx-auto px-6 py-14 animate-fade-in">
+    <header>
+      <h1 class="text-4xl lg:text-5xl font-bebas tracking-bebas uppercase mb-6 bg-gradient-to-r from-main-gradient-from to-main-gradient-to bg-clip-text text-transparent drop-shadow-sm">
+        Contacta con nosotros
+      </h1>
+      
+      <div class="mb-10">
+        <p class="text-lg leading-relaxed text-gray-200 max-w-2xl mb-4">
+          ¿Tienes alguna pregunta sobre nuestras <strong>clases de salsa y bachata en Elche</strong>? 
+          ¡Contáctanos directamente y te responderemos enseguida!
+        </p>
+        
+        <!-- Quick contact info for better local SEO -->
+        <div class="flex flex-wrap gap-6 text-sm text-gray-300 mb-6">
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-main-gradient-from" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            <a href="tel:+34645089122" class="hover:text-main-gradient-from">
+              📞 645 08 91 22
+            </a>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-main-gradient-from" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            </svg>
+            <span>📍 Elche, Novelda, Elda</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-main-gradient-from" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>⏰ Lun-Sáb: 17:30-22:30</span>
+          </div>
+        </div>
+      </div>
+    </header>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
       <!-- Formulario con Formspree -->

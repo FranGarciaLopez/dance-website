@@ -1,4 +1,25 @@
+# robots.txt for The Latin Action - https://thelatinaction.com
+
+# Allow all crawlers
 User-agent: *
 Allow: /
 
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /_astro/
+Disallow: /api/
+
+# Crawl-delay for specific bots (optional)
+User-agent: Googlebot
+Crawl-delay: 0
+
+User-agent: Bingbot
+Crawl-delay: 0
+
+# Sitemap location
 Sitemap: https://thelatinaction.com/sitemap.xml
+Sitemap: https://thelatinaction.com/sitemap-index.xml
+
+# Additional directives
+Host: https://thelatinaction.com
