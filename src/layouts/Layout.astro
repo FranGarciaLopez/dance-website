@@ -330,15 +330,16 @@ const fullCanonicalUrl = canonical || `${siteUrl}${Astro.url.pathname}`;
       </div>
     </div>
 
-    <!-- Global PhotoSwipe Initialization - Optimized -->
+    <!-- Global PhotoSwipe Initialization - Optimized with defer -->
     <script type="module" is:inline>
-      // Defer PhotoSwipe initialization until user interaction or idle
+      // Defer PhotoSwipe initialization until after page load
       let lightboxInitialized = false;
 
       async function initPhotoSwipe() {
         if (lightboxInitialized) return;
         lightboxInitialized = true;
 
+        // Dynamic import reduces initial bundle blocking
         const PhotoSwipeLightbox = (await import("https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js")).default;
         const galleryEls = document.querySelectorAll("[data-pswp-gallery]");
 
@@ -367,16 +368,16 @@ const fullCanonicalUrl = canonical || `${siteUrl}${Astro.url.pathname}`;
         });
       }
 
-      // Initialize on first gallery interaction or after page load
+      // Only initialize after full page load (not blocking render)
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
           const galleries = document.querySelectorAll("[data-pswp-gallery]");
           if (galleries.length > 0) {
-            // Use requestIdleCallback if available, otherwise setTimeout
+            // Wait for idle time or max 3 seconds
             if ('requestIdleCallback' in window) {
-              requestIdleCallback(() => initPhotoSwipe(), { timeout: 2000 });
+              requestIdleCallback(() => initPhotoSwipe(), { timeout: 3000 });
             } else {
-              setTimeout(initPhotoSwipe, 1000);
+              setTimeout(initPhotoSwipe, 2000);
             }
             
             // Also init on first click

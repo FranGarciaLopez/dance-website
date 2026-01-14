@@ -48,8 +48,8 @@ function getRowDelay(index: number, totalImages: number): number {
 function cldUrl(publicId: string, width?: number, height?: number) {
   const w = width ? `w_${width},` : "";
   const h = height ? `h_${height},` : "";
-  // Added more optimizations: auto format, auto quality, auto DPR
-  return `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/${w}${h}c_limit,f_auto,q_auto,dpr_auto,fl_progressive/${publicId}.webp`;
+  // Optimized: auto format, q_80 compression, auto DPR, progressive loading
+  return `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/${w}${h}c_limit,f_auto,q_80,dpr_auto,fl_progressive/${publicId}.webp`;
 }
 
 // Generate responsive srcset
@@ -82,6 +82,7 @@ function generateSrcSet(publicId: string) {
             alt={`Foto de clase de baile - The Latin Action ${publicId.replace(/[_-]/g, " ")}`}
             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             loading={index < 4 ? "eager" : "lazy"}
+            fetchpriority={index < 2 ? "high" : "auto"}
             decoding="async"
             width="800"
             height="600"
