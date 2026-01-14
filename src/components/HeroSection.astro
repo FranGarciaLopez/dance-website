@@ -98,52 +98,59 @@ const whatsappLink = `https://wa.me/34645089122?text=${encodedMessage}`;
   role="banner"
   class="relative h-screen w-full flex flex-col items-center justify-center text-center overflow-hidden"
 >
-  <!-- Imagen de fondo responsive optimizada con srcset -->
+  <!-- Imagen de fondo responsive optimizada -->
   <picture class="absolute inset-0 w-full h-full z-0">
     <source
-      srcset={`${desktop.replace("/upload/", "/upload/w_1920,ar_16:9,c_fill,g_auto,f_auto,q_80/")} 1920w, ${desktop.replace("/upload/", "/upload/w_1440,ar_16:9,c_fill,g_auto,f_auto,q_80/")} 1440w`}
-      sizes="100vw"
+      srcset={desktop.replace(
+        "/upload/",
+        "/upload/w_1920,c_fill,g_auto,f_auto,q_85,dpr_auto/",
+      )}
       media="(min-width: 1280px)"
-      width="1920"
-      height="1080"
     />
     <source
-      srcset={`${tablet.replace("/upload/", "/upload/w_1200,ar_4:3,c_fill,g_auto,f_auto,q_75/")} 1200w, ${tablet.replace("/upload/", "/upload/w_900,ar_4:3,c_fill,g_auto,f_auto,q_75/")} 900w`}
-      sizes="100vw"
+      srcset={tablet.replace(
+        "/upload/",
+        "/upload/w_1200,c_fill,g_auto,f_auto,q_85,dpr_auto/",
+      )}
       media="(min-width: 768px)"
-      width="1200"
-      height="900"
     />
     <img
-      srcset={`${mobile.replace("/upload/", "/upload/w_600,ar_9:16,c_fill,g_auto,f_auto,q_75/")} 600w, ${mobile.replace("/upload/", "/upload/w_800,ar_9:16,c_fill,g_auto,f_auto,q_75/")} 800w`}
-      sizes="100vw"
       src={mobile.replace(
         "/upload/",
-        "/upload/w_600,ar_9:16,c_fill,g_auto,f_auto,q_75/",
+        "/upload/w_800,c_fill,g_auto,f_auto,q_85,dpr_auto/",
       )}
       alt="Imagen principal de The Latin Action"
       class="w-full h-full object-cover scale-[1.01]"
-      width="600"
-      height="1067"
+      width="800"
+      height="1422"
       loading="eager"
       fetchpriority="high"
       decoding="async"
     />
   </picture>
 
-  <!-- Overlay optimizado para mobile performance -->
-  <div class="absolute inset-0 z-10 bg-gradient-to-b from-black/35 via-black/5 to-black/45"></div>
-
-  <!-- Elementos decorativos - hidden en mobile para mejor performance -->
-  <div
-    class="absolute inset-0 z-[11] overflow-hidden opacity-15 mix-blend-soft-light hidden md:block"
-  >
+  <!-- Overlay mejorado con gradiente menos intenso -->
+  <div class="absolute inset-0 z-10">
     <div
-      class={`absolute -top-[10%] -left-[10%] w-[40%] h-[40%] rounded-full bg-gradient-to-br ${currentClasses.decorative.primary} blur-[60px]`}
+      class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-black/50"
     >
     </div>
     <div
-      class={`absolute -bottom-[10%] -right-[10%] w-[40%] h-[40%] rounded-full bg-gradient-to-br ${currentClasses.decorative.secondary} blur-[60px]`}
+      class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,rgba(0,0,0,0.3)_100%)]"
+    >
+    </div>
+  </div>
+
+  <!-- Elementos decorativos con menor opacidad -->
+  <div
+    class="absolute inset-0 z-[11] overflow-hidden opacity-20 mix-blend-soft-light"
+  >
+    <div
+      class={`absolute -top-[10%] -left-[10%] w-[40%] h-[40%] rounded-full bg-gradient-to-br ${currentClasses.decorative.primary} blur-[80px]`}
+    >
+    </div>
+    <div
+      class={`absolute -bottom-[10%] -right-[10%] w-[40%] h-[40%] rounded-full bg-gradient-to-br ${currentClasses.decorative.secondary} blur-[80px]`}
     >
     </div>
   </div>
