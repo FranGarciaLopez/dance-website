@@ -66,8 +66,9 @@ function generateSrcSet(publicId: string, quality = 80) {
 <section class="masonry-section px-6 py-6 max-w-5xl mx-auto" id="galeria">
   <div class="masonry-grid mx-auto" data-pswp-gallery>
     {displayedImages.map((publicId, index) => {
-      // Use aggressive compression (q_65) for first 2 images on homepage to save bandwidth
-      const imageQuality = !isGaleria && index < 2 ? 65 : 80;
+      // Use aggressive compression and smaller size for first 2 images on homepage
+      const imageQuality = !isGaleria && index < 2 ? 60 : 80;
+      const maxWidth = !isGaleria && index < 2 ? 600 : 800;
       
       return (
       <a 
@@ -80,15 +81,18 @@ function generateSrcSet(publicId: string, quality = 80) {
       >
         <div class="aspect-box overflow-hidden rounded-xl">
           <img
-            src={cldUrl(publicId, 800, undefined, imageQuality)}
-            srcset={generateSrcSet(publicId, imageQuality)}
+            src={cldUrl(publicId, maxWidth, undefined, imageQuality)}
+            srcset={!isGaleria && index < 2 
+              ? `${cldUrl(publicId, 400, undefined, imageQuality)} 400w, ${cldUrl(publicId, 600, undefined, imageQuality)} 600w`
+              : generateSrcSet(publicId, imageQuality)
+            }
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             alt={`Foto de clase de baile - The Latin Action ${publicId.replace(/[_-]/g, " ")}`}
             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             loading={index < 4 ? "eager" : "lazy"}
             fetchpriority={index < 2 ? "high" : "auto"}
             decoding="async"
-            width="800"
+            width={maxWidth}
             height="600"
           />
         </div>

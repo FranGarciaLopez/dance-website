@@ -335,6 +335,9 @@ const fullCanonicalUrl = canonical || `${siteUrl}${Astro.url.pathname}`;
       // Defer PhotoSwipe initialization until after page load
       let lightboxInitialized = false;
 
+      // Cache viewport check to avoid forced reflow
+      const isMobile = window.matchMedia('(max-width: 767px)').matches;
+
       async function initPhotoSwipe() {
         if (lightboxInitialized) return;
         lightboxInitialized = true;
@@ -355,7 +358,7 @@ const fullCanonicalUrl = canonical || `${siteUrl}${Astro.url.pathname}`;
             arrowKeys: true,
             clickToCloseNonZoomable: true,
             mainScroll: false,
-            maxSpreadZoom: window.innerWidth < 768 ? 4 : 3,
+            maxSpreadZoom: isMobile ? 4 : 3,
           });
 
           lightbox.on("gettingData", (e) => {
