@@ -44,28 +44,32 @@ function getRowDelay(index: number, totalImages: number): number {
   return (posInCol * 0.15) + (col * 0.05);
 }
 
-// Optimized Cloudinary URL generation
-function cldUrl(publicId: string, width?: number, height?: number) {
+// Optimized Cloudinary URL generation with quality control
+function cldUrl(publicId: string, width?: number, height?: number, quality = 80) {
   const w = width ? `w_${width},` : "";
   const h = height ? `h_${height},` : "";
-  // Optimized: auto format, q_80 compression, auto DPR, progressive loading
-  return `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/${w}${h}c_limit,f_auto,q_80,dpr_auto,fl_progressive/${publicId}.webp`;
+  // Optimized: auto format, custom quality, auto DPR, progressive loading
+  return `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/${w}${h}c_limit,f_auto,q_${quality},dpr_auto,fl_progressive/${publicId}.webp`;
 }
 
-// Generate responsive srcset
-function generateSrcSet(publicId: string) {
+// Generate responsive srcset with quality control
+function generateSrcSet(publicId: string, quality = 80) {
   return [
-    `${cldUrl(publicId, 400)} 400w`,
-    `${cldUrl(publicId, 800)} 800w`, 
-    `${cldUrl(publicId, 1200)} 1200w`,
-    `${cldUrl(publicId, 1600)} 1600w`
+    `${cldUrl(publicId, 400, undefined, quality)} 400w`,
+    `${cldUrl(publicId, 800, undefined, quality)} 800w`, 
+    `${cldUrl(publicId, 1200, undefined, quality)} 1200w`,
+    `${cldUrl(publicId, 1600, undefined, quality)} 1600w`
   ].join(', ');
 }
 ---
 
 <section class="masonry-section px-6 py-6 max-w-5xl mx-auto" id="galeria">
   <div class="masonry-grid mx-auto" data-pswp-gallery>
-    {displayedImages.map((publicId, index) => (
+    {displayedImages.map((publicId, index) => {
+      // Use higher compression (q_70) for first 2 images on homepage to save bandwidth
+      const imageQuality = !isGaleria && index < 2 ? 70 : 80;
+      
+      return (
       <a 
         href={cldUrl(publicId, 2000)} 
         class="masonry-item animate-fade-in block group relative overflow-hidden rounded-xl"
@@ -76,8 +80,8 @@ function generateSrcSet(publicId: string) {
       >
         <div class="aspect-box overflow-hidden rounded-xl">
           <img
-            src={cldUrl(publicId, 800)}
-            srcset={generateSrcSet(publicId)}
+            src={cldUrl(publicId, 800, undefined, imageQuality)}
+            srcset={generateSrcSet(publicId, imageQuality)}
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             alt={`Foto de clase de baile - The Latin Action ${publicId.replace(/[_-]/g, " ")}`}
             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
@@ -89,7 +93,8 @@ function generateSrcSet(publicId: string) {
           />
         </div>
       </a>
-    ))}
+    )
+    })}
   </div>
 </section>
 
