@@ -27,6 +27,23 @@ const displayedImages = filteredImages.slice(0, numImages);
 
 const CLOUD_NAME = "dgvvnopu7";
 
+// Calculate animation delay for masonry row-by-row effect
+// In CSS columns, images fill vertically: col1 fills, then col2, then col3
+// To animate by rows, we need to group images that appear at similar heights
+function getRowDelay(index: number, totalImages: number): number {
+  const numCols = 3; // desktop columns
+  const imagesPerCol = Math.ceil(totalImages / numCols);
+  
+  // Determine which column this image is in
+  const col = Math.floor(index / imagesPerCol);
+  // Determine position within that column
+  const posInCol = index % imagesPerCol;
+  
+  // Calculate approximate row (images at same posInCol are in the same visual row)
+  // Prioritize row position, then add small column delay
+  return (posInCol * 0.15) + (col * 0.05);
+}
+
 // Optimized Cloudinary URL generation
 function cldUrl(publicId: string, width?: number, height?: number) {
   const w = width ? `w_${width},` : "";
@@ -47,15 +64,15 @@ function generateSrcSet(publicId: string) {
 ---
 
 <section class="masonry-section px-6 py-6 max-w-5xl mx-auto" id="galeria">
-  <div class="masonry-grid mx-auto animate-fade-in" data-pswp-gallery>
+  <div class="masonry-grid mx-auto" data-pswp-gallery>
     {displayedImages.map((publicId, index) => (
       <a 
         href={cldUrl(publicId, 2000)} 
-        class="masonry-item block group relative overflow-hidden rounded-xl"
+        class="masonry-item animate-fade-in block group relative overflow-hidden rounded-xl"
         data-pswp-width="2000"
         data-pswp-height="1500"
         aria-label={`Ver imagen: ${publicId.replace(/[_-]/g, " ")}`}
-        style={`--animation-delay: ${index * 0.1}s;`}
+        style={`--animation-delay: ${getRowDelay(index, displayedImages.length)}s;`}
       >
         <div class="aspect-box overflow-hidden rounded-xl">
           <img
@@ -99,17 +116,10 @@ function generateSrcSet(publicId: string) {
     width: 100%;
     margin-bottom: 1rem;
     break-inside: avoid;
-    opacity: 0;
-    animation: fadeIn 0.8s ease-out forwards;
-    animation-delay: var(--animation-delay, 0s);
   }
   
   .aspect-box {
     aspect-ratio: 4/5;
-  }
-  
-  @keyframes fadeIn {
-    to { opacity: 1; }
   }
 
   /* PhotoSwipe image orientation */

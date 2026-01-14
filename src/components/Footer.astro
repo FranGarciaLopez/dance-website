@@ -15,20 +15,19 @@ import Socials from "@/components/Socials.astro";
       />
     </div>
     <!-- Sección Central -->
-    <div class="mb-6 md:mb-0 text-center flex flex-row gap-5">
-      <li class="list-none">
-        <a href="/" class="hover:text-pink-500">Inicio</a>
-      </li>
-      <li class="list-none">
-        <a href="/clases/" class="hover:text-pink-500">Clases</a>
-      </li>
-      <li class="list-none">
-        <a href="/eventos/" class="hover:text-pink-500">Eventos</a>
-      </li>
-      <li class="list-none">
-        <a href="/contacto/" class="hover:text-pink-500">Contacto</a>
-      </li>
-    </div>
+    <nav class="mb-6 md:mb-0 text-center" aria-label="Menú del pie de página">
+      <ul class="flex flex-row gap-5">
+        <li class="list-none">
+          <a href="/" class="hover:text-pink-500" aria-label="Ir a la página de inicio">Inicio</a>
+        </li>
+        <li class="list-none">
+          <a href="/galeria/" class="hover:text-pink-500" aria-label="Ver galería de fotos">Galería</a>
+        </li>
+        <li class="list-none">
+          <a href="/contacto/" class="hover:text-pink-500" aria-label="Ir a la página de contacto">Contacto</a>
+        </li>
+      </ul>
+    </nav>
 
     <Socials />
   </div>

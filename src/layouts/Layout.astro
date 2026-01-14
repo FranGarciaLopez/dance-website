@@ -39,7 +39,7 @@ const fullCanonicalUrl = canonical || `${siteUrl}${Astro.url.pathname}`;
 <html lang="es" prefix="og: https://ogp.me/ns#">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Primary Meta Tags -->
     <title>{title}</title>
@@ -115,14 +115,14 @@ const fullCanonicalUrl = canonical || `${siteUrl}${Astro.url.pathname}`;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://res.cloudinary.com" />
-    <link rel="dns-prefetch" href="https://unpkg.com" />
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 
-    <!-- Fonts with display swap for performance -->
+    <!-- Preload critical fonts for better LCP -->
     <link
+      rel="preload"
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Slab:wght@400;500;700&display=swap"
-      rel="stylesheet"
-      media="print"
-      onload="this.media='all'"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
       <link
@@ -131,11 +131,19 @@ const fullCanonicalUrl = canonical || `${siteUrl}${Astro.url.pathname}`;
       />
     </noscript>
 
-    <!-- PhotoSwipe CSS -->
+    <!-- PhotoSwipe CSS - Deferred loading -->
     <link
-      rel="stylesheet"
-      href="https://unpkg.com/photoswipe/dist/photoswipe.css"
+      rel="preload"
+      href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.min.css"
+      />
+    </noscript>
 
     <!-- Structured Data - Organization -->
     <script type="application/ld+json">
@@ -195,7 +203,73 @@ const fullCanonicalUrl = canonical || `${siteUrl}${Astro.url.pathname}`;
             "opens": "18:00",
             "closes": "23:00"
           }
-        ]
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Clases de Baile Latino",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Clases de Bachata y Salsa en Pareja",
+                "description": "Clases de bachata y salsa para parejas, todos los niveles"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Bachata Lady Style",
+                "description": "Clases de bachata lady style para mujeres"
+              }
+            }
+          ]
+        }
+      }
+    </script>
+
+    <!-- LocalBusiness Schema para SEO Local -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "The Latin Action - Academia de Salsa y Bachata",
+        "image": "https://res.cloudinary.com/dgvvnopu7/image/upload/v1755352383/Foto_de_Juan_Carlos_y_Luna_The_Latin_Action_Salsa_y_Bachata_en_la_playa_absfwn.jpg",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Elche",
+          "addressRegion": "Alicante",
+          "postalCode": "03200",
+          "addressCountry": "ES"
+        },
+        "telephone": "+34645089122",
+        "url": "https://thelatinaction.com",
+        "priceRange": "€€",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Wednesday", "Friday"],
+            "opens": "19:00",
+            "closes": "22:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Tuesday", "Thursday"],
+            "opens": "18:30",
+            "closes": "21:30"
+          }
+        ],
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 38.2698339,
+          "longitude": -0.6986707
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "150"
+        }
       }
     </script>
 
@@ -242,11 +316,16 @@ const fullCanonicalUrl = canonical || `${siteUrl}${Astro.url.pathname}`;
       </div>
     </div>
 
-    <!-- Global PhotoSwipe Initialization -->
+    <!-- Global PhotoSwipe Initialization - Optimized -->
     <script type="module" is:inline>
-      import PhotoSwipeLightbox from "https://cdn.jsdelivr.net/npm/photoswipe@5.3.9/dist/photoswipe-lightbox.esm.min.js";
+      // Defer PhotoSwipe initialization until user interaction or idle
+      let lightboxInitialized = false;
 
-      document.addEventListener("DOMContentLoaded", () => {
+      async function initPhotoSwipe() {
+        if (lightboxInitialized) return;
+        lightboxInitialized = true;
+
+        const PhotoSwipeLightbox = (await import("https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js")).default;
         const galleryEls = document.querySelectorAll("[data-pswp-gallery]");
 
         galleryEls.forEach((galleryEl) => {
@@ -255,7 +334,7 @@ const fullCanonicalUrl = canonical || `${siteUrl}${Astro.url.pathname}`;
             children: "a",
             pswpModule: () =>
               import(
-                "https://cdn.jsdelivr.net/npm/photoswipe@5.3.9/dist/photoswipe.esm.min.js"
+                "https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.esm.min.js"
               ),
             zoomAnimationDuration: 300,
             arrowKeys: true,
@@ -272,7 +351,39 @@ const fullCanonicalUrl = canonical || `${siteUrl}${Astro.url.pathname}`;
 
           lightbox.init();
         });
-      });
+      }
+
+      // Initialize on first gallery interaction or after page load
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+          const galleries = document.querySelectorAll("[data-pswp-gallery]");
+          if (galleries.length > 0) {
+            // Use requestIdleCallback if available, otherwise setTimeout
+            if ('requestIdleCallback' in window) {
+              requestIdleCallback(() => initPhotoSwipe(), { timeout: 2000 });
+            } else {
+              setTimeout(initPhotoSwipe, 1000);
+            }
+            
+            // Also init on first click
+            galleries.forEach(g => {
+              g.addEventListener('click', initPhotoSwipe, { once: true });
+            });
+          }
+        });
+      } else {
+        const galleries = document.querySelectorAll("[data-pswp-gallery]");
+        if (galleries.length > 0) {
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(() => initPhotoSwipe(), { timeout: 2000 });
+          } else {
+            setTimeout(initPhotoSwipe, 1000);
+          }
+          galleries.forEach(g => {
+            g.addEventListener('click', initPhotoSwipe, { once: true });
+          });
+        }
+      }
     </script>
   </body>
 </html>
@@ -314,5 +425,23 @@ const fullCanonicalUrl = canonical || `${siteUrl}${Astro.url.pathname}`;
     font-family: "Roboto Slab", serif;
     line-height: 1.6;
     letter-spacing: 0.3px;
+  }
+
+  /* === Global Animations === */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: var(--animation-delay, 0s);
+    opacity: 0;
   }
 </style>
