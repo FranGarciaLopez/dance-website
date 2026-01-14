@@ -36,6 +36,17 @@ const modalitiesData = [
   ogImage="https://res.cloudinary.com/dgvvnopu7/image/upload/w_1200,h_630,c_fill,f_auto,q_auto/v1755352383/Foto_de_Juan_Carlos_y_Luna_The_Latin_Action_Salsa_y_Bachata_en_la_playa_absfwn.jpg"
   ogType="website"
 >
+  <!-- Preload LCP hero image for mobile -->
+  <link
+    slot="head"
+    rel="preload"
+    as="image"
+    href="https://res.cloudinary.com/dgvvnopu7/image/upload/w_600,ar_9:16,c_fill,g_auto,f_auto,q_75/v1755352383/Foto_de_Juan_Carlos_y_Luna_The_Latin_Action_Salsa_y_Bachata_en_la_playa_absfwn.jpg"
+    imagesrcset="https://res.cloudinary.com/dgvvnopu7/image/upload/w_600,ar_9:16,c_fill,g_auto,f_auto,q_75/v1755352383/Foto_de_Juan_Carlos_y_Luna_The_Latin_Action_Salsa_y_Bachata_en_la_playa_absfwn.jpg 600w, https://res.cloudinary.com/dgvvnopu7/image/upload/w_800,ar_9:16,c_fill,g_auto,f_auto,q_75/v1755352383/Foto_de_Juan_Carlos_y_Luna_The_Latin_Action_Salsa_y_Bachata_en_la_playa_absfwn.jpg 800w"
+    imagesizes="100vw"
+    fetchpriority="high"
+  />
+
   <!-- Enhanced FAQ Schema for better SEO -->
   <script type="application/ld+json" slot="head">
     {
