@@ -66,8 +66,8 @@ function generateSrcSet(publicId: string, quality = 80) {
 <section class="masonry-section px-6 py-6 max-w-5xl mx-auto" id="galeria">
   <div class="masonry-grid mx-auto" data-pswp-gallery>
     {displayedImages.map((publicId, index) => {
-      // Use higher compression (q_70) for first 2 images on homepage to save bandwidth
-      const imageQuality = !isGaleria && index < 2 ? 70 : 80;
+      // Use aggressive compression (q_65) for first 2 images on homepage to save bandwidth
+      const imageQuality = !isGaleria && index < 2 ? 65 : 80;
       
       return (
       <a 
