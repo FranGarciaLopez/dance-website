@@ -281,41 +281,50 @@ const currentTitle = titleText[currentPath] ?? titleText[""];
     {
       schedule.map((day, dayIndex) => (
         <div
-          class={`bg-black/20 backdrop-blur-sm border ${currentClasses.cardBorder} rounded-2xl overflow-hidden shadow-lg transition-all duration-300 ${currentClasses.cardHover} hover:-translate-y-1 animate-fade-in`}
+          class={`bg-white/5 backdrop-blur-md border ${currentClasses.cardBorder} rounded-3xl overflow-hidden shadow-xl transition-all duration-500 hover:border-white/30 hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] animate-fade-in group`}
           style={`--animation-delay: ${0.2 + dayIndex * 0.1}s;`}
         >
-          <div class={`${currentClasses.dayBg} px-6 py-3 border-b ${currentClasses.borderColor}`}>
-            <h3 class="text-xl font-medium text-white">
+          <div class={`${currentClasses.dayBg} px-6 py-4 border-b ${currentClasses.borderColor} relative overflow-hidden`}>
+            <div class="absolute inset-0 bg-gradient-to-r from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <h3 class="text-xl font-semibold text-white relative z-10 tracking-wide">
               {day.day}
             </h3>
           </div>
           
-          <div class="p-5">
+          <div class="p-6">
             {day.slots.map((slot, slotIndex) => (
-              <div class={`mb-5 ${slotIndex < day.slots.length - 1 ? `pb-5 border-b ${currentClasses.borderColor}` : ""}`}>
-                <div class="flex items-center gap-2 mb-1">
-                  <div class={`w-1.5 h-1.5 rounded-full ${currentClasses.accent}`}></div>
-                  <p class={`text-lg font-medium ${currentClasses.accent}`}>
+              <div class={`mb-6 ${slotIndex < day.slots.length - 1 ? `pb-6 border-b border-white/10` : ""} group/slot`}>
+                <div class="flex items-center gap-3 mb-2">
+                  <div class={`w-10 h-10 rounded-xl bg-gradient-to-br ${currentClasses.textGradient} flex items-center justify-center shadow-lg group-hover/slot:scale-110 transition-transform duration-300`}>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <p class={`text-xl font-bold ${currentClasses.accent} group-hover/slot:scale-105 transition-transform duration-300`}>
                     {slot.time}
                   </p>
                 </div>
                 
-                <p class="text-white text-base font-medium ml-3.5 mb-1">
+                <p class="text-white text-base font-semibold ml-1 mb-3 group-hover/slot:text-purple-300 transition-colors duration-300">
                   {slot.class}
                 </p>
                 
-                <div class="flex items-center gap-1 ml-3.5 text-sm text-gray-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
+                <div class="flex items-center gap-2 ml-1 text-sm text-gray-300 group-hover/slot:text-white transition-colors duration-300">
+                  <div class="flex items-center justify-center w-6 h-6 rounded-lg bg-white/5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                  </div>
                   <span>{slot.ageRange}</span>
                 </div>
                 
-                <div class="flex items-start gap-1 ml-3.5 text-sm text-gray-300 mt-1">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
+                <div class="flex items-start gap-2 ml-1 text-sm text-gray-300 mt-2 group-hover/slot:text-white transition-colors duration-300">
+                  <div class="flex items-center justify-center w-6 h-6 rounded-lg bg-white/5 mt-0.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </div>
                   <a
                     href={slot.location.url}
                     target="_blank"

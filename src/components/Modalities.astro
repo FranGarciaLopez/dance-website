@@ -35,65 +35,69 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "").toLowerCase();
       const isSecondCard = index === 1;
       
       // Determine which gradient to use based on card position
-      let gradientClasses = "from-mainColors-700/20 to-mainColors-900/20";
-      let hoverBorderClasses = "hover:border-main-gradient-from";
+      let gradientClasses = "from-mainColors-700/30 to-mainColors-900/30";
+      let hoverBorderClasses = "hover:border-main-gradient-from/50";
       let hoverTextClasses = "group-hover:text-main-gradient-from";
+      let shadowClasses = "hover:shadow-main-gradient-from/30";
       
       if (isFirstCard) {
-        gradientClasses = "from-bachataSalsa-gradient-from/20 to-bachataSalsa-gradient-to/20";
-        hoverBorderClasses = "hover:border-bachataSalsa-gradient-from";
+        gradientClasses = "from-bachataSalsa-gradient-from/30 to-bachataSalsa-gradient-to/30";
+        hoverBorderClasses = "hover:border-bachataSalsa-gradient-from/50";
         hoverTextClasses = "group-hover:text-bachataSalsa-gradient-from";
+        shadowClasses = "hover:shadow-bachataSalsa-gradient-from/30";
       } else if (isSecondCard) {
-        gradientClasses = "from-ladyStyle-gradient-from/20 to-ladyStyle-gradient-to/20";
-        hoverBorderClasses = "hover:border-ladyStyle-gradient-from";
+        gradientClasses = "from-ladyStyle-gradient-from/30 to-ladyStyle-gradient-to/30";
+        hoverBorderClasses = "hover:border-ladyStyle-gradient-from/50";
         hoverTextClasses = "group-hover:text-ladyStyle-gradient-from";
+        shadowClasses = "hover:shadow-ladyStyle-gradient-from/30";
       }
       
       return (
         <a
           href={modality.link}
-          class={`card group block rounded-2xl overflow-hidden shadow-lg backdrop-blur-sm bg-black/40 
-          transform transition-all duration-300 hover:scale-[1.02] hover:shadow-xl
-          border border-white/10 ${hoverBorderClasses} ${isActive ? 'ring-2 ring-offset-2 ring-main-gradient-from' : ''}`}
+          class={`card group block rounded-3xl overflow-hidden shadow-xl backdrop-blur-md bg-white/5 
+          transform transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl ${shadowClasses}
+          border border-white/10 ${hoverBorderClasses} hover:-translate-y-2
+          ${isActive ? 'ring-2 ring-offset-2 ring-offset-transparent ring-main-gradient-from' : ''}`}
           aria-label={`Más información sobre ${modality.title}`}
           style={`--animation-delay: ${index * 0.15}s;`}
         >
           <!-- Gradient Overlay for Card -->
-          <div class={`absolute inset-0 bg-gradient-to-br ${gradientClasses} opacity-70 pointer-events-none`}></div>
+          <div class={`absolute inset-0 bg-gradient-to-br ${gradientClasses} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`}></div>
           
           <!-- Image -->
           <div
-            class="w-full aspect-[16/9] bg-cover bg-center rounded-t-2xl relative overflow-hidden"
+            class="w-full aspect-[16/9] bg-cover bg-center relative overflow-hidden"
             aria-hidden="true"
           >
             <img 
               src={modality.image.replace("/upload/", "/upload/w_800,c_fill,g_auto,f_auto,q_75,dpr_auto/")} 
               alt={modality.title}
-              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
               loading="lazy"
               width="600"
               height="337"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20 pointer-events-none"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
           </div>
 
           <!-- Content -->
-          <div class="p-6 relative">
+          <div class="p-8 relative">
             <h3
-              class={`text-2xl font-dance mb-2 text-white ${hoverTextClasses} transition-colors duration-300`}
+              class={`text-2xl font-dance mb-3 text-white ${hoverTextClasses} transition-colors duration-300 font-semibold`}
             >
               {modality.title}
             </h3>
             <p
-              class="text-base text-gray-200 group-hover:text-white transition-colors duration-300 font-normal leading-relaxed"
+              class="text-base text-gray-300 group-hover:text-white transition-colors duration-300 font-normal leading-relaxed mb-4"
             >
               {modality.description}
             </p>
             
-            <div class="mt-4 flex items-center text-sm font-medium">
-              <span class={`${hoverTextClasses.replace('group-hover:', '')} transition-colors duration-300 flex items-center gap-1.5`}>
+            <div class="flex items-center text-sm font-semibold mt-6">
+              <span class={`${hoverTextClasses.replace('group-hover:', '')} transition-all duration-300 flex items-center gap-2 group-hover:gap-3`}>
                 Ver detalles
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:translate-x-1">
                   <path d="M5 12h14"></path>
                   <path d="m12 5 7 7-7 7"></path>
                 </svg>

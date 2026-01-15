@@ -10,7 +10,7 @@ function cloudinaryResize(url: string, width: number) {
 
 ---
 <article
-  class="relative group aspect-[4/5] w-full rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-105 cursor-pointer"
+  class="relative group aspect-[4/5] w-full rounded-2xl overflow-hidden shadow-xl transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20 cursor-pointer border border-white/10 hover:border-white/30"
   tabindex="0"
 >
   <!-- Responsive image -->
@@ -27,7 +27,7 @@ function cloudinaryResize(url: string, width: number) {
     <img
       src={cloudinaryResize(image, 600)}
       alt={title}
-      class="w-full h-full object-cover"
+      class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:brightness-110"
       width="600"
       height="750"
       loading={eager ? "eager" : "lazy"}
@@ -36,20 +36,20 @@ function cloudinaryResize(url: string, width: number) {
     />
   </picture>
 
-  <!-- Overlay -->
-  <div class="absolute inset-0 bg-black/30 z-10"></div>
+  <!-- Overlay with gradient -->
+  <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500 z-10"></div>
 
   <!-- Content -->
-  <div class="absolute inset-0 flex flex-col justify-center items-center text-center z-20">
+  <div class="absolute inset-0 flex flex-col justify-center items-center text-center z-20 p-6">
     <h2
-      class="text-white text-3xl md:text-4xl font-bebas drop-shadow-lg"
+      class="text-white text-3xl md:text-4xl font-bebas drop-shadow-2xl tracking-wide transform transition-all duration-500 group-hover:scale-110 group-hover:text-purple-300"
     >
       {title}
     </h2>
     <p
-      class="mt-2 text-white/90 text-md md:text-xl max-w-xs drop-shadow
-      opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-active:opacity-100
-      transition-opacity duration-300 font-normal leading-relaxed"
+      class="mt-4 text-white/95 text-md md:text-xl max-w-xs drop-shadow-lg
+      opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 group-focus:opacity-100 group-focus:translate-y-0 group-active:opacity-100 group-active:translate-y-0
+      transition-all duration-500 font-normal leading-relaxed"
     >
       {shortDesc}
     </p>
