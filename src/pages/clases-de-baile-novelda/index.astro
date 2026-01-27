@@ -1,0 +1,140 @@
+---
+import HeroSection from "@/components/HeroSection.astro";
+import CityLanding from "@/components/CityLanding.astro";
+import Layout from "@/layouts/Layout.astro";
+import { cities } from "@/data/cityData";
+
+const city = cities.novelda;
+---
+
+<Layout
+  title={city.seo.title}
+  description={city.seo.description}
+  keywords={city.seo.keywords}
+  canonical={city.seo.canonical}
+  ogImage="https://res.cloudinary.com/dgvvnopu7/image/upload/w_1200,h_630,c_fill,f_auto,q_auto/v1755352383/Foto_de_Juan_Carlos_y_Luna_The_Latin_Action_Salsa_y_Bachata_en_la_playa_absfwn.jpg"
+  ogType="article"
+>
+  <!-- BreadcrumbList Schema -->
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://thelatinaction.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Clases de Baile en Novelda",
+          "item": "https://thelatinaction.com/clases-de-baile-novelda/"
+        }
+      ]
+    }
+  </script>
+
+  <!-- LocalBusiness Schema específico para Novelda -->
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "The Latin Action - Clases de Baile en Novelda",
+      "description": "Academia de salsa y bachata en Novelda con más de 20 años de experiencia. Clases para todos los niveles con Juan Carlos y Luna.",
+      "url": "https://thelatinaction.com/clases-de-baile-novelda/",
+      "telephone": "+34645089122",
+      "image": "https://res.cloudinary.com/dgvvnopu7/image/upload/v1755352383/Foto_de_Juan_Carlos_y_Luna_The_Latin_Action_Salsa_y_Bachata_en_la_playa_absfwn.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Novelda",
+        "addressRegion": "Alicante",
+        "addressCountry": "ES"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 38.3847,
+        "longitude": -0.7676
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Novelda"
+      },
+      "priceRange": "€€",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "17:00",
+          "closes": "22:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/thelatinaction/",
+        "https://www.facebook.com/thelatinaction"
+      ]
+    }
+  </script>
+
+  <!-- Course Schema -->
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Clases de Salsa y Bachata en Novelda",
+      "description": "Aprende bachata y salsa en Novelda con profesores certificados. Clases para principiantes e intermedios enfocadas en técnica, conexión y musicalidad.",
+      "provider": {
+        "@type": "Organization",
+        "name": "The Latin Action",
+        "url": "https://thelatinaction.com/",
+        "telephone": "+34645089122"
+      },
+      "courseCode": "BAILE-NOVELDA",
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "onsite",
+        "location": {
+          "@type": "Place",
+          "name": "NVFit - Novelda",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Novelda",
+            "addressRegion": "Alicante",
+            "addressCountry": "ES"
+          }
+        },
+        "instructor": [
+          {
+            "@type": "Person",
+            "name": "Juan Carlos",
+            "jobTitle": "Profesor de Salsa y Bachata"
+          },
+          {
+            "@type": "Person",
+            "name": "Luna Gonzalez",
+            "jobTitle": "Profesora de Salsa y Bachata"
+          }
+        ]
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://thelatinaction.com/clases-de-baile-novelda/"
+      }
+    }
+  </script>
+
+  <HeroSection
+    mobileImage="https://res.cloudinary.com/dgvvnopu7/image/upload/v1757764591/DSC01307_vy0rum_f37cc7.webp"
+    tabletImage="https://res.cloudinary.com/dgvvnopu7/image/upload/v1757764591/DSC01307_vy0rum_f37cc7.webp"
+    xlImage="https://res.cloudinary.com/dgvvnopu7/image/upload/v1755352383/Foto_de_Juan_Carlos_y_Luna_The_Latin_Action_Salsa_y_Bachata_en_la_playa_absfwn.jpg"
+    heroTitle="Clases de Baile en"
+    heroSpan="Novelda"
+    heroSubtitle="Bachata y Salsa con Juan Carlos y Luna - The Latin Action"
+  />
+
+  <CityLanding city={city} />
+</Layout>

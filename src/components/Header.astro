@@ -86,6 +86,53 @@
           >Estilo chica</a
         >
       </li>
+
+      <!-- Dropdown Ubicaciones -->
+      <li class="relative group flex flex-col items-center xl:block">
+        <button
+          id="ubicaciones-button"
+          class="px-4 py-2 rounded-md hover:bg-white/50 hover:text-black transition-colors text-lg bg-black/30 flex items-center gap-1"
+          aria-label="Ver ubicaciones"
+          aria-expanded="false"
+          aria-haspopup="true"
+        >
+          Ubicaciones
+          <svg id="ubicaciones-arrow" class="w-4 h-4 transition-transform duration-200 xl:group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <ul
+          id="ubicaciones-menu"
+          class="hidden xl:absolute xl:top-full xl:left-0 xl:mt-2 xl:bg-black/80 xl:backdrop-blur-lg xl:rounded-lg xl:shadow-lg xl:min-w-[180px] xl:opacity-0 xl:invisible xl:group-hover:opacity-100 xl:group-hover:visible xl:group-hover:flex xl:transition-all xl:duration-200
+                 flex-col items-center xl:items-start mt-3 xl:mt-2 xl:py-2 space-y-1"
+          role="menu"
+        >
+          <li role="none">
+            <a
+              href="/clases-de-baile-elche/"
+              class="block px-4 py-2 text-white hover:bg-white/20 xl:hover:bg-white/10 transition-colors text-base rounded-md bg-black/20 xl:bg-transparent"
+              role="menuitem"
+              aria-label="Clases de baile en Elche"
+            >📍 Elche</a>
+          </li>
+          <li role="none">
+            <a
+              href="/clases-de-baile-elda/"
+              class="block px-4 py-2 text-white hover:bg-white/20 xl:hover:bg-white/10 transition-colors text-base rounded-md bg-black/20 xl:bg-transparent"
+              role="menuitem"
+              aria-label="Clases de baile en Elda"
+            >📍 Elda</a>
+          </li>
+          <li role="none">
+            <a
+              href="/clases-de-baile-novelda/"
+              class="block px-4 py-2 text-white hover:bg-white/20 xl:hover:bg-white/10 transition-colors text-base rounded-md bg-black/20 xl:bg-transparent"
+              role="menuitem"
+              aria-label="Clases de baile en Novelda"
+            >📍 Novelda</a>
+          </li>
+        </ul>
+      </li>
     </ul>
   </nav>
 </header>
@@ -95,6 +142,9 @@
     const menuButton = document.getElementById("menu-button");
     const closeMenuButton = document.getElementById("close-menu");
     const primaryMenu = document.getElementById("primary-menu");
+    const ubicacionesButton = document.getElementById("ubicaciones-button");
+    const ubicacionesMenu = document.getElementById("ubicaciones-menu");
+    const ubicacionesArrow = document.getElementById("ubicaciones-arrow");
 
     if (menuButton && closeMenuButton && primaryMenu) {
       menuButton.addEventListener("click", function () {
@@ -109,6 +159,28 @@
         primaryMenu.classList.add("-translate-y-full");
         closeMenuButton.classList.add("hidden");
         menuButton.classList.remove("hidden");
+        // Cerrar también el dropdown de ubicaciones
+        if (ubicacionesMenu) {
+          ubicacionesMenu.classList.add("hidden");
+          ubicacionesMenu.classList.remove("flex");
+          ubicacionesArrow?.classList.remove("rotate-180");
+        }
+      });
+    }
+
+    // Toggle dropdown en móvil
+    if (ubicacionesButton && ubicacionesMenu) {
+      ubicacionesButton.addEventListener("click", function () {
+        const isHidden = ubicacionesMenu.classList.contains("hidden");
+        if (isHidden) {
+          ubicacionesMenu.classList.remove("hidden");
+          ubicacionesMenu.classList.add("flex");
+          ubicacionesArrow?.classList.add("rotate-180");
+        } else {
+          ubicacionesMenu.classList.add("hidden");
+          ubicacionesMenu.classList.remove("flex");
+          ubicacionesArrow?.classList.remove("rotate-180");
+        }
       });
     }
   });
