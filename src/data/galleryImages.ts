@@ -2,8 +2,6 @@ export const galleryImages = [
   "foto_alumnado_taller_de_bachata_bubaloo_-_The_Latin_Action_Salsa_y_Bachata_-_Juan_Carlos_y_Luna_wwbezy",
   "Foto_Juan_Carlos_The_Latin_action_Salsa_y_Bachata_-_juancarlosyluna.lc_-_aiinhoa.garciia_y_cann.pd_ufca6d",
   "Juan_Carlos_-_The_Latin_Action_Salsa_y_Bachata_-_Lions_Alicante_htaypt_ae3138",
-  "Foto_taller_de_Bachata_Juan_Carlos_y_Luna_The_Latin_Action_Salsa_y_Bachata_-_Lyons_Alicante_2025_i6fspa_083bbd",
-  "Juan_Carlos_y_Luna_the_Latin_SB_Action_-_Salsa_y_bachata_-_Taller_sala_bubaloo_elche_niqnan_2a7505",
   "Juan_Carlos_-_The_latin_Action_Salsa_y_Bachata_Company_umvorm"
 ];
 

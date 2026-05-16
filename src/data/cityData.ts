@@ -28,11 +28,7 @@ export const cities: Record<string, CityData> = {
     key: "elche",
     slug: "clases-de-baile-elche",
     name: "Elche",
-    localIntro: `En Elche cada vez más personas se animan a aprender bachata y salsa como forma de ocio, 
-    deporte y socialización. La ciudad ilicitana cuenta con una vibrante escena de baile latino, 
-    donde The Latin Action se ha convertido en referente desde hace más de 20 años. 
-    Nuestras clases en Elche reúnen a personas de todas las edades que buscan desconectar del día a día, 
-    mantenerse activos y conocer gente nueva en un ambiente divertido y acogedor.`,
+    localIntro: `The Latin Action es una compañia de Salsa y Bachata fundada por Juan Carlos. Con más de 20 años de experiencia dando clases, donde cada persona lleva su ritmo, sin agobios, sin compararse. Aquí se viene a aprender y a disfrutar, no a ser el mejor.`,
     geoReference: "Zona centro de Elche, bien comunicado y con fácil acceso desde toda la ciudad.",
     ctaText: "Reserva tu clase de baile en Elche",
 
@@ -51,12 +47,7 @@ export const cities: Record<string, CityData> = {
     key: "elda",
     slug: "clases-de-baile-elda",
     name: "Elda",
-    localIntro: `En Elda el baile latino está ganando cada vez más adeptos. 
-    Muchos eldenses buscan una actividad que combine ejercicio, diversión y vida social, 
-    y la bachata y salsa son la combinación perfecta. En The Latin Action llevamos el ritmo 
-    caribeño a Elda para que puedas disfrutar de clases de calidad cerca de casa. 
-    Nuestra comunidad de baile en Elda crece cada semana con personas que descubren 
-    la alegría de moverse al ritmo de la música latina.`,
+    localIntro: `Clases de salsa y bachata en Elda para todos los niveles. Sin prisas, sin bailarines perfectos, sin experiencia previa. Ven cuando puedas, baila a tu manera y vete con una sonrisa. Eso es lo que hacemos.`,
     geoReference: "En el corazón de Elda, con fácil acceso desde Petrer y localidades cercanas.",
     ctaText: "Reserva tu clase de baile en Elda",
     seo: {
@@ -74,12 +65,7 @@ export const cities: Record<string, CityData> = {
     key: "novelda",
     slug: "clases-de-baile-novelda",
     name: "Novelda",
-    localIntro: `Novelda se ha sumado al fenómeno del baile latino con entusiasmo. 
-    Cada vez más noveldenses descubren en la bachata y la salsa una forma de hacer ejercicio, 
-    relajarse después del trabajo y crear nuevas amistades. The Latin Action ha llevado 
-    su experiencia de más de dos décadas a Novelda, ofreciendo clases que se adaptan 
-    a todos los niveles. Si vives en Novelda o alrededores, ya no tienes que desplazarte 
-    lejos para disfrutar de clases de baile de calidad.`,
+    localIntro: `Bachata en Novelda sin tener que irte del pueblo. Clases presenciales, grupales y con buen ambiente. Da igual si nunca has bailado: aquí te enseñamos desde cero, con paciencia y buena música.`,
     geoReference: "Ubicación céntrica en Novelda, accesible desde Aspe, Monforte y zonas cercanas.",
     ctaText: "Reserva tu clase de baile en Novelda",
     seo: {
@@ -97,27 +83,20 @@ export const cities: Record<string, CityData> = {
 
 // Contenido común (70%) - reutilizado en todas las ciudades
 export const sharedContent = {
-  aboutUs: {
-    title: "¿Quiénes somos?",
-    description: `The Latin Action es la academia de Juan Carlos, un bailarín profesional 
-    con más de 20 años de experiencia enseñando salsa y bachata. Nuestra filosofía se basa en que 
-    cualquier persona puede aprender a bailar, independientemente de su edad o condición física. 
-    Creemos en un ambiente cercano, divertido y sin presiones donde cada alumno progresa a su ritmo.`,
-  },
   danceTypes: [
     {
       name: "Bachata",
-      description: "Desde los pasos básicos hasta la bachata sensual. Aprenderás a moverte con elegancia, conectar con tu pareja y disfrutar de cada canción.",
+      description: "Pasos básicos, giros, bachata sensual. Aprendes a moverte, a soltarte y a disfrutar del ritmo con alguien delante.",
       cities: ["elche", "elda", "novelda"],
     },
     {
       name: "Salsa en linea",
-      description: "Salsa en línea para quienes buscan un estilo más dinámico y con figuras. Ideal para quienes quieren bailar con energía y estilo urbano.",
+      description: "Salsa en línea: figuras rápidas, mucho movimiento y energía. Perfecta si te gusta el estilo más urbano y dinámico.",
       cities: ["elche", "elda"],
     },
     {
       name: "Salsa cubana",
-      description: "Salsa cubana para quienes buscan un estilo más fluido y con movimientos circulares. Ideal para quienes quieren bailar con estilo y sabor caribeño.",
+      description: "Salsa cubana: vueltas, giros circulares, juego de pies. Un estilo más suelto y con mucho sabor caribeño.",
       cities: ["elche"],
     }
 
@@ -125,11 +104,10 @@ export const sharedContent = {
   methodology: {
     title: "Nuestra metodología",
     points: [
-      "Grupos reducidos para atención personalizada",
-      "Rotación de parejas para aprender a bailar con diferentes estilos",
-      "Progresión gradual: de principiante a intermedio sin saltos",
-      "Práctica constante con música actual y clásicos latinos",
-      "Ambiente relajado y sin presiones",
+      "Grupos pequeños, con una atención para todos",
+      "Rotamos parejas para que aprendas con todo el mundo",
+      "Vas poco a poco: de cero a intermedio y sin prisas",
+      "Practicamos con música actual y clásicos latinos",
     ],
   },
   levels: {
@@ -137,20 +115,20 @@ export const sharedContent = {
     items: [
       {
         name: "Principiantes",
-        description: "Para quienes nunca han bailado. Empezamos desde cero con pasos básicos y ritmo.",
+        description: "Nunca has bailado? Aquí te enseñamos desde cero, con paciencia y buena música. No necesitas experiencia previa.",
       },
       {
         name: "Intermedios",
-        description: "Para quienes ya dominan lo básico y quieren mejorar figuras, conexión y musicalidad.",
+        description: "Ya controlas lo básico? En este nivel profundizamos en figuras más complejas y trabajamos la conexión con la pareja.",
       },
     ],
   },
   benefits: [
-    "Mejora tu condición física de forma divertida",
-    "Reduce el estrés y desconecta del día a día",
-    "Conoce gente nueva y amplía tu círculo social",
-    "Gana confianza y mejora tu expresión corporal",
-    "Aprende una habilidad que disfrutarás toda la vida",
+    "Haces ejercicio sin darte cuenta",
+    "Desconectas del móvil y del lío del día",
+    "Conoces gente nueva de verdad",
+    "Pierdes la vergüenza y ganas soltura",
+    "Aprendes algo que te sirve para salir a bailar donde sea",
   ],
 };
 
