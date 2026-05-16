@@ -17,8 +17,6 @@ export default defineConfig({
       lastmod: new Date(),
       customPages: [
         'https://thelatinaction.com/',
-        'https://thelatinaction.com/bachata-y-salsa-en-pareja-elche/',
-        'https://thelatinaction.com/lady-style-elche/',
         'https://thelatinaction.com/galeria/',
         'https://thelatinaction.com/contacto/',
       ],
@@ -26,12 +24,6 @@ export default defineConfig({
         if (item.url === 'https://thelatinaction.com/') {
           item.priority = 1.0;
           item.changefreq = 'daily';
-        } else if (
-          item.url.includes('/bachata-y-salsa-en-pareja-elche/') ||
-          item.url.includes('/lady-style-elche/')
-        ) {
-          item.priority = 0.9;
-          item.changefreq = 'weekly';
         } else if (item.url.includes('/galeria/')) {
           item.priority = 0.6;
           item.changefreq = 'weekly';

@@ -13,13 +13,6 @@ interface RouteClasses {
 }
 
 const routeClasses: RouteClasses = {
-  "/lady-style-elche": {
-    gradient: "bg-gradient-to-r from-ladyStyle-gradient-from to-ladyStyle-gradient-to",
-    textGradient: "from-ladyStyle-gradient-from to-ladyStyle-gradient-to",
-    accent: "text-ladyStyle-gradient-from",
-    borderColor: "border-ladyStyle-gradient-from/20",
-    iconBg: "bg-ladyStyle-gradient-from/10",
-  },
   "/bachata-y-salsa-en-pareja-elche": {
     gradient: "bg-gradient-to-r from-bachataSalsa-gradient-from to-bachataSalsa-gradient-to",
     textGradient: "from-bachataSalsa-gradient-from to-bachataSalsa-gradient-to",
@@ -45,7 +38,7 @@ const partners = [
     location: {
       name: "Elche",
       url: "https://maps.app.goo.gl/16UnuAExaLCYFaWU8",
-      profesorado: "Juan Carlos y Luna - The Latin Action SB company",
+      profesorado: "Juan Carlos - The Latin Action Salsa y Bachata company",
     },
   },
   {
@@ -54,7 +47,7 @@ const partners = [
     location: {
       name: "Elche",
       url: "https://maps.app.goo.gl/16UnuAExaLCYFaWU8",
-      profesorado: "Juan Carlos y Luna - The Latin Action SB company",
+      profesorado: "Juan Carlos - The Latin Action Salsa y Bachata company",
     },
   },
   {
@@ -63,7 +56,7 @@ const partners = [
     location: {
       name: "Novelda",
       url: "https://maps.app.goo.gl/mgu7ZQAdGUk6xHcDA",
-      profesorado: "Juan Carlos y Luna - The Latin Action SB company",
+      profesorado: "Juan Carlos - The Latin Action Salsa y Bachata company",
     },
   },
   {
@@ -72,14 +65,12 @@ const partners = [
     location: {
       name: "Elda",
       url: "https://www.estudio42.com/",
-      profesorado: "Juan Carlos y Luna - The Latin Action SB company",
+      profesorado: "Juan Carlos - The Latin Action Salsa y Bachata company",
     },
   },
 ];
 
-// Títulos dinámicos según la página
 const titleText: Record<string, string> = {
-  "/lady-style-elche": "Nuestras sedes para Lady Style",
   "/bachata-y-salsa-en-pareja-elche": "Dónde bailamos Bachata y Salsa",
   "/": "Nuestros Socios y Sedes"
 };
@@ -159,7 +150,7 @@ const currentTitle = titleText[currentPath] ?? titleText["/"];
   
   <div class="flex justify-center items-center mt-12 pt-4 animate-fade-in" style="--animation-delay: 0.8s;">
     <a
-      href="https://wa.me/34645089122?text=Hola,%20me%20gustaría%20información%20sobre%20las%20ubicaciones%20de%20vuestras%20clases"
+      href="https://wa.me/34652391757?text=Hola,%20me%20gustaría%20información%20sobre%20las%20ubicaciones%20de%20vuestras%20clases"
       target="_blank"
       rel="noopener noreferrer"
       class={`inline-flex items-center gap-2 ${currentClasses.gradient} text-white text-base font-medium py-3 px-8 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/30`}

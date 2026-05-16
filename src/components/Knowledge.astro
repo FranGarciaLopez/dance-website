@@ -19,10 +19,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, "").toLowerCase();
 let gradientClass = "from-main-gradient-from to-main-gradient-to";
 let accentColor = "text-main-gradient-from";
 
-if (currentPath.includes("lady-style")) {
-  gradientClass = "from-ladyStyle-gradient-from to-ladyStyle-gradient-to";
-  accentColor = "text-ladyStyle-gradient-from";
-} else if (currentPath.includes("bachata-y-salsa")) {
+if (currentPath.includes("bachata-y-salsa")) {
   gradientClass = "from-bachataSalsa-gradient-from to-bachataSalsa-gradient-to";
   accentColor = "text-bachataSalsa-gradient-from";
 }

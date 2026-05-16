@@ -15,15 +15,6 @@ interface RouteClasses {
 }
 
 const routeClasses: RouteClasses = {
-  "/lady-style-elche": {
-    gradient: "bg-gradient-to-r from-ladyStyle-gradient-from to-ladyStyle-gradient-to",
-    buttonBg: "bg-gradient-to-r from-ladyStyle-gradient-from to-ladyStyle-gradient-to",
-    buttonHover: "hover:shadow-lg hover:shadow-ladyStyle-gradient-from/30",
-    textGradient: "from-ladyStyle-gradient-from to-ladyStyle-gradient-to",
-    accent: "text-ladyStyle-gradient-from",
-    borderColor: "border-ladyStyle-gradient-from/10",
-    hoverBg: "hover:bg-ladyStyle-gradient-from/20",
-  },
   "/bachata-y-salsa-en-pareja-elche": {
     gradient: "bg-gradient-to-r from-bachataSalsa-gradient-from to-bachataSalsa-gradient-to",
     buttonBg: "bg-gradient-to-r from-bachataSalsa-gradient-from to-bachataSalsa-gradient-to",
@@ -48,24 +39,6 @@ const currentClasses = routeClasses[currentPath] ?? routeClasses["/"];
 
 // Textos dinámicos según la página
 const benefitsText: Record<string, { icon: string; text: string }[]> =  {
-  "/lady-style-elche/": [
-    { 
-      icon: "👠", 
-      text: "Enfoque en técnica, estilo y seguridad en la pista" 
-    },
-    {
-      icon: "💃",
-      text: "Coreografías actualizadas con las tendencias del momento",
-    },
-    { 
-      icon: "💫", 
-      text: "Ambiente cercano, divertido y profesional" 
-    },
-    { 
-      icon: "👑", 
-      text: "Comunidad activa de bailarinas en Elche" 
-    },
-  ],
   "/bachata-y-salsa-en-pareja-elche/": [
     { 
       icon: "🎯", 
@@ -91,7 +64,7 @@ const benefitsText: Record<string, { icon: string; text: string }[]> =  {
     },
     {
       icon: "💃",
-      text: "Diversas modalidades: bachata, salsa, lady style y más",
+      text: "Diversas modalidades: bachata, salsa y más",
     },
     { 
       icon: "💫", 
@@ -108,7 +81,6 @@ const currentBenefits = benefitsText[currentPath] ?? benefitsText["/"];
 
 // Títulos dinámicos según la página
 const titleText: Record<string, string> = {
-  "/lady-style-elche": "¿Por qué elegir nuestras clases de Lady Style?",
   "/bachata-y-salsa-en-pareja-elche": "Descubre por qué nuestras clases de Bachata y Salsa son únicas",
   "/": "¿Por qué elegir The Latin Action?",
 };
@@ -145,7 +117,7 @@ const currentTitle = titleText[currentPath] ?? titleText["/"];
 
     <div class="flex justify-center items-center mt-12 pt-4 animate-fade-in" style="--animation-delay: 0.8s;">
       <a
-        href="https://wa.me/34645089122?text=Hola,%20quiero%20más%20información%20sobre%20las%20clases"
+        href="https://wa.me/34652391757?text=Hola,%20quiero%20más%20información%20sobre%20las%20clases"
         target="_blank"
         rel="noopener noreferrer"
         class={`inline-flex items-center gap-2 ${currentClasses.buttonBg} text-white text-base font-medium py-3 px-8 rounded-full 

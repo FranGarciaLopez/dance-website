@@ -23,22 +23,6 @@ interface RouteClasses {
 }
 
 const routeClasses: RouteClasses = {
-  "/lady-style-elche": {
-    gradient:
-      "bg-gradient-to-br from-ladyStyle-gradient-from to-ladyStyle-gradient-to",
-    buttonBg:
-      "bg-gradient-to-r from-ladyStyle-gradient-from to-ladyStyle-gradient-to",
-    buttonHover: "hover:shadow-lg hover:shadow-ladyStyle-gradient-from/30",
-    textGradient:
-      "bg-gradient-to-r from-ladyStyle-gradient-from to-ladyStyle-gradient-to",
-    accent: "text-ladyStyle-gradient-from",
-    borderColor: "border-ladyStyle-gradient-from/10",
-    hoverBg: "hover:bg-ladyStyle-gradient-from/20",
-    decorative: {
-      primary: "from-ladyStyle-gradient-from/30 to-ladyStyle-gradient-to/30",
-      secondary: "from-purple-500/30 to-pink-400/30",
-    },
-  },
   "/bachata-y-salsa-en-pareja-elche": {
     gradient:
       "bg-gradient-to-br from-bachataSalsa-gradient-from to-bachataSalsa-gradient-to",
@@ -80,7 +64,6 @@ const tablet = tabletImage ?? mobile;
 const desktop = xlImage ?? xlImage;
 
 const routeTitles: Record<string, string> = {
-  "/lady-style-elche": "Lady Style Elche",
   "/bachata-y-salsa-en-pareja-elche": "Bachata y Salsa en Pareja Elche",
   "/salsa-elche": "Salsa Elche",
 };
@@ -89,7 +72,7 @@ const readableTitle = routeTitles[currentPath] ?? "vuestras clases";
 const encodedMessage = encodeURIComponent(
   `Hola, quiero más información sobre ${readableTitle}`,
 );
-const whatsappLink = `https://wa.me/34645089122?text=${encodedMessage}`;
+const whatsappLink = `https://wa.me/34652391757?text=${encodedMessage}`;
 ---
 
 <section

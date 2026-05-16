@@ -3,32 +3,32 @@
   "redirects": [
     {
       "source": "/salsa-elche",
-      "destination": "/bachata-y-salsa-en-pareja-elche/",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/salsa-elche/",
-      "destination": "/bachata-y-salsa-en-pareja-elche/",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/bachata-en-pareja-elche",
-      "destination": "/bachata-y-salsa-en-pareja-elche/",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/bachata-en-pareja-elche/",
-      "destination": "/bachata-y-salsa-en-pareja-elche/",
+      "destination": "/",
       "permanent": true
     },
     {
       "source": "/bachata-y-salsa-en-pareja-elche",
-      "destination": "/bachata-y-salsa-en-pareja-elche/",
+      "destination": "/",
       "permanent": true
     },
     {
-      "source": "/lady-style-elche",
-      "destination": "/lady-style-elche/",
+      "source": "/bachata-y-salsa-en-pareja-elche/",
+      "destination": "/",
       "permanent": true
     },
     {

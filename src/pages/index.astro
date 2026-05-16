@@ -1,39 +1,43 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import HeroSection from "@/components/HeroSection.astro";
-import Modalities from "@/components/Modalities.astro";
+import Knowledge from "@/components/Knowledge.astro";
+import Benefits from "@/components/Benefits.astro";
+import Schedule from "@/components/Schedule.astro";
+import Partners from "@/components/Partners.astro";
 import ImageMasonry from "@/components/ImageMasonry.astro";
 import HistoryLocation from "@/components/HistoryLocation.astro";
 import Logros from "@/components/Logros.astro";
 import { galleryImages } from "@/data/galleryImages";
 
-// Datos de modalidades
-const modalitiesData = [
+/*const KnowledgeData = [
   {
-    title: "Bachata y Salsa en Elche",
-    image:
-      "https://res.cloudinary.com/dgvvnopu7/image/upload/v1755352383/Foto_de_Juan_Carlos_y_Luna_The_Latin_Action_Salsa_y_Bachata_en_la_playa_absfwn.jpg",
-    description:
-      "Clases de Bachata y Salsa en Elche, Novelda y Elda con Juan Carlos y Luna - The Latin Action",
-    link: "/bachata-y-salsa-en-pareja-elche/",
+    title: "Conexión en Pareja",
+    image: "https://res.cloudinary.com/dgvvnopu7/image/upload/v1757001636/DSC01238_iotxnv.webp",
+    shortDesc:
+      "Aprende a guiar y dejarte guiar, creando una conexión auténtica con tu pareja de baile.",
   },
   {
-    title: "Bachata Lady Style",
-    image:
-      "https://res.cloudinary.com/dgvvnopu7/image/upload/v1757193492/foto_de_portada_bachata_lady_style_the_latin_action_salsa_y_bachata_elche_jwavau.webp",
-    description:
-      "Clases de Bachata Lady Style en Elche con Luna The Latin Action",
-    link: "/lady-style-elche/",
+    title: "Estilo y Expresión",
+    image: "https://res.cloudinary.com/dgvvnopu7/image/upload/v1757001636/DSC01238_iotxnv.webp",
+    shortDesc:
+      "Añade tu toque personal a cada paso y disfruta expresando emociones en la pista.",
   },
-];
+  {
+    title: "Musicalidad",
+    image: "https://res.cloudinary.com/dgvvnopu7/image/upload/v1757001636/DSC01238_iotxnv.webp",
+    shortDesc:
+      "Aprende a interpretar la música, marcando pausas, acentos y jugando con los tiempos.",
+  },
+];*/
 ---
 
 <Layout
-  title="🕺 The Latin Action - Clases de Salsa y Bachata en Elche con Juan Carlos y Luna 💃"
-  description="🥇 Academia de baile latino #1 en Elche ⭐ Clases de Salsa, Bachata y Lady Style para todos los niveles 📍 Elche, Novelda, Elda 📞 645 08 91 22 ✅ Profesores certificados con +20 años de experiencia"
-  keywords="clases salsa Elche, clases bachata Elche, academia baile Elche, lady style Elche, bachata sensual Elche, salsa cubana Elche, baile latino Alicante, Juan Carlos Luna baile, The Latin Action, profesor salsa Novelda, clases baile Elda, academia danza latina Elche, escuela baile latino"
+  title="🕺 The Latin Action - Clases de Salsa y Bachata en Elche con Juan Carlos"
+  description="🥇 Academia de baile latino #1 en Elche ⭐ Clases de Salsa y Bachata para todos los niveles 📍 Elche, Novelda, Elda 📞 645 08 91 22 ✅ Profesores certificados con +20 años de experiencia"
+  keywords="clases salsa Elche, clases bachata Elche, academia baile Elche, bachata sensual Elche, salsa cubana Elche, baile latino Alicante, Juan Carlos baile, The Latin Action, profesor salsa Novelda, clases baile Elda, academia danza latina Elche, escuela baile latino"
   canonical="https://thelatinaction.com/"
-  ogImage="https://res.cloudinary.com/dgvvnopu7/image/upload/w_1200,h_630,c_fill,f_auto,q_auto/v1755352383/Foto_de_Juan_Carlos_y_Luna_The_Latin_Action_Salsa_y_Bachata_en_la_playa_absfwn.jpg"
+  ogImage="https://res.cloudinary.com/dgvvnopu7/image/upload/v1778925128/Juan_Carlos_-_The_latin_Action_Salsa_y_Bachata_Company_umvorm.jpg"
   ogType="website"
 >
   <!-- Enhanced FAQ Schema for better SEO -->
@@ -63,7 +67,7 @@ const modalitiesData = [
           "name": "¿Necesito pareja para las clases de salsa?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No, no necesitas venir con pareja. En nuestras clases rotamos durante la práctica y también ofrecemos modalidades individuales como Lady Style."
+            "text": "No, no necesitas venir con pareja. En nuestras clases rotamos durante la práctica."
           }
         },
         {
@@ -71,7 +75,7 @@ const modalitiesData = [
           "name": "¿Qué nivel necesito para empezar a bailar salsa o bachata?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Ningún nivel previo es necesario. Tenemos clases para principiantes absolutos y todos los niveles. Juan Carlos y Luna adaptan las clases a cada alumno."
+            "text": "Ningún nivel previo es necesario. Tenemos clases para principiantes absolutos y todos los niveles. Juan Carlos adapta las clases a cada alumno."
           }
         },
         {
@@ -134,14 +138,14 @@ const modalitiesData = [
           "@type": "Course",
           "position": 1,
           "name": "Bachata y Salsa en Pareja",
-          "description": "Clases de Bachata y Salsa en Pareja en Elche, Novelda y Elda con Juan Carlos y Luna",
+          "description": "Clases de Bachata y Salsa en Pareja en Elche, Novelda y Elda con Juan Carlos",
           "provider": {
             "@type": "Organization",
             "name": "The Latin Action",
             "sameAs": "https://thelatinaction.com/"
           },
           "courseCode": "BACHATA-SALSA-PAREJA",
-          "url": "https://thelatinaction.com/bachata-y-salsa-en-pareja-elche/",
+          "url": "https://thelatinaction.com/",
           "hasCourseInstance": {
             "@type": "CourseInstance",
             "courseMode": "onsite",
@@ -156,43 +160,17 @@ const modalitiesData = [
             }
           }
         },
-        {
-          "@type": "Course",
-          "position": 2,
-          "name": "Bachata Lady Style",
-          "description": "Clases de Bachata Lady Style en Elche con Luna Gonzalez",
-          "provider": {
-            "@type": "Organization",
-            "name": "The Latin Action",
-            "sameAs": "https://thelatinaction.com/"
-          },
-          "courseCode": "LADY-STYLE",
-          "url": "https://thelatinaction.com/lady-style-elche/",
-          "hasCourseInstance": {
-            "@type": "CourseInstance",
-            "courseMode": "onsite",
-            "location": {
-              "@type": "Place",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Elche",
-                "addressRegion": "Alicante",
-                "addressCountry": "ES"
-              }
-            }
-          }
-        }
       ]
     }
   </script>
 
   <main class="text-white">
     <HeroSection
-      mobileImage="https://res.cloudinary.com/dgvvnopu7/image/upload/v1757002592/1000024336_v3zeyq_1c5ada.jpg"
-      tabletImage="https://res.cloudinary.com/dgvvnopu7/image/upload/v1757002592/1000024336_v3zeyq_1c5ada.jpg"
-      xlImage="https://res.cloudinary.com/dgvvnopu7/image/upload/v1757002592/1000024336_v3zeyq_1c5ada.jpg"
+      mobileImage="https://res.cloudinary.com/dgvvnopu7/image/upload/v1778925128/Juan_Carlos_-_The_latin_Action_Salsa_y_Bachata_Company_umvorm.jpg"
+      tabletImage="https://res.cloudinary.com/dgvvnopu7/image/upload/v1778925128/Juan_Carlos_-_The_latin_Action_Salsa_y_Bachata_Company_umvorm.jpg"
+      xlImage="https://res.cloudinary.com/dgvvnopu7/image/upload/v1778925128/Juan_Carlos_-_The_latin_Action_Salsa_y_Bachata_Company_umvorm.jpg"
       heroTitle="The Latin Action"
-      heroSpan="Juan Carlos & Luna"
+      heroSpan="Juan Carlos"
       heroSubtitle="🥇 Academia de Salsa y Bachata #1 en Elche"
     />
 
@@ -214,7 +192,7 @@ const modalitiesData = [
           </p>
 
           <p>
-            Con <strong>más de 20 años de experiencia</strong> enseñando en <strong>Elche, Novelda y Elda</strong>, ofrecemos <span class="text-bachataSalsa-gradient-from font-medium">clases de bachata y salsa para parejas</span> y modalidades individuales como nuestro exclusivo <span class="text-main-gradient-from font-medium">Lady Style</span>. Desde principiantes absolutos hasta bailarines avanzados, todos encuentran su lugar en nuestra comunidad latina.
+            Con <strong>más de 20 años de experiencia</strong> enseñando en <strong>Elche, Novelda y Elda</strong>, ofrecemos <span class="text-bachataSalsa-gradient-from font-medium">clases de bachata y salsa para parejas</span>. Desde principiantes absolutos hasta bailarines avanzados, todos encuentran su lugar en nuestra comunidad latina.
           </p>
           
           <p>
@@ -260,8 +238,14 @@ const modalitiesData = [
     </section>
   </main>
 
-  <Modalities modalities={modalitiesData} />
-  
+  <!-- <Knowledge KnowledgeData={KnowledgeData} />-->
+
+  <Benefits />
+
+  <!-- <Schedule /> -->
+
+  <Partners />
+
   <ImageMasonry images={galleryImages} />
   <div class="flex justify-center my-12">
   <a 

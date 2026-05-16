@@ -71,10 +71,6 @@ export default {
           950: "#993d0d",
           1000: "#000000",
         },
-        ladyStyle: {
-          "gradient-from": "#b44aff",
-          "gradient-to": "#f87dc1",
-        },
         bachataSalsa: {
           "gradient-from": "#d14e2eff",
           "gradient-to": "#d89d36ff",
@@ -86,14 +82,12 @@ export default {
       },
       backgroundImage: {
         "gradient-freshEggplant": "linear-gradient(to right, #d9008b, #d9008b, #d9008b)",
-        "gradient-ladyStyle": "linear-gradient(to right, #b44aff, #f87dc1)",
         "gradient-bachataSalsa": "linear-gradient(to right, #E07A5F, #F2CC8F)",
         "gradient-main": "linear-gradient(to right, #ff004d, #a100f2)",
       },
       boxShadow: {
         freshEggplant: "0 4px 15px rgba(179,29,106,0.6)",
         bachataSalsa: "0 4px 15px rgba(224,122,95,0.6)",
-        ladyStyle: "0 4px 15px rgba(180,74,255,0.5)",
       },
     },
   },

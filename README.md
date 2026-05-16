@@ -2,10 +2,10 @@
 
 <img alt="The Latin Action Logo" src="https://res.cloudinary.com/dgvvnopu7/image/upload/v1755345770/logo_the_latin_action_salsa_y_bachata_elche_oolbov.png">
 
-<p>This website showcases The Latin Action dance academy, featuring classes in Salsa, Bachata, and Lady Style in Elche, Spain. Built with modern web technologies, the site offers visitors information about classes, events, instructors, and more.</p>
+<p>This website showcases The Latin Action dance academy, featuring classes in Salsa and Bachata in Elche, Spain. Built with modern web technologies, the site offers visitors information about classes, events, instructors, and more.</p>
 
 ## 📋 Features
-- Class Information: Details about Salsa, Bachata, and Lady Style classes
+- Class Information: Details about Salsa and Bachata classes
 - Event Calendar: Upcoming workshops, social dances, and special events
 - Photo Gallery: Visual showcase of past classes and events
 - Location Details: Multiple class locations throughout the Elche region
@@ -30,8 +30,6 @@
 │ │ ├── Layout.astro
 │ ├── pages/
 │ │ ├── index.astro
-│ │ ├── bachata-y-salsa-en-pareja-elche/
-│ │ ├── lady-style-elche/
 │ │ ├── contacto/
 │ │ ├── galeria/
 │ │ └── eventos/
